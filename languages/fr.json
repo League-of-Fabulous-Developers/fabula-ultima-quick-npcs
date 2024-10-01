@@ -1,0 +1,1092 @@
+{
+  "QUICKNPC": {
+    "actions": {
+      "attack": "Attaque",
+      "equipment": "Équipement",
+      "guard": "Garde",
+      "hinder": "Gêne",
+      "inventory": "Inventaire",
+      "objective": "Objectif",
+      "spell": "Sort",
+      "study": "Analyse"
+    },
+    "attacks": {
+      "melee": "Corps à corps",
+      "normal": "Attaque de base",
+      "ranged": "Distance",
+      "special": {
+        "causesStatus": "Les cibles touchées par cette attaque subissent {status}",
+        "ignoreResistance": "Les dégâts infligés par cette attaque ignorent les résistances.",
+        "multi2": "<b>Multi (2)</b>",
+        "targetsMDef": "Cette attaque cible la Défense magique au lieu de la Défense."
+      },
+      "strong": "Attaque puissante"
+    },
+    "attributes": {
+      "dex": "DEX",
+      "ins": "INT",
+      "mig": "PUI",
+      "wlp": "VOL"
+    },
+    "bossSkills": {
+      "corrosiveStatus": {
+        "actionText": "<div>Quick Assembly Rules Preview V2 p16.</div><div>Dégâts : {damageType}</div><div>État : {status}</div>",
+        "description": "Inflige des dégâts aux ennemis souffrant d'un état particulier.",
+        "name": "État corrosif"
+      },
+      "crushingAdvantage": {
+        "description": "Remplir ou vider les cadrans sans avoir à effectuer de jets.",
+        "name": "Avantage écrasant",
+        "ruleText": "<div>Quick Assembly Rules Preview V2 p16.</div>"
+      },
+      "partRegeneration": {
+        "description": "Récupérez des états et invoquez des renforts lorsque vous entrez en crise.",
+        "name": "Régénération partielle",
+        "ruleText": "<div>Quick Assembly Rules Preview V2 p16.</div>"
+      },
+      "temporaryDefenses": {
+        "choice": "Choisir une statistique défensive",
+        "def": "Défense",
+        "description": "Traitez l'une de vos défenses comme une valeur statique jusqu'à ce que vous entriez en crise..",
+        "mDef": "Défense magique",
+        "name": "Défenses temporaires",
+        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Statistique défensive choisie : {defense}</div>"
+      },
+      "zombification": {
+        "description": "Transformer les soins en dégâts lorsque la cible souffre d'un certain état..",
+        "name": "Zombification",
+        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>État choisi : {status}</div>"
+      }
+    },
+    "commonChoices": {
+      "attribute": "Choisir un attribut",
+      "damageType": "Choisir le type de dégâts",
+      "resource": "Choisir une ressource",
+      "status": "Choisir un état"
+    },
+    "commonSkills": {
+      "additionalRoleSkill": {
+        "description": "Gagner une compétence de rôle supplémentaire.",
+        "name": "Compétences supplémentaires"
+      },
+      "bonusHp": {
+        "description": "Ajoute 10 PV par équivalent de soldat.",
+        "name": "PV Bonus"
+      },
+      "flying": {
+        "description": "Gagne Vol.",
+        "name": "Vol",
+        "ruleText": "<div>Livre de base p309</div>"
+      },
+      "none": {
+        "description": "Ne pas ajouter de compétence.",
+        "name": "Aucune"
+      },
+      "normalAttackMagic": {
+        "description": "L'attaque de base cible la DEF M. au lieu de la DEF",
+        "name": "Attaque de base magique"
+      },
+      "normalAttackMpRecovery": {
+        "description": "L'attaque de base restaure les PM lorsqu'elle touche.",
+        "name": "Attaque de base : Restauration de PM",
+        "specialText": "Lorsque cette attaque touche une ou plusieurs cibles, vous récupérez {amount} PM."
+      },
+      "normalAttackMulti2": {
+        "description": "L'attaque de base gagne Multi (2).",
+        "name": "Attaque de base : Multi (2)"
+      },
+      "normalAttackStatus": {
+        "description": "L'attaque de base inflige un état.",
+        "name": "Attaque de base : État"
+      },
+      "oneImmunity": {
+        "description": "Gagne une immunité supplémentaire.",
+        "name": "Immunité supplémentaire"
+      },
+      "oneImmunityExceptPhysical": {
+        "description": "Gagne une immunité supplémentaire à n'importe quelle type de dégâts, excepté les dégats physiques.",
+        "name": "Une immunité"
+      },
+      "strongAttackMagic": {
+        "description": "L'attaque puissante cible la DEF M. au lieu de la DEF.",
+        "name": "Attaque puissante magique"
+      },
+      "twoResistances": {
+        "description": "Gagne deux résistances supplémentaires à n'importe quelle dégâts.",
+        "name": "Deux résistances supplémentaires"
+      },
+      "twoResistancesExceptPhysical": {
+        "description": "Gagne deux résistances supplémentaires à n'importe quelle dégâts, excepté les dégâts physiques.",
+        "name": "Deux résistances"
+      }
+    },
+    "damageType": {
+      "air": "Air",
+      "bolt": "Foudre",
+      "dark": "Ténèbres",
+      "earth": "Terre",
+      "fire": "Feu",
+      "ice": "Glace",
+      "light": "Lumière",
+      "physical": "Physique",
+      "poison": "Poison"
+    },
+    "negativeSkills": {
+      "finalDetonation": {
+        "description": "Inflige des dégâts à vos alliés lorsque vous êtes éliminé.",
+        "name": "Explosion FInale",
+        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Type de dégâts choisi : {damageType}</div>"
+      },
+      "finalRestore": {
+        "description": "Rétablissez les ressources de vos ennemis lorsque vous êtes éliminé..",
+        "name": "Restauration Finale",
+        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Ressource choisie : {resource}</div>"
+      },
+      "painfulMiss": {
+        "description": "Inflige des dégâts à vous-même ou à vos alliés lorsque vous ratez vos attaques.",
+        "name": "Douloureux échec",
+        "target": {
+          "ally": {
+            "label": "Vos alliés",
+            "rule": "Un de vos alliés choisi aléatoirement"
+          },
+          "label": "Choisir une cible",
+          "self": {
+            "label": "Vous-même",
+            "rule": "Vous-même"
+          }
+        },
+        "attack": {
+          "label": "Choisir une attaque",
+          "normal": "Attaque de base",
+          "strong": "Attaque puissante"
+        },
+        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Attaque choisie : {attack}</div><div>Cible choisie : {target}</div>"
+      }
+    },
+    "pretty": {
+      "attributes": "【{attr1} + {attr2}】",
+      "damage": "【VH + {damage}】"
+    },
+    "preview": {
+      "actions": "Autre action",
+      "affinity": {
+        "abs": "AB",
+        "imm": "IM",
+        "res": "RS",
+        "vul": "VU"
+      },
+      "basicAttacks": "Attaque de base",
+      "damage": "dégâts",
+      "damageType": {
+        "air": "air",
+        "bolt": "foudre",
+        "dark": "ténèbres",
+        "earth": "terre",
+        "fire": "feu",
+        "ice": "glace",
+        "light": "lumière",
+        "physical": "physique",
+        "poison": "poison"
+      },
+      "def": "DEF",
+      "dex": "DEX",
+      "hp": "PV",
+      "init": "Init.",
+      "ins": "INT",
+      "level": "Niv",
+      "mDef": "DEF M.",
+      "mig": "PUI",
+      "mp": "PM",
+      "opportunity": "Aubaine :",
+      "rules": "Règles spéciales",
+      "spells": "Sorts",
+      "statusImmunity": "Immunité à l'état {status}",
+      "traits": "Traits :",
+      "unknown": "???",
+      "wlp": "VOL"
+    },
+    "rank": {
+      "champion1": "Champion (1)",
+      "champion2": "Champion (2)",
+      "champion3": "Champion (3)",
+      "champion4": "Champion (4)",
+      "champion5": "Champion (5)",
+      "champion6": "Champion (6)",
+      "elite": "Élite",
+      "soldier": "Soldat"
+    },
+    "resource": {
+      "hp": "PV",
+      "ip": "PI",
+      "mp": "PM"
+    },
+    "role": {
+      "brute": {
+        "badTemper": {
+          "description": "Bénéficie d'une immunité presque totale aux état lorsqu'en Crise.",
+          "name": "Mauvais caractère",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div>"
+        },
+        "collapse": {
+          "description": "Remplit un cadran lorsque l'attaque puissante rate, inflige des dégâts lorsque le cadran se remplit.",
+          "name": "Effondrement",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+        },
+        "crush": {
+          "description": "Agrippez les ennemis, infligez des dégâts aux ennemis agrippés sans avoir à effectuer de jet.",
+          "name": "Broyer",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+        },
+        "dieHard": {
+          "description": "Survivre aux dégâts mortels, une fois.",
+          "name": "Dur à cuire",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div>"
+        },
+        "enhancingGuard": {
+          "description": "Inflige plus de dégâts et ignore les résistances après la garde.",
+          "name": "Garde améliorée",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+        },
+        "name": "Brute",
+        "soreLoser": {
+          "description": "Provoque parfois des états après l'échec d'un test opposé.",
+          "name": "Mauvais perdant",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+        },
+        "specialArmor": {
+          "attacks": "Attaques",
+          "description": "En Crise, subit moins de dégâts d'un type d'actions spécifique..",
+          "name": "Armure spéciale",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div><div>Action type: {type}</div>",
+          "skills": "Compétences",
+          "spells": "Sorts",
+          "type": "Choisir une action"
+        },
+        "spells": {
+          "description": "Gagne l'accès à deux sorts différents utilisant【PUI + VOL】 pour incanter.",
+          "name": "Sorts"
+        },
+        "statusImmunities": {
+          "description": "Gagner une immunité à deux états parmi les suivants : Empoisonné, Traumatisé, Ralenti",
+          "name": "Immunité aux états"
+        },
+        "steadyRecovery": {
+          "description": "Récupération des états dans certaines circonstances.",
+          "name": "Récupération progressive",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+        },
+        "strongAttackRanged": {
+          "description": "L'attaque puissante devient à distance et provoque des états.",
+          "name": "Attaque puissante à distance"
+        },
+        "vengefulAttack": {
+          "description": "Utiliser une dernière attaque puissante après avoir subi des dégâts mortels.",
+          "name": "Attaque vengeresse",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div>"
+        }
+      },
+      "hunter": {
+        "ambush": {
+          "description": "Améliorer un dé d'attribut spécifique lors du premier tour de conflit.",
+          "name": "Embuscade",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div><div>Attribut choisi : {attribute}</div>"
+        },
+        "elusive": {
+          "description": "Annule les dégâts sans subir d'état.",
+          "name": "Insaisissable",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div>"
+        },
+        "emergencyCamouflage": {
+          "description": "Devenir invisible pendant une courte période en entrant en crise..",
+          "name": "Camouflage d'urgence",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p6</div>"
+        },
+        "extraDamage": {
+          "condition": "Choisir un état :",
+          "crisis": "est en Crise",
+          "description": "Cette attaque inflige davantage de dégâts lorsqu'une certaine condition est remplie.",
+          "martialArmor": "a une armure martiale équipée",
+          "multipleStatuses": "souffre de deux états ou plus",
+          "name": "Dégâts supplémentaires",
+          "noMartialArmor": "n'a pas d'armure martiale équipée",
+          "notCrisis": "n'est pas en crise",
+          "specialText": "Cette attaque inflige 5 dégâts supplémentaires contre les créatures ayant l'état {condition}.",
+          "specificStatus": "souffre de l'état {status}",
+          "specificStatusLabel": "souffre d'un état spécifique",
+          "specificStatusSelect": "Choisir l'état",
+          "spell": "est affecté par un ou plusieurs sorts ayant la durée \"Scène\"",
+          "turnTaken": "a déjà joué son tour durant ce round"
+        },
+        "falseSenseOfSecurity": {
+          "description": "Transformer les échecs de vos alliés à votre avantage.",
+          "name": "Faux sentiment de sécurité",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p6</div>"
+        },
+        "huntersBait": {
+          "action": "Action",
+          "description": "Représaille contre certaines actions",
+          "melee": "Attaques de corps à corps",
+          "name": "Appâts pour chasseurs",
+          "ranged": "Attaques à distance",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div><div>Action choisie : {action}</div>",
+          "spell": "Sorts offensifs"
+        },
+        "lifeSteal": {
+          "description": "Récupère des PV lorsque cette attaque inflige des dégâts.",
+          "name": "Vol de vie",
+          "specialText": "Si cette attaque fait perdre des points de vie à une ou plusieurs créatures, ce PNJ récupère un nombre de points de vie égal à la moitié du total des points de vie perdus de cette façon.."
+        },
+        "lightningFast": {
+          "description": "Inflige plus de dégâts pendant le tour d'une autre créature, lorsqu'elle n'est pas affectée par des états.",
+          "name": "Vif comme l'éclair",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p6</div>"
+        },
+        "name": "Chasseur",
+        "opportunist": {
+          "description": "Amélioration des chances de critique lors des tests opposés sous certaines conditions.",
+          "name": "Opportuniste",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div>"
+        },
+        "specialResistance": {
+          "description": "Résiste aux dégâts infligés par les effets ayant un certain nombre de cibles",
+          "multi": "Deux créatures ou plus",
+          "name": "Résistance spéciale",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p6</div><div>Efficace contre les effets ciblant : {targets}</div>",
+          "single": "Une créature",
+          "targets": "Choisir le nombre de cibles"
+        },
+        "spells": {
+          "description": "Gagne l'accès à deux sorts différents utilisant【INT + VOL】pour l'incantation.",
+          "name": "Sorts"
+        },
+        "strongAttack": {
+          "description": "Gagne une puissante attaque qui fait des dégâts massifs à plusieurs cibles, mais vous coûte votre prochain tour.",
+          "name": "Attaque puissante",
+          "special": "Après avoir utilisé cette attaque, le PNJ ne peut faire aucune autre action ou <b>attaque gratuite</b> jusqu'à la fin de son prochain tour."
+        },
+        "targetLock": {
+          "description": "Garde sur l'ennemi sélectionné, inflige plus de dégâts à cet ennemi.",
+          "name": "Cible vérouillée",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div>"
+        }
+      },
+      "mage": {
+        "baselineOneSpellMpBonus": {
+          "description": "Choisir un sort de la liste de sort standard et gagner +10 PM.",
+          "name": "Un Sort et un bonus de PM (Basique)"
+        },
+        "baselineTwoSpells": {
+          "description": "Choisir deux sorts de la liste de sort.",
+          "name": "Deux Sort (Basique)"
+        },
+        "collateralDamage": {
+          "description": "Inflige des dégâts quand il utilise l'action Gêne.",
+          "name": "Dégâts collatéraux",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p8</div><div>Type de dégâts choisi : {damageType}</div>"
+        },
+        "elementDrain": {
+          "description": "Restaure des PM quand il est touché par des dégâts élémentaires.",
+          "name": "Drain élémentaire",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p9</div>"
+        },
+        "elementShift": {
+          "description": "Changer votre affinité en lançant des sorts.",
+          "name": "Changement d'élément",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p9</div>"
+        },
+        "magicalMastery": {
+          "description": "Amélioration de la capacité à interagir avec les cadrans liés à la magie.",
+          "name": "Maitrise magique",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p9</div>"
+        },
+        "name": "Mage",
+        "normalAttackVolatile": {
+          "description": "Les cibles de l'attaque de base deviennent instable.",
+          "name": "Attaque de base instable",
+          "specialText": "<div><b>Instable :</b> Quick Assembly Rules Preview V2 p9</div>"
+        },
+        "oneSpellMpBonus": {
+          "description": "Choisir un sort de la liste des sorts avancés et gagner +10 PM.",
+          "name": "Un Sort et un bonus de PM (Avancé)"
+        },
+        "overwhelm": {
+          "description": "Amélioration des chances de critique lors des tests opposés sous certaines conditions.",
+          "name": "Surcharger",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p8</div>"
+        },
+        "soulburst": {
+          "description": "Les autres créatures récupèrent des PM lorsque vous êtes réduit à 0 PV.",
+          "name": "Éclat d'âme",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p8</div>"
+        },
+        "spells": {
+          "description": "Choisissez des sorts dans une liste de sorts avancés. Choisissez deux sorts ou un seul et gagnez +10 PM.",
+          "name": "Plus de sorts"
+        },
+        "statusImmunities": {
+          "description": "Gagner une immunité à deux états parmi les suivants : Étourdi, Enragé, Empoisonné, Traumatisé",
+          "name": "Immunité aux états"
+        },
+        "twoSpells": {
+          "description": "Choisir deux sorts de la liste de sort avancés.",
+          "name": "Deux sorts (Avancé)"
+        }
+      },
+      "saboteur": {
+        "accuracyCheckBonus": {
+          "description": "Gagner un bonus de +3 aux tests de précision.",
+          "name": "Bonus aux tests de précision"
+        },
+        "auraOfUnease": {
+          "description": "Les ennemis ne peuvent récupérer d'un état choisi.",
+          "name": "Aura de malaise",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div><div>États choisis : {status1} et {status2}</div>",
+          "status1": "Premier état",
+          "status2": "Deuxième état"
+        },
+        "cruelHypnosis": {
+          "description": "Dépenser des PM pour faire qu'un ennemi attaque une cible de votre choix.",
+          "name": "Hypnose cruelle",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p11</div><div>État choisi : {status}</div>"
+        },
+        "entangle": {
+          "description": "Empêche les ennemis de faire des attaques gratuites s'ils souffrent de multiples états.",
+          "name": "Enchevêtrer",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div>"
+        },
+        "exhaustingCompromise": {
+          "description": "Dépenser des PM pour manipuler des cadrans sous certaines circonstances.",
+          "name": "Compromis épuisant",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div>"
+        },
+        "hinderingSpecialist": {
+          "description": "Faire suivre une action de Gêne réussie d'une autre action de Gêne.",
+          "name": "Spécialiste de la Gêne",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div>"
+        },
+        "magicCheckBonus": {
+          "description": "Gagne un bonus de +3 aux tests magiques.",
+          "name": "Bonus aux tests de magie"
+        },
+        "name": "Saboteur",
+        "normalAttackDrainIp": {
+          "description": "Drainer les PI ennemi au toucher.",
+          "name": "Drain de PI",
+          "specialText": "Chaque cible perd @LOSS[1 ip]."
+        },
+        "normalAttackDrainMp": {
+          "description": "Drainer les PM ennemi au toucher.",
+          "name": "Drain de PM",
+          "specialText": "Chaque cible perd une quantité <b>mineure</b> de PM."
+        },
+        "normalAttackStatus": {
+          "description": "Inflige un état au toucher. Choisir Enragé ou Empoisonné coûte une autre vulnérabilité.",
+          "name": "Infliger un état",
+          "specialText": "Chaque cible touchée subit l'état {status}."
+        },
+        "partingGift": {
+          "description": "Déclenchez vos sorts d'affaiblissement lorsque vous êtes éliminé.",
+          "name": "Cadeau d'adieu",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p11</div>"
+        },
+        "secretTechnique": {
+          "description": "Utiliser une attaque ou un sort sans que personne d'autre que la cible ne s'en aperçoive.",
+          "name": "Technique secrète",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p11</div>"
+        },
+        "shadowOfDoubt": {
+          "description": "Empêche les PJ d'invoquer des Traits ou des Liens sous certaines circonstances.",
+          "name": "Ombre du doute",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p11</div>"
+        },
+        "spell": {
+          "description": "Gagne un sort d'une liste axée sur la déstabilisation. Gagne également +10 PM.",
+          "name": "Sort"
+        },
+        "strongAttack": {
+          "description": "Gagner une attaque puissante avec des effets débilitants.",
+          "name": "Attaque puissante",
+          "oneSpecial": {
+            "description": "Ajoute un effet spécial à l'Attaque Puissante.",
+            "name": "Un effet spécial"
+          },
+          "twoSpecials": {
+            "description": "Ajoute deux effets spéciaux à l'Attaque Puissante.",
+            "name": "Deux effets spéciaux"
+          }
+        },
+        "strongAttackBlockAction": {
+          "action": "Choisir une action",
+          "description": "Les cibles touchées ne peuvent effectuer une certaine action.",
+          "name": "Contrer une action",
+          "specialText": "La cible ne peut pas faire l'action {action} jusqu'à la fin de son prochain tour."
+        },
+        "strongAttackBlockAllyVision": {
+          "description": "Les cibles touchées ne peuvent pas voir vos alliés.",
+          "name": "Contrer la visibilité des alliés",
+          "specialText": "La cible ne peut pas voir les alliés de ce PNJ jusqu'à la fin de son prochain tour."
+        },
+        "strongAttackBlockFreeAttacks": {
+          "description": "Les cibles touchées ne peuvent pas faire d'attaque gratuite.",
+          "name": "Contrer les attaques gratuites",
+          "specialText": "La cible ne peut pas faire d'attaque gratuite jusqu'à la fin de son prochain tour."
+        },
+        "strongAttackBlockHpRecovery": {
+          "description": "Les cibles touchées ne peuvent pas récupérer de PV.",
+          "name": "Contrer la récupération de PV",
+          "specialText": "La cible ne peut pas récupérer de PV jusqu'à la fin de son prochain tour."
+        },
+        "strongAttackBlockMpRecovery": {
+          "description": "Les cibles touchées ne peuvent pas récupérer de PM.",
+          "name": "Contrer la récupération de PM",
+          "specialText": "La cible ne peut pas récupérer de PM jusqu'à la fin de son prochain tour."
+        },
+        "strongAttackBlockSelfVision": {
+          "description": "Les cibles touchées ne peuvent pas vous voir.",
+          "name": "Contrer votre visibilité",
+          "specialText": "La cible ne peut pas voir ce PNJ jusqu'à la fin de son prochain tour."
+        },
+        "strongAttackStripResAndImm": {
+          "description": "Les cibles touchées perdent leurs résistances et immunités.",
+          "name": "Dépouiller les Résistances et Immunités",
+          "specialText": "La cible perd toutes ses résistances et immunités et ne peut pas en gagner jusqu'à la fin de son prochain tour."
+        },
+        "syphonMind": {
+          "description": "Augmenter les coûts en PM des ennemis.",
+          "name": "Syphonnage d'esprit",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div>"
+        }
+      },
+      "sentinel": {
+        "avenge": {
+          "action": {
+            "label": "Choisir une action",
+            "melee": "Attaque de corps à corps",
+            "ranged": "Attaque à distance",
+            "spell": "Sort offensif"
+          },
+          "description": {
+            "oneAction": "Représaille contre un type d'action offensif.",
+            "twoActions": "Représaille contre deux types d'action offensif."
+          },
+          "name": {
+            "oneAction": "Vengeance (Une Action)",
+            "rule": "Vengeance",
+            "twoActions": "Vengeance (Deux Actions)"
+          },
+          "ruleText": {
+            "oneAction": "<div>Quick Assembly Rules Preview V2 p13</div><div>Action choisie : {action}</div>",
+            "twoActions": "<div>Quick Assembly Rules Preview V2 p13</div><div>Actions choisies : {action1} et {action2}</div>"
+          }
+        },
+        "barricade": {
+          "actionText": {
+            "oneType": "<div>Quick Assembly Rules Preview V2 p13</div><div>Type de dégâts choisi : {damageType}</div>",
+            "twoTypes": "<div>Quick Assembly Rules Preview V2 p13</div><div>Types de dégâts choisis : {damageType1} et {damageType2}</div>"
+          },
+          "description": {
+            "oneType": "Utiliser des PM pour vous donner à vous-même, et vos alliés, une résistance à un type de dégâts spécifique.",
+            "twoTypes": "Utiliser des PM pour vous donner à vous-même, et vos alliés, une résistance à deux types de dégâts spécifiques."
+          },
+          "name": {
+            "oneType": "Barricade (Un type de dégâts)",
+            "rule": "Barricade",
+            "twoTypes": "Barricade (Deux types de dégâts)"
+          }
+        },
+        "intercept": {
+          "description": "Protège vos alliés des dangers en vous sacrifiant.",
+          "name": "Intercepter",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p12</div>"
+        },
+        "name": "Sentinelle",
+        "normalAttackStatus": {
+          "description": {
+            "dazed": "Les cibles subissent l'état Étourdi.",
+            "shaken": "Les cibles subissent l'état Traumatisé.",
+            "slow": "Les cibles subissent l'état Ralenti.",
+            "weak": "Les cibles subissent l'état Affaibli."
+          },
+          "specialText": "Chaque cible touchée par cette attaque subit l'état {status}."
+        },
+        "reassuringAura": {
+          "description": "Donner une immunité aux alliés contre un état spécifique.",
+          "name": "Aura rassurante",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p13</div><div>État choisi : {status}</div>"
+        },
+        "reduceProgress": {
+          "description": "Empêcher la manipulation de cadrans ennemis sous certaines circonstances.",
+          "name": "Réduire les progrès",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p13</div><div>États choisis : {status1} et {status2}</div>"
+        },
+        "spell": {
+          "description": "Apprend un sort d'une liste axée sur l'atténuation. Augmente également les PM de +10.",
+          "name": "Sort"
+        },
+        "strongAttackDispel": {
+          "description": "Retire les effets magiques en cours au toucher sous certaines circonstances.",
+          "name": "Attaque puissante dissipante",
+          "specialText": "Si une cible souffre de l'état {status} et est affectée par un sort ou plus avec une <b>durée</b> de \"Scène\", cette cible n'est plus affectée par aucun de ces sorts."
+        },
+        "threaten": {
+          "description": "Force les ennemis à vous attaquer.",
+          "name": "Menaçant",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p12</div>"
+        },
+        "unwaveringSupport": {
+          "description": "Soutenir le Méchant en améliorant leur chance de critique quand ils invoques des traits.",
+          "name": "Soutien sans faille",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p12</div>"
+        },
+        "vulnerabilityBlock": {
+          "description": "Inverser une Vulnérabilité d'un allié spécifique en la transformant en Résistance.",
+          "name": "Blocage de vulnérabilité",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p12</div>"
+        }
+      },
+      "support": {
+        "advise": {
+          "actionText": "<div>Quick Assembly Rules Preview V2 p14</div>",
+          "description": "Utiliser ses PM pour aider les alliés à récupérer d'un état et leur donner un bonus à leur prochain test.",
+          "name": "Conseil"
+        },
+        "followUpAttack": {
+          "description": "Sous certaines circonstances, faire suivre une attaque alliée avec votre propre attaque.",
+          "name": "Attaque suivie",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p15</div>"
+        },
+        "healingAura": {
+          "description": "Soignez continuellement vos alliés.",
+          "name": "Aura de guérison",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p15</div>"
+        },
+        "improvedAdvise": {
+          "actionText": "<div><b>Improved Advise:</b> Quick Assembly Rules Preview V2 p14 & p15</div>",
+          "description": "Conseil amélioré permettant de récupérer de tous les états.",
+          "name": "Conseil amélioré"
+        },
+        "inspire": {
+          "actionText": "<div>Quick Assembly Rules Preview V2 p14</div><div>Ressource choisie : {resource}<br>Attribut choisi : {attribute}</div>",
+          "description": "Utiliser des PM pour permettre à un allié de récupérer une ressource et améliorer ses attributs.",
+          "name": "Inspiration",
+          "resource": "Choisir une ressource"
+        },
+        "mpBattery": {
+          "description": "Payer le coût en PM pour vos alliés.",
+          "name": "Batterie de PM",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p15</div>"
+        },
+        "name": "Support",
+        "oneLastCommand": {
+          "description": "Utiliser une de vos actions spéciales lorsque vous êtes éliminé.",
+          "name": "Un dernier ordre",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p15</div>"
+        },
+        "oneSpellMpBonus": {
+          "description": "Choisir un sort d'une liste axée sur le soutien. Gagne également +10 PM.",
+          "name": "Un sort et un bonus de PM"
+        },
+        "strategicCommand": {
+          "actionText": "<div>Quick Assembly Rules Preview V2 p15</div>",
+          "description": "Utiliser des PM pour qu'un allié puisse jouer immédiatement son tour après le votre, et lui donner un bonus de dégâts.",
+          "name": "Commandement stratégique"
+        },
+        "twoSpells": {
+          "description": "Choisir deux sort d'une liste axée sur le soutien.",
+          "name": "Deux sorts"
+        },
+        "vulnerabilityBlock": {
+          "description": "Échanger une Vulnérabilité d'un allié contre une Résistance.",
+          "name": "Blocage de Vulnérabilité",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p14</div>"
+        }
+      }
+    },
+    "species": {
+      "beast": {
+        "name": "Bête",
+        "opposedCheckBonus": {
+          "description": "Gagne un bonus à des tests opposés spécifiques.",
+          "name": "Bonus aux tests opposés",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p18</div>"
+        }
+      },
+      "construct": {
+        "additionalVulnerability": {
+          "description": "Une vulnérabilité supplémentaire à un type de dégâts parmi : air, foudre, feu, glace.",
+          "name": "Vulnérabilité supplémentaire"
+        },
+        "name": "Créature artificielle",
+        "opposedCheckBonus": {
+          "description": "Gagne un bonus à des tests opposés spécifiques.",
+          "name": "Bonus aux tests opposés",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p18</div>"
+        },
+        "statusImmunities": {
+          "description": "Gagne une immunité à deux états.",
+          "name": "Immunité aux États"
+        }
+      },
+      "demon": {
+        "name": "Démon",
+        "upgradeResToAbs": {
+          "description": "Améliore une résistance en absorption.",
+          "name": "Amélioration de Résistance en Absorption"
+        }
+      },
+      "elemental": {
+        "additionalVulnerability": {
+          "description": "Une vulnérabilité supplémentaire, de préférence opposé à la nature primaire de la créature.",
+          "name": "Vulnérabilité supplémentaire"
+        },
+        "name": "Élémentaire",
+        "upgradeImmToAbs": {
+          "description": "Améliore une immunité en absorption.",
+          "name": "Amélioration d'Immunité en Absorption"
+        }
+      },
+      "humanoid": {
+        "name": "Humanoïde",
+        "opposedCheckBonus": {
+          "description": "Gagne un bonus à des tests opposés spécifiques.",
+          "name": "Bonus aux tests opposés",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p20</div>"
+        }
+      },
+      "monster": {
+        "name": "Monstre"
+      },
+      "plant": {
+        "name": "Plante",
+        "thorns": {
+          "description": "Fait des dégâts mineurs aux attaques au corps à corps.",
+          "name": "Épines",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p21</div>"
+        }
+      },
+      "undead": {
+        "additionalVulnerability": {
+          "description": "Une vulnérabilité supplémentaire à un type de dégâts parmi : air, foudre, terre, feu, glace.",
+          "name": "Vulnérabilité supplémentaire"
+        },
+        "name": "Mort-vivant",
+        "undeadHealing": {
+          "description": "Les morts-vivants peuvent être blessés par des effets de soin.",
+          "name": "Soin sur les morts-vivants",
+          "ruleText": "<div>Livre de base p305</div>"
+        },
+        "upgradeImmToAbs": {
+          "description": "Améliore l'immunité aux ténèbres en absorption.",
+          "name": "Amélioration de l'Immunité en Absorption"
+        }
+      }
+    },
+    "spell": {
+      "areaStatus": {
+        "description": "Inflige un état à plusieurs cibles.",
+        "name": "Zone d'état",
+        "spellText": "<div>Choisissez n'importe quelle nombre de créatures que vous pouvez voir : chacune subit l'état {status}.</div>"
+      },
+      "aura": {
+        "description": "Améliore la DEF M. de jusqu'à trois cibles.",
+        "name": "Aura",
+        "spellText": "Vous projetez votre âme en dehors de votre corps et la dirigez sur les cibles alentours, les protégeant des magies dangereuses. Jusqu'à la fin de ce sort, chaque cible peut traiter sa Défense Magique comme étant égale à 12 contre tous les effets la ciblant (Ils peuvent toujours utiliser leur score de Défense si celui-ci est supérieur)."
+      },
+      "awaken": {
+        "description": "Améliorer un attribut d'une ciblet.",
+        "name": "Éveil",
+        "spellText": "Vous permettez à une créature de se concentrer sur on énergie vitale pour accomplir ce qu'il ne pouvait pas faire précédemment. Choisissez un attribut : <b>Dextérité</b>, <b>Intuition</b>, <b>Puissance</b>, ou <b>Volonté</b>. Jusqu'à la fin de ce sort, la cible traite l'attribut choisi comme s'il était d'un dé plus élevé (jusqu'à un maximum de <b>d12</b>)."
+      },
+      "barrier": {
+        "description": "Améliorer la DEF de jusqu'à trois cibles.",
+        "name": "Barrière",
+        "spellText": "Vous projetez votre âme en dehors de votre corps et la tissez en forme de barrière pour protéger les cibles des attaques. Jusqu'à la fin de ce sort, chaque cible peut traiter sa Défense comme étant égale à 12 contre tous les effets la ciblant (Ils peuvent toujours utiliser leur score de Défense si celui-ci est supérieur)."
+      },
+      "breath": {
+        "description": "Inflige des dégâts modérés à une cible unique.",
+        "name": "Souffle",
+        "spellText": "<div>La cible subit des dégâts de type : {damageType}.</div>"
+      },
+      "cleanse": {
+        "description": "Retirer les états de jusqu'à trois cibles.",
+        "name": "Purification",
+        "spellText": "Vous renforcez et purifier l'énergie des âmes parcourant vos compagnons. Chaque cible récupère de tous ses états."
+      },
+      "costPerTarget": "{amount}xC PM",
+      "curseXL": {
+        "description": "Inflige deux états à une cible unique.",
+        "name": "Malédiction XL",
+        "spellText": "<div>La cible subit l'état @EFFECT[{status1}] et @EFFECT[{status2}].</div>",
+        "status1": "Premier état",
+        "status2": "Deuxième état"
+      },
+      "cursedBreath": {
+        "description": "Inflige des dégâts lourds et un état à une cible unique.",
+        "name": "Souffle maudit",
+        "spellText": "<div>La cubie subit des dégâts de type {damageType} et l'état {status}.</div>"
+      },
+      "devastation": {
+        "description": "Inflige des dégâts massifs à n'importe quel nombre de cibles.",
+        "name": "Dévastation",
+        "spellText": "<div>Choisissez n'importe quelle nombre de créature que vous pouvez voir : chacun d'eux subit 30 dégâts de type {damageType}. Vous pouvez uniquement lancer ce sort une fois par tour.</div><div>Ce sort ne devrait être donné qu'aux champions et élites de niveau 30 ou supérieur, et lesdites créatures ne peuvent lancer ce sort que lors de leur dernier tour du round.</div>"
+      },
+      "dispel": {
+        "description": "Arrête les effets en cours affectant une cible unique.",
+        "name": "Dissipation",
+        "spellText": "Vous relâchez une vague d'énergie négative et purifiez toute la magie affectant une créature. Si la cible est affecté par un sort ou plus avec une <b>durée</b> de \"Scène\", elle n'est plus affectée par aucun de ces sorts."
+      },
+      "divination": {
+        "description": "Vous autorise à forcer une cible à relancer un test.",
+        "name": "Divination",
+        "spellText": "Vous avez des aperçus brefs du future. Jusqu'à la fin de ce sort, après qu'une créature que vous pouvez voir a effectué un test, si ce n'était pas un <b>échec critique</b> ou un <b>succès critique</b>, vous pouvez forcer cette créature à relancer <b>ses deux</b> dès. Une fois que vous avez forcé <b>deux</b> relances de cette façon, le sort se termine."
+      },
+      "drainSpirit": {
+        "description": "Vol les PM d'une cible tandis que vous restaurez les vôtres.",
+        "name": "Drain Spirituel",
+        "spellText": "Vous consumez l'esprit d'une créature. La cible perds【VH + 15】Points de Magie. Ensuite, vous récupérez un montant de Points de Magie égal à la moitié des Points de Magie perdue par la cible (si la perte est réduite à 0 d'une façon ou d'une autre, vous ne récupérez rien)."
+      },
+      "duration": {
+        "instant": "Instantanée",
+        "scene": "Scène"
+      },
+      "elementalShroud": {
+        "description": "Accorde une résistance à un type dégât élémentaire à jusqu'à trois cibles.",
+        "name": "Éclat élémentaire",
+        "spellText": "Vous tissez l'énergie magique et protégez les cibles de la furie des éléments. Choisir un type de dégâts parmi : <b>air</b>, <b>foudre</b>, <b>terre</b>, <b>feu</b> or <b>glace</b>. Jusqu'à la fin de ce sort,m chaque cible gagne une Résistance contre le type de dégâts choisi."
+      },
+      "enrage": {
+        "description": "Inflige l'état Enragé à plusieurs cibles.",
+        "name": "Rage",
+        "spellText": "<div>Les créatures perdent toute contenance et tempérance et agissent imprudemment. Les cibles subissent l'état Enragé et ne peuvent pas faire les actions <b>Garde</b> ou <b>Sort</b> durant leur prochain tour.</div>"
+      },
+      "flare": {
+        "description": "Inflige des dégâts de feu massif à une cible, dégâts qui ignorent les résistances.",
+        "name": "Trait de feu",
+        "spellText": "<div>Vous canalisez un simple rayon de feu au travers de vos doigts, sa températur eest si élevée qu'il traverse la plupart des défenses. La cible subit des dégâts de feu.</div><div>Les dégâts fait par ce sort ignore les Résistances.</div>"
+      },
+      "fulgur": {
+        "description": "Inflige de lourds dégâts à des cibles multiples.",
+        "name": "Fulgur",
+        "opportunity": "Chaque cible frappé par ce cible subit l'état étourdi.",
+        "spellText": "Vous tissez l'électricité en une vague d'éclairs crépitants. Chaque cible touché par ce sort subit des dégâts de foudre."
+      },
+      "glacies": {
+        "description": "Inflige de lourds dégâts de glace à des cibles multiples.",
+        "name": "Glacies",
+        "opportunity": "Chaque cible touché par ce sort subit l'état ralenti.",
+        "spellText": "Vous recouvrez vos ennemis sous une épaisse couche de givre. Chaque cible touchée par ce sort subit des dégâts de froid."
+      },
+      "heal": {
+        "description": "Restaure les PV de jusqu'à trois cibles.",
+        "name": "Soin",
+        "spellText": "Vous revigorez vos compagnons, calmant leurs blessure et soignant leurs fatigues. Chaque cible récupère {amount} Points de Vie."
+      },
+      "iceberg": {
+        "description": "Inflige des dégâts massifs de glace qui ignore les résistances d'une cible unique.",
+        "name": "Iceberg",
+        "spellText": "<div>Un pillier de magie de glace enveloppe vos ennemis, abaissant soudainement la température de leur corps à un niveau critique. La cible subit des dégâts de glace.</div><div>Les dégâts fait par ce sort ignore les résistances.</div>"
+      },
+      "ignis": {
+        "description": "Inflige de lours dégâts de feu à des cibles multiples.",
+        "name": "Ignis",
+        "opportunity": "Chaque cible touchée par ce sort subit l'état Traumatisé.",
+        "spellText": "Vous relâcher un barrage brûlant contre vos ennemis, conjurant des flammes à partir de rien. Chaque cible touchée par ce sort subit des dégâts de feu."
+      },
+      "lickWounds": {
+        "description": "Récupérer vos propres PV.",
+        "name": "Lécher ses plaies",
+        "spellText": "Vous récupérez {amount} Points de Vie."
+      },
+      "lifeTheft": {
+        "description": "Inflige de lourds dégâts à une cible unique et vous soigne d'une partie des dégâts causés.",
+        "name": "Vol de vie",
+        "spellText": "<div>La cible subit des dégâts de type {damageType}. Ensuite, vous récupérez un montant de Points de Vie égal à la moitié des Points de Vie perdu par votre cible.</div>"
+      },
+      "lux": {
+        "description": "Inflige de lourds dégâts de lumière à des cibles multiples.",
+        "name": "Lux",
+        "opportunity": "Chaque cible touchée par ce sort subit l'état étourdi.",
+        "spellText": "Vous concentrez votre énergie intérieur dans un barrage de rayons animiques aveuglant. Chaque cible touché par ce sort subit des dégâts de lumière."
+      },
+      "mindTheft": {
+        "description": "Inflige de lours dégâts à une cible unique, et récupérez ensuite des PM.",
+        "name": "Vol de magie",
+        "spellText": "La cible subit des dégâts de type {damageType}. Ensuite, vous récupérez la moitié des Points de Vie perdu en Points de Magie."
+      },
+      "mirror": {
+        "description": "Renvoi les sorts néfastes à leur lanceur.",
+        "name": "Miroir",
+        "spellText": "Vous tordez les lois de la magie. Jusqu'à la fin de ce sort, si un sort offensif (<i class='is-offensive'></i>) est lancé sur la cible, la créature qui a lancé ce sort offensif va être ciblé au lieu de vous-même (toute autre cible de ce sort offensif sera ciblée normalement). Une fois que c'est arrivé, le sort se termine."
+      },
+      "omega": {
+        "description": "La cible perd des PV basé sur son niveau.",
+        "name": "Omega",
+        "spellText": "Vous invoquez l'enfer sur vos ennemis, transformant leur force en faiblesse. La cible perd un montant de Points de Vie égaux à【20 + la moitié de son niveau】."
+      },
+      "poison": {
+        "description": "Inflige l'état Empoisonné à plusieurs cibles.",
+        "name": "Poison",
+        "spellText": "<div>Chaque cible touchée par ce sort subit l'état Empoisonné.</div>"
+      },
+      "quicken": {
+        "description": "Autorise la cible à utiliser une attaque gratuite immédiatement.",
+        "name": "Hâte",
+        "spellText": "La cible peut immédiatement effectué une <b>attaque gratuite</b> avec une arme équipée (ou avec une <b>attaque de base</b>, si la cible est un PNJ)."
+      },
+      "rage": {
+        "description": "Inflige l'état Enragé à plusieurs cibles.",
+        "name": "Rage",
+        "spellText": "Chaque cible touché par ce sort subit l'état Enragé."
+      },
+      "reinforce": {
+        "description": "Vous et vos alliés êtes immunisés à un état de votre choix.",
+        "name": "Renforcement",
+        "spellText": "<div>Vous protégez les cibles des attaques qui auraient corrompu leur corp et leur esprit. Choisissez entre : <b>étourdi</b>, <b>enragé</b>, <b>empoisonné</b>, <b>traumatisé</b>, <b>ralenti</b> ou <b>affaibli</b>. Jusqu'à la fin de ce sort, chaque cible devient immunisé à l'état choisi.</div>"
+      },
+      "shell": {
+        "description": "Gagner une résistance aux dégâts physique.",
+        "name": "Carapace",
+        "spellText": "Jusqu'à la fin de ce sort, vous gagnez une résistance aux dégâts <b>physique</b>."
+      },
+      "stop": {
+        "description": "Fait perdre une action à la cible.",
+        "name": "Stop",
+        "spellText": "Vous piégez un ennemi à l'intérieur d'une altération du temps et de l'espace. La cible fera une action de moins à son prochain tour (jusqu'à un minimum de 0 actions)."
+      },
+      "targets": {
+        "self": "Soi-même",
+        "single": "Une créature",
+        "special": "Spécial",
+        "upToThree": "Jusqu'à trois créatures"
+      },
+      "terra": {
+        "description": "Inflige de lourds dégâts de terre aux cibles au sol.",
+        "name": "Terra",
+        "opportunity": "Chaque cible touchée par ce sort fera une action de moins à son prochain tour (jusqu'à un minimum de 0 actions).",
+        "spellText": "Des flèches de roches déchiquetées jaillissent du sol en direction de vos ennemis. Chaque cible touchée par ce sort subit des dégâts de terre. Ce sort ne peut pas ciblé de créatures qui vol, flottent, tombent, ou sont en l'air d'une façon ou d'une autre."
+      },
+      "thunderbolt": {
+        "description": "Inflige des dégâts de foudre massifs, qui ignorent les résistances, à une cible unique.",
+        "name": "Éclair",
+        "spellText": "<div>Vous envoyez un éclair frapper vos ennemis. La cible subit des dégâts de foudre.</div><div>Les dégâts infligés par ce sort ignore les résistances.</div>"
+      },
+      "totalCost": "{amount} PM",
+      "umbra": {
+        "description": "Inflige de lourds dégâts de ténèbres à plusieurs cibles.",
+        "name": "Umbra",
+        "opportunity": "Chaque cible touchée par ce sort subit l'état Affaibli.",
+        "spellText": "Une tempête d'énergie noire transforme la matière en poussière. Chaque cible frappée par ce sort subit des dégâts de ténèbrese."
+      },
+      "ventus": {
+        "description": "Inflige de lourds dégâts d'air à plusieurs cibles.",
+        "name": "Ventus",
+        "opportunity": "Chaque cible volante par ce sort est forcée de se poser immédiatement.",
+        "spellText": "Vous invoquez le pouvoir des vents contre vos ennemis. Chaque cible frappée par ce sort subit des dégâts d'air."
+      },
+      "warCry": {
+        "description": "Donne un bonus aux tests de précision.",
+        "name": "Cri de guerre",
+        "spellText": "Jusqu'à la fin de ce sort, chaque cible gagne +1 aux tests de précision."
+      },
+      "weaken": {
+        "description": "Accroit les dégâts d'un type choisi sur une cible unique.",
+        "name": "Affaiblissement",
+        "spellText": "<div>Jusqu'à la fin de ce sort, chaque cible subit 5 dégâts supplémentaires de toutes les sources de dégâts faisant des dégâts de type <b>{damageType}</b>.</div>"
+      }
+    },
+    "spells": "Sorts",
+    "statusEffects": {
+      "dazed": "Étourdi",
+      "enraged": "Enragé",
+      "poisoned": "Empoisonn",
+      "shaken": "Traumatisé",
+      "slow": "Ralenti",
+      "weak": "Affaibli"
+    },
+    "step": {
+      "assignAffinity": {
+        "blank": "Choisir un type de dégâts...",
+        "immunity": "Attribuer une Immunité",
+        "resistance": "Attribuer une Résistance",
+        "upgradeImmToAbs": "Améliorer une Immunité en Absorption",
+        "upgradeResToAbs": "Améliorer une Résistance en Absorption",
+        "vulnerability": "Attribuer une Vulnérabilité"
+      },
+      "assignStatusImmunity": {
+        "blank": "Choisir un état...",
+        "name": "Attribuer une immunité à un État"
+      },
+      "chooseSkill": {
+        "blank": "Choisir...",
+        "boss": "Choisir une compétence de Boss",
+        "customization": "Choisir une Personnalisation",
+        "negative": "Choisir une Compétence Négative",
+        "role": "Choisir une Compétence de Rôle",
+        "spell": "Choisir un Sort"
+      },
+      "chooseTraits": {
+        "name": "Choisir les Traits",
+        "npcName": "Nom du PNJ",
+        "traits": "Traits"
+      },
+      "conditionalBonusSkill": {
+        "description": "Gagner un choix de compétence supplémentaire en échange d'un inconvénient.",
+        "drawback": "Accepter cet inconvénient...",
+        "name": "Bonus de compétence conditionnel",
+        "no": "Refuser",
+        "options": "...et gagner un de ces bénéfice :",
+        "yes": "Accepter"
+      },
+      "configureAttack": {
+        "attackName": "Nom de l'attaque",
+        "attributes": {
+          "blank": "Choisir les attributs...",
+          "label": "Attributs"
+        },
+        "damageType": {
+          "blank": "Choisir un type de dégâts...",
+          "label": "Type de dégâts"
+        },
+        "name": "Configurer l'attaque",
+        "nestedChoice": {
+          "blank": "Choisir...",
+          "label": "Configuration supplémentaire"
+        },
+        "range": {
+          "blank": "Choisir portée...",
+          "label": "Portée de l'attaque"
+        },
+        "special": {
+          "blank": "Choisir effet spécial...",
+          "label": "Effet spécial"
+        }
+      },
+      "finish": {
+        "confirm": "Vérifier que tout est correct et appuyez sur \"Suivant\" pour créer l'Acteur.",
+        "header": "Tout est terminé !"
+      },
+      "selectLevel": {
+        "blank": "Choisir le niveau...",
+        "name": "Choix du niveau"
+      },
+      "selectRank": {
+        "blank": "Choisir le rang...",
+        "name": "Choix du rang"
+      },
+      "selectRole": {
+        "blank": "Choisir le rôle...",
+        "name": "Choix du rôle"
+      },
+      "selectSpecies": {
+        "blank": "Choix de l'espèce...",
+        "name": "Choix de l'espèce"
+      }
+    },
+    "wizard": {
+      "back": "Retour",
+      "next": "Suivant",
+      "title": "Assistant PNJ Rapide"
+    }
+  }
+}
