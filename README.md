@@ -7,4 +7,4 @@ This module to implement the Creature Quick Assembly Rules from the preview docu
 ## Installation
 Use automatic Foundry module installation.\
 Module Manifest:\
-`https://github.com/League-of-Fabulous-Developers/quick-npc-wizard/releases/latest/download/module.json`
+`https://github.com/League-of-Fabulous-Developers/fabula-ultima-quick-npcs/releases/latest/download/module.json`
