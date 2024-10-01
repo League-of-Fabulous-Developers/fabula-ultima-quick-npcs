@@ -1,0 +1,18 @@
+<div class="header border-bottom border-left">
+    <span class="name">{{name}}{{#unless name}}{{localize 'QUICKNPC.preview.unknown'}}{{/unless}}</span>
+    <span class="level">
+                    {{localize 'QUICKNPC.preview.level'}}
+        {{level}}
+        {{#if rank}}
+            {{localize (concat 'QUICKNPC.rank.' rank)}}
+        {{/if}}
+                </span>
+    <span class="divider"></span>
+    <span class="species">
+        {{#if species}}
+            {{localize (concat 'QUICKNPC.species.' species '.name')}}
+        {{else}}
+            {{localize 'QUICKNPC.preview.unknown'}}
+        {{/if}}
+    </span>
+</div>

@@ -1,0 +1,423 @@
+.window-content.quick-npc-wizard, .quick-npc-wizard .window-content form {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-gap: 0.5rem;
+
+    .preview {
+        background: linear-gradient(to right, darkmagenta, color-mix(in srgb, darkmagenta 100%, white 80%));
+
+        .divider {
+            padding: 2px 0;
+
+            &::before {
+                content: '\2BC1';
+            }
+        }
+
+        .border-bottom {
+            border-bottom: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .border-left {
+            border-left: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .header, .stats {
+            font-family: "Antonio", sans-serif;
+            display: flex;
+            color: black;
+        }
+
+        .header {
+
+            & > * {
+                padding: 2px;
+            }
+
+            & > *:not(.name) {
+                background-color: white;
+            }
+
+            .name {
+                flex-grow: 1;
+                color: white;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .level {
+                flex-grow: 0;
+                flex-basis: 110px;
+                text-align: end;
+            }
+
+            .species {
+                flex-grow: 0;
+                flex-basis: 75px;
+            }
+        }
+
+        .sub-header {
+            color: black;
+            display: flex;
+
+            & > * {
+                background-color: white;
+                padding: 2px;
+            }
+
+            .defenses {
+                font-family: "Antonio", sans-serif;
+                flex: 0 1 110px;
+                display: flex;
+                justify-content: space-around;
+            }
+
+            .traits {
+                font-family: "PT Sans Narrow", sans-serif;
+                flex: 1 1 auto;
+
+                :first-child {
+                    font-weight: bold;
+                    padding-left: 2px;
+                }
+            }
+        }
+
+        .stats {
+            display: flex;
+
+            & > * {
+                flex: 1 0 auto;
+                display: flex;
+                background-color: white;
+                padding: 2px;
+
+                & > * {
+                    flex: 1 1 auto;
+                }
+            }
+
+            .attributes {
+                justify-content: space-around;
+                padding-left: 0.5rem;
+            }
+
+            .hp, .mp {
+                & > :first-child {
+                    text-align: end;
+                    flex-grow: 2;
+                    padding-right: 0.5rem;
+                }
+
+                & > :last-child {
+                    text-align: center;
+                    margin: -2px -2px -2px 0;
+                    padding: 2px 2px 2px 0;
+                }
+            }
+
+            .hp > :last-child {
+                background: color-mix(in srgb, red, black 20%);
+                color: white;
+            }
+
+            .mp > :last-child {
+                background: color-mix(in srgb, blue, black 20%);
+                color: white;
+            }
+
+            .init {
+                text-align: right;
+                padding-right: 0.5rem;
+            }
+        }
+
+        .affinities {
+            display: flex;
+
+            .fua {
+                font-size: 1.5rem;
+            }
+
+            > * {
+                flex: 0 0 calc(100% / 9);
+                background-color: white;
+                font-family: "Antonio", sans-serif;
+                color: black;
+                font-size: 1rem;
+                padding-left: 2px;
+            }
+        }
+
+        .immunities {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2px;
+
+            > * {
+                background-color: white;
+                color: black;
+                font-family: "PT Sans Narrow", sans-serif;
+                font-size: 0.75rem;
+                padding: 2px;
+            }
+        }
+
+        .attacks {
+            > :first-child {
+                font-family: "Antonio", sans-serif;
+                color: white;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: .5rem;
+            }
+
+            .attack {
+                background-color: white;
+                color: black;
+                font-family: "PT Sans Narrow", sans-serif;
+
+                .is-melee, .is-range {
+                    font-size: 100%;
+                    font-style: normal;
+                }
+
+                > :first-child {
+                    display: flex;
+                    align-items: center;
+                    font-size: 105%;
+
+                    > * {
+                        padding: 2px;
+                    }
+
+                    > :nth-child(2) {
+                        padding-right: 0.5rem;
+                    }
+
+                    .name {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+
+                    .attributes {
+                        flex-shrink: 0;
+                        flex-basis: 90px;
+
+                        &.has-accuracy {
+                            flex-basis: 100px;
+                        }
+
+                        &:not(.has-accuracy) + * {
+                            margin-left: -10px;
+                        }
+
+                        > :first-child {
+                            margin: 0 -5px;
+                        }
+                    }
+
+                    .damage {
+                        flex-shrink: 0;
+                        flex-basis: 160px;
+
+                        > :first-child {
+                            margin: 0 -5px;
+                        }
+
+                    }
+                }
+
+                .special {
+                    padding-left: 1.5rem;
+                }
+            }
+        }
+
+        .spells {
+            > :first-child {
+                font-family: "Antonio", sans-serif;
+                color: white;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: .5rem;
+            }
+
+            .spell {
+                background-color: white;
+                color: black;
+                font-family: "PT Sans Narrow", sans-serif;
+
+                .is-spell, .is-offensive {
+                    font-size: 100%;
+                    font-style: normal;
+                }
+
+                > :first-child {
+                    display: flex;
+                    align-items: center;
+                    font-size: 105%;
+
+                    > * {
+                        padding: 2px;
+                    }
+
+                    .name {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+
+                    .offensive {
+                        flex-shrink: 0;
+                        flex-basis: 90px;
+
+                        &.has-accuracy {
+                            flex-basis: 100px;
+                        }
+
+                        &:not(.has-accuracy) + *{
+                            margin-left: -10px;
+                        }
+
+                        > :first-child {
+                            margin: 0 -5px;
+                        }
+                    }
+                }
+
+                .damage {
+                    flex-shrink: 0;
+                    flex-basis: 160px;
+
+                    > :first-child {
+                        margin: 0 -5px;
+                    }
+                }
+
+                & > :not(:first-child) {
+                    padding-left: 1.5rem;
+                }
+            }
+        }
+
+        .actions {
+            > :first-child {
+                font-family: "Antonio", sans-serif;
+                color: white;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: .5rem;
+            }
+
+            .action {
+                background-color: white;
+                color: black;
+                font-family: "PT Sans Narrow", sans-serif;
+
+                .is-skill {
+                    font-size: 100%;
+                    font-style: normal;
+                }
+
+                > :first-child {
+                    display: flex;
+                    align-items: center;
+                    font-size: 105%;
+
+                    > * {
+                        padding: 2px;
+                    }
+                }
+
+                > :last-child {
+                    padding-left: 1.5rem;
+                }
+            }
+        }
+
+        .rules {
+            > :first-child {
+                font-family: "Antonio", sans-serif;
+                color: white;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: .5rem;
+            }
+
+            .rule {
+                background-color: white;
+                color: black;
+                font-family: "PT Sans Narrow", sans-serif;
+
+                .is-skill {
+                    font-size: 100%;
+                    font-style: normal;
+                }
+
+                > :first-child {
+                    display: flex;
+                    align-items: center;
+                    font-size: 105%;
+
+                    > * {
+                        padding: 2px;
+                    }
+                }
+
+                > :last-child {
+                    padding-left: 1.5rem;
+                }
+            }
+        }
+    }
+
+    .stepper {
+        > header {
+          display: flex;
+        }
+
+        .step {
+            font-size: initial;
+            font-family: "PT Sans Narrow", sans-serif;
+
+            .primary, .secondary {
+                font-family: "Antonio", sans-serif;
+                display: inline-block;
+                width: 100%;
+
+                > select, input {
+                    margin: 0.25rem;
+                    width: 100%;
+                }
+            }
+
+            .primary {
+                font-size: 120%;
+                margin-top: 1em;
+            }
+
+            .secondary {
+                font-size: 100%;
+                margin-top: 0.5rem;
+            }
+
+            .conditional-bonus-skill-step {
+
+                .choices {
+                    display: flex;
+                    flex-direction: column;
+
+                    > * {
+                        margin-top: 0.5rem;
+                    }
+                }
+
+            }
+        }
+    }
+}

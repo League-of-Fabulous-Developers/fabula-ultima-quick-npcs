@@ -1,0 +1,9 @@
+<div class="stepper">
+    <header>
+        <button type="button" {{#if backDisabled}}disabled{{/if}} data-action="back">{{localize 'QUICKNPC.wizard.back'}}</button>
+        <button type="submit" {{#if nextDisabled}}disabled{{/if}}>{{localize 'QUICKNPC.wizard.next'}}</button>
+    </header>
+    <div class="step">
+        {{> (lookup this 'stepTemplate') templateData}}
+    </div>
+</div>

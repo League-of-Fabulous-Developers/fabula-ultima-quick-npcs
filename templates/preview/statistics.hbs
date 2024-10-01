@@ -1,0 +1,22 @@
+<div class="stats border-left border-bottom">
+    <span class="attributes">
+        {{#each attributes}}
+            <span>{{localize (concat 'QUICKNPC.preview.' @key)}} {{this}}</span>
+        {{/each}}
+    </span>
+    <span class="hp border-left">
+        <span>{{localize 'QUICKNPC.preview.hp'}}</span>
+        <span>
+            <span>{{derived.hp}}</span>
+            <span class="divider"></span>
+            <span>{{derived.crisis}}</span>
+        </span>
+    </span>
+    <span class="mp border-left">
+        <span>{{localize 'QUICKNPC.preview.mp'}}</span>
+        <span>{{derived.mp}}</span>
+    </span>
+    <span class="init border-left">
+        <span>{{localize 'QUICKNPC.preview.init'}} {{derived.init}}</span>
+    </span>
+</div>

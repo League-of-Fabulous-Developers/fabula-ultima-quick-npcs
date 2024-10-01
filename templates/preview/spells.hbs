@@ -1,0 +1,62 @@
+{{#if (not (empty spells))}}
+    <div class="spells">
+        <div>{{localize 'QUICKNPC.preview.spells'}}</div>
+        <div>
+            {{#each spells}}
+                <div class="spell border-left border-bottom">
+                    <div>
+                        <span><i class="is-spell"></i></span>
+                        <span><strong>{{name}}</strong></span>
+                        <span>{{#if offensive}}<i class="is-offensive"></i>{{/if}}</span>
+                        {{#with offensive}}
+                            <span class="divider"></span>
+                            <span class="offensive {{#if accuracy}}has-accuracy{{/if}}">
+                                <strong>
+                                    {{localize 'QUICKNPC.pretty.attributes'
+                                               attr1=(localize (concat 'QUICKNPC.preview.' attributes.[0]))
+                                               attr2=(localize (concat 'QUICKNPC.preview.' attributes.[1]))}}
+                                </strong>
+                                <strong>{{#if accuracy}}+{{accuracy}}{{/if}}</strong>
+                            </span>
+                        {{/with}}
+                        <span class="divider"></span>
+                        <span class="cost">
+                            <strong>
+                                {{#if (eq costType 'total')}}
+                                    {{localize 'QUICKNPC.spell.totalCost' amount=cost}}
+                                {{else}}
+                                    {{localize 'QUICKNPC.spell.costPerTarget' amount=cost}}
+                                {{/if}}
+                            </strong>
+                        </span>
+                        <span class="divider"></span>
+                        <span>
+                            <strong>{{localize (concat 'QUICKNPC.spell.targets.' target)}}</strong>
+                        </span>
+                        <span class="divider"></span>
+                        <span>
+                            <strong>{{localize (concat 'QUICKNPC.spell.duration.' duration)}}</strong>
+                        </span>
+                    </div>
+                    <div>
+                        {{#with offensive.damage}}
+                            <span class="damage">
+                                <strong>
+                                    {{localize 'QUICKNPC.pretty.damage' damage=value}}
+                                </strong>
+                                <strong>
+                                    {{localize (concat 'QUICKNPC.preview.damageType.' type)}}
+                                </strong>
+                                {{localize 'QUICKNPC.preview.damage'}}
+                            </span>
+                        {{/with}}
+                    </div>
+                    <div>
+                        {{{description}}}
+                        {{#if opportunity}}<p>{{localize 'QUICKNPC.preview.opportunity'}} {{opportunity}}</p>{{/if}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+{{/if}}

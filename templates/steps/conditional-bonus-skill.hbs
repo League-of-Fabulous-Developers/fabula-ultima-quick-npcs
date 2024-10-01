@@ -1,0 +1,33 @@
+<div class="conditional-bonus-skill-step">
+    <label class="primary">{{localize 'QUICKNPC.step.conditionalBonusSkill.name'}}</label>
+    <p>{{localize 'QUICKNPC.step.conditionalBonusSkill.description'}}</p>
+    <div class="choices">
+        <div>
+            <label>
+                <input type="radio" name="choice" value="" {{checked (not selected)}}>
+                {{localize 'QUICKNPC.step.conditionalBonusSkill.no'}}
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="radio" name="choice" value="true" {{checked selected}}>
+                {{localize 'QUICKNPC.step.conditionalBonusSkill.yes'}}
+            </label>
+            <div>
+                <div>{{localize 'QUICKNPC.step.conditionalBonusSkill.drawback'}}</div>
+                <blockquote>
+                    <strong>{{localize conditionalBonusSkill.drawback.label}}</strong>
+                    <div>{{localize conditionalBonusSkill.drawback.description}}</div>
+                </blockquote>
+            </div>
+            <div>
+                {{localize 'QUICKNPC.step.conditionalBonusSkill.options'}}
+                <blockquote>
+                    {{#each conditionalBonusSkill.options}}
+                        <div>{{localize label}}</div>
+                    {{/each}}
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>

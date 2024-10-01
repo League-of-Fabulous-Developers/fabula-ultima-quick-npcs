@@ -1,0 +1,1092 @@
+{
+  "QUICKNPC": {
+    "actions": {
+      "attack": "Attack",
+      "equipment": "Equipment",
+      "guard": "Guard",
+      "hinder": "Hinder",
+      "inventory": "Inventory",
+      "objective": "Objective",
+      "spell": "Spell",
+      "study": "Study"
+    },
+    "attacks": {
+      "melee": "Melee",
+      "normal": "Normal Attack",
+      "ranged": "Ranged",
+      "special": {
+        "causesStatus": "Targets hit by this attack suffer {status}",
+        "ignoreResistance": "Damage dealt by this attack ignores Resistance.",
+        "multi2": "<b>Multi (2)</b>",
+        "targetsMDef": "This attack targets Magic Defense instead of Defense."
+      },
+      "strong": "Strong Attack"
+    },
+    "attributes": {
+      "dex": "DEX",
+      "ins": "INS",
+      "mig": "MIG",
+      "wlp": "WLP"
+    },
+    "bossSkills": {
+      "corrosiveStatus": {
+        "actionText": "<div>Quick Assembly Rules Preview V2 p16.</div><div>Damage: {damageType}</div><div>Status: {status}</div>",
+        "description": "Deal damage to enemies suffering from a particular status.",
+        "name": "Corrosive Status"
+      },
+      "crushingAdvantage": {
+        "description": "Fill or empty clocks without having to perform checks.",
+        "name": "Crushing Advantage",
+        "ruleText": "<div>Quick Assembly Rules Preview V2 p16.</div>"
+      },
+      "partRegeneration": {
+        "description": "Recover from status effects and summon reinforcements when you enter Crisis.",
+        "name": "Part Regeneration",
+        "ruleText": "<div>Quick Assembly Rules Preview V2 p16.</div>"
+      },
+      "temporaryDefenses": {
+        "choice": "Choose defensive Statistic",
+        "def": "Defense",
+        "description": "Treat one of your defenses as a static vaue until you enter Crisis.",
+        "mDef": "Magic Defense",
+        "name": "Temporary Defenses",
+        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Chosen defensive statistic: {defense}</div>"
+      },
+      "zombification": {
+        "description": "Invert healing to damage when the target suffers from a certain status effect.",
+        "name": "Zombification",
+        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Chosen status: {status}</div>"
+      }
+    },
+    "commonChoices": {
+      "attribute": "Choose Attribute",
+      "damageType": "Choose Damage Type",
+      "resource": "Choose Resource",
+      "status": "Choose Status Effect"
+    },
+    "commonSkills": {
+      "additionalRoleSkill": {
+        "description": "Gain an additional Role Skill.",
+        "name": "Additional Role Skill"
+      },
+      "bonusHp": {
+        "description": "Add 10 HP per Soldier equivalent.",
+        "name": "Bonus HP"
+      },
+      "flying": {
+        "description": "Gain Flying.",
+        "name": "Flying",
+        "ruleText": "<div>Core Rulebook p307</div>"
+      },
+      "none": {
+        "description": "Don't add a Skill.",
+        "name": "None"
+      },
+      "normalAttackMagic": {
+        "description": "Normal Attack targets M.DEF instead of DEF",
+        "name": "Magical Normal Attack"
+      },
+      "normalAttackMpRecovery": {
+        "description": "Normal Attack restores MP on hit.",
+        "name": "Normal Attack MP Recovery",
+        "specialText": "When this attack hits one or more targets, you recover {amount} MP."
+      },
+      "normalAttackMulti2": {
+        "description": "Normal Attack gains Multi (2).",
+        "name": "Normal Attack Multi (2)"
+      },
+      "normalAttackStatus": {
+        "description": "Normal Attack causes a Status Effect.",
+        "name": "Normal Attack Status"
+      },
+      "oneImmunity": {
+        "description": "Gain an additional immunity.",
+        "name": "Additional Immunity"
+      },
+      "oneImmunityExceptPhysical": {
+        "description": "Gain an additional Immunity to any damage type except physical.",
+        "name": "One Immunity"
+      },
+      "strongAttackMagic": {
+        "description": "Strong Attack targets M.DEF instead of DEF",
+        "name": "Magical Strong Attack"
+      },
+      "twoResistances": {
+        "description": "Gain two additional resistances to any damage.",
+        "name": "Two Additional Resistances"
+      },
+      "twoResistancesExceptPhysical": {
+        "description": "Gain two additional resistances to any damage type except physical.",
+        "name": "Two Resistances"
+      }
+    },
+    "damageType": {
+      "air": "Air",
+      "bolt": "Bolt",
+      "dark": "Dark",
+      "earth": "Earth",
+      "fire": "Fire",
+      "ice": "Ice",
+      "light": "Light",
+      "physical": "Physical",
+      "poison": "Poison"
+    },
+    "negativeSkills": {
+      "finalDetonation": {
+        "description": "Deal damage to your allies when you get taken out.",
+        "name": "Final Detonation",
+        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Chosen damage type: {damageType}</div>"
+      },
+      "finalRestore": {
+        "description": "Restore resources to your enemies when you get taken out.",
+        "name": "Final Restore",
+        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Chosen resource: {resource}</div>"
+      },
+      "painfulMiss": {
+        "description": "Deal damage to yourself or allies when you miss with your attacks.",
+        "name": "Painful Miss",
+        "target": {
+          "ally": {
+            "label": "Your Allies",
+            "rule": "One of your allies chosen at random"
+          },
+          "label": "Choose Target",
+          "self": {
+            "label": "Yourself",
+            "rule": "Yourself"
+          }
+        },
+        "attack": {
+          "label": "Choose Attack",
+          "normal": "Normal Attack",
+          "strong": "Strong Attack"
+        },
+        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Chosen Attack: {attack}</div><div>Chosen Target: {target}</div>"
+      }
+    },
+    "pretty": {
+      "attributes": "【{attr1} + {attr2}】",
+      "damage": "【HR + {damage}】"
+    },
+    "preview": {
+      "actions": "Other Action",
+      "affinity": {
+        "abs": "AB",
+        "imm": "IM",
+        "res": "RS",
+        "vul": "VU"
+      },
+      "basicAttacks": "Basic Attacks",
+      "damage": "damage",
+      "damageType": {
+        "air": "air",
+        "bolt": "bolt",
+        "dark": "dark",
+        "earth": "earth",
+        "fire": "fire",
+        "ice": "ice",
+        "light": "light",
+        "physical": "physical",
+        "poison": "poison"
+      },
+      "def": "DEF",
+      "dex": "DEX",
+      "hp": "HP",
+      "init": "Init.",
+      "ins": "INS",
+      "level": "Lv",
+      "mDef": "M.DEF",
+      "mig": "MIG",
+      "mp": "MP",
+      "opportunity": "Opportunity:",
+      "rules": "Special Rules",
+      "spells": "Spells",
+      "statusImmunity": "Immune to {status}",
+      "traits": "Traits:",
+      "unknown": "???",
+      "wlp": "WLP"
+    },
+    "rank": {
+      "champion1": "Champion (1)",
+      "champion2": "Champion (2)",
+      "champion3": "Champion (3)",
+      "champion4": "Champion (4)",
+      "champion5": "Champion (5)",
+      "champion6": "Champion (6)",
+      "elite": "Elite",
+      "soldier": "Soldier"
+    },
+    "resource": {
+      "hp": "HP",
+      "ip": "IP",
+      "mp": "MP"
+    },
+    "role": {
+      "brute": {
+        "badTemper": {
+          "description": "Gain almost total status effect immunity while in Crisis.",
+          "name": "Bad Temper",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div>"
+        },
+        "collapse": {
+          "description": "Fill a Clock when Strong Attack misses, deal damage when the clock fills.",
+          "name": "Collapse",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+        },
+        "crush": {
+          "description": "Grapple enemies, deal damage to grappled enemies without having to perform a check.",
+          "name": "Crush",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+        },
+        "dieHard": {
+          "description": "Survive lethal damage, once.",
+          "name": "Die Hard",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div>"
+        },
+        "enhancingGuard": {
+          "description": "Deal more damage and ignore resistances after guarding.",
+          "name": "Enhancing Guard",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+        },
+        "name": "Brute",
+        "soreLoser": {
+          "description": "Sometimes cause status effects after you fail an Opposed Check.",
+          "name": "Sore Loser",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+        },
+        "specialArmor": {
+          "attacks": "Attacks",
+          "description": "While in Crisis, take less damage from a specific type of Actions.",
+          "name": "Special Armor",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div><div>Action type: {type}</div>",
+          "skills": "Skills",
+          "spells": "Spells",
+          "type": "Select Action"
+        },
+        "spells": {
+          "description": "Gain access to two different spells using 【MIG + WLP】 for casting.",
+          "name": "Spells"
+        },
+        "statusImmunities": {
+          "description": "Gain immunity to two of the following: Poisoned, Shaken, Slow",
+          "name": "Status Immunities"
+        },
+        "steadyRecovery": {
+          "description": "Recover from status effects under certain circumstances.",
+          "name": "Steady Recovery",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+        },
+        "strongAttackRanged": {
+          "description": "Strong Attack becomes ranged and causes status effects.",
+          "name": "Ranged Strong Attack"
+        },
+        "vengefulAttack": {
+          "description": "Use one last Strong Attack after suffering lethal damage.",
+          "name": "Vengeful Attack",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div>"
+        }
+      },
+      "hunter": {
+        "ambush": {
+          "description": "Upgrade one specific attribute dice during the first round of conflict.",
+          "name": "Ambush",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div><div>Chosen attribute: {attribute}</div>"
+        },
+        "elusive": {
+          "description": "Negate damage while not suffering from status effects.",
+          "name": "Elusive",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div>"
+        },
+        "emergencyCamouflage": {
+          "description": "Become invisible for a short time upon entering Crisis.",
+          "name": "Emergency Camouflage",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p6</div>"
+        },
+        "extraDamage": {
+          "condition": "Select condition:",
+          "crisis": "are in Crisis",
+          "description": "Deal more damage with this attack when a certain condition is fulfilled.",
+          "martialArmor": "have a martial armor equipped",
+          "multipleStatuses": "suffer from two or more status effect",
+          "name": "Extra Damage",
+          "noMartialArmor": "have no martial armor equipped",
+          "notCrisis": "are not in Crisis",
+          "specialText": "This attack deals 5 extra damage against creatures that {condition}.",
+          "specificStatus": "suffer from {status}",
+          "specificStatusLabel": "suffer from a specific status effect",
+          "specificStatusSelect": "Select status effect",
+          "spell": "are affected by one of more spells with a duration of \"Scene\"",
+          "turnTaken": "have already taken their turn during this round"
+        },
+        "falseSenseOfSecurity": {
+          "description": "Turn your allies' failures to your advantage.",
+          "name": "False Sense of Security",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p6</div>"
+        },
+        "huntersBait": {
+          "action": "Action",
+          "description": "Retaliate against certain actions.",
+          "melee": "Melee attacks",
+          "name": "Hunter's Bait",
+          "ranged": "Ranged attacks",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div><div>Chosen Action: {action}</div>",
+          "spell": "Offensive spells"
+        },
+        "lifeSteal": {
+          "description": "Recover HP when dealing damage with this attack.",
+          "name": "Life Steal",
+          "specialText": "If this attack causes one or more creatures to lose Hit Points, this NPC recovers an amount of Hit Points equal to half the total Hit Points lost this way."
+        },
+        "lightningFast": {
+          "description": "Deal more damage during another creature's turn, when not affected by status effects.",
+          "name": "Lightning Fast",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p6</div>"
+        },
+        "name": "Hunter",
+        "opportunist": {
+          "description": "Improve critical chance during Opposed Checks under certain conditions.",
+          "name": "Opportunist",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div>"
+        },
+        "specialResistance": {
+          "description": "Resist damage dealt by effects with a certain number of targets",
+          "multi": "Two or more creatures",
+          "name": "Special Resistance",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p6</div><div>Effective against effects targeting: {targets}</div>",
+          "single": "One creature",
+          "targets": "Select number of targets"
+        },
+        "spells": {
+          "description": "Gain access to two different spells using 【INS + WLP】 for casting.",
+          "name": "Spells"
+        },
+        "strongAttack": {
+          "description": "Gain a strong attack that deals massive damage to multiple targets but costs you your next turn.",
+          "name": "Strong Attack",
+          "special": "After using this attack the NPC cannot perform any actions or <b>free attacks</b> until the end of its next turn."
+        },
+        "targetLock": {
+          "description": "Guard to select enemy, deal more damage to selected enemy.",
+          "name": "Target Lock",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div>"
+        }
+      },
+      "mage": {
+        "baselineOneSpellMpBonus": {
+          "description": "Choose one spell from a basic spell list and gain +10 MP.",
+          "name": "One Spell and Bonus MP (Basic)"
+        },
+        "baselineTwoSpells": {
+          "description": "Choose two spells from a basic spell list.",
+          "name": "Two Spells (Basic)"
+        },
+        "collateralDamage": {
+          "description": "Deal damage when using the Hinder action.",
+          "name": "Collateral Damage",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p8</div><div>Chosen damage type: {damageType}</div>"
+        },
+        "elementDrain": {
+          "description": "Restore MP when hit by elemental damage.",
+          "name": "Element Drain",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p9</div>"
+        },
+        "elementShift": {
+          "description": "Change your affinities by casting spells.",
+          "name": "Element Shift",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p9</div>"
+        },
+        "magicalMastery": {
+          "description": "Improved ability to interact with clocks related to magic.",
+          "name": "Magical Mastery",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p9</div>"
+        },
+        "name": "Mage",
+        "normalAttackVolatile": {
+          "description": "Normal Attack causes hit targets to become volatile.",
+          "name": "Normal Attack Volatile",
+          "specialText": "<div><b>Volatile:</b> Quick Assembly Rules Preview V2 p9</div>"
+        },
+        "oneSpellMpBonus": {
+          "description": "Choose one spell from an advanced spell list and gain +10 MP.",
+          "name": "One Spell and Bonus MP (Advanced)"
+        },
+        "overwhelm": {
+          "description": "Improve critical chance during Opposed Checks under certain conditions.",
+          "name": "Overwhelm",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p8</div>"
+        },
+        "soulburst": {
+          "description": "Other creatures recover MP when you are reduced to 0 HP.",
+          "name": "Soul Burst",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p8</div>"
+        },
+        "spells": {
+          "description": "Choose spells from an advanced spell list. Either choose two spells or one spell and gain +10 MP.",
+          "name": "More Spells"
+        },
+        "statusImmunities": {
+          "description": "Gain immunity to two of the following: Dazed, Enraged, Poisoned, Shaken",
+          "name": "Status Immunities"
+        },
+        "twoSpells": {
+          "description": "Choose two spells from an advanced spell list.",
+          "name": "Two Spells (Advanced)"
+        }
+      },
+      "saboteur": {
+        "accuracyCheckBonus": {
+          "description": "Gain a +3 bonus to accuracy checks.",
+          "name": "Bonus to Accuracy Checks"
+        },
+        "auraOfUnease": {
+          "description": "Enemies cannot recover from chosen status effects.",
+          "name": "Aura of Unease",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div><div>Chosen status effects: {status1} and {status2}</div>",
+          "status1": "First status effect",
+          "status2": "Second status effect"
+        },
+        "cruelHypnosis": {
+          "description": "Spend MP to cause an enemy to attack a target of your choosing.",
+          "name": "Cruel Hypnosis",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p11</div><div>Chosen status effect: {status}</div>"
+        },
+        "entangle": {
+          "description": "Prevent enemies from performing free attack if they are suffering from multiple status effects.",
+          "name": "Entangle",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div>"
+        },
+        "exhaustingCompromise": {
+          "description": "Spend MP to manipulate clocks in certain circumstances.",
+          "name": "Exhausting Compromise",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div>"
+        },
+        "hinderingSpecialist": {
+          "description": "Follow up a successful Hinder action with another Hinder.",
+          "name": "Hindering Specialist",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div>"
+        },
+        "magicCheckBonus": {
+          "description": "Gain a +3 bonus to magic checks.",
+          "name": "Bonus to Magic Checks"
+        },
+        "name": "Saboteur",
+        "normalAttackDrainIp": {
+          "description": "Drain enemy IP on hit.",
+          "name": "Drain IP",
+          "specialText": "Each target hit loses @LOSS[1 ip]."
+        },
+        "normalAttackDrainMp": {
+          "description": "Drain enemy MP on hit.",
+          "name": "Drain MP",
+          "specialText": "Each target hit loses a <b>minor</b> amount of MP."
+        },
+        "normalAttackStatus": {
+          "description": "Cause a status effect on hit. Choosing Enraged or Poisoned costs another vulnerability.",
+          "name": "Cause Status Effect",
+          "specialText": "Each target hit suffers {status}."
+        },
+        "partingGift": {
+          "description": "Detonate your Weaken spells when you are taken out.",
+          "name": "Parting Gift",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p11</div>"
+        },
+        "secretTechnique": {
+          "description": "Use an attack or a spell without anyone but the target noticing.",
+          "name": "Secret Technique",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p11</div>"
+        },
+        "shadowOfDoubt": {
+          "description": "Prevent PCs from invoking Traits and Bonds under certain circumstances.",
+          "name": "Shadow of Doubt",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p11</div>"
+        },
+        "spell": {
+          "description": "Gain a spell from a list focused on disruption. Also gain +10 MP.",
+          "name": "Spell"
+        },
+        "strongAttack": {
+          "description": "Gain a Strong Attack with debilitating debuffs.",
+          "name": "Strong Attack",
+          "oneSpecial": {
+            "description": "Add one special effect to the Strong Attack.",
+            "name": "One Special Effect"
+          },
+          "twoSpecials": {
+            "description": "Add two special effects to the Strong Attack.",
+            "name": "Two Special Effects"
+          }
+        },
+        "strongAttackBlockAction": {
+          "action": "Choose Action",
+          "description": "Block hit targets from taking a certain action.",
+          "name": "Block Action",
+          "specialText": "The target cannot take {action} Action until the end of their next turn."
+        },
+        "strongAttackBlockAllyVision": {
+          "description": "Hit targets can't see your allies.",
+          "name": "Block Vision on Allies",
+          "specialText": "The target cannot see this NPC's allies until the end of their next turn."
+        },
+        "strongAttackBlockFreeAttacks": {
+          "description": "Block hit targets from performing Free Attacks.",
+          "name": "Block Free Attacks",
+          "specialText": "The target cannot perform Free Attacks until the end of their next turn."
+        },
+        "strongAttackBlockHpRecovery": {
+          "description": "Block HP recovery of hit targets.",
+          "name": "Block HP Recovery",
+          "specialText": "The target cannot recover HP until the end of their next turn."
+        },
+        "strongAttackBlockMpRecovery": {
+          "description": "Block MP recovery of hit targets.",
+          "name": "Block MP Recovery",
+          "specialText": "The target cannot recover MP until the end of their next turn."
+        },
+        "strongAttackBlockSelfVision": {
+          "description": "Hit targets can't see you.",
+          "name": "Block Vision on Self",
+          "specialText": "The target cannot see this NPC until the end of their next turn."
+        },
+        "strongAttackStripResAndImm": {
+          "description": "Hit targets lose resistances and immunities.",
+          "name": "Strip Resistances and Immunities",
+          "specialText": "The target loses all Resistances and Immunities and cannot gain them until the end of their next turn."
+        },
+        "syphonMind": {
+          "description": "Increase enemy MP cost.",
+          "name": "Syphon Mind",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div>"
+        }
+      },
+      "sentinel": {
+        "avenge": {
+          "action": {
+            "label": "Choose Action",
+            "melee": "Melee Attacks",
+            "ranged": "Ranged Attacks",
+            "spell": "Offensive Spells"
+          },
+          "description": {
+            "oneAction": "Retaliate against a certain type of offensive action.",
+            "twoActions": "Retaliate against two types of offensive action."
+          },
+          "name": {
+            "oneAction": "Avenge (One Action)",
+            "rule": "Avenge",
+            "twoActions": "Avenge (Two Actions)"
+          },
+          "ruleText": {
+            "oneAction": "<div>Quick Assembly Rules Preview V2 p13</div><div>Chosen action: {action}</div>",
+            "twoActions": "<div>Quick Assembly Rules Preview V2 p13</div><div>Chosen actions: {action1} and {action2}</div>"
+          }
+        },
+        "barricade": {
+          "actionText": {
+            "oneType": "<div>Quick Assembly Rules Preview V2 p13</div><div>Chosen damage type: {damageType}</div>",
+            "twoTypes": "<div>Quick Assembly Rules Preview V2 p13</div><div>Chosen damage types: {damageType1} and {damageType2}</div>"
+          },
+          "description": {
+            "oneType": "Use MP to grant yourself and allies Resistance to a specific damage type.",
+            "twoTypes": "Use MP to grant yourself and allies Resistance to two damage types."
+          },
+          "name": {
+            "oneType": "Barricade (One Damage Type)",
+            "rule": "Barricade",
+            "twoTypes": "Barricade (Two Damage Types)"
+          }
+        },
+        "intercept": {
+          "description": "Protect your allies from danger by sacrificing yourself.",
+          "name": "Intercept",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p12</div>"
+        },
+        "name": "Sentinel",
+        "normalAttackStatus": {
+          "description": {
+            "dazed": "Targets suffer Dazed.",
+            "shaken": "Targets suffer Shaken.",
+            "slow": "Targets suffer Slow.",
+            "weak": "Targets suffer Weak."
+          },
+          "specialText": "Each target hit by this attack suffers {status}."
+        },
+        "reassuringAura": {
+          "description": "Grant allies immunity against a specific status effect.",
+          "name": "Reassuring Aura",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p13</div><div>Chosen status effect: {status}</div>"
+        },
+        "reduceProgress": {
+          "description": "Impede enemy clock manipulation under certain circumstances.",
+          "name": "Reduce Progress",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p13</div><div>Chosen status effects: {status1} and {status2}</div>"
+        },
+        "spell": {
+          "description": "Learn one spell from a list focused on mitigation. Also increase MP by +10.",
+          "name": "Spell"
+        },
+        "strongAttackDispel": {
+          "description": "Under certain circumstance remove ongoing magical effects on hit.",
+          "name": "Strong Attack Dispel",
+          "specialText": "If a target is suffering from {status} and is affected by one or more spells with a <b>duration</b> of \"Scene\", that target is no longer affected by any of those spells."
+        },
+        "threaten": {
+          "description": "Force enemies to attack you.",
+          "name": "Threaten",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p12</div>"
+        },
+        "unwaveringSupport": {
+          "description": "Support Villains by improving their critical chance when they invoke Traits.",
+          "name": "Unwavering Support",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p12</div>"
+        },
+        "vulnerabilityBlock": {
+          "description": "Flip a single Vulnerability of a specific ally to Resistance.",
+          "name": "Vulnerability Block",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p12</div>"
+        }
+      },
+      "support": {
+        "advise": {
+          "actionText": "<div>Quick Assembly Rules Preview V2 p14</div>",
+          "description": "Use MP to help allies recover from status effects and give them a bonus on their next Check.",
+          "name": "Advise"
+        },
+        "followUpAttack": {
+          "description": "Under certain circumstances follow up an ally's attack with an attack of your own.",
+          "name": "Follow-up Attack",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p15</div>"
+        },
+        "healingAura": {
+          "description": "Continously heal your allies.",
+          "name": "Healing Aura",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p15</div>"
+        },
+        "improvedAdvise": {
+          "actionText": "<div><b>Improved Advise:</b> Quick Assembly Rules Preview V2 p14 & p15</div>",
+          "description": "Improves Advise to allow recovery from all status effects.",
+          "name": "Improved Advise"
+        },
+        "inspire": {
+          "actionText": "<div>Quick Assembly Rules Preview V2 p14</div><div>Chosen resource: {resource}<br>Chosen attribute: {attribute}</div>",
+          "description": "Use MP to recover an ally's resource and improve one of their attributes.",
+          "name": "Inspire",
+          "resource": "Choose Resource"
+        },
+        "mpBattery": {
+          "description": "Pay MP costs for your allies.",
+          "name": "MP Battery",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p15</div>"
+        },
+        "name": "Support",
+        "oneLastCommand": {
+          "description": "Use one of your special actions one final time when you get taken out.",
+          "name": "One Last Command",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p15</div>"
+        },
+        "oneSpellMpBonus": {
+          "description": "Choose one spell from a list focused on support. Also gain +10 MP.",
+          "name": "One Spell and MP Bonus"
+        },
+        "strategicCommand": {
+          "actionText": "<div>Quick Assembly Rules Preview V2 p15</div>",
+          "description": "Use MP to have an ally take their turn immediately after yours and give them a bonus to damage.",
+          "name": "Strategic Command"
+        },
+        "twoSpells": {
+          "description": "Choose two spells from a list focused on support.",
+          "name": "Two Spells"
+        },
+        "vulnerabilityBlock": {
+          "description": "Flip a single Vulnerability of a specific ally to Resistance.",
+          "name": "Vulnerability Block",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p14</div>"
+        }
+      }
+    },
+    "species": {
+      "beast": {
+        "name": "Beast",
+        "opposedCheckBonus": {
+          "description": "Gain a bonus to specific Opposed Checks.",
+          "name": "Bonus to Opposed Checks",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p18</div>"
+        }
+      },
+      "construct": {
+        "additionalVulnerability": {
+          "description": "One additional vulnerability to a damage type among: air, bolt, fire, ice.",
+          "name": "Additional Vulnerability"
+        },
+        "name": "Construct",
+        "opposedCheckBonus": {
+          "description": "Gain a bonus to specific Opposed Checks.",
+          "name": "Bonus to Opposed Checks",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p18</div>"
+        },
+        "statusImmunities": {
+          "description": "Gain immunity to any two status effects.",
+          "name": "Status Immunities"
+        }
+      },
+      "demon": {
+        "name": "Demon",
+        "upgradeResToAbs": {
+          "description": "Upgrade a resistance to absorption.",
+          "name": "Upgrade Resistance to Absorption"
+        }
+      },
+      "elemental": {
+        "additionalVulnerability": {
+          "description": "One additional vulnerability, preferably opposed to the creatures primary nature.",
+          "name": "Additional Vulnerability"
+        },
+        "name": "Elemental",
+        "upgradeImmToAbs": {
+          "description": "Upgrade one immunity to absorption.",
+          "name": "Upgrade Immunity to Absorption"
+        }
+      },
+      "humanoid": {
+        "name": "Humanoid",
+        "opposedCheckBonus": {
+          "description": "Gain a bonus to specific Opposed Checks.",
+          "name": "Bonus to Opposed Checks",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p20</div>"
+        }
+      },
+      "monster": {
+        "name": "Monster"
+      },
+      "plant": {
+        "name": "Plant",
+        "thorns": {
+          "description": "Deal minor damage to melee attackers.",
+          "name": "Thorns",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p21</div>"
+        }
+      },
+      "undead": {
+        "additionalVulnerability": {
+          "description": "One additional vulnerability to a damage type among: air, bolt, earth, fire, ice.",
+          "name": "Additional Vulnerability"
+        },
+        "name": "Undead",
+        "undeadHealing": {
+          "description": "Undead may be harmed by healing effects.",
+          "name": "Undead Healing",
+          "ruleText": "<div>Core Rulebook p305</div>"
+        },
+        "upgradeImmToAbs": {
+          "description": "Upgrade dark immunity to dark absorption.",
+          "name": "Upgrade Immunity to Absorption"
+        }
+      }
+    },
+    "spell": {
+      "areaStatus": {
+        "description": "Cause a status effect on multiple targets.",
+        "name": "Area Status",
+        "spellText": "<div>Choose any number of creatures you can see: each of them suffers {status}.</div>"
+      },
+      "aura": {
+        "description": "Improve M.DEF of up to three targets.",
+        "name": "Aura",
+        "spellText": "You project your soul outside your body and direct it to surround the targets, shielding them from dangerous magic. Until this spell ends, each target may treat their Magic Defense as being equal to 12 against any effects that target it (they are still free to use their normal Defense score if higher than 12)."
+      },
+      "awaken": {
+        "description": "Improve one Attribute of a target.",
+        "name": "Awaken",
+        "spellText": "You allow a creature to focus their vital energy into accomplishing what they previously could not. Choose one Attribute: <b>Dexterity</b>, <b>Insight</b>, <b>Might</b>, or <b>Willpower</b>. Until this spell ends, the target treats the chosen Attribute as if it were one die size higher (up to a maximum of <b>d12</b>)."
+      },
+      "barrier": {
+        "description": "Improve DEF of up to three targets.",
+        "name": "Barrier",
+        "spellText": "You project your soul outside your body and weave it into a barrier to protect the targets from attacks. Until this spell ends, each target may treat their Defense as being equal to 12 against any effects that target it (they are still free to use their normal Defense score if higher than 12)."
+      },
+      "breath": {
+        "description": "Deal moderate damage to a single target.",
+        "name": "Breath",
+        "spellText": "<div>The target suffers {damageType} damage.</div>"
+      },
+      "cleanse": {
+        "description": "Remove status effects from up to three targets.",
+        "name": "Cleanse",
+        "spellText": "You strengthen and purify the soul energy coursing through your companions. Each target recovers from all status effects."
+      },
+      "costPerTarget": "{amount}xT MP",
+      "curseXL": {
+        "description": "Cause two status effects on a single target.",
+        "name": "Curse XL",
+        "spellText": "<div>The target suffers {status1}] and @EFFECT[{status2}.</div>",
+        "status1": "First Status Effect",
+        "status2": "Second Status Effect"
+      },
+      "cursedBreath": {
+        "description": "Cause heavy damage and a status effect on as single target.",
+        "name": "Cursed Breath",
+        "spellText": "<div>The target suffers {damageType} damage and {status}.</div>"
+      },
+      "devastation": {
+        "description": "Cause massive damage to any number of targets.",
+        "name": "Devastation",
+        "spellText": "<div>Choose any number of creatures you can see: each of them suffers 30 {damageType} damage. You may only cast this spell once per turn.</div><div>This spell should only be given to champion and elite creatures level 30 or higher, and said creatures can only cast this spell during their last turn in the round.</div>"
+      },
+      "dispel": {
+        "description": "End ongoing effects on a single target.",
+        "name": "Dispel",
+        "spellText": "You release a wave of negative energy and cleanse all magic from a creature. If the target is affected by one or more spells with a <b>duration</b> of \"Scene\", they are no longer affected by any of those spells instead."
+      },
+      "divination": {
+        "description": "Allow yourself to force a target to reroll a Check.",
+        "name": "Divination",
+        "spellText": "You glimpse briefly into the future. Until this spell ends, after a creature you can see performs a Check, if it was not a <b>fumble</b> nor a <b>critical success</b>, you may force that creature to reroll <b>both</b> dice. Once you have forced <b>two</b> rerolls this way, this spell ends."
+      },
+      "drainSpirit": {
+        "description": "Cause a single target to loose MP while restoring your own.",
+        "name": "Drain Spirit",
+        "spellText": "You consume a creature's psyche. The target loses 【HR + 15】 Mind Points. Then, you recover an amount of Mind Points equal to half the Mind Points loss they suffered (if the loss was reduced to 0 in some way, you recover none)."
+      },
+      "duration": {
+        "instant": "Instantaneous",
+        "scene": "Scene"
+      },
+      "elementalShroud": {
+        "description": "Grant up to three targets Resistance to an elemental damage type.",
+        "name": "Elemental Shroud",
+        "spellText": "You weave magical energy and protect the targets from the fury of the elements. Choose a damage type: <b>air</b>, <b>bolt</b>, <b>earth</b>, <b>fire</b> or <b>ice</b>. Until this spell ends, each target gains Resistance against the chosen damage type."
+      },
+      "enrage": {
+        "description": "Cause multiple targets to suffer Enraged.",
+        "name": "Enrage",
+        "spellText": "<div>You cause a creature to lose any semblance of temper and act brazenly. The target suffers Enraged and cannot perform the <b>Guard</b> or <b>Spell</b> actions during their next turn.</div>"
+      },
+      "flare": {
+        "description": "Cause massive fire damage that ignores resistance to a single target.",
+        "name": "Flare",
+        "spellText": "<div>You channel a single ray of fire towards your foe, its temperature so high that it will pierce through most defenses. The target suffers fire damage.</div><div>Damage dealt by this spell ignores Resistances.</div>"
+      },
+      "fulgur": {
+        "description": "Cause heavy bolt damage to multiple targets.",
+        "name": "Fulgur",
+        "opportunity": "Each target hit by this spell suffers dazed.",
+        "spellText": "You weave electricity into a wave of crackling bolts. Each target hit by this spell suffers bolt damage."
+      },
+      "glacies": {
+        "description": "Cause heavy ice damage to multiple targets.",
+        "name": "Glacies",
+        "opportunity": "Each target hit by this spell suffers slow.",
+        "spellText": "You coat your foes under a thick layer of frost. Each target hit by this spell suffers ice damage."
+      },
+      "heal": {
+        "description": "Restore HP of up to three targets.",
+        "name": "Heal",
+        "spellText": "You invigorate your companions, soothing their pain and healing their fatigue. Each target recovers {amount} Hit Points."
+      },
+      "iceberg": {
+        "description": "Cause massive ice damage that ignores resistance to a single target.",
+        "name": "Iceberg",
+        "spellText": "<div>A pillar of ice magic envelops your foe, suddenly dropping their body temperature to a critical level. The target suffers ice damage.</div><div>Damage dealt by this spell ignores Resistances.</div>"
+      },
+      "ignis": {
+        "description": "Cause heavy fire damage to multiple targets.",
+        "name": "Ignis",
+        "opportunity": "Each target hit by this spell suffers shaken.",
+        "spellText": "You unleash a searing barrage against your foes, conjuring flames out of thin air. Each target hit by this spell suffers fire damage."
+      },
+      "lickWounds": {
+        "description": "Recover your own HP.",
+        "name": "Lick Wounds",
+        "spellText": "You recover {amount} Hit Points."
+      },
+      "lifeTheft": {
+        "description": "Deal heavy damage to a single target and heal for part of the damage caused.",
+        "name": "Life Theft",
+        "spellText": "<div>The target suffers {damageType} damage. Then, you recover an amount of Hit Points equal to half the Hit Point loss they suffered.</div>"
+      },
+      "lux": {
+        "description": "Cause heavy light damage to multiple targets.",
+        "name": "Lux",
+        "opportunity": "Each target hit by this spell suffers dazed.",
+        "spellText": "You focus your inner energy into a barrage of blinding soul rays. Each target hit by this spell suffers light damage."
+      },
+      "mindTheft": {
+        "description": "Cause heavy damage to a single target, then recover MP.",
+        "name": "Mind Theft",
+        "spellText": "The target suffers {damageType} damage. Then, you recover an amount of Mind Points equal to half the Hit Point loss they suffered."
+      },
+      "mirror": {
+        "description": "Reflect harmful spells back onto their caster.",
+        "name": "Mirror",
+        "spellText": "You twist the laws of magic. Until this spell ends, if an offensive (<i class='is-offensive'></i>) spell is cast on the target, the creature who cast that offensive spell will be targeted in their stead (any other targets of the offensive spell will be targeted as normal). Once that happens, this spell ends."
+      },
+      "omega": {
+        "description": "Cause a target to loose HP based on its level.",
+        "name": "Omega",
+        "spellText": "You invoke doom on your foe, turning strength into frailty. The target loses an amount of Hit Points equal to 【20 + half the target's level】."
+      },
+      "poison": {
+        "description": "Cause multiple targets to suffer Poisoned.",
+        "name": "Poison",
+        "spellText": "<div>Each target hit by this spell suffers Poisoned.</div>"
+      },
+      "quicken": {
+        "description": "Allow a target to use a free attack immediately.",
+        "name": "Quicken",
+        "spellText": "The target may immediately perform a <b>free attack</b> with a weapon they have equipped (or with a <b>basic attack</b>, if the target is an NPC)."
+      },
+      "rage": {
+        "description": "Cause multiple targets to suffer Enraged.",
+        "name": "Rage",
+        "spellText": "Each target hit by this spell suffers Enraged."
+      },
+      "reinforce": {
+        "description": "Make yourself and allies immune to a status effect of your choosing.",
+        "name": "Reinforce",
+        "spellText": "<div>You protect the targets from attacks that would corrupt their body and spirit. Choose <b>dazed</b>, <b>enraged</b>, <b>poisoned</b>, <b>shaken</b>, <b>slow</b> or <b>weak</b>. Until this spell ends, each target becomes immune to the chosen status effect.</div>"
+      },
+      "shell": {
+        "description": "Gain Resistance to physical damage.",
+        "name": "Shell",
+        "spellText": "Until this spell ends, you gain Resistance to <b>physical</b> damage."
+      },
+      "stop": {
+        "description": "Cause the target to lose an action.",
+        "name": "Stop",
+        "spellText": "You trap a foe inside a circle of altered time and space. The target will perform one fewer action on their next turn (to a minimum of 0 actions)."
+      },
+      "targets": {
+        "self": "Self",
+        "single": "One creature",
+        "special": "Special",
+        "upToThree": "Up to three creatures"
+      },
+      "terra": {
+        "description": "Cause heavy earth damage to multiple grounded targets.",
+        "name": "Terra",
+        "opportunity": "Each target hit by this spell performs one fewer action on their next turn (to a minimum of 0 actions).",
+        "spellText": "Spires of jagged rock erupt from the ground beneath your foes, closing around them. Each target hit by this spell suffers earth damage. This spell cannot target creatures who are flying, floating, falling, or otherwise in mid-air."
+      },
+      "thunderbolt": {
+        "description": "Cause massive bolt damage that ignores resistance to a single target.",
+        "name": "Thunderbolt",
+        "spellText": "<div>You send lightning striking at your foe. The target suffers bolt damage.</div><div>Damage dealt by this spell ignores Resistances.</div>"
+      },
+      "totalCost": "{amount} MP",
+      "umbra": {
+        "description": "Cause heavy dark damage to multiple targets.",
+        "name": "Umbra",
+        "opportunity": "Each target hit by this spell suffers weak.",
+        "spellText": "A storm of dark energy turns matter into ash. Each target hit by this spell suffers dark damage."
+      },
+      "ventus": {
+        "description": "Cause heavy air damage to multiple targets.",
+        "name": "Ventus",
+        "opportunity": "Each flying target hit by this spell is forced to land immediately.",
+        "spellText": "You summon the power of winds against your enemy. Each target hit by this spell suffers air damage."
+      },
+      "warCry": {
+        "description": "Grant a bonus to Accuracy Checks.",
+        "name": "War Cry",
+        "spellText": "Until this spell ends, each target gains a +1 bonus to Accuracy Checks."
+      },
+      "weaken": {
+        "description": "Amplify damage of a chosen type on a single target.",
+        "name": "Weaken",
+        "spellText": "<div>Until this spell ends, the target suffers 5 extra damage from all sources that deal <b>{damageType}</b> damage.</div>"
+      }
+    },
+    "spells": "Spells",
+    "statusEffects": {
+      "dazed": "Dazed",
+      "enraged": "Enraged",
+      "poisoned": "Poisoned",
+      "shaken": "Shaken",
+      "slow": "Slow",
+      "weak": "Weak"
+    },
+    "step": {
+      "assignAffinity": {
+        "blank": "Select damage type...",
+        "immunity": "Assign Immunity",
+        "resistance": "Assign Resistance",
+        "upgradeImmToAbs": "Upgrade Immunity to Absorption",
+        "upgradeResToAbs": "Upgrade Resistance to Absorption",
+        "vulnerability": "Assign Vulnerability"
+      },
+      "assignStatusImmunity": {
+        "blank": "Select status effect...",
+        "name": "Assign Status Immunity"
+      },
+      "chooseSkill": {
+        "blank": "Select...",
+        "boss": "Choose Boss Skill",
+        "customization": "Choose Customization",
+        "negative": "Choose Negative Skill",
+        "role": "Choose Role Skill",
+        "spell": "Choose Spell"
+      },
+      "chooseTraits": {
+        "name": "Choose Traits",
+        "npcName": "NPC Name",
+        "traits": "Traits"
+      },
+      "conditionalBonusSkill": {
+        "description": "Gain an additional skill choice in exchange for a drawback.",
+        "drawback": "Accept this drawback...",
+        "name": "Conditional Bonus Skill",
+        "no": "Refuse",
+        "options": "...and gain one of these benefits:",
+        "yes": "Accept"
+      },
+      "configureAttack": {
+        "attackName": "Attack Name",
+        "attributes": {
+          "blank": "Select attributes...",
+          "label": "Attributes"
+        },
+        "damageType": {
+          "blank": "Select damage type...",
+          "label": "Damage Type"
+        },
+        "name": "Configure Attack",
+        "nestedChoice": {
+          "blank": "Select...",
+          "label": "Additional Configuration"
+        },
+        "range": {
+          "blank": "Select range...",
+          "label": "Attack Range"
+        },
+        "special": {
+          "blank": "Select special effect...",
+          "label": "Special Effect"
+        }
+      },
+      "finish": {
+        "confirm": "Check that everything is correct and then press 'Next' to create the Actor.",
+        "header": "All done!"
+      },
+      "selectLevel": {
+        "blank": "Select level...",
+        "name": "Select Level"
+      },
+      "selectRank": {
+        "blank": "Select rank...",
+        "name": "Select Rank"
+      },
+      "selectRole": {
+        "blank": "Select role...",
+        "name": "Select Role"
+      },
+      "selectSpecies": {
+        "blank": "Select species...",
+        "name": "Select Species"
+      }
+    },
+    "wizard": {
+      "back": "Back",
+      "next": "Next",
+      "title": "Quick NPC Wizard"
+    }
+  }
+}

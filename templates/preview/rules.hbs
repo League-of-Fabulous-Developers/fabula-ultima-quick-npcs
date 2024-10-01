@@ -1,0 +1,16 @@
+{{#if (not (empty rules))}}
+    <div class="rules">
+        <div>{{localize 'QUICKNPC.preview.rules'}}</div>
+        <div>
+            {{#each rules}}
+                <div class="rule border-left border-bottom">
+                    <div>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <strong>{{name}}</strong>
+                    </div>
+                    <div>{{{description}}}</div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+{{/if}}

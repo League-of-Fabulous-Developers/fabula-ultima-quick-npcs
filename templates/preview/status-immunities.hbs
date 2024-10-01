@@ -1,0 +1,7 @@
+<div class="immunities border-bottom border-left">
+    {{#each statusImmunities}}
+        {{#if this}}
+            <div>{{localize 'QUICKNPC.preview.statusImmunity' status=@key}}</div>
+        {{/if}}
+    {{/each}}
+</div>

@@ -1,0 +1,16 @@
+{{#if (not (empty actions))}}
+    <div class="actions">
+        <div>{{localize 'QUICKNPC.preview.actions'}}</div>
+        <div>
+            {{#each actions}}
+                <div class="action border-left border-bottom">
+                    <div>
+                        <span><i class="is-skill"></i></span>
+                        <strong>{{name}}</strong>
+                    </div>
+                    <div>{{{description}}}</div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+{{/if}}

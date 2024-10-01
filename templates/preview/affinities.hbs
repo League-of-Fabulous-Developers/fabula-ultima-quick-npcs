@@ -1,0 +1,12 @@
+<div class="affinities border-bottom">
+    {{#each affinities}}
+        <span class="border-left">
+            <span>
+                <i class="{{lookup @root.damageTypeIcons @key}}"></i>
+                {{#if this}}
+                    {{localize (concat 'QUICKNPC.preview.affinity.' this)}}
+                {{/if}}
+            </span>
+        </span>
+    {{/each}}
+</div>

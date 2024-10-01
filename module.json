@@ -1,0 +1,55 @@
+{
+  "id": "fabula-ultima-quick-npcs",
+  "title": "Fabula Ultima NPC Quick Assembly",
+  "description": "NPC Quick Assembly Wizard for Fabula Ultima.",
+  "version": "#{VERSION}#",
+  "library": "false",
+  "compatibility": {
+    "minimum": 11,
+    "verified": 11,
+    "maximum": 12
+  },
+  "authors": [
+    {
+      "name": "Shourn",
+      "url": "https://github.com/Shourn"
+    }
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "projectfu",
+        "type": "system",
+        "manifest": "https://github.com/League-of-Fabulous-Developers/FoundryVTT-Fabula-Ultima/releases/latest/download/system.json",
+        "compatibility": {
+          "verified": "2.3.0"
+        }
+      }
+    ],
+    "requires": []
+  },
+  "esmodules": [
+    "scripts/module.mjs"
+  ],
+  "styles": [
+    "styles/module.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "languages/en.json"
+    }
+  ],
+  "url": "#{URL}#",
+  "manifest": "#{MANIFEST}#",
+  "download": "#{DOWNLOAD}#",
+  "license": "LICENSE",
+  "readme": "README.md",
+  "media": [
+    {
+      "type": "icon",
+      "url": "https://avatars2.githubusercontent.com/u/71292812?s=400&u=ccdb4eeb7abf551ca8f314e5a9bfd0479a4d3d41&v=4"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+<div>
+    <label class="primary">{{localize 'QUICKNPC.step.configureAttack.name'}}</label>
+    <div>
+        <label class="secondary">
+            {{localize 'QUICKNPC.step.configureAttack.attackName'}}
+            <input type="text" name="name" value="{{name}}"/>
+        </label>
+    </div>
+    {{#if attributes}}
+        <div>
+            <label class="secondary">
+                {{localize 'QUICKNPC.step.configureAttack.attributes.label'}}
+                <select name="attributes">
+                    {{selectOptions attributes selected=selectedAttributes
+                                    blank="QUICKNPC.step.configureAttack.attributes.blank" localize=true}}
+                </select>
+            </label>
+        </div>
+    {{/if}}
+    {{#if ranges}}
+        <div>
+            <label class="secondary">
+                {{localize 'QUICKNPC.step.configureAttack.range.label'}}
+                <select name="range">
+                    {{selectOptions ranges selected=selectedRange blank="QUICKNPC.step.configureAttack.range.blank"
+                                    localize=true}}
+                </select>
+            </label>
+        </div>
+    {{/if}}
+    {{#if damageTypes}}
+        <div>
+            <label class="secondary">
+                {{localize 'QUICKNPC.step.configureAttack.damageType.label'}}
+                <select name="damageType">
+                    {{selectOptions damageTypes selected=selectedDamageType
+                                    blank="QUICKNPC.step.configureAttack.damageType.blank" localize=true}}
+                </select>
+            </label>
+        </div>
+    {{/if}}
+    {{#if special}}
+        <div>
+            <label class="secondary">
+                {{localize 'QUICKNPC.step.configureAttack.special.label'}}
+                <select name="special">
+                    {{selectOptions special selected=selectedSpecial blank="QUICKNPC.step.configureAttack.special.blank"
+                                    localize=true labelAttr='label'}}
+                </select>
+            </label>
+            <p>{{localize (lookup (lookup special selectedSpecial) 'description')}}</p>
+            {{#each nestedChoices}}
+                <label class="secondary">
+                    {{localize label}}
+                    <select name="special.{{@key}}">
+                        {{selectOptions options selected=(lookup ../selectedNested @key)
+                                        blank="QUICKNPC.step.configureAttack.nestedChoice.blank" localize=true
+                                        labelAttr='label'}}
+                    </select>
+                </label>
+            {{/each}}
+        </div>
+    {{/if}}
+</div>

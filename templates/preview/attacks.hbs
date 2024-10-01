@@ -1,0 +1,63 @@
+{{#if (not (empty attacks))}}
+    <div class="attacks">
+        <div>{{localize 'QUICKNPC.preview.basicAttacks'}}</div>
+        <div>
+            {{#each attacks}}
+                <div class="attack border-left border-bottom">
+                    <div>
+                        <span>
+                            {{#if (eq range 'melee')}}
+                                <i class="is-melee"></i>
+                            {{else}}
+                                {{#if (eq range 'ranged')}}
+                                    <i class="is-range"></i>
+                                {{else}}
+                                    <i class="fa-regular fa-circle-question"></i>
+                                {{/if}}
+                            {{/if}}
+                        </span>
+                        <span class="name"><strong>{{name}}</strong></span>
+                        <span class="divider"></span>
+                        <span class="attributes {{#if accuracy}}has-accuracy{{/if}}">
+                            <strong>
+                                {{#if attributes}}
+                                    {{localize 'QUICKNPC.pretty.attributes'
+                                               attr1=(localize (concat 'QUICKNPC.preview.' attributes.[0]))
+                                               attr2=(localize (concat 'QUICKNPC.preview.' attributes.[1]))}}
+                                {{else}}
+                                    {{localize 'QUICKNPC.pretty.attributes'
+                                               attr1=(localize 'QUICKNPC.preview.unknown')
+                                               attr2=(localize 'QUICKNPC.preview.unknown')}}
+                                {{/if}}
+                            </strong>
+                            {{#if accuracy}}
+                                <strong>
+                                    +{{accuracy}}
+                                </strong>
+                            {{/if}}
+                        </span>
+                        <span class="divider"></span>
+                        <span class="damage">
+                            <strong>
+                                {{localize 'QUICKNPC.pretty.damage' damage=damage}}
+                            </strong>
+                            {{#if damageType}}
+                                <strong>
+                                    {{localize (concat 'QUICKNPC.preview.damageType.' damageType)}}
+                                </strong>
+                            {{/if}}
+                            {{localize 'QUICKNPC.preview.damage'}}
+                        </span>
+                    </div>
+                    {{#if special}}
+                        <div class="special">
+                            {{#each special}}
+                                <div>{{{this}}}</div>
+                            {{/each}}
+                        </div>
+                    {{/if}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+{{/if}}
