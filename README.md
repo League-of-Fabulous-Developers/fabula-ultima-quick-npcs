@@ -3,6 +3,9 @@
 # Fabula Ultima Quick NPC Wizard
 
 This module to implement the Creature Quick Assembly Rules from the preview document / the upcoming "Bestiary" in an easy to use fashion.
+The wizard is accessible from the ProjectFU scene controls.
+
+![](screenshot.png)
 
 ## Installation
 Use automatic Foundry module installation.\
