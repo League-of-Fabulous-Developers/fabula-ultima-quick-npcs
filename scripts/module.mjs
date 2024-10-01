@@ -10,7 +10,6 @@ const templates = {
     "QUICKNPC.step.singleSelect": "/modules/fabula-ultima-quick-npcs/templates/steps/single-select.hbs",
     "QUICKNPC.wizard.preview": "/modules/fabula-ultima-quick-npcs/templates/preview.hbs",
     "QUICKNPC.wizard.stepper": "/modules/fabula-ultima-quick-npcs/templates/stepper.hbs",
-    'QUICKNPC.wizard.v11compat': "/modules/fabula-ultima-quick-npcs/templates/v11compat.hbs",
     'QUICKNPC.preview.header': "/modules/fabula-ultima-quick-npcs/templates/preview/header.hbs",
     'QUICKNPC.preview.subHeader': "/modules/fabula-ultima-quick-npcs/templates/preview/sub-header.hbs",
     'QUICKNPC.preview.statistics': "/modules/fabula-ultima-quick-npcs/templates/preview/statistics.hbs",

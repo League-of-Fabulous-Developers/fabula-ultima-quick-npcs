@@ -21,11 +21,11 @@ export class QuickNpcWizardV11 extends FormApplication {
     }
 
     get template() {
-        return "QUICKNPC.wizard.v11compat";
+        return "/modules/fabula-ultima-quick-npcs/templates/v11compat.hbs";
     }
 
 
-    async _updateObject(event, formDataObject) {
+    async _updateObject(event) {
         return this.constructor.#commitData.call(this, event, this.form, new FormData(this.form));
     }
 
