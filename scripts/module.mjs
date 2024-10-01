@@ -78,7 +78,8 @@ const registerTool = function (tools) {
         icon: "fa-solid fa-file-circle-plus",
         title: "QUICKNPC.wizard.title",
         button: true,
-        onClick: () => (app ??= new globalThis.quickNpc.Wizard()).render(true)
+        onClick: () => (app ??= new globalThis.quickNpc.Wizard()).render(true),
+        visible: game.user.isGM
     })
 };
 
