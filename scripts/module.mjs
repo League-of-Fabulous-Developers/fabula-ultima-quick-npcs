@@ -30,15 +30,15 @@ Hooks.once('init', async function () {
 
     await loadTemplates(templates)
 
-    let wizardV12;
+    let WizardV12;
     if (game.release.isNewer("12")) {
-        wizardV12 = await import("./quick-npc-wizard-v12.mjs").then(value => value.QuickNpcWizardV12);
+        WizardV12 = await import("./quick-npc-wizard-v12.mjs").then(value => value.QuickNpcWizardV12);
     }
 
     globalThis.quickNpc = {
-        wizardV12: wizardV12,
-        wizardV11: QuickNpcWizardV11,
-        wizard: wizardV12 ?? QuickNpcWizardV11,
+        WizardV12: WizardV12,
+        WizardV11: QuickNpcWizardV11,
+        Wizard: WizardV12 ?? QuickNpcWizardV11,
     }
 
     Handlebars.registerHelper({
@@ -58,3 +58,28 @@ Hooks.once('init', async function () {
 
     console.log(LOG_MESSAGE, "Initialized")
 });
+
+
+let app;
+let cleanUpApplication = (application) => {
+    if (application === app) {
+        app = null;
+    }
+};
+Hooks.on("closeApplication", cleanUpApplication)
+Hooks.on("closeApplicationV2", cleanUpApplication)
+
+/**
+ * @param {SceneControlTool[]} tools
+ */
+const registerTool = function (tools) {
+    tools.push({
+        name: globalThis.quickNpc.Wizard.name,
+        icon: "fa-solid fa-file-circle-plus",
+        title: "QUICKNPC.wizard.title",
+        button: true,
+        onClick: () => (app ??= new globalThis.quickNpc.Wizard()).render(true)
+    })
+};
+
+Hooks.on(globalThis.projectfu.SystemControls.HOOK_GET_SYSTEM_TOOLS, registerTool)
