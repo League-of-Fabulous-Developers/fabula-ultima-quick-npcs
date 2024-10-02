@@ -59,9 +59,8 @@ export class QuickNpcWizardV12 extends foundry.applications.api.HandlebarsApplic
         }
     }
 
-    static #onBack(event) {
-        console.log("onBack", this, event)
-        this.#stepper.revertLastStep();
+    static #onBack() {
+        this.#latestFormData = this.#stepper.revertLastStep();
         this.render()
     }
 

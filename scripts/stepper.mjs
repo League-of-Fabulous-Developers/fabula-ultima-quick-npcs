@@ -87,10 +87,14 @@ export class Stepper {
         return step.apply(value, context)
     }
 
+    /**
+     * @return {void | FormData}
+     */
     revertLastStep() {
         const lastStep = this.#stepsTaken.pop();
         if (lastStep) {
             this.#CurrentStep = lastStep.constructor
+            return lastStep.formData
         }
     }
 

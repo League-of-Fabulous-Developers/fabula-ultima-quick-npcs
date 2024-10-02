@@ -1,5 +1,8 @@
 export class AbstractStep {
 
+    /**
+     * @type FormData
+     */
     #data
 
     /**
@@ -43,6 +46,16 @@ export class AbstractStep {
      */
     apply(value, context) {
         throw new Error("'apply(value, context) {}' must be overridden")
+    }
+
+    get formData() {
+        const formData = new FormData();
+
+        for (let [key, value] of this.#data.entries()) {
+            formData.append(key, value)
+        }
+
+        return formData;
     }
 
 }

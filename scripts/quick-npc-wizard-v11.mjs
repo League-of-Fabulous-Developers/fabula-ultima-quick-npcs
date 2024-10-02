@@ -59,9 +59,8 @@ export class QuickNpcWizardV11 extends FormApplication {
         }
     }
 
-    static #onBack(event) {
-        console.log("onBack", this, event)
-        this.#stepper.revertLastStep();
+    static #onBack() {
+        this.#latestFormData = this.#stepper.revertLastStep();
         this.render()
     }
 
