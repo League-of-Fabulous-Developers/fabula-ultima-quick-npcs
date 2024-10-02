@@ -7,7 +7,7 @@ import {Spells} from "../common/spells.mjs";
  * @type SkillOptions
  */
 const customizations = {
-    hpPlus10: CommonSkills.hpPlus10,
+    monsterHpPlus10: CommonSkills.hpPlus10,
     twoResistances: CommonSkills.twoResistancesExceptPhysical,
     breath: Spells.asSkills.breath,
     flying: CommonSkills.flying,

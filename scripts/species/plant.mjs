@@ -9,7 +9,7 @@ import {Spells} from "../common/spells.mjs";
  * @type SkillOptions
  */
 const customizations = {
-    hpPlus10: CommonSkills.hpPlus10,
+    plantHpPlus10: CommonSkills.hpPlus10,
     twoResistances: CommonSkills.twoResistancesExceptPhysical,
     poison: {
         ...Spells.asSkills.poison,
@@ -20,7 +20,7 @@ const customizations = {
     },
     thorns: {
         label: "QUICKNPC.species.plant.thorns.name",
-        description: "QUICKNPC.species.beast.thorns.name",
+        description: "QUICKNPC.species.plant.thorns.description",
         apply: model => {
             model.rules.thorns = Rules.simpleRule("QUICKNPC.species.plant.thorns")
         }

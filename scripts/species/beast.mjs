@@ -7,7 +7,7 @@ import {CommonSkills} from "../common/skills.mjs";
  * @type SkillOptions
  */
 const customizations = {
-    hpPlus10: CommonSkills.hpPlus10,
+    beastHpPlus10: CommonSkills.hpPlus10,
     opposedCheckBonus: {
         label: "QUICKNPC.species.beast.opposedCheckBonus.name",
         description: "QUICKNPC.species.beast.opposedCheckBonus.description",

@@ -185,6 +185,21 @@ class Brute extends Role {
                     model.rules.badTemper = Rules.simpleRule("QUICKNPC.role.brute.badTemper")
                 }
             },
+            collateralDamage: {
+                label: "QUICKNPC.role.brute.collateralDamage.name",
+                description: "QUICKNPC.role.brute.collateralDamage.description",
+                choices: {
+                    damageType: {
+                        label: "QUICKNPC.commonChoices.damageType",
+                        options: CONSTANTS.damageTypes
+                    }
+                },
+                apply: (model, context, {damageType}) => {
+                    model.rules.collateralDamage = Rules.simpleRule("QUICKNPC.role.brute.collateralDamage", {
+                        damageType: game.i18n.localize(CONSTANTS.damageTypes[damageType])
+                    })
+                }
+            },
             dieHard: {
                 label: "QUICKNPC.role.brute.dieHard.name",
                 description: "QUICKNPC.role.brute.dieHard.description",

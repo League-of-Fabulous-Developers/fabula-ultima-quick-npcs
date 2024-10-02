@@ -233,6 +233,11 @@
           "name": "Effondrement",
           "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
         },
+        "collateralDamage": {
+          "description": "Inflige des dégâts quand il utilise l'action Gêne.",
+          "name": "Dégâts collatéraux",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div><div>Type de dégâts choisi : {damageType}</div>"
+        },
         "crush": {
           "attackSpecialText": "Les ennemis touchés deviennent des cibles potentiels pour Crush.",
           "description": "Agrippez les ennemis, infligez des dégâts aux ennemis agrippés sans avoir à effectuer de jet.",

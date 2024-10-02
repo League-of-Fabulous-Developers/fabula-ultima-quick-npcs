@@ -233,6 +233,11 @@
           "name": "Collapse",
           "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
         },
+        "collateralDamage": {
+          "description": "Deal damage when using the Hinder action.",
+          "name": "Collateral Damage",
+          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div><div>Chosen damage type: {damageType}</div>"
+        },
         "crush": {
           "attackSpecialText": "Hit enemies become possible targets for Crush.",
           "description": "Grapple enemies, deal damage to grappled enemies without having to perform a check.",
