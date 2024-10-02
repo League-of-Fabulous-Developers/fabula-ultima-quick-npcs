@@ -1,3 +1,6 @@
+import {copyFormData} from "../common/utils.mjs";
+
+
 export class AbstractStep {
 
     /**
@@ -49,13 +52,6 @@ export class AbstractStep {
     }
 
     get formData() {
-        const formData = new FormData();
-
-        for (let [key, value] of this.#data.entries()) {
-            formData.append(key, value)
-        }
-
-        return formData;
+        return copyFormData(this.#data);
     }
-
 }

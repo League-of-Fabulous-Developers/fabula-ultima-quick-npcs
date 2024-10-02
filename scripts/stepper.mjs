@@ -1,4 +1,5 @@
 import {AbstractStep} from "./steps/abstract-step.mjs";
+import {copyFormData, formDataEquals} from "./common/utils.mjs";
 
 
 export class Stepper {
@@ -11,6 +12,8 @@ export class Stepper {
     #steps
     /** @type {typeof AbstractStep} */
     #CurrentStep
+    /** @type FormData[] */
+    #redoData = []
 
     /**
      * @param {typeof AbstractStep[]} steps
@@ -24,15 +27,20 @@ export class Stepper {
 
     /**
      * @param {FormData} formData
-     * @return boolean true if done
+     * @return {boolean | FormData} true if done, false if data is invalid for current step, FormData is the next step has known redo data
      */
     nextStep(formData) {
         const [value, context] = this.currentState;
         const CurrentStep = this.currentStep
 
         let currentStep
+        let canRedo = false;
         try {
             currentStep = new CurrentStep(formData);
+            let redoData = this.#redoData.at(-1);
+            if (redoData) {
+                canRedo = formDataEquals(formData, redoData)
+            }
         } catch (cause) {
             const msg = `Invalid data for step ${CurrentStep?.name}`;
             console.error(msg, formData, cause)
@@ -74,7 +82,18 @@ export class Stepper {
 
         console.debug("Current step", NextStep.name)
 
-        return false;
+        if (canRedo) {
+            this.#redoData.pop();
+            const redoData = this.#redoData.at(-1);
+            if (redoData) {
+                return copyFormData(redoData)
+            } else {
+                return false;
+            }
+        } else {
+            this.#redoData = []
+            return false;
+        }
     }
 
     /**
@@ -94,7 +113,9 @@ export class Stepper {
         const lastStep = this.#stepsTaken.pop();
         if (lastStep) {
             this.#CurrentStep = lastStep.constructor
-            return lastStep.formData
+            const formData = lastStep.formData;
+            this.#redoData.push(formData);
+            return formData
         }
     }
 

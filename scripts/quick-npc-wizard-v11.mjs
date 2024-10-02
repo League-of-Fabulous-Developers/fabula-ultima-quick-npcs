@@ -42,8 +42,13 @@ export class QuickNpcWizardV11 extends FormApplication {
         let done = false;
 
         if (event.type === "submit") {
-            done = this.#stepper.nextStep(formData);
-            this.#latestFormData = new FormData()
+            const result = this.#stepper.nextStep(formData);
+            if (result instanceof FormData) {
+                this.#latestFormData = result;
+            } else {
+                done = result;
+                this.#latestFormData = new FormData();
+            }
         } else {
             this.#latestFormData = formData
         }
