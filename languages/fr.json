@@ -143,8 +143,14 @@
         "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Ressource choisie : {resource}</div>"
       },
       "painfulMiss": {
+        "attack": {
+          "label": "Choisir une attaque",
+          "normal": "Attaque de base",
+          "strong": "Attaque puissante"
+        },
         "description": "Inflige des dégâts à vous-même ou à vos alliés lorsque vous ratez vos attaques.",
         "name": "Douloureux échec",
+        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Attaque choisie : {attack}</div><div>Cible choisie : {target}</div>",
         "target": {
           "ally": {
             "label": "Vos alliés",
@@ -155,13 +161,7 @@
             "label": "Vous-même",
             "rule": "Vous-même"
           }
-        },
-        "attack": {
-          "label": "Choisir une attaque",
-          "normal": "Attaque de base",
-          "strong": "Attaque puissante"
-        },
-        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Attaque choisie : {attack}</div><div>Cible choisie : {target}</div>"
+        }
       }
     },
     "pretty": {
@@ -234,9 +234,9 @@
           "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
         },
         "crush": {
+          "attackSpecialText": "<div>Quick Assembly Rules Preview V2 p5</div>",
           "description": "Agrippez les ennemis, infligez des dégâts aux ennemis agrippés sans avoir à effectuer de jet.",
-          "name": "Broyer",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+          "name": "Broyer"
         },
         "dieHard": {
           "description": "Survivre aux dégâts mortels, une fois.",
