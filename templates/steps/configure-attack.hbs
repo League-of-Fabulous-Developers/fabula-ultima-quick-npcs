@@ -54,8 +54,7 @@
                     {{localize label}}
                     <select name="special.{{@key}}">
                         {{selectOptions options selected=(lookup ../selectedNested @key)
-                                        blank="QUICKNPC.step.configureAttack.nestedChoice.blank" localize=true
-                                        labelAttr='label'}}
+                                        blank="QUICKNPC.step.configureAttack.nestedChoice.blank" localize=true}}
                     </select>
                 </label>
             {{/each}}
