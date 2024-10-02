@@ -1,5 +1,6 @@
-import {LOG_MESSAGE} from "./constants.mjs";
+import {LOG_MESSAGE, MODULE} from "./constants.mjs";
 import {QuickNpcWizardV11} from "./quick-npc-wizard-v11.mjs";
+import {SETTINGS} from "./settings.mjs";
 
 const templates = {
     "QUICKNPC.step.chooseSkill": "/modules/fabula-ultima-quick-npcs/templates/steps/choose-skill.hbs",
@@ -27,7 +28,13 @@ Hooks.once('init', async function () {
 
     console.log(LOG_MESSAGE, "Registering settings")
 
+    initSettings();
+
+    console.log(LOG_MESSAGE, "Loading templates")
+
     await loadTemplates(templates)
+
+    console.log(LOG_MESSAGE, "Initializing UI")
 
     let WizardV12;
     if (game.release.isNewer("12")) {
@@ -55,31 +62,89 @@ Hooks.once('init', async function () {
         }
     })
 
+    initUi()
+
     console.log(LOG_MESSAGE, "Initialized")
 });
 
 
-let app;
-let cleanUpApplication = (application) => {
-    if (application === app) {
-        app = null;
-    }
-};
-Hooks.on("closeApplication", cleanUpApplication)
-Hooks.on("closeApplicationV2", cleanUpApplication)
-
-/**
- * @param {SceneControlTool[]} tools
- */
-const registerTool = function (tools) {
-    tools.push({
-        name: globalThis.quickNpc.Wizard.name,
-        icon: "fa-solid fa-file-circle-plus",
-        title: "QUICKNPC.wizard.title",
-        button: true,
-        onClick: () => (app ??= new globalThis.quickNpc.Wizard()).render(true),
-        visible: game.user.isGM
+function initSettings() {
+    game.settings.register(MODULE, SETTINGS.actorsTabButtonPlacement, {
+        name: game.i18n.localize("QUICKNPC.settings.actorsTabButtonPlacement.name"),
+        hint: game.i18n.localize("QUICKNPC.settings.actorsTabButtonPlacement.hint"),
+        type: String,
+        choices: {
+            none: game.i18n.localize("QUICKNPC.settings.actorsTabButtonPlacement.none"),
+            top: game.i18n.localize("QUICKNPC.settings.actorsTabButtonPlacement.top"),
+            bottom: game.i18n.localize("QUICKNPC.settings.actorsTabButtonPlacement.bottom"),
+        },
+        default: "top",
+        scope: "world",
+        config: true,
+        requiresReload: false,
+        onChange: () => ui.sidebar.tabs.actors.render()
     })
-};
 
-Hooks.on(globalThis.projectfu.SystemControls.HOOK_GET_SYSTEM_TOOLS, registerTool)
+    game.settings.register(MODULE, SETTINGS.showInSystemTools, {
+        name: game.i18n.localize("QUICKNPC.settings.showInSystemTools.name"),
+        type: Boolean,
+        default: true,
+        scope: "world",
+        config: true,
+        requiresReload: false,
+        onChange: () => ui.controls.initialize()
+    })
+}
+
+
+function initUi() {
+
+    let app;
+    const renderWizard = () => (app ??= new globalThis.quickNpc.Wizard()).render(true);
+    const cleanUpApplication = (application) => {
+        if (application === app) {
+            app = null;
+        }
+    };
+    Hooks.on("closeApplication", cleanUpApplication)
+    Hooks.on("closeApplicationV2", cleanUpApplication)
+
+    Hooks.on("renderActorDirectory", (app, html) => {
+        console.log(app, html)
+        const placement = game.settings.get(MODULE, SETTINGS.actorsTabButtonPlacement);
+        const template = document.createElement("template");
+        template.innerHTML = `
+        <div class="action-buttons flexrow">
+            <button type="button" data-action="openQuickNpcWizard">
+                <i class="fa-solid fa-hat-wizard"></i>
+                ${game.i18n.localize("QUICKNPC.wizard.open")}
+            </button>
+        </div>
+        `;
+        $(template.content).find("[data-action=openQuickNpcWizard]").on("click", renderWizard)
+        if (placement === "top") {
+            html.find(".header-actions.action-buttons").after(template.content)
+        }
+        if (placement === "bottom") {
+            html.find(".directory-footer.action-buttons").append(template.content)
+        }
+
+    })
+
+
+    /**
+     * @param {SceneControlTool[]} tools
+     */
+    const registerTool = function (tools) {
+        tools.push({
+            name: globalThis.quickNpc.Wizard.name,
+            icon: "fa-solid fa-hat-wizard",
+            title: "QUICKNPC.wizard.open",
+            button: true,
+            onClick: renderWizard,
+            visible: game.user.isGM && game.settings.get(MODULE, SETTINGS.showInSystemTools)
+        })
+    };
+
+    Hooks.on(globalThis.projectfu.SystemControls.HOOK_GET_SYSTEM_TOOLS, registerTool)
+}

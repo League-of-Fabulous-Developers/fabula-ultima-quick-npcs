@@ -1,3 +1,5 @@
+export const MODULE = "fabula-ultima-quick-npcs";
+
 export const LOG_MESSAGE = "Quick NPCs | "
 
 export const CONSTANTS = {}

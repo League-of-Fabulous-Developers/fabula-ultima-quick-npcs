@@ -709,6 +709,18 @@
         }
       }
     },
+    "settings": {
+      "actorsTabButtonPlacement": {
+        "bottom": "Bas",
+        "hint": "Où dans l’onglet Acteurs le bouton doit-il être affiché?",
+        "name": "Emplacement des boutons",
+        "none": "Ne pas montrer",
+        "top": "Haut"
+      },
+      "showInSystemTools": {
+        "name": "Afficher le bouton dans les outils du système ProjectFU?"
+      }
+    },
     "species": {
       "beast": {
         "name": "Bête",
@@ -1092,6 +1104,7 @@
     "wizard": {
       "back": "Retour",
       "next": "Suivant",
+      "open": "Ouvrir l'Assistant PNJ Rapide",
       "title": "Assistant PNJ Rapide"
     }
   }

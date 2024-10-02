@@ -709,6 +709,18 @@
         }
       }
     },
+    "settings": {
+      "actorsTabButtonPlacement": {
+        "bottom": "Bottom",
+        "hint": "Where on the Actors tab should the button be shown?",
+        "name": "Button Placement",
+        "none": "Don't show",
+        "top": "Top"
+      },
+      "showInSystemTools": {
+        "name": "Show button in ProjectFU system tools?"
+      }
+    },
     "species": {
       "beast": {
         "name": "Beast",
@@ -1092,6 +1104,7 @@
     "wizard": {
       "back": "Back",
       "next": "Next",
+      "open": "Open Quick NPC Wizard",
       "title": "Quick NPC Wizard"
     }
   }
