@@ -452,9 +452,9 @@
           "status2": "Second status effect"
         },
         "cruelHypnosis": {
+          "actionText": "<div>Quick Assembly Rules Preview V2 p11</div><div>Chosen status effect: {status}</div>",
           "description": "Spend MP to cause an enemy to attack a target of your choosing.",
-          "name": "Cruel Hypnosis",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p11</div><div>Chosen status effect: {status}</div>"
+          "name": "Cruel Hypnosis"
         },
         "entangle": {
           "description": "Prevent enemies from performing free attack if they are suffering from multiple status effects.",
@@ -479,7 +479,7 @@
         "normalAttackDrainIp": {
           "description": "Drain enemy IP on hit.",
           "name": "Drain IP",
-          "specialText": "Each target hit loses @LOSS[1 ip]."
+          "specialText": "Each target hit loses 1 IP."
         },
         "normalAttackDrainMp": {
           "description": "Drain enemy MP on hit.",
@@ -835,7 +835,7 @@
       "curseXL": {
         "description": "Cause two status effects on a single target.",
         "name": "Curse XL",
-        "spellText": "<div>The target suffers {status1}] and @EFFECT[{status2}.</div>",
+        "spellText": "<div>The target suffers {status1} and {status2}.</div>",
         "status1": "First Status Effect",
         "status2": "Second Status Effect"
       },

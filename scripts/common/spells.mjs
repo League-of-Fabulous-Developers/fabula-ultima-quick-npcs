@@ -124,7 +124,7 @@ const allSpells = {
         }
     }),
     poison: ({attributes}) => ({
-        ...spellTexts(""),
+        ...spellTexts("poison"),
         cost: 5,
         target: "upToThree",
         costType: "perTarget",

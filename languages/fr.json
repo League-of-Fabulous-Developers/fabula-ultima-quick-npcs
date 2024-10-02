@@ -452,9 +452,9 @@
           "status2": "Deuxième état"
         },
         "cruelHypnosis": {
+          "actionText": "<div>Quick Assembly Rules Preview V2 p11</div><div>État choisi : {status}</div>",
           "description": "Dépenser des PM pour faire qu'un ennemi attaque une cible de votre choix.",
-          "name": "Hypnose cruelle",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p11</div><div>État choisi : {status}</div>"
+          "name": "Hypnose cruelle"
         },
         "entangle": {
           "description": "Empêche les ennemis de faire des attaques gratuites s'ils souffrent de multiples états.",
@@ -479,7 +479,7 @@
         "normalAttackDrainIp": {
           "description": "Drainer les PI ennemi au toucher.",
           "name": "Drain de PI",
-          "specialText": "Chaque cible perd @LOSS[1 ip]."
+          "specialText": "Chaque cible perd 1 PI."
         },
         "normalAttackDrainMp": {
           "description": "Drainer les PM ennemi au toucher.",
@@ -835,7 +835,7 @@
       "curseXL": {
         "description": "Inflige deux états à une cible unique.",
         "name": "Malédiction XL",
-        "spellText": "<div>La cible subit l'état @EFFECT[{status1}] et @EFFECT[{status2}].</div>",
+        "spellText": "<div>La cible subit l'état {status1} et {status2}.</div>",
         "status1": "Premier état",
         "status2": "Deuxième état"
       },
