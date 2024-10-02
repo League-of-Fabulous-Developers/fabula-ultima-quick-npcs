@@ -143,8 +143,14 @@
         "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Chosen resource: {resource}</div>"
       },
       "painfulMiss": {
+        "attack": {
+          "label": "Choose Attack",
+          "normal": "Normal Attack",
+          "strong": "Strong Attack"
+        },
         "description": "Deal damage to yourself or allies when you miss with your attacks.",
         "name": "Painful Miss",
+        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Chosen Attack: {attack}</div><div>Chosen Target: {target}</div>",
         "target": {
           "ally": {
             "label": "Your Allies",
@@ -155,13 +161,7 @@
             "label": "Yourself",
             "rule": "Yourself"
           }
-        },
-        "attack": {
-          "label": "Choose Attack",
-          "normal": "Normal Attack",
-          "strong": "Strong Attack"
-        },
-        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Chosen Attack: {attack}</div><div>Chosen Target: {target}</div>"
+        }
       }
     },
     "pretty": {
@@ -234,6 +234,7 @@
           "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
         },
         "crush": {
+          "attackSpecialText": "Hit enemies become possible targets for Crush.",
           "description": "Grapple enemies, deal damage to grappled enemies without having to perform a check.",
           "name": "Crush",
           "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
