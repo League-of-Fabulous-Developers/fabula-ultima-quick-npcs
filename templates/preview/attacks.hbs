@@ -5,13 +5,11 @@
             {{#each attacks}}
                 <div class="attack border-left border-bottom">
                     <div>
-                        <span>
-                            {{#if range}}
-                                <i class="icon icon-{{range}}"></i>
-                            {{else}}
-                                <i class="fa-regular fa-circle-question"></i>
-                            {{/if}}
-                        </span>
+                        {{#if range}}
+                            <i class="icon icon-{{range}}"></i>
+                        {{else}}
+                            <i class="fa-regular fa-circle-question"></i>
+                        {{/if}}
                         <span class="name"><strong>{{name}}</strong></span>
                         <span class="divider"></span>
                         <span class="attributes {{#if accuracy}}has-accuracy{{/if}}">
