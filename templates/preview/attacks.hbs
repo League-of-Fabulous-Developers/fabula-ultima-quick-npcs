@@ -6,14 +6,10 @@
                 <div class="attack border-left border-bottom">
                     <div>
                         <span>
-                            {{#if (eq range 'melee')}}
-                                <i class="is-melee"></i>
+                            {{#if range}}
+                                <i class="icon icon-{{range}}"></i>
                             {{else}}
-                                {{#if (eq range 'ranged')}}
-                                    <i class="is-range"></i>
-                                {{else}}
-                                    <i class="fa-regular fa-circle-question"></i>
-                                {{/if}}
+                                <i class="fa-regular fa-circle-question"></i>
                             {{/if}}
                         </span>
                         <span class="name"><strong>{{name}}</strong></span>

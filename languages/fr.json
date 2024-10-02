@@ -935,7 +935,7 @@
       "mirror": {
         "description": "Renvoi les sorts néfastes à leur lanceur.",
         "name": "Miroir",
-        "spellText": "Vous tordez les lois de la magie. Jusqu'à la fin de ce sort, si un sort offensif (<i class='is-offensive'></i>) est lancé sur la cible, la créature qui a lancé ce sort offensif va être ciblé au lieu de vous-même (toute autre cible de ce sort offensif sera ciblée normalement). Une fois que c'est arrivé, le sort se termine."
+        "spellText": "Vous tordez les lois de la magie. Jusqu'à la fin de ce sort, si un sort offensif est lancé sur la cible, la créature qui a lancé ce sort offensif va être ciblé au lieu de vous-même (toute autre cible de ce sort offensif sera ciblée normalement). Une fois que c'est arrivé, le sort se termine."
       },
       "omega": {
         "description": "La cible perd des PV basé sur son niveau.",

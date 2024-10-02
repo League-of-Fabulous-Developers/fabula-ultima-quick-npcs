@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "FabulaUltimaIcons";
+    src: url("fonts/FabulaUltimaIcons-Regular.otf");
+}
+
 .window-content.quick-npc-wizard, .quick-npc-wizard .window-content form {
     display: grid;
     grid-template-columns: 3fr 2fr;
@@ -138,7 +143,7 @@
         .affinities {
             display: flex;
 
-            .fua {
+            .icon {
                 font-size: 1.5rem;
             }
 
@@ -179,11 +184,6 @@
                 background-color: white;
                 color: black;
                 font-family: "PT Sans Narrow", sans-serif;
-
-                .is-melee, .is-range {
-                    font-size: 100%;
-                    font-style: normal;
-                }
 
                 > :first-child {
                     display: flex;
@@ -252,11 +252,6 @@
                 color: black;
                 font-family: "PT Sans Narrow", sans-serif;
 
-                .is-spell, .is-offensive {
-                    font-size: 100%;
-                    font-style: normal;
-                }
-
                 > :first-child {
                     display: flex;
                     align-items: center;
@@ -319,11 +314,6 @@
                 color: black;
                 font-family: "PT Sans Narrow", sans-serif;
 
-                .is-skill {
-                    font-size: 100%;
-                    font-style: normal;
-                }
-
                 > :first-child {
                     display: flex;
                     align-items: center;
@@ -353,11 +343,6 @@
                 background-color: white;
                 color: black;
                 font-family: "PT Sans Narrow", sans-serif;
-
-                .is-skill {
-                    font-size: 100%;
-                    font-style: normal;
-                }
 
                 > :first-child {
                     display: flex;
@@ -418,6 +403,71 @@
                 }
 
             }
+        }
+    }
+
+    .icon {
+        &::before {
+            font-family: "FabulaUltimaIcons";
+            font-style: normal;
+            font-weight: normal;
+            color: revert;
+        }
+
+        &.icon-physical::before {
+            content: "P"
+        }
+
+        &.icon-air::before {
+            content: "A"
+        }
+
+        &.icon-bolt::before {
+            content: "B"
+        }
+
+        &.icon-dark::before {
+            content: "D"
+        }
+
+        &.icon-earth::before {
+            content: "E"
+        }
+
+        &.icon-fire::before {
+            content: "F"
+        }
+
+        &.icon-ice::before {
+            content: "I"
+        }
+
+        &.icon-light::before {
+            content: "L"
+        }
+
+        &.icon-poison::before {
+            content: "T"
+        }
+
+        &.icon-spell::before {
+            content: "C"
+        }
+
+        &.icon-offensive::before {
+            content: "O";
+        }
+
+        &.icon-skill::before {
+            content: "S"
+        }
+
+        &.icon-melee::before {
+            content: "M"
+        }
+
+        &.icon-ranged::before {
+            content: "R"
         }
     }
 }

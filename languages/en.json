@@ -935,7 +935,7 @@
       "mirror": {
         "description": "Reflect harmful spells back onto their caster.",
         "name": "Mirror",
-        "spellText": "You twist the laws of magic. Until this spell ends, if an offensive (<i class='is-offensive'></i>) spell is cast on the target, the creature who cast that offensive spell will be targeted in their stead (any other targets of the offensive spell will be targeted as normal). Once that happens, this spell ends."
+        "spellText": "You twist the laws of magic. Until this spell ends, if an offensive spell is cast on the target, the creature who cast that offensive spell will be targeted in their stead (any other targets of the offensive spell will be targeted as normal). Once that happens, this spell ends."
       },
       "omega": {
         "description": "Cause a target to loose HP based on its level.",

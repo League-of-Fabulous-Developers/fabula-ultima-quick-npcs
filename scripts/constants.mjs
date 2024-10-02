@@ -30,21 +30,6 @@ CONSTANTS.damageTypes = {
 }
 
 /**
- * @type {Record<DamageType, string>}
- */
-CONSTANTS.damageTypeIcons = {
-    physical: 'fua fu-phys',
-    air: 'fua fu-wind',
-    bolt: 'fua fu-bolt',
-    dark: 'fua fu-dark',
-    earth: 'fua fu-earth',
-    fire: 'fua fu-fire',
-    ice: 'fua fu-ice',
-    light: 'fua fu-light',
-    poison: 'fua fu-poison',
-};
-
-/**
  * @type {Record<StatusEffect, string>}
  */
 CONSTANTS.statusEffects = {
