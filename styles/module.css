@@ -275,7 +275,7 @@
                             flex-basis: 100px;
                         }
 
-                        &:not(.has-accuracy) + *{
+                        &:not(.has-accuracy) + * {
                             margin-left: -10px;
                         }
 
@@ -363,7 +363,7 @@
 
     .stepper {
         > header {
-          display: flex;
+            display: flex;
         }
 
         .step {
@@ -468,6 +468,82 @@
 
         &.icon-ranged::before {
             content: "R"
+        }
+    }
+}
+
+@supports not font-tech(color-SVG) {
+    .window-content.quick-npc-wizard, .quick-npc-wizard .window-content form {
+        .icon {
+            &::before {
+                -webkit-text-stroke: 0.05rem black;
+            }
+
+            &.icon-physical::before {
+                color: #dedede;
+                content: 'p';
+            }
+
+            &.icon-air::before {
+                color: #cfd600;
+                content: 'a';
+            }
+
+            &.icon-bolt::before {
+                color: #ffef26;
+                content: 'b';
+            }
+
+            &.icon-dark::before {
+                color: #543987;
+                content: 'd';
+            }
+
+            &.icon-earth::before {
+                color: #d28d3e;
+                content: 'e';
+            }
+
+            &.icon-fire::before {
+                color: #f58a00;
+                content: 'f';
+            }
+
+            &.icon-ice::before {
+                color: #bce4fa;
+                content: 'i';
+            }
+
+            &.icon-light::before {
+                color: #fff7b2;
+                content: 'l';
+            }
+
+            &.icon-poison::before {
+                color: #d678a2;
+                content: 't';
+            }
+
+            &.icon-spell::before {
+                content: "C"
+            }
+
+            &.icon-offensive::before {
+                color: #d1232a;
+                content: "o";
+            }
+
+            &.icon-skill::before {
+                content: "S"
+            }
+
+            &.icon-melee::before {
+                content: "M"
+            }
+
+            &.icon-ranged::before {
+                content: "R"
+            }
         }
     }
 }
