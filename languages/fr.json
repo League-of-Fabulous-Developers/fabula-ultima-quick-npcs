@@ -40,8 +40,8 @@
         "ruleText": "<div>Quick Assembly Rules Preview V3 p16.</div>"
       },
       "elementalCrisis": {
-        "description": "",
-        "name": "",
+        "description": "Changez les affinités élémentaires et le type de dégâts une fois que vous entrez en Crise.",
+        "name": "Crise Élémentaire",
         "ruleText": "<div>Quick Assembly Rules Preview V3 p16.</div>"
       },
       "partRegeneration": {
@@ -275,6 +275,7 @@
           "type": "Choisir une action"
         },
         "spells": {
+          "description": "Accédez à deux sorts différents d'une liste axée sur les état et la survie.",
           "name": "Sorts"
         },
         "statusImmunities": {
@@ -367,6 +368,7 @@
           "targets": "Choisir le nombre de cibles"
         },
         "spells": {
+          "description": "Accédez à deux sorts différents d'une liste axée sur les dégâts et la survie.",
           "name": "Sorts"
         },
         "strongAttack": {
@@ -382,9 +384,11 @@
       },
       "mage": {
         "baselineOneSpellMpBonus": {
+          "description": "Choisissez un sort dans une liste de sorts de base axés sur les dégâts et gagnez +10 PM.",
           "name": "Un Sort et un bonus de PM (Basique)"
         },
         "baselineTwoSpells": {
+          "description": "Choisissez deux sorts dans une liste de sorts de base axés sur les dégâts",
           "name": "Deux Sort (Basique)"
         },
         "collateralDamage": {
@@ -414,6 +418,7 @@
           "specialText": "<div><b>Instable :</b> Quick Assembly Rules Preview V3 p9</div>"
         },
         "oneSpellMpBonus": {
+          "description": "Choisissez un sort dans une liste de sorts avancés axés sur les dégâts et gagnez +10 PM..",
           "name": "Un Sort et un bonus de PM (Avancé)"
         },
         "overwhelm": {
@@ -427,6 +432,7 @@
           "ruleText": "<div>Quick Assembly Rules Preview V3 p8</div>"
         },
         "spells": {
+          "description": "Choisissez des sorts dans une liste de sorts avancés axés sur les dégâts. Au choix, deux sorts ou un seul et gagnez +10 PM.",
           "name": "Plus de sorts"
         },
         "statusImmunities": {
@@ -434,6 +440,7 @@
           "name": "Immunité aux états"
         },
         "twoSpells": {
+          "description": "Choisissez deux sorts dans une liste de sorts avancés axés sur les dégâts..",
           "name": "Deux sorts (Avancé)"
         }
       },
@@ -709,14 +716,14 @@
     },
     "settings": {
       "actorsTabButtonPlacement": {
-        "bottom": "Bas",
-        "hint": "Où dans l’onglet Acteurs le bouton doit-il être affiché?",
-        "name": "Emplacement des boutons",
-        "none": "Ne pas montrer",
-        "top": "Haut"
+        "bottom": "En bas",
+        "hint": "À quel endroit de l'onglet Acteurs le bouton doit-il être affiché ?",
+        "name": "Emplacement du bouton",
+        "none": "Ne pas afficher",
+        "top": "En haut"
       },
       "showInSystemTools": {
-        "name": "Afficher le bouton dans les outils du système ProjectFU?"
+        "name": "Afficher le bouton dans les outils du système ProjectFU ?"
       }
     },
     "species": {
@@ -728,6 +735,8 @@
           "ruleText": "<div>Quick Assembly Rules Preview V3 p18</div>"
         },
         "spell": {
+          "description": "Choisissez un sort dans une liste de sorts sur le thème des bêtes et gagnez +10 PM.",
+          "name": "Sort de Bête"
         }
       },
       "construct": {
@@ -749,6 +758,8 @@
       "demon": {
         "name": "Démon",
         "spell": {
+          "description": "Choisissez un sort dans une liste de sorts sur le thème des démons et gagnez +10 PM.",
+          "name": "Sort de Démon"
         },
         "upgradeResToAbs": {
           "description": "Améliore une résistance en absorption.",
@@ -762,6 +773,8 @@
         },
         "name": "Élémentaire",
         "spell": {
+          "description": "Choisissez un sort dans une liste de sorts sur le thème des élémentaires et gagnez +10 PM.",
+          "name": "Sort d'Élémentaire"
         },
         "upgradeImmToAbs": {
           "description": "Améliore une immunité en absorption.",
@@ -776,16 +789,22 @@
           "ruleText": "<div>Quick Assembly Rules Preview V3 p20</div>"
         },
         "spell": {
+          "description": "Choisissez un sort dans une liste de sorts sur le thème des humanoïdes et gagnez +10 PM.",
+          "name": "Sort d'Humanoïde"
         }
       },
       "monster": {
         "name": "Monstre",
         "spell": {
+          "description": "Choisissez un sort dans une liste de sorts sur le thème des monstres et gagnez +10 PM.",
+          "name": "Sort de Monstre"
         }
       },
       "plant": {
         "name": "Plante",
         "spell": {
+          "description": "Choisissez un sort dans une liste de sorts sur le thème des plantes et gagnez +10 PM.",
+          "name": "Sort de Plante"
         },
         "thorns": {
           "description": "Fait des dégâts mineurs aux attaques au corps à corps.",
@@ -800,6 +819,8 @@
         },
         "name": "Mort-vivant",
         "spell": {
+          "description": "Choisissez un sort dans une liste de sorts sur le thème des morts-vivants et gagnez +10 PM.",
+          "name": "Sort de Mort-Vivant"
         },
         "undeadHealing": {
           "description": "Les morts-vivants peuvent être blessés par des effets de soin.",
@@ -845,6 +866,9 @@
       },
       "costPerTarget": "{amount}xC PM",
       "curse": {
+        "description": "Provoque un état sur une cible unique.",
+        "name": "Malédiction",
+        "spellText": "La cible subit l'état {status}."
       },
       "curseXL": {
         "description": "Inflige deux états à une cible unique.",
@@ -1050,6 +1074,8 @@
         "name": "Attribuer une immunité à un État"
       },
       "chooseMagicAttributes": {
+        "blank": "Choisir les attributs...",
+        "name": "Choisir les attributs magiques"
       },
       "chooseSkill": {
         "blank": "Choisir...",
