@@ -46,13 +46,6 @@ class Support extends Role {
     }
 
     /**
-     * @return {[Attribute, Attribute]}
-     */
-    get magicAttributes() {
-        return ["ins", "wlp"]
-    }
-
-    /**
      * @return {[AttributeChange, AttributeChange, AttributeChange]}
      */
     get attributeChanges() {

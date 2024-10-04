@@ -3,18 +3,23 @@ import {ChooseCustomizationStep} from "../steps/choose-customization-step.mjs";
 import {Rules} from "../common/rules.mjs";
 import {AssignVulnerabilityStep} from "../steps/assign-vulnerability-step.mjs";
 import {CommonSkills as commonSkills, CommonSkills} from "../common/skills.mjs";
+import {pick} from "../common/utils.mjs";
+import {ChooseSpellStep} from "../steps/choose-spell-step.mjs";
 import {Spells} from "../common/spells.mjs";
+
+const plantSpellList = pick(Spells.asSkills,"breath", "cursedBreath", "lifeTheft", "poison")
 
 /**
  * @type SkillOptions
  */
 const customizations = {
     plantHpPlus10: CommonSkills.hpPlus10,
-    twoResistances: CommonSkills.twoResistancesExceptPhysical,
-    poison: {
-        ...Spells.asSkills.poison,
+    plantTwoResistancesExceptPhysical: CommonSkills.twoResistancesExceptPhysical,
+    plantSpell: {
+        label: "QUICKNPC.species.plant.spell.name",
+        description: "QUICKNPC.species.plant.spell.description",
         apply: (model, context) => {
-            Spells.asSkills.poison.apply(model, context);
+            ChooseSpellStep.addSpell(context, plantSpellList)
             model.bonuses.mp += 10;
         }
     },

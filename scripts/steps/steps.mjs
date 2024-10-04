@@ -17,6 +17,7 @@ import {FinishStep} from "./finish-step.mjs";
 import {ChooseSpellStep} from "./choose-spell-step.mjs";
 import {AssignStatusImmunityStep} from "./assign-status-immunity-step.mjs";
 import {ChooseNegativeSkillStep} from "./choose-negative-skill-step.mjs";
+import {ChooseMagicAttributesStep} from "./choose-magic-attributes-step.mjs";
 
 /**
  * @type {typeof AbstractStep[]}
@@ -35,6 +36,7 @@ export const npcCreationSteps = [
     ConditionalBonusSkillStep,
     ChooseCustomizationStep,
     ConfigureAttackStep,
+    ChooseMagicAttributesStep,
     ChooseSpellStep,
     ChooseRoleSkillStep,
     ChooseBossSkillStep,

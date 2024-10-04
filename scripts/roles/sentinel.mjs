@@ -55,13 +55,6 @@ class Sentinel extends Role {
     }
 
     /**
-     * @return {[Attribute, Attribute]}
-     */
-    get magicAttributes() {
-        return ["mig", "wlp"]
-    }
-
-    /**
      * @return {[AttributeChange, AttributeChange, AttributeChange]}
      */
     get attributeChanges() {
@@ -74,7 +67,7 @@ class Sentinel extends Role {
      */
     get skillsByLevel() {
         return [
-            CommonSkills.twoResistances.apply,
+            CommonSkills.twoResistancesExceptPhysical.apply,
             CommonSkills.additionalRoleSkill.apply,
             model => {
                 model.bonuses.def += 2;
@@ -134,6 +127,7 @@ class Sentinel extends Role {
      */
     get roleSkills() {
         return {
+            twoResistances: CommonSkills.twoResistances,
             normalAttackMulti2: {
                 ...CommonSkills.normalAttackMulti2,
                 require: CommonRequirements.eliteOrChampion,
@@ -324,7 +318,7 @@ class Sentinel extends Role {
      */
     get customizations() {
         return {
-            twoResistances: CommonSkills.twoResistances,
+            additionalRoleSkill: CommonSkills.additionalRoleSkill,
             intercept: {
                 label: "QUICKNPC.role.sentinel.intercept.name",
                 description: "QUICKNPC.role.sentinel.intercept.description",

@@ -17,19 +17,19 @@ const conditionalConstructSkills = {
         }
     },
     options: {
-        opposedCheckBonus: {
-            label: "QUICKNPC.species.construct.opposedCheckBonus.name",
-            description: "QUICKNPC.species.construct.opposedCheckBonus.description",
-            apply: (model) => {
-                model.rules.opposedCheckBonus = Rules.simpleRule("QUICKNPC.species.construct.opposedCheckBonus")
-            }
-        },
         constructStatusImmunities: {
             label: "QUICKNPC.species.construct.statusImmunities.name",
             description: "QUICKNPC.species.construct.statusImmunities.name",
             apply: (model, context) => {
                 AssignStatusImmunityStep.addStatusImmunity(context)
                 AssignStatusImmunityStep.addStatusImmunity(context)
+            }
+        },
+        opposedCheckBonus: {
+            label: "QUICKNPC.species.construct.opposedCheckBonus.name",
+            description: "QUICKNPC.species.construct.opposedCheckBonus.description",
+            apply: (model) => {
+                model.rules.opposedCheckBonus = Rules.simpleRule("QUICKNPC.species.construct.opposedCheckBonus")
             }
         },
         flying: CommonSkills.flying,

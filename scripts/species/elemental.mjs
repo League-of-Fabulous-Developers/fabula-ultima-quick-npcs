@@ -5,6 +5,10 @@ import {AssignVulnerabilityStep} from "../steps/assign-vulnerability-step.mjs";
 import {Spells} from "../common/spells.mjs";
 import {UpgradeImmToAbsStep} from "../steps/upgrade-imm-abs-step.mjs";
 import {CommonSkills} from "../common/skills.mjs";
+import {pick} from "../common/utils.mjs";
+import {ChooseSpellStep} from "../steps/choose-spell-step.mjs";
+
+const elementalSpellList = pick(Spells.asSkills, "breath", "cursedBreath", "lickWounds")
 
 /**
  * @type {ConditionalBonusSkill}
@@ -25,11 +29,12 @@ const elementalConditionalBonus = {
                 UpgradeImmToAbsStep.addUpgrade(context)
             }
         },
-        breath: {
-            ...Spells.asSkills.breath,
-            apply: (model, context, choices) => {
-                Spells.asSkills.breath.apply(model, context, choices);
-                model.bonuses.mp += 10;
+        elementalSpell: {
+            label: "QUICKNPC.species.elemental.spell.name",
+            description: "QUICKNPC.species.elemental.spell.description",
+            apply: (model, context) => {
+                ChooseSpellStep.addSpell(context, elementalSpellList)
+                model.bonuses.mp += 10
             }
         },
         flying: CommonSkills.flying,

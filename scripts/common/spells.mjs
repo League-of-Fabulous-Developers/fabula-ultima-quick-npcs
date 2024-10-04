@@ -41,7 +41,59 @@ const allSpells = {
         costType: "total",
         duration: "instant",
     }),
-    curseXL: ({status1, status2}) => ({
+    aura: () => ({
+        ...spellTexts("aura"),
+        cost: 5,
+        target: "upToThree",
+        costType: "perTarget",
+        duration: "scene",
+    }),
+    awaken: () => ({
+        ...spellTexts("awaken"),
+        cost: 20,
+        target: "single",
+        costType: "total",
+        duration: "scene",
+    }),
+    barrier: () => ({
+        ...spellTexts("barrier"),
+        cost: 5,
+        target: "upToThree",
+        costType: "perTarget",
+        duration: "scene",
+    }),
+    breath: ({attributes, damageType}) => ({
+        ...spellTexts("breath", {damageType: translateDamageType(damageType)}),
+        cost: 5,
+        target: "single",
+        costType: "total",
+        duration: "instant",
+        offensive: {
+            attributes: attributes,
+            damage: {
+                base: 10,
+                type: damageType
+            }
+        }
+    }),
+    cleanse: () => ({
+        ...spellTexts("cleanse"),
+        cost: 5,
+        target: "upToThree",
+        costType: "perTarget",
+        duration: "instant",
+    }),
+    curse: ({attributes, status}) => ({
+        ...spellTexts("curse", {status: translateStatus(status)}),
+        cost: 5,
+        target: "single",
+        costType: "total",
+        duration: "instant",
+        offensive: {
+            attributes: attributes
+        }
+    }),
+    curseXL: ({attributes, status1, status2}) => ({
         ...spellTexts("curseXL", {
             status1: translateStatus(status1),
             status2: translateStatus(status2),
@@ -50,6 +102,9 @@ const allSpells = {
         target: "single",
         costType: "total",
         duration: "instant",
+        offensive: {
+            attributes: attributes
+        }
     }),
     cursedBreath: ({attributes, damageType, status}) => ({
         ...spellTexts("cursedBreath", {
@@ -68,6 +123,44 @@ const allSpells = {
             }
         },
     }),
+    devastation: ({damageType}) => ({
+        ...spellTexts("devastation", {damageType: translateDamageType(damageType)}),
+        cost: 30,
+        target: "special",
+        costType: "total",
+        duration: "instant",
+    }),
+    dispel: () => ({
+        ...spellTexts("dispel"),
+        cost: 10,
+        target: "single",
+        costType: "total",
+        duration: "instant",
+    }),
+    divination: () => ({
+        ...spellTexts("divination"),
+        cost: 10,
+        target: "self",
+        costType: "total",
+        duration: "scene"
+    }),
+    drainSpirit: ({attributes}) => ({
+        ...spellTexts("drainSpirit"),
+        cost: 5,
+        target: "single",
+        costType: "total",
+        duration: "instant",
+        offensive: {
+            attributes: attributes,
+        }
+    }),
+    elementalShroud: () => ({
+        ...spellTexts("elementalShroud"),
+        cost: 5,
+        target: "upToThree",
+        costType: "perTarget",
+        duration: "scene"
+    }),
     enrage: ({attributes}) => ({
         ...spellTexts("enrage"),
         cost: 10,
@@ -77,75 +170,6 @@ const allSpells = {
         offensive: {
             attributes: attributes
         },
-    }),
-    lifeTheft: ({attributes, damageType}) => ({
-        ...spellTexts("lifeTheft", {damageType: translateDamageType(damageType)}),
-        cost: 10,
-        target: "single",
-        costType: "total",
-        duration: "instant",
-        offensive: {
-            attributes: attributes,
-            damage: {
-                base: 15,
-                type: damageType
-            }
-        }
-    }),
-    reinforce: () => ({
-        ...spellTexts("reinforce"),
-        cost: 5,
-        target: "upToThree",
-        costType: "perTarget",
-        duration: "scene",
-    }),
-    weaken: ({attributes, damageType}) => ({
-        ...spellTexts("weaken", {damageType: translateDamageType(damageType)}),
-        cost: 10,
-        target: "single",
-        costType: "total",
-        duration: "scene",
-        offensive: {
-            attributes: attributes,
-        }
-    }),
-    breath: ({attributes, damageType}) => ({
-        ...spellTexts("breath", {damageType: translateDamageType(damageType)}),
-        cost: 5,
-        target: "single",
-        costType: "total",
-        duration: "instant",
-        offensive: {
-            attributes: attributes,
-            damage: {
-                base: 10,
-                type: damageType
-            }
-        }
-    }),
-    poison: ({attributes}) => ({
-        ...spellTexts("poison"),
-        cost: 5,
-        target: "upToThree",
-        costType: "perTarget",
-        duration: "instant",
-        offensive: {
-            attributes: attributes,
-        }
-    }),
-    lickWounds: ({level}) => ({
-        ...spellTexts("lickWounds", {amount: level < 20 ? "20" : level < 40 ? "30" : level < 60 ? "40" : "60"}),
-        cost: 5,
-        target: "self",
-        costType: "total",
-        duration: "instant",
-    }),
-    mirror: () => ({
-        ...spellTexts("mirror"),
-        cost: 5,
-        target: "single",
-        costType: "total",
-        duration: "scene",
     }),
     flare: ({attributes}) => ({
         ...spellTexts("flare"),
@@ -191,6 +215,13 @@ const allSpells = {
             }
         }
     }),
+    heal: ({level}) => ({
+        ...spellTexts("heal", {amount: level < 20 ? "40" : level < 40 ? "50" : "60"}),
+        cost: 10,
+        target: "upToThree",
+        costType: "perTarget",
+        duration: "instant"
+    }),
     iceberg: ({attributes}) => ({
         ...spellTexts("iceberg"),
         cost: 20,
@@ -220,6 +251,27 @@ const allSpells = {
             }
         }
     }),
+    lickWounds: ({level}) => ({
+        ...spellTexts("lickWounds", {amount: level < 20 ? "20" : level < 40 ? "30" : level < 60 ? "40" : "60"}),
+        cost: 5,
+        target: "self",
+        costType: "total",
+        duration: "instant",
+    }),
+    lifeTheft: ({attributes, damageType}) => ({
+        ...spellTexts("lifeTheft", {damageType: translateDamageType(damageType)}),
+        cost: 10,
+        target: "single",
+        costType: "total",
+        duration: "instant",
+        offensive: {
+            attributes: attributes,
+            damage: {
+                base: 15,
+                type: damageType
+            }
+        }
+    }),
     lux: ({attributes}) => ({
         ...spellTexts("lux"),
         cost: 10,
@@ -235,9 +287,81 @@ const allSpells = {
             }
         }
     }),
+    mindTheft: ({attributes, damageType}) => ({
+        ...spellTexts("mindTheft", {damageType: translateDamageType(damageType)}),
+        cost: 10,
+        target: "single",
+        costType: "total",
+        duration: "instant",
+        offensive: {
+            attributes: attributes,
+            damage: {
+                base: 15,
+                type: damageType
+            }
+        }
+    }),
+    mirror: () => ({
+        ...spellTexts("mirror"),
+        cost: 5,
+        target: "single",
+        costType: "total",
+        duration: "scene",
+    }),
     omega: ({attributes}) => ({
         ...spellTexts("omega"),
         cost: 20,
+        target: "single",
+        costType: "total",
+        duration: "instant",
+        offensive: {
+            attributes: attributes,
+        }
+    }),
+    poison: ({attributes}) => ({
+        ...spellTexts("poison"),
+        cost: 5,
+        target: "upToThree",
+        costType: "perTarget",
+        duration: "instant",
+        offensive: {
+            attributes: attributes,
+        }
+    }),
+    quicken: () => ({
+        ...spellTexts("quicken"),
+        cost: 20,
+        target: "single",
+        costType: "total",
+        duration: "instant"
+    }),
+    rage: ({attributes}) => ({
+        ...spellTexts("rage"),
+        cost: 10,
+        target: "upToThree",
+        costType: "perTarget",
+        duration: "instant",
+        offensive: {
+            attributes: attributes,
+        }
+    }),
+    reinforce: () => ({
+        ...spellTexts("reinforce"),
+        cost: 5,
+        target: "upToThree",
+        costType: "perTarget",
+        duration: "scene",
+    }),
+    shell: () => ({
+        ...spellTexts("shell"),
+        cost: 10,
+        target: "self",
+        costType: "total",
+        duration: "scene",
+    }),
+    stop: ({attributes}) => ({
+        ...spellTexts("stop"),
+        cost: 10,
         target: "single",
         costType: "total",
         duration: "instant",
@@ -304,71 +428,6 @@ const allSpells = {
             }
         }
     }),
-    devastation: ({damageType}) => ({
-        ...spellTexts("devastation", {damageType: translateDamageType(damageType)}),
-        cost: 30,
-        target: "special",
-        costType: "total",
-        duration: "instant",
-    }),
-    drainSpirit: ({attributes}) => ({
-        ...spellTexts("drainSpirit"),
-        cost: 5,
-        target: "single",
-        costType: "total",
-        duration: "instant",
-        offensive: {
-            attributes: attributes,
-        }
-    }),
-    mindTheft: ({attributes, damageType}) => ({
-        ...spellTexts("mindTheft", {damageType: translateDamageType(damageType)}),
-        cost: 10,
-        target: "single",
-        costType: "total",
-        duration: "instant",
-        offensive: {
-            attributes: attributes,
-            damage: {
-                base: 15,
-                type: damageType
-            }
-        }
-    }),
-    dispel: () => ({
-        ...spellTexts("dispel"),
-        cost: 10,
-        target: "single",
-        costType: "total",
-        duration: "instant",
-    }),
-    rage: ({attributes}) => ({
-        ...spellTexts("rage"),
-        cost: 10,
-        target: "upToThree",
-        costType: "perTarget",
-        duration: "instant",
-        offensive: {
-            attributes: attributes,
-        }
-    }),
-    stop: ({attributes}) => ({
-        ...spellTexts("stop"),
-        cost: 10,
-        target: "single",
-        costType: "total",
-        duration: "instant",
-        offensive: {
-            attributes: attributes,
-        }
-    }),
-    shell: () => ({
-        ...spellTexts("shell"),
-        cost: 10,
-        target: "self",
-        costType: "total",
-        duration: "scene",
-    }),
     warCry: () => ({
         ...spellTexts("warCry"),
         cost: 10,
@@ -376,61 +435,15 @@ const allSpells = {
         costType: "perTarget",
         duration: "scene",
     }),
-    aura: () => ({
-        ...spellTexts("aura"),
-        cost: 5,
-        target: "upToThree",
-        costType: "perTarget",
-        duration: "scene",
-    }),
-    awaken: () => ({
-        ...spellTexts("awaken"),
-        cost: 20,
+    weaken: ({attributes, damageType}) => ({
+        ...spellTexts("weaken", {damageType: translateDamageType(damageType)}),
+        cost: 10,
         target: "single",
         costType: "total",
         duration: "scene",
-    }),
-    barrier: () => ({
-        ...spellTexts("barrier"),
-        cost: 5,
-        target: "upToThree",
-        costType: "perTarget",
-        duration: "scene",
-    }),
-    cleanse: () => ({
-        ...spellTexts("cleanse"),
-        cost: 5,
-        target: "upToThree",
-        costType: "perTarget",
-        duration: "instant",
-    }),
-    divination: () => ({
-        ...spellTexts("divination"),
-        cost: 10,
-        target: "self",
-        costType: "total",
-        duration: "scene"
-    }),
-    elementalShroud: () => ({
-        ...spellTexts("elementalShroud"),
-        cost: 5,
-        target: "upToThree",
-        costType: "perTarget",
-        duration: "scene"
-    }),
-    heal: ({level}) => ({
-        ...spellTexts("heal", {amount: level < 20 ? "40" : level < 40 ? "50" : "60"}),
-        cost: 10,
-        target: "upToThree",
-        costType: "perTarget",
-        duration: "instant"
-    }),
-    quicken: () => ({
-        ...spellTexts("quicken"),
-        cost: 20,
-        target: "single",
-        costType: "total",
-        duration: "instant"
+        offensive: {
+            attributes: attributes,
+        }
     }),
 }
 
@@ -462,6 +475,22 @@ const asSkills = {
             options: {...t1StatusEffects}
         }
     }),
+    aura: spellSkill("aura"),
+    awaken: spellSkill("awaken"),
+    barrier: spellSkill("barrier"),
+    breath: spellSkill("breath", {
+        damageType: {
+            label: "QUICKNPC.commonChoices.damageType",
+            options: CONSTANTS.damageTypes
+        }
+    }),
+    cleanse: spellSkill("cleanse"),
+    curse: spellSkill("curse", {
+        status: {
+            label: "QUICKNPC.commonChoices.status",
+            options: {...t1StatusEffects}
+        }
+    }),
     curseXL: spellSkill("curseXL", {
             status1: {
                 label: "QUICKNPC.spell.curseXL.status1",
@@ -483,47 +512,6 @@ const asSkills = {
             options: t1StatusEffects
         }
     }),
-    enrage: spellSkill("enrage"),
-    lifeTheft: spellSkill("lifeTheft", {
-        damageType: {
-            label: "QUICKNPC.commonChoices.damageType",
-            options: CONSTANTS.damageTypes
-        }
-    }),
-    reinforce: spellSkill("reinforce"),
-    weaken: spellSkill("weaken", {
-        damageType: {
-            label: "QUICKNPC.commonChoices.damageType",
-            options: CONSTANTS.damageTypes
-        }
-    }),
-    breath: spellSkill("breath", {
-        damageType: {
-            label: "QUICKNPC.commonChoices.damageType",
-            options: CONSTANTS.damageTypes
-        }
-    }),
-    poison: spellSkill("poison"),
-    lickWounds: spellSkill("lickWounds"),
-    mirror: spellSkill("mirror"),
-    fulgur: spellSkill("fulgur"),
-    glacies: spellSkill("glacies"),
-    ignis: spellSkill("ignis"),
-    lux: spellSkill("lux"),
-    omega: spellSkill("omega"),
-    terra: spellSkill("terra"),
-    umbra: spellSkill("umbra"),
-    ventus: spellSkill("ventus"),
-    flare: spellSkill("flare"),
-    iceberg: spellSkill("iceberg"),
-    thunderbolt: spellSkill("thunderbolt"),
-    drainSpirit: spellSkill("drainSpirit"),
-    mindTheft: spellSkill("mindTheft", {
-        damageType: {
-            label: "QUICKNPC.commonChoices.damageType",
-            options: CONSTANTS.damageTypes
-        }
-    }),
     devastation: spellSkill("devastation", {
         damageType: {
             label: "QUICKNPC.commonChoices.damageType",
@@ -531,18 +519,49 @@ const asSkills = {
         }
     }),
     dispel: spellSkill("dispel"),
-    rage: spellSkill("rage"),
-    stop: spellSkill("stop"),
-    shell: spellSkill("shell"),
-    warCry: spellSkill("warCry"),
-    aura: spellSkill("aura"),
-    awaken: spellSkill("awaken"),
-    barrier: spellSkill("barrier"),
-    cleanse: spellSkill("cleanse"),
     divination: spellSkill("divination"),
+    drainSpirit: spellSkill("drainSpirit"),
     elementalShroud: spellSkill("elementalShroud"),
+    enrage: spellSkill("enrage"),
+    flare: spellSkill("flare"),
+    fulgur: spellSkill("fulgur"),
+    glacies: spellSkill("glacies"),
     heal: spellSkill("heal"),
+    iceberg: spellSkill("iceberg"),
+    ignis: spellSkill("ignis"),
+    lickWounds: spellSkill("lickWounds"),
+    lifeTheft: spellSkill("lifeTheft", {
+        damageType: {
+            label: "QUICKNPC.commonChoices.damageType",
+            options: CONSTANTS.damageTypes
+        }
+    }),
+    lux: spellSkill("lux"),
+    mindTheft: spellSkill("mindTheft", {
+        damageType: {
+            label: "QUICKNPC.commonChoices.damageType",
+            options: CONSTANTS.damageTypes
+        }
+    }),
+    mirror: spellSkill("mirror"),
+    omega: spellSkill("omega"),
+    poison: spellSkill("poison"),
     quicken: spellSkill("quicken"),
+    rage: spellSkill("rage"),
+    reinforce: spellSkill("reinforce"),
+    shell: spellSkill("shell"),
+    stop: spellSkill("stop"),
+    terra: spellSkill("terra"),
+    thunderbolt: spellSkill("thunderbolt"),
+    umbra: spellSkill("umbra"),
+    ventus: spellSkill("ventus"),
+    warCry: spellSkill("warCry"),
+    weaken: spellSkill("weaken", {
+        damageType: {
+            label: "QUICKNPC.commonChoices.damageType",
+            options: CONSTANTS.damageTypes
+        }
+    }),
 }
 
 const spellAttributeKey = "spellcastingAttributes"
@@ -565,11 +584,12 @@ function setAttributes(context, attr1, attr2) {
  * @return {[Attribute, Attribute]}
  */
 function getAttributes(context) {
-    return context[spellAttributeKey] ?? ["ins", "wlp"];
+    return context[spellAttributeKey];
 }
 
 export const Spells = {
     allSpells,
     asSkills,
-    setAttributes
+    setAttributes,
+    getAttributes
 }

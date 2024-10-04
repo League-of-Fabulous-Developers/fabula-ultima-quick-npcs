@@ -58,10 +58,6 @@ class Mage extends Role {
         };
     }
 
-    get magicAttributes() {
-        return ["ins", "wlp"];
-    }
-
     get attributeChanges() {
         return [{ins: "d10", wlp: "d12", mig: "d8"}];
     }

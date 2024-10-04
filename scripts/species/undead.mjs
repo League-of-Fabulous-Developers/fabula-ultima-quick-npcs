@@ -4,6 +4,10 @@ import {ConditionalBonusSkillStep} from "../steps/conditional-bonus-skill-step.m
 import {AssignVulnerabilityStep} from "../steps/assign-vulnerability-step.mjs";
 import {Spells} from "../common/spells.mjs";
 import {CommonSkills} from "../common/skills.mjs";
+import {ChooseSpellStep} from "../steps/choose-spell-step.mjs";
+import {pick} from "../common/utils.mjs";
+
+const undeadSpellList = pick(Spells.asSkills, "breath", "curse", "lifeTheft", "poison")
 
 /**
  * @type {ConditionalBonusSkill}
@@ -24,10 +28,11 @@ const undeadConditionalSkill = {
                 model.affinities.dark = "abs";
             }
         },
-        poison: {
-            ...Spells.asSkills.poison,
+        undeadSpell: {
+            label: "QUICKNPC.species.undead.spell.name",
+            description: "QUICKNPC.species.undead.spell.description",
             apply: (model, context) => {
-                Spells.asSkills.poison.apply(model, context);
+                ChooseSpellStep.addSpell(context, undeadSpellList)
                 model.bonuses.mp += 10;
             }
         },

@@ -152,25 +152,18 @@ class Saboteur extends Role {
      */
     get baseAttributes() {
         return {
-            dex: "d10",
+            dex: "d8",
             ins: "d8",
-            mig: "d6",
+            mig: "d8",
             wlp: "d8"
         }
-    }
-
-    /**
-     * @return {[Attribute, Attribute]}
-     */
-    get magicAttributes() {
-        return ["ins", "wlp"]
     }
 
     /**
      * @return {[AttributeChange, AttributeChange, AttributeChange]}
      */
     get attributeChanges() {
-        return [{mig: "d8"}, {ins: "d10"}, {wlp: "d10"}];
+        return [{wlp: "d10"}, {ins: "d10"}, {dex: "d10"}];
     }
 
     /**

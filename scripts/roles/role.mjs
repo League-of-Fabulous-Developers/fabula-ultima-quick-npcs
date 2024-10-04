@@ -33,13 +33,6 @@ export class Role {
     }
 
     /**
-     * @return {[Attribute, Attribute]}
-     */
-    get magicAttributes() {
-        throw new Error("must override 'get magicAttributes()'")
-    }
-
-    /**
      * @typedef {{[key: typeof Attribute]: AttributeDice}} AttributeChange
      */
     /**

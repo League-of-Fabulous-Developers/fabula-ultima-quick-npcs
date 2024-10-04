@@ -1,3 +1,5 @@
+import {Customizations} from "./customizations.mjs";
+
 /**
  * @typedef Requirements
  * @property {boolean} [anyResistance]
@@ -6,25 +8,27 @@
  * @property {string} [attack]
  * @property {string[]} [anyRule]
  * @property {string[]} [anyAction]
+ * @property {string[]} anyCustomization
  */
-
 
 /**
  * @param {Requirements} require
  * @param {Requirements} disallow
  * @param {NpcModel} model
+ * @param context
  * @return boolean
  */
-export function checkPrerequisites(require, disallow, model) {
-    return checkRequire(require, model) && checkDisallow(disallow, model);
+export function checkPrerequisites(require, disallow, model, context) {
+    return checkRequire(require, model, context) && checkDisallow(disallow, model, context);
 }
 
 /**
  * @param {Requirements} require
  * @param {NpcModel} model
+ * @param context
  * @return {boolean}
  */
-function checkRequire(require, model) {
+function checkRequire(require, model, context) {
     if (!require) return true;
     let met = true
 
@@ -48,6 +52,9 @@ function checkRequire(require, model) {
         met = met && require.anyAction.some(action => !!model.actions[action])
     }
 
+    if (require.anyCustomization) {
+        met = met && require.anyCustomization.some(customization => Customizations.checkApplied(context, customization))
+    }
 
     return met
 }
@@ -55,11 +62,12 @@ function checkRequire(require, model) {
 /**
  * @param {Requirements} disallow
  * @param {NpcModel} model
+ * @param context
  * @return {boolean}
  */
-function checkDisallow(disallow, model) {
+function checkDisallow(disallow, model, context) {
     if (!disallow) return true;
-    return !checkRequire(disallow, model)
+    return !checkRequire(disallow, model, context)
 }
 
 /**

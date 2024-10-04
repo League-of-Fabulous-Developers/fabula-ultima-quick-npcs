@@ -30,19 +30,24 @@
     },
     "bossSkills": {
       "corrosiveStatus": {
-        "actionText": "<div>Quick Assembly Rules Preview V2 p16.</div><div>Dégâts : {damageType}</div><div>État : {status}</div>",
+        "actionText": "<div>Quick Assembly Rules Preview V3 p16.</div><div>Dégâts : {damageType}</div><div>État : {status}</div>",
         "description": "Inflige des dégâts aux ennemis souffrant d'un état particulier.",
         "name": "État corrosif"
       },
       "crushingAdvantage": {
         "description": "Remplir ou vider les cadrans sans avoir à effectuer de jets.",
         "name": "Avantage écrasant",
-        "ruleText": "<div>Quick Assembly Rules Preview V2 p16.</div>"
+        "ruleText": "<div>Quick Assembly Rules Preview V3 p16.</div>"
+      },
+      "elementalCrisis": {
+        "description": "",
+        "name": "",
+        "ruleText": "<div>Quick Assembly Rules Preview V3 p16.</div>"
       },
       "partRegeneration": {
         "description": "Récupérez des états et invoquez des renforts lorsque vous entrez en crise.",
         "name": "Régénération partielle",
-        "ruleText": "<div>Quick Assembly Rules Preview V2 p16.</div>"
+        "ruleText": "<div>Quick Assembly Rules Preview V3 p16.</div>"
       },
       "temporaryDefenses": {
         "choice": "Choisir une statistique défensive",
@@ -50,12 +55,12 @@
         "description": "Traitez l'une de vos défenses comme une valeur statique jusqu'à ce que vous entriez en crise..",
         "mDef": "Défense magique",
         "name": "Défenses temporaires",
-        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Statistique défensive choisie : {defense}</div>"
+        "ruleText": "<div>Quick Assembly Rules Preview V3 p17.</div><div>Statistique défensive choisie : {defense}</div>"
       },
       "zombification": {
         "description": "Transformer les soins en dégâts lorsque la cible souffre d'un certain état..",
         "name": "Zombification",
-        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>État choisi : {status}</div>"
+        "ruleText": "<div>Quick Assembly Rules Preview V3 p17.</div><div>État choisi : {status}</div>"
       }
     },
     "commonChoices": {
@@ -135,12 +140,12 @@
       "finalDetonation": {
         "description": "Inflige des dégâts à vos alliés lorsque vous êtes éliminé.",
         "name": "Explosion FInale",
-        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Type de dégâts choisi : {damageType}</div>"
+        "ruleText": "<div>Quick Assembly Rules Preview V3 p17.</div><div>Type de dégâts choisi : {damageType}</div>"
       },
       "finalRestore": {
         "description": "Rétablissez les ressources de vos ennemis lorsque vous êtes éliminé..",
         "name": "Restauration Finale",
-        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Ressource choisie : {resource}</div>"
+        "ruleText": "<div>Quick Assembly Rules Preview V3 p17.</div><div>Ressource choisie : {resource}</div>"
       },
       "painfulMiss": {
         "attack": {
@@ -150,7 +155,7 @@
         },
         "description": "Inflige des dégâts à vous-même ou à vos alliés lorsque vous ratez vos attaques.",
         "name": "Douloureux échec",
-        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Attaque choisie : {attack}</div><div>Cible choisie : {target}</div>",
+        "ruleText": "<div>Quick Assembly Rules Preview V3 p17.</div><div>Attaque choisie : {attack}</div><div>Cible choisie : {target}</div>",
         "target": {
           "ally": {
             "label": "Vos alliés",
@@ -226,51 +231,50 @@
         "badTemper": {
           "description": "Bénéficie d'une immunité presque totale aux état lorsqu'en Crise.",
           "name": "Mauvais caractère",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p4</div>"
         },
         "collapse": {
           "description": "Remplit un cadran lorsque l'attaque puissante rate, inflige des dégâts lorsque le cadran se remplit.",
           "name": "Effondrement",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p5</div>"
         },
         "collateralDamage": {
           "description": "Inflige des dégâts quand il utilise l'action Gêne.",
           "name": "Dégâts collatéraux",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div><div>Type de dégâts choisi : {damageType}</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p4</div><div>Type de dégâts choisi : {damageType}</div>"
         },
         "crush": {
           "attackSpecialText": "Les ennemis touchés deviennent des cibles potentiels pour Crush.",
           "description": "Agrippez les ennemis, infligez des dégâts aux ennemis agrippés sans avoir à effectuer de jet.",
           "name": "Broyer",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p5</div>"
         },
         "dieHard": {
           "description": "Survivre aux dégâts mortels, une fois.",
           "name": "Dur à cuire",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p4</div>"
         },
         "enhancingGuard": {
           "description": "Inflige plus de dégâts et ignore les résistances après la garde.",
           "name": "Garde améliorée",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p5</div>"
         },
         "name": "Brute",
         "soreLoser": {
           "description": "Provoque parfois des états après l'échec d'un test opposé.",
           "name": "Mauvais perdant",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p5</div>"
         },
         "specialArmor": {
           "attacks": "Attaques",
           "description": "En Crise, subit moins de dégâts d'un type d'actions spécifique..",
           "name": "Armure spéciale",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div><div>Action type: {type}</div>",
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p4</div><div>Action type: {type}</div>",
           "skills": "Compétences",
           "spells": "Sorts",
           "type": "Choisir une action"
         },
         "spells": {
-          "description": "Gagne l'accès à deux sorts différents utilisant【PUI + VOL】 pour incanter.",
           "name": "Sorts"
         },
         "statusImmunities": {
@@ -280,7 +284,7 @@
         "steadyRecovery": {
           "description": "Récupération des états dans certaines circonstances.",
           "name": "Récupération progressive",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p5</div>"
         },
         "strongAttackRanged": {
           "description": "L'attaque puissante devient à distance et provoque des états.",
@@ -289,24 +293,24 @@
         "vengefulAttack": {
           "description": "Utiliser une dernière attaque puissante après avoir subi des dégâts mortels.",
           "name": "Attaque vengeresse",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p4</div>"
         }
       },
       "hunter": {
         "ambush": {
           "description": "Améliorer un dé d'attribut spécifique lors du premier tour de conflit.",
           "name": "Embuscade",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div><div>Attribut choisi : {attribute}</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p7</div><div>Attribut choisi : {attribute}</div>"
         },
         "elusive": {
           "description": "Annule les dégâts sans subir d'état.",
           "name": "Insaisissable",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p7</div>"
         },
         "emergencyCamouflage": {
           "description": "Devenir invisible pendant une courte période en entrant en crise..",
           "name": "Camouflage d'urgence",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p6</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p6</div>"
         },
         "extraDamage": {
           "condition": "Choisir un état :",
@@ -327,7 +331,7 @@
         "falseSenseOfSecurity": {
           "description": "Transformer les échecs de vos alliés à votre avantage.",
           "name": "Faux sentiment de sécurité",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p6</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p6</div>"
         },
         "huntersBait": {
           "action": "Action",
@@ -335,7 +339,7 @@
           "melee": "Attaques de corps à corps",
           "name": "Appâts pour chasseurs",
           "ranged": "Attaques à distance",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div><div>Action choisie : {action}</div>",
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p7</div><div>Action choisie : {action}</div>",
           "spell": "Sorts offensifs"
         },
         "lifeSteal": {
@@ -346,24 +350,23 @@
         "lightningFast": {
           "description": "Inflige plus de dégâts pendant le tour d'une autre créature, lorsqu'elle n'est pas affectée par des états.",
           "name": "Vif comme l'éclair",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p6</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p6</div>"
         },
         "name": "Chasseur",
         "opportunist": {
           "description": "Amélioration des chances de critique lors des tests opposés sous certaines conditions.",
           "name": "Opportuniste",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p7</div>"
         },
         "specialResistance": {
           "description": "Résiste aux dégâts infligés par les effets ayant un certain nombre de cibles",
           "multi": "Deux créatures ou plus",
           "name": "Résistance spéciale",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p6</div><div>Efficace contre les effets ciblant : {targets}</div>",
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p6</div><div>Efficace contre les effets ciblant : {targets}</div>",
           "single": "Une créature",
           "targets": "Choisir le nombre de cibles"
         },
         "spells": {
-          "description": "Gagne l'accès à deux sorts différents utilisant【INT + VOL】pour l'incantation.",
           "name": "Sorts"
         },
         "strongAttack": {
@@ -374,60 +377,56 @@
         "targetLock": {
           "description": "Garde sur l'ennemi sélectionné, inflige plus de dégâts à cet ennemi.",
           "name": "Cible vérouillée",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p7</div>"
         }
       },
       "mage": {
         "baselineOneSpellMpBonus": {
-          "description": "Choisir un sort de la liste de sort standard et gagner +10 PM.",
           "name": "Un Sort et un bonus de PM (Basique)"
         },
         "baselineTwoSpells": {
-          "description": "Choisir deux sorts de la liste de sort.",
           "name": "Deux Sort (Basique)"
         },
         "collateralDamage": {
           "description": "Inflige des dégâts quand il utilise l'action Gêne.",
           "name": "Dégâts collatéraux",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p8</div><div>Type de dégâts choisi : {damageType}</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p8</div><div>Type de dégâts choisi : {damageType}</div>"
         },
         "elementDrain": {
           "description": "Restaure des PM quand il est touché par des dégâts élémentaires.",
           "name": "Drain élémentaire",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p9</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p9</div>"
         },
         "elementShift": {
           "description": "Changer votre affinité en lançant des sorts.",
           "name": "Changement d'élément",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p9</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p9</div>"
         },
         "magicalMastery": {
           "description": "Amélioration de la capacité à interagir avec les cadrans liés à la magie.",
           "name": "Maitrise magique",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p9</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p9</div>"
         },
         "name": "Mage",
         "normalAttackVolatile": {
           "description": "Les cibles de l'attaque de base deviennent instable.",
           "name": "Attaque de base instable",
-          "specialText": "<div><b>Instable :</b> Quick Assembly Rules Preview V2 p9</div>"
+          "specialText": "<div><b>Instable :</b> Quick Assembly Rules Preview V3 p9</div>"
         },
         "oneSpellMpBonus": {
-          "description": "Choisir un sort de la liste des sorts avancés et gagner +10 PM.",
           "name": "Un Sort et un bonus de PM (Avancé)"
         },
         "overwhelm": {
           "description": "Amélioration des chances de critique lors des tests opposés sous certaines conditions.",
           "name": "Surcharger",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p8</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p8</div>"
         },
         "soulburst": {
           "description": "Les autres créatures récupèrent des PM lorsque vous êtes réduit à 0 PV.",
           "name": "Éclat d'âme",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p8</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p8</div>"
         },
         "spells": {
-          "description": "Choisissez des sorts dans une liste de sorts avancés. Choisissez deux sorts ou un seul et gagnez +10 PM.",
           "name": "Plus de sorts"
         },
         "statusImmunities": {
@@ -435,7 +434,6 @@
           "name": "Immunité aux états"
         },
         "twoSpells": {
-          "description": "Choisir deux sorts de la liste de sort avancés.",
           "name": "Deux sorts (Avancé)"
         }
       },
@@ -447,29 +445,29 @@
         "auraOfUnease": {
           "description": "Les ennemis ne peuvent récupérer d'un état choisi.",
           "name": "Aura de malaise",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div><div>États choisis : {status1} et {status2}</div>",
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p10</div><div>États choisis : {status1} et {status2}</div>",
           "status1": "Premier état",
           "status2": "Deuxième état"
         },
         "cruelHypnosis": {
-          "actionText": "<div>Quick Assembly Rules Preview V2 p11</div><div>État choisi : {status}</div>",
+          "actionText": "<div>Quick Assembly Rules Preview V3 p11</div><div>État choisi : {status}</div>",
           "description": "Dépenser des PM pour faire qu'un ennemi attaque une cible de votre choix.",
           "name": "Hypnose cruelle"
         },
         "entangle": {
           "description": "Empêche les ennemis de faire des attaques gratuites s'ils souffrent de multiples états.",
           "name": "Enchevêtrer",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p10</div>"
         },
         "exhaustingCompromise": {
           "description": "Dépenser des PM pour manipuler des cadrans sous certaines circonstances.",
           "name": "Compromis épuisant",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p10</div>"
         },
         "hinderingSpecialist": {
           "description": "Faire suivre une action de Gêne réussie d'une autre action de Gêne.",
           "name": "Spécialiste de la Gêne",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p10</div>"
         },
         "magicCheckBonus": {
           "description": "Gagne un bonus de +3 aux tests magiques.",
@@ -494,17 +492,17 @@
         "partingGift": {
           "description": "Déclenchez vos sorts d'affaiblissement lorsque vous êtes éliminé.",
           "name": "Cadeau d'adieu",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p11</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p11</div>"
         },
         "secretTechnique": {
           "description": "Utiliser une attaque ou un sort sans que personne d'autre que la cible ne s'en aperçoive.",
           "name": "Technique secrète",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p11</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p11</div>"
         },
         "shadowOfDoubt": {
           "description": "Empêche les PJ d'invoquer des Traits ou des Liens sous certaines circonstances.",
           "name": "Ombre du doute",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p11</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p11</div>"
         },
         "spell": {
           "description": "Gagne un sort d'une liste axée sur la déstabilisation. Gagne également +10 PM.",
@@ -561,7 +559,7 @@
         "syphonMind": {
           "description": "Augmenter les coûts en PM des ennemis.",
           "name": "Syphonnage d'esprit",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p10</div>"
         }
       },
       "sentinel": {
@@ -582,14 +580,14 @@
             "twoActions": "Vengeance (Deux Actions)"
           },
           "ruleText": {
-            "oneAction": "<div>Quick Assembly Rules Preview V2 p13</div><div>Action choisie : {action}</div>",
-            "twoActions": "<div>Quick Assembly Rules Preview V2 p13</div><div>Actions choisies : {action1} et {action2}</div>"
+            "oneAction": "<div>Quick Assembly Rules Preview V3 p13</div><div>Action choisie : {action}</div>",
+            "twoActions": "<div>Quick Assembly Rules Preview V3 p13</div><div>Actions choisies : {action1} et {action2}</div>"
           }
         },
         "barricade": {
           "actionText": {
-            "oneType": "<div>Quick Assembly Rules Preview V2 p13</div><div>Type de dégâts choisi : {damageType}</div>",
-            "twoTypes": "<div>Quick Assembly Rules Preview V2 p13</div><div>Types de dégâts choisis : {damageType1} et {damageType2}</div>"
+            "oneType": "<div>Quick Assembly Rules Preview V3 p13</div><div>Type de dégâts choisi : {damageType}</div>",
+            "twoTypes": "<div>Quick Assembly Rules Preview V3 p13</div><div>Types de dégâts choisis : {damageType1} et {damageType2}</div>"
           },
           "description": {
             "oneType": "Utiliser des PM pour vous donner à vous-même, et vos alliés, une résistance à un type de dégâts spécifique.",
@@ -604,7 +602,7 @@
         "intercept": {
           "description": "Protège vos alliés des dangers en vous sacrifiant.",
           "name": "Intercepter",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p12</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p12</div>"
         },
         "name": "Sentinelle",
         "normalAttackStatus": {
@@ -619,12 +617,12 @@
         "reassuringAura": {
           "description": "Donner une immunité aux alliés contre un état spécifique.",
           "name": "Aura rassurante",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p13</div><div>État choisi : {status}</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p13</div><div>État choisi : {status}</div>"
         },
         "reduceProgress": {
           "description": "Empêcher la manipulation de cadrans ennemis sous certaines circonstances.",
           "name": "Réduire les progrès",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p13</div><div>États choisis : {status1} et {status2}</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p13</div><div>États choisis : {status1} et {status2}</div>"
         },
         "spell": {
           "description": "Apprend un sort d'une liste axée sur l'atténuation. Augmente également les PM de +10.",
@@ -638,42 +636,42 @@
         "threaten": {
           "description": "Force les ennemis à vous attaquer.",
           "name": "Menaçant",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p12</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p12</div>"
         },
         "unwaveringSupport": {
           "description": "Soutenir le Méchant en améliorant leur chance de critique quand ils invoques des traits.",
           "name": "Soutien sans faille",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p12</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p12</div>"
         },
         "vulnerabilityBlock": {
           "description": "Inverser une Vulnérabilité d'un allié spécifique en la transformant en Résistance.",
           "name": "Blocage de vulnérabilité",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p12</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p12</div>"
         }
       },
       "support": {
         "advise": {
-          "actionText": "<div>Quick Assembly Rules Preview V2 p14</div>",
+          "actionText": "<div>Quick Assembly Rules Preview V3 p14</div>",
           "description": "Utiliser ses PM pour aider les alliés à récupérer d'un état et leur donner un bonus à leur prochain test.",
           "name": "Conseil"
         },
         "followUpAttack": {
           "description": "Sous certaines circonstances, faire suivre une attaque alliée avec votre propre attaque.",
           "name": "Attaque suivie",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p15</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p15</div>"
         },
         "healingAura": {
           "description": "Soignez continuellement vos alliés.",
           "name": "Aura de guérison",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p15</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p15</div>"
         },
         "improvedAdvise": {
-          "actionText": "<div><b>Improved Advise:</b> Quick Assembly Rules Preview V2 p14 & p15</div>",
+          "actionText": "<div><b>Improved Advise:</b> Quick Assembly Rules Preview V3 p14 & p15</div>",
           "description": "Conseil amélioré permettant de récupérer de tous les états.",
           "name": "Conseil amélioré"
         },
         "inspire": {
-          "actionText": "<div>Quick Assembly Rules Preview V2 p14</div><div>Ressource choisie : {resource}<br>Attribut choisi : {attribute}</div>",
+          "actionText": "<div>Quick Assembly Rules Preview V3 p14</div><div>Ressource choisie : {resource}<br>Attribut choisi : {attribute}</div>",
           "description": "Utiliser des PM pour permettre à un allié de récupérer une ressource et améliorer ses attributs.",
           "name": "Inspiration",
           "resource": "Choisir une ressource"
@@ -681,20 +679,20 @@
         "mpBattery": {
           "description": "Payer le coût en PM pour vos alliés.",
           "name": "Batterie de PM",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p15</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p15</div>"
         },
         "name": "Support",
         "oneLastCommand": {
           "description": "Utiliser une de vos actions spéciales lorsque vous êtes éliminé.",
           "name": "Un dernier ordre",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p15</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p15</div>"
         },
         "oneSpellMpBonus": {
           "description": "Choisir un sort d'une liste axée sur le soutien. Gagne également +10 PM.",
           "name": "Un sort et un bonus de PM"
         },
         "strategicCommand": {
-          "actionText": "<div>Quick Assembly Rules Preview V2 p15</div>",
+          "actionText": "<div>Quick Assembly Rules Preview V3 p15</div>",
           "description": "Utiliser des PM pour qu'un allié puisse jouer immédiatement son tour après le votre, et lui donner un bonus de dégâts.",
           "name": "Commandement stratégique"
         },
@@ -705,7 +703,7 @@
         "vulnerabilityBlock": {
           "description": "Échanger une Vulnérabilité d'un allié contre une Résistance.",
           "name": "Blocage de Vulnérabilité",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p14</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p14</div>"
         }
       }
     },
@@ -727,7 +725,9 @@
         "opposedCheckBonus": {
           "description": "Gagne un bonus à des tests opposés spécifiques.",
           "name": "Bonus aux tests opposés",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p18</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p18</div>"
+        },
+        "spell": {
         }
       },
       "construct": {
@@ -739,7 +739,7 @@
         "opposedCheckBonus": {
           "description": "Gagne un bonus à des tests opposés spécifiques.",
           "name": "Bonus aux tests opposés",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p18</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p18</div>"
         },
         "statusImmunities": {
           "description": "Gagne une immunité à deux états.",
@@ -748,6 +748,8 @@
       },
       "demon": {
         "name": "Démon",
+        "spell": {
+        },
         "upgradeResToAbs": {
           "description": "Améliore une résistance en absorption.",
           "name": "Amélioration de Résistance en Absorption"
@@ -759,6 +761,8 @@
           "name": "Vulnérabilité supplémentaire"
         },
         "name": "Élémentaire",
+        "spell": {
+        },
         "upgradeImmToAbs": {
           "description": "Améliore une immunité en absorption.",
           "name": "Amélioration d'Immunité en Absorption"
@@ -769,18 +773,24 @@
         "opposedCheckBonus": {
           "description": "Gagne un bonus à des tests opposés spécifiques.",
           "name": "Bonus aux tests opposés",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p20</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p20</div>"
+        },
+        "spell": {
         }
       },
       "monster": {
-        "name": "Monstre"
+        "name": "Monstre",
+        "spell": {
+        }
       },
       "plant": {
         "name": "Plante",
+        "spell": {
+        },
         "thorns": {
           "description": "Fait des dégâts mineurs aux attaques au corps à corps.",
           "name": "Épines",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p21</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p21</div>"
         }
       },
       "undead": {
@@ -789,6 +799,8 @@
           "name": "Vulnérabilité supplémentaire"
         },
         "name": "Mort-vivant",
+        "spell": {
+        },
         "undeadHealing": {
           "description": "Les morts-vivants peuvent être blessés par des effets de soin.",
           "name": "Soin sur les morts-vivants",
@@ -832,6 +844,8 @@
         "spellText": "Vous renforcez et purifier l'énergie des âmes parcourant vos compagnons. Chaque cible récupère de tous ses états."
       },
       "costPerTarget": "{amount}xC PM",
+      "curse": {
+      },
       "curseXL": {
         "description": "Inflige deux états à une cible unique.",
         "name": "Malédiction XL",
@@ -1034,6 +1048,8 @@
       "assignStatusImmunity": {
         "blank": "Choisir un état...",
         "name": "Attribuer une immunité à un État"
+      },
+      "chooseMagicAttributes": {
       },
       "chooseSkill": {
         "blank": "Choisir...",

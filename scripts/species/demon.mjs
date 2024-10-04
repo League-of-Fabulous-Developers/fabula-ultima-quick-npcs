@@ -4,6 +4,10 @@ import {UpgradeResToAbsStep} from "../steps/upgrade-res-abs-step.mjs";
 import {Spells} from "../common/spells.mjs";
 import {CommonSkills} from "../common/skills.mjs";
 import {CommonRequirements} from "../common/requirements.mjs";
+import {ChooseSpellStep} from "../steps/choose-spell-step.mjs";
+import {pick} from "../common/utils.mjs";
+
+const demonSpellList = pick(Spells.asSkills, "breath", "curseXL", "mindTheft", "weaken")
 
 /**
  * @type SkillOptions
@@ -17,11 +21,12 @@ const customizations = {
             UpgradeResToAbsStep.addUpgrade(context)
         }
     },
-    weaken: {
-        ...Spells.asSkills.weaken,
-        apply: (model, context, choices) => {
-            Spells.asSkills.weaken.apply(model, context, choices);
-            model.bonuses.mp += 10;
+    demonSpell: {
+        label: "QUICKNPC.species.demon.spell.name",
+        description: "QUICKNPC.species.demon.spell.description",
+        apply: (model, context) => {
+            ChooseSpellStep.addSpell(context, demonSpellList)
+            model.bonuses.mp += 10
         }
     },
     flying: CommonSkills.flying,

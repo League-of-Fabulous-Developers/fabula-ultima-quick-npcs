@@ -16,6 +16,13 @@ export class AbstractStep {
     }
 
     /**
+     * @return {FormData}
+     */
+    get formData() {
+        return copyFormData(this.#data);
+    }
+
+    /**
      * @return string
      */
     static get template() {
@@ -49,9 +56,5 @@ export class AbstractStep {
      */
     apply(value, context) {
         throw new Error("'apply(value, context) {}' must be overridden")
-    }
-
-    get formData() {
-        return copyFormData(this.#data);
     }
 }

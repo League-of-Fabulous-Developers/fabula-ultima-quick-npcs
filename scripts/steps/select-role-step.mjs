@@ -2,7 +2,6 @@ import {AbstractStep} from "./abstract-step.mjs";
 import {brute} from "../roles/brute.mjs";
 import {NpcModel} from "../common/npc-model.mjs";
 import {Role} from "../roles/role.mjs";
-import {Spells} from "../common/spells.mjs";
 import {hunter} from "../roles/hunter.mjs";
 import {mage} from "../roles/mage.mjs";
 import {saboteur} from "../roles/saboteur.mjs";
@@ -59,7 +58,6 @@ export class SelectRoleStep extends AbstractStep {
         Role.setRole(context, selectedRole)
         model.name = game.i18n.localize(selectedRole.label);
         model.attributes = selectedRole.baseAttributes;
-        Spells.setAttributes(context, ...selectedRole.magicAttributes)
         selectedRole.applyBaseline(model, context)
         NpcModel.updateDerivedValues(model)
         return model;

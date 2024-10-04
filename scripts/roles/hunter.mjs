@@ -75,19 +75,13 @@ class Hunter extends Role {
         };
     }
 
-    get magicAttributes() {
-        return ["ins", "wlp"];
-    }
-
     get attributeChanges() {
         return [{wlp: "d8"}, {dex: "d12"}, {ins: "d10"}];
     }
 
     get skillsByLevel() {
         return [
-            (model) => {
-                model.bonuses.accuracy += 3
-            },
+            (model) => void (model.bonuses.accuracy += 3),
             CommonSkills.additionalRoleSkill.apply,
             CommonSkills.normalAttackIgnoreResistance.apply,
             CommonSkills.additionalRoleSkill.apply,

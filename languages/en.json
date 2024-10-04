@@ -30,19 +30,24 @@
     },
     "bossSkills": {
       "corrosiveStatus": {
-        "actionText": "<div>Quick Assembly Rules Preview V2 p16.</div><div>Damage: {damageType}</div><div>Status: {status}</div>",
+        "actionText": "<div>Quick Assembly Rules Preview V3 p16.</div><div>Damage: {damageType}</div><div>Status: {status}</div>",
         "description": "Deal damage to enemies suffering from a particular status.",
         "name": "Corrosive Status"
       },
       "crushingAdvantage": {
         "description": "Fill or empty clocks without having to perform checks.",
         "name": "Crushing Advantage",
-        "ruleText": "<div>Quick Assembly Rules Preview V2 p16.</div>"
+        "ruleText": "<div>Quick Assembly Rules Preview V3 p16.</div>"
+      },
+      "elementalCrisis": {
+        "description": "Change elemental affinities and damages type once you enter Crisis.",
+        "name": "Elemental Crisis",
+        "ruleText": "<div>Quick Assembly Rules Preview V3 p16.</div>"
       },
       "partRegeneration": {
         "description": "Recover from status effects and summon reinforcements when you enter Crisis.",
         "name": "Part Regeneration",
-        "ruleText": "<div>Quick Assembly Rules Preview V2 p16.</div>"
+        "ruleText": "<div>Quick Assembly Rules Preview V3 p16.</div>"
       },
       "temporaryDefenses": {
         "choice": "Choose defensive Statistic",
@@ -50,12 +55,12 @@
         "description": "Treat one of your defenses as a static vaue until you enter Crisis.",
         "mDef": "Magic Defense",
         "name": "Temporary Defenses",
-        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Chosen defensive statistic: {defense}</div>"
+        "ruleText": "<div>Quick Assembly Rules Preview V3 p17.</div><div>Chosen defensive statistic: {defense}</div>"
       },
       "zombification": {
         "description": "Invert healing to damage when the target suffers from a certain status effect.",
         "name": "Zombification",
-        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Chosen status: {status}</div>"
+        "ruleText": "<div>Quick Assembly Rules Preview V3 p17.</div><div>Chosen status: {status}</div>"
       }
     },
     "commonChoices": {
@@ -135,12 +140,12 @@
       "finalDetonation": {
         "description": "Deal damage to your allies when you get taken out.",
         "name": "Final Detonation",
-        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Chosen damage type: {damageType}</div>"
+        "ruleText": "<div>Quick Assembly Rules Preview V3 p17.</div><div>Chosen damage type: {damageType}</div>"
       },
       "finalRestore": {
         "description": "Restore resources to your enemies when you get taken out.",
         "name": "Final Restore",
-        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Chosen resource: {resource}</div>"
+        "ruleText": "<div>Quick Assembly Rules Preview V3 p17.</div><div>Chosen resource: {resource}</div>"
       },
       "painfulMiss": {
         "attack": {
@@ -150,7 +155,7 @@
         },
         "description": "Deal damage to yourself or allies when you miss with your attacks.",
         "name": "Painful Miss",
-        "ruleText": "<div>Quick Assembly Rules Preview V2 p17.</div><div>Chosen Attack: {attack}</div><div>Chosen Target: {target}</div>",
+        "ruleText": "<div>Quick Assembly Rules Preview V3 p17.</div><div>Chosen Attack: {attack}</div><div>Chosen Target: {target}</div>",
         "target": {
           "ally": {
             "label": "Your Allies",
@@ -226,51 +231,51 @@
         "badTemper": {
           "description": "Gain almost total status effect immunity while in Crisis.",
           "name": "Bad Temper",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p4</div>"
         },
         "collapse": {
           "description": "Fill a Clock when Strong Attack misses, deal damage when the clock fills.",
           "name": "Collapse",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p5</div>"
         },
         "collateralDamage": {
           "description": "Deal damage when using the Hinder action.",
           "name": "Collateral Damage",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div><div>Chosen damage type: {damageType}</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p4</div><div>Chosen damage type: {damageType}</div>"
         },
         "crush": {
           "attackSpecialText": "Hit enemies become possible targets for Crush.",
           "description": "Grapple enemies, deal damage to grappled enemies without having to perform a check.",
           "name": "Crush",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p5</div>"
         },
         "dieHard": {
           "description": "Survive lethal damage, once.",
           "name": "Die Hard",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p4</div>"
         },
         "enhancingGuard": {
           "description": "Deal more damage and ignore resistances after guarding.",
           "name": "Enhancing Guard",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p5</div>"
         },
         "name": "Brute",
         "soreLoser": {
           "description": "Sometimes cause status effects after you fail an Opposed Check.",
           "name": "Sore Loser",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p5</div>"
         },
         "specialArmor": {
           "attacks": "Attacks",
           "description": "While in Crisis, take less damage from a specific type of Actions.",
           "name": "Special Armor",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div><div>Action type: {type}</div>",
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p4</div><div>Action type: {type}</div>",
           "skills": "Skills",
           "spells": "Spells",
           "type": "Select Action"
         },
         "spells": {
-          "description": "Gain access to two different spells using 【MIG + WLP】 for casting.",
+          "description": "Gain access to two different spells from a list focused on causing status effects and staying alive.",
           "name": "Spells"
         },
         "statusImmunities": {
@@ -280,7 +285,7 @@
         "steadyRecovery": {
           "description": "Recover from status effects under certain circumstances.",
           "name": "Steady Recovery",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p5</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p5</div>"
         },
         "strongAttackRanged": {
           "description": "Strong Attack becomes ranged and causes status effects.",
@@ -289,24 +294,24 @@
         "vengefulAttack": {
           "description": "Use one last Strong Attack after suffering lethal damage.",
           "name": "Vengeful Attack",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p4</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p4</div>"
         }
       },
       "hunter": {
         "ambush": {
           "description": "Upgrade one specific attribute dice during the first round of conflict.",
           "name": "Ambush",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div><div>Chosen attribute: {attribute}</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p7</div><div>Chosen attribute: {attribute}</div>"
         },
         "elusive": {
           "description": "Negate damage while not suffering from status effects.",
           "name": "Elusive",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p7</div>"
         },
         "emergencyCamouflage": {
           "description": "Become invisible for a short time upon entering Crisis.",
           "name": "Emergency Camouflage",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p6</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p6</div>"
         },
         "extraDamage": {
           "condition": "Select condition:",
@@ -327,7 +332,7 @@
         "falseSenseOfSecurity": {
           "description": "Turn your allies' failures to your advantage.",
           "name": "False Sense of Security",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p6</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p6</div>"
         },
         "huntersBait": {
           "action": "Action",
@@ -335,7 +340,7 @@
           "melee": "Melee attacks",
           "name": "Hunter's Bait",
           "ranged": "Ranged attacks",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div><div>Chosen Action: {action}</div>",
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p7</div><div>Chosen Action: {action}</div>",
           "spell": "Offensive spells"
         },
         "lifeSteal": {
@@ -346,24 +351,24 @@
         "lightningFast": {
           "description": "Deal more damage during another creature's turn, when not affected by status effects.",
           "name": "Lightning Fast",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p6</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p6</div>"
         },
         "name": "Hunter",
         "opportunist": {
           "description": "Improve critical chance during Opposed Checks under certain conditions.",
           "name": "Opportunist",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p7</div>"
         },
         "specialResistance": {
           "description": "Resist damage dealt by effects with a certain number of targets",
           "multi": "Two or more creatures",
           "name": "Special Resistance",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p6</div><div>Effective against effects targeting: {targets}</div>",
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p6</div><div>Effective against effects targeting: {targets}</div>",
           "single": "One creature",
           "targets": "Select number of targets"
         },
         "spells": {
-          "description": "Gain access to two different spells using 【INS + WLP】 for casting.",
+          "description": "Gain access to two different spells from a list focused on dealing damage and staying alive.",
           "name": "Spells"
         },
         "strongAttack": {
@@ -374,60 +379,60 @@
         "targetLock": {
           "description": "Guard to select enemy, deal more damage to selected enemy.",
           "name": "Target Lock",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p7</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p7</div>"
         }
       },
       "mage": {
         "baselineOneSpellMpBonus": {
-          "description": "Choose one spell from a basic spell list and gain +10 MP.",
+          "description": "Choose one spell from a basic spell list focused on dealing damage and gain +10 MP.",
           "name": "One Spell and Bonus MP (Basic)"
         },
         "baselineTwoSpells": {
-          "description": "Choose two spells from a basic spell list.",
+          "description": "Choose two spells from a basic spell list focused on dealing damage.",
           "name": "Two Spells (Basic)"
         },
         "collateralDamage": {
           "description": "Deal damage when using the Hinder action.",
           "name": "Collateral Damage",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p8</div><div>Chosen damage type: {damageType}</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p8</div><div>Chosen damage type: {damageType}</div>"
         },
         "elementDrain": {
           "description": "Restore MP when hit by elemental damage.",
           "name": "Element Drain",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p9</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p9</div>"
         },
         "elementShift": {
           "description": "Change your affinities by casting spells.",
           "name": "Element Shift",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p9</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p9</div>"
         },
         "magicalMastery": {
           "description": "Improved ability to interact with clocks related to magic.",
           "name": "Magical Mastery",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p9</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p9</div>"
         },
         "name": "Mage",
         "normalAttackVolatile": {
           "description": "Normal Attack causes hit targets to become volatile.",
           "name": "Normal Attack Volatile",
-          "specialText": "<div><b>Volatile:</b> Quick Assembly Rules Preview V2 p9</div>"
+          "specialText": "<div><b>Volatile:</b> Quick Assembly Rules Preview V3 p9</div>"
         },
         "oneSpellMpBonus": {
-          "description": "Choose one spell from an advanced spell list and gain +10 MP.",
+          "description": "Choose one spell from an advanced spell list focused on dealing damage and gain +10 MP.",
           "name": "One Spell and Bonus MP (Advanced)"
         },
         "overwhelm": {
           "description": "Improve critical chance during Opposed Checks under certain conditions.",
           "name": "Overwhelm",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p8</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p8</div>"
         },
         "soulburst": {
           "description": "Other creatures recover MP when you are reduced to 0 HP.",
           "name": "Soul Burst",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p8</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p8</div>"
         },
         "spells": {
-          "description": "Choose spells from an advanced spell list. Either choose two spells or one spell and gain +10 MP.",
+          "description": "Choose spells from an advanced spell list focused on dealing damage. Either choose two spells or one spell and gain +10 MP.",
           "name": "More Spells"
         },
         "statusImmunities": {
@@ -435,7 +440,7 @@
           "name": "Status Immunities"
         },
         "twoSpells": {
-          "description": "Choose two spells from an advanced spell list.",
+          "description": "Choose two spells from an advanced spell list focused on dealing damage.",
           "name": "Two Spells (Advanced)"
         }
       },
@@ -447,29 +452,29 @@
         "auraOfUnease": {
           "description": "Enemies cannot recover from chosen status effects.",
           "name": "Aura of Unease",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div><div>Chosen status effects: {status1} and {status2}</div>",
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p10</div><div>Chosen status effects: {status1} and {status2}</div>",
           "status1": "First status effect",
           "status2": "Second status effect"
         },
         "cruelHypnosis": {
-          "actionText": "<div>Quick Assembly Rules Preview V2 p11</div><div>Chosen status effect: {status}</div>",
+          "actionText": "<div>Quick Assembly Rules Preview V3 p11</div><div>Chosen status effect: {status}</div>",
           "description": "Spend MP to cause an enemy to attack a target of your choosing.",
           "name": "Cruel Hypnosis"
         },
         "entangle": {
           "description": "Prevent enemies from performing free attack if they are suffering from multiple status effects.",
           "name": "Entangle",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p10</div>"
         },
         "exhaustingCompromise": {
           "description": "Spend MP to manipulate clocks in certain circumstances.",
           "name": "Exhausting Compromise",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p10</div>"
         },
         "hinderingSpecialist": {
           "description": "Follow up a successful Hinder action with another Hinder.",
           "name": "Hindering Specialist",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p10</div>"
         },
         "magicCheckBonus": {
           "description": "Gain a +3 bonus to magic checks.",
@@ -494,17 +499,17 @@
         "partingGift": {
           "description": "Detonate your Weaken spells when you are taken out.",
           "name": "Parting Gift",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p11</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p11</div>"
         },
         "secretTechnique": {
           "description": "Use an attack or a spell without anyone but the target noticing.",
           "name": "Secret Technique",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p11</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p11</div>"
         },
         "shadowOfDoubt": {
           "description": "Prevent PCs from invoking Traits and Bonds under certain circumstances.",
           "name": "Shadow of Doubt",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p11</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p11</div>"
         },
         "spell": {
           "description": "Gain a spell from a list focused on disruption. Also gain +10 MP.",
@@ -561,7 +566,7 @@
         "syphonMind": {
           "description": "Increase enemy MP cost.",
           "name": "Syphon Mind",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p10</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p10</div>"
         }
       },
       "sentinel": {
@@ -582,14 +587,14 @@
             "twoActions": "Avenge (Two Actions)"
           },
           "ruleText": {
-            "oneAction": "<div>Quick Assembly Rules Preview V2 p13</div><div>Chosen action: {action}</div>",
-            "twoActions": "<div>Quick Assembly Rules Preview V2 p13</div><div>Chosen actions: {action1} and {action2}</div>"
+            "oneAction": "<div>Quick Assembly Rules Preview V3 p13</div><div>Chosen action: {action}</div>",
+            "twoActions": "<div>Quick Assembly Rules Preview V3 p13</div><div>Chosen actions: {action1} and {action2}</div>"
           }
         },
         "barricade": {
           "actionText": {
-            "oneType": "<div>Quick Assembly Rules Preview V2 p13</div><div>Chosen damage type: {damageType}</div>",
-            "twoTypes": "<div>Quick Assembly Rules Preview V2 p13</div><div>Chosen damage types: {damageType1} and {damageType2}</div>"
+            "oneType": "<div>Quick Assembly Rules Preview V3 p13</div><div>Chosen damage type: {damageType}</div>",
+            "twoTypes": "<div>Quick Assembly Rules Preview V3 p13</div><div>Chosen damage types: {damageType1} and {damageType2}</div>"
           },
           "description": {
             "oneType": "Use MP to grant yourself and allies Resistance to a specific damage type.",
@@ -604,7 +609,7 @@
         "intercept": {
           "description": "Protect your allies from danger by sacrificing yourself.",
           "name": "Intercept",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p12</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p12</div>"
         },
         "name": "Sentinel",
         "normalAttackStatus": {
@@ -619,12 +624,12 @@
         "reassuringAura": {
           "description": "Grant allies immunity against a specific status effect.",
           "name": "Reassuring Aura",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p13</div><div>Chosen status effect: {status}</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p13</div><div>Chosen status effect: {status}</div>"
         },
         "reduceProgress": {
           "description": "Impede enemy clock manipulation under certain circumstances.",
           "name": "Reduce Progress",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p13</div><div>Chosen status effects: {status1} and {status2}</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p13</div><div>Chosen status effects: {status1} and {status2}</div>"
         },
         "spell": {
           "description": "Learn one spell from a list focused on mitigation. Also increase MP by +10.",
@@ -638,42 +643,42 @@
         "threaten": {
           "description": "Force enemies to attack you.",
           "name": "Threaten",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p12</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p12</div>"
         },
         "unwaveringSupport": {
           "description": "Support Villains by improving their critical chance when they invoke Traits.",
           "name": "Unwavering Support",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p12</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p12</div>"
         },
         "vulnerabilityBlock": {
           "description": "Flip a single Vulnerability of a specific ally to Resistance.",
           "name": "Vulnerability Block",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p12</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p12</div>"
         }
       },
       "support": {
         "advise": {
-          "actionText": "<div>Quick Assembly Rules Preview V2 p14</div>",
+          "actionText": "<div>Quick Assembly Rules Preview V3 p14</div>",
           "description": "Use MP to help allies recover from status effects and give them a bonus on their next Check.",
           "name": "Advise"
         },
         "followUpAttack": {
           "description": "Under certain circumstances follow up an ally's attack with an attack of your own.",
           "name": "Follow-up Attack",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p15</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p15</div>"
         },
         "healingAura": {
           "description": "Continously heal your allies.",
           "name": "Healing Aura",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p15</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p15</div>"
         },
         "improvedAdvise": {
-          "actionText": "<div><b>Improved Advise:</b> Quick Assembly Rules Preview V2 p14 & p15</div>",
+          "actionText": "<div><b>Improved Advise:</b> Quick Assembly Rules Preview V3 p14 & p15</div>",
           "description": "Improves Advise to allow recovery from all status effects.",
           "name": "Improved Advise"
         },
         "inspire": {
-          "actionText": "<div>Quick Assembly Rules Preview V2 p14</div><div>Chosen resource: {resource}<br>Chosen attribute: {attribute}</div>",
+          "actionText": "<div>Quick Assembly Rules Preview V3 p14</div><div>Chosen resource: {resource}<br>Chosen attribute: {attribute}</div>",
           "description": "Use MP to recover an ally's resource and improve one of their attributes.",
           "name": "Inspire",
           "resource": "Choose Resource"
@@ -681,20 +686,20 @@
         "mpBattery": {
           "description": "Pay MP costs for your allies.",
           "name": "MP Battery",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p15</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p15</div>"
         },
         "name": "Support",
         "oneLastCommand": {
           "description": "Use one of your special actions one final time when you get taken out.",
           "name": "One Last Command",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p15</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p15</div>"
         },
         "oneSpellMpBonus": {
           "description": "Choose one spell from a list focused on support. Also gain +10 MP.",
           "name": "One Spell and MP Bonus"
         },
         "strategicCommand": {
-          "actionText": "<div>Quick Assembly Rules Preview V2 p15</div>",
+          "actionText": "<div>Quick Assembly Rules Preview V3 p15</div>",
           "description": "Use MP to have an ally take their turn immediately after yours and give them a bonus to damage.",
           "name": "Strategic Command"
         },
@@ -705,7 +710,7 @@
         "vulnerabilityBlock": {
           "description": "Flip a single Vulnerability of a specific ally to Resistance.",
           "name": "Vulnerability Block",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p14</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p14</div>"
         }
       }
     },
@@ -727,7 +732,11 @@
         "opposedCheckBonus": {
           "description": "Gain a bonus to specific Opposed Checks.",
           "name": "Bonus to Opposed Checks",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p18</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p18</div>"
+        },
+        "spell": {
+          "description": "Choose one spell from a beast themed spell list and gain +10 MP.",
+          "name": "Beast Spell"
         }
       },
       "construct": {
@@ -739,7 +748,7 @@
         "opposedCheckBonus": {
           "description": "Gain a bonus to specific Opposed Checks.",
           "name": "Bonus to Opposed Checks",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p18</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p18</div>"
         },
         "statusImmunities": {
           "description": "Gain immunity to any two status effects.",
@@ -748,6 +757,10 @@
       },
       "demon": {
         "name": "Demon",
+        "spell": {
+          "description": "Choose one spell from a demon themed spell list and gain +10 MP.",
+          "name": "Demon Spell"
+        },
         "upgradeResToAbs": {
           "description": "Upgrade a resistance to absorption.",
           "name": "Upgrade Resistance to Absorption"
@@ -759,6 +772,10 @@
           "name": "Additional Vulnerability"
         },
         "name": "Elemental",
+        "spell": {
+          "description": "Choose one spell from an elemental themed spell list and gain +10 MP.",
+          "name": "Elemental Spell"
+        },
         "upgradeImmToAbs": {
           "description": "Upgrade one immunity to absorption.",
           "name": "Upgrade Immunity to Absorption"
@@ -769,18 +786,30 @@
         "opposedCheckBonus": {
           "description": "Gain a bonus to specific Opposed Checks.",
           "name": "Bonus to Opposed Checks",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p20</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p20</div>"
+        },
+        "spell": {
+          "description": "Choose one spell from a humanoid themed spell list and gain +10 MP.",
+          "name": "Humanoid Spell"
         }
       },
       "monster": {
-        "name": "Monster"
+        "name": "Monster",
+        "spell": {
+          "description": "Choose one spell from a monster themed spell list and gain +10 MP.",
+          "name": "Monster Spell"
+        }
       },
       "plant": {
         "name": "Plant",
+        "spell": {
+          "description": "Choose one spell from a plant themed spell list and gain +10 MP.",
+          "name": "Plant Spell"
+        },
         "thorns": {
           "description": "Deal minor damage to melee attackers.",
           "name": "Thorns",
-          "ruleText": "<div>Quick Assembly Rules Preview V2 p21</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p21</div>"
         }
       },
       "undead": {
@@ -789,6 +818,10 @@
           "name": "Additional Vulnerability"
         },
         "name": "Undead",
+        "spell": {
+          "description": "Choose one spell from an undead themed spell list and gain +10 MP.",
+          "name": "Undead Spell"
+        },
         "undeadHealing": {
           "description": "Undead may be harmed by healing effects.",
           "name": "Undead Healing",
@@ -832,6 +865,11 @@
         "spellText": "You strengthen and purify the soul energy coursing through your companions. Each target recovers from all status effects."
       },
       "costPerTarget": "{amount}xT MP",
+      "curse": {
+        "description": "Cause a status effect on a single target.",
+        "name": "Curse",
+        "spellText": "The target suffers {status}."
+      },
       "curseXL": {
         "description": "Cause two status effects on a single target.",
         "name": "Curse XL",
@@ -1034,6 +1072,10 @@
       "assignStatusImmunity": {
         "blank": "Select status effect...",
         "name": "Assign Status Immunity"
+      },
+      "chooseMagicAttributes": {
+        "blank": "Select attributes...",
+        "name": "Choose Magic Attributes"
       },
       "chooseSkill": {
         "blank": "Select...",

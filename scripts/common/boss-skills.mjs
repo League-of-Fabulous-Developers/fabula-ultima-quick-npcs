@@ -34,6 +34,13 @@ const bossSkills = {
             model.rules.crushingAdvantage = Rules.simpleRule("QUICKNPC.bossSkills.crushingAdvantage")
         }
     },
+    elementalCrisis: {
+        label: "QUICKNPC.bossSkills.elementalCrisis.name",
+        description: "QUICKNPC.bossSkills.elementalCrisis.description",
+        apply: (model) => {
+            model.rules.elementalCrisis = Rules.simpleRule("QUICKNPC.bossSkills.elementalCrisis")
+        }
+    },
     partRegeneration: {
         label: "QUICKNPC.bossSkills.partRegeneration.name",
         description: "QUICKNPC.bossSkills.partRegeneration.description",

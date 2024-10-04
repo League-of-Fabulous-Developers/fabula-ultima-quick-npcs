@@ -10,7 +10,7 @@ import {CommonSkills} from "../common/skills.mjs";
 import {CommonRequirements} from "../common/requirements.mjs";
 import {pick} from "../common/utils.mjs";
 
-const bruteSpellList = pick(Spells.asSkills, "areaCurse", "curseXL", "cursedBreath", "enrage", "lifeTheft", "reinforce");
+const bruteSpellList = pick(Spells.asSkills, "areaStatus", "curseXL", "cursedBreath", "enrage", "lickWounds", "lifeTheft", "poison", "reinforce");
 
 class Brute extends Role {
 
@@ -25,10 +25,6 @@ class Brute extends Role {
             mig: "d10",
             wlp: "d8",
         }
-    }
-
-    get magicAttributes() {
-        return ["mig", "wlp"]
     }
 
     get attributeChanges() {

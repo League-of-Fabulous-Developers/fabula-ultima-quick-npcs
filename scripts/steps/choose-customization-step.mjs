@@ -1,8 +1,7 @@
 import {AbstractChooseSkillStep} from "./abstract-choose-skill-step.mjs";
+import {Customizations} from "../common/customizations.mjs";
 
 const customizationsKey = "customizations"
-const appliedCustomizationsKey = "appliedCustomizations"
-
 
 export class ChooseCustomizationStep extends AbstractChooseSkillStep {
 
@@ -37,9 +36,8 @@ export class ChooseCustomizationStep extends AbstractChooseSkillStep {
      * @return SkillOptions
      */
     static filterOptions(options, model, context) {
-        const applied = context[appliedCustomizationsKey] ?? []
         return Object.fromEntries(Object.entries(options)
-            .filter(([key]) => !applied.includes(key)));
+            .filter(([key]) => !Customizations.checkApplied(context, key)));
     }
 
     /**
@@ -54,7 +52,7 @@ export class ChooseCustomizationStep extends AbstractChooseSkillStep {
 
     static markApplied(context, selected) {
         context[customizationsKey].shift();
-        (context[appliedCustomizationsKey] ??= []).push(selected);
+        Customizations.markApplied(context, selected);
     }
 
 }

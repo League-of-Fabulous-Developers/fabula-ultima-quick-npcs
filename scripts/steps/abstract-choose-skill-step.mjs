@@ -166,6 +166,6 @@ export class AbstractChooseSkillStep extends AbstractStep {
      */
     static #checkPrerequisites(options, model, context) {
         return Object.fromEntries(Object.entries(options)
-            .filter(([, value]) => checkPrerequisites(value.require, value.disallow, model)));
+            .filter(([, value]) => checkPrerequisites(value.require, value.disallow, model, context)));
     }
 }
