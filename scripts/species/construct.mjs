@@ -44,8 +44,8 @@ class Construct extends Species {
     }
 
     apply(model, context) {
-        model.affinities.earth = "res";
-        model.affinities.poison = "imm";
+        model.affinities.earth.res = true;
+        model.affinities.poison.imm = true;
         model.statusImmunities.poisoned = true;
 
         ConditionalBonusSkillStep.addConditionalBonusSkill(context, conditionalConstructSkills)

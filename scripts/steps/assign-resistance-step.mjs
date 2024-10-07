@@ -1,6 +1,14 @@
 import {CONSTANTS} from "../constants.mjs";
 import {AbstractAssignAffinityStep} from "./abstract-assign-affinity-step.mjs";
 
+/**
+ * @param {AffinityModel} affinity
+ * @return boolean
+ */
+const validAffinity = (affinity) => {
+    return !affinity.abs && !affinity.imm && !affinity.res && (!affinity.vul || affinity.vul === "species")
+}
+
 const allDamageTypes = Object.keys(CONSTANTS.damageTypes)
 
 const resistancesKey = "resistances";
@@ -12,8 +20,10 @@ export class AssignResistanceStep extends AbstractAssignAffinityStep {
     }
 
     static getOptions(model, context) {
-        const validAffinities = ["vul", ""]
-        return context[resistancesKey][0].filter(damageType => validAffinities.includes(model.affinities[damageType]))
+        return context[resistancesKey][0].filter(damageType => {
+            const affinity = model.affinities[damageType];
+            return validAffinity(affinity)
+        })
     }
 
     /**
@@ -32,14 +42,10 @@ export class AssignResistanceStep extends AbstractAssignAffinityStep {
 
     doApply(value, context) {
         const affinity = value.affinities[this.damageType];
-        if (["res", "imm", "abs"].includes(affinity)) {
+        if (!validAffinity(affinity)) {
             return false
         } else {
-            if (affinity === "vul") {
-                value.affinities[this.damageType] = ""
-            } else {
-                value.affinities[this.damageType] = "res"
-            }
+            affinity.res = true
             context[resistancesKey].shift();
             return value;
         }

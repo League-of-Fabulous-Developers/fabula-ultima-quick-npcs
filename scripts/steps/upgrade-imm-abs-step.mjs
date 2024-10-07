@@ -1,5 +1,13 @@
 import {AbstractAssignAffinityStep} from "./abstract-assign-affinity-step.mjs";
 
+/**
+ * @param {AffinityModel} affinity
+ * @return boolean
+ */
+const validAffinity = (affinity) => {
+    return !affinity.abs && affinity.imm
+}
+
 const upgradeImmToAbsKey = "upgradeImmToAbs"
 
 export class UpgradeImmToAbsStep extends AbstractAssignAffinityStep {
@@ -10,7 +18,7 @@ export class UpgradeImmToAbsStep extends AbstractAssignAffinityStep {
 
     static getOptions(model, context) {
         return Object.entries(model.affinities)
-            .filter(([, value]) => value === "imm")
+            .filter(([, value]) => validAffinity(value))
             .map(([key]) => key)
     }
 
@@ -26,10 +34,10 @@ export class UpgradeImmToAbsStep extends AbstractAssignAffinityStep {
 
     doApply(value, context) {
         const affinity = value.affinities[this.damageType];
-        if (affinity !== "imm") {
+        if (!validAffinity(affinity)) {
             return false
         } else {
-            value.affinities[this.damageType] = "abs"
+            affinity.abs = true
             context[upgradeImmToAbsKey] -= 1;
             return value;
         }

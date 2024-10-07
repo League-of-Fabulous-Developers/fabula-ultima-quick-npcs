@@ -1,6 +1,14 @@
 import {CONSTANTS} from "../constants.mjs";
 import {AbstractAssignAffinityStep} from "./abstract-assign-affinity-step.mjs";
 
+/**
+ * @param {AffinityModel} affinity
+ * @return boolean
+ */
+const validAffinity = (affinity) => {
+    return !affinity.abs && !affinity.imm && !affinity.res && !affinity.vul
+}
+
 const allDamageTypes = Object.keys(CONSTANTS.damageTypes)
 
 const immunitiesKey = "immunities"
@@ -12,8 +20,10 @@ export class AssignImmunityStep extends AbstractAssignAffinityStep {
     }
 
     static getOptions(model, context) {
-        const validAffinities = ["vul", "", "res"]
-        return context[immunitiesKey][0].filter(damageType => validAffinities.includes(model.affinities[damageType]))
+        return context[immunitiesKey][0].filter(damageType => {
+            const affinity = model.affinities[damageType];
+            return validAffinity(affinity)
+        })
     }
 
     static addImmunity(context, options = allDamageTypes) {
@@ -27,10 +37,11 @@ export class AssignImmunityStep extends AbstractAssignAffinityStep {
     }
 
     doApply(value, context) {
-        if (["imm", "abs"].includes(value.affinities[this.damageType])) {
+        const affinity = value.affinities[this.damageType];
+        if (!validAffinity(affinity)) {
             return false
         } else {
-            value.affinities[this.damageType] = "imm";
+            affinity.imm = true;
             context[immunitiesKey].shift();
             return value;
         }

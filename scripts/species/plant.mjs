@@ -1,11 +1,11 @@
 import {Species} from "./species.mjs";
 import {ChooseCustomizationStep} from "../steps/choose-customization-step.mjs";
 import {Rules} from "../common/rules.mjs";
-import {AssignVulnerabilityStep} from "../steps/assign-vulnerability-step.mjs";
 import {CommonSkills as commonSkills, CommonSkills} from "../common/skills.mjs";
 import {pick} from "../common/utils.mjs";
 import {ChooseSpellStep} from "../steps/choose-spell-step.mjs";
 import {Spells} from "../common/spells.mjs";
+import {AssignSpeciesVulnerabilityStep} from "../steps/assign-species-vulnerability-step.mjs";
 
 const plantSpellList = pick(Spells.asSkills,"breath", "cursedBreath", "lifeTheft", "poison")
 
@@ -45,7 +45,7 @@ class Plant extends Species {
         model.statusImmunities.enraged = true;
         model.statusImmunities.shaken = true;
 
-        AssignVulnerabilityStep.addVulnerability(context, ["air", "bolt", "fire", "ice"])
+        AssignSpeciesVulnerabilityStep.addSpeciesVulnerability(context, ["air", "bolt", "fire", "ice"])
 
         ChooseCustomizationStep.addCustomization(context, customizations)
     }

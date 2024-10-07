@@ -1,4 +1,13 @@
 import {AbstractAssignAffinityStep} from "./abstract-assign-affinity-step.mjs";
+import {NpcModel} from "../common/npc-model.mjs";
+
+/**
+ * @param {AffinityModel} affinity
+ * @return boolean
+ */
+const validAffinity = (affinity) => {
+    return affinity.res && NpcModel.computeAffinity(affinity) === "res"
+}
 
 const upgradeResToAbsKey = "upgradeResToAbs"
 
@@ -10,7 +19,7 @@ export class UpgradeResToAbsStep extends AbstractAssignAffinityStep {
 
     static getOptions(model, context) {
         return Object.entries(model.affinities)
-            .filter(([, value]) => value === "res")
+            .filter(([, value]) => validAffinity(value))
             .map(([key]) => key)
     }
 
@@ -26,10 +35,10 @@ export class UpgradeResToAbsStep extends AbstractAssignAffinityStep {
 
     doApply(value, context) {
         const affinity = value.affinities[this.damageType];
-        if (affinity !== "res") {
+        if (!validAffinity(affinity)) {
             return false
         } else {
-            value.affinities[this.damageType] = "abs"
+            affinity.abs = true
             context[upgradeResToAbsKey] -= 1;
             return value;
         }
