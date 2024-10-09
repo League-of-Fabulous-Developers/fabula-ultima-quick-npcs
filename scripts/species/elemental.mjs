@@ -50,7 +50,7 @@ class Elemental extends Species {
     }
 
     apply(model, context) {
-        model.affinities.poison = "imm";
+        model.affinities.poison.imm = true;
         model.statusImmunities.poisoned = true;
 
         AssignImmunityStep.addImmunity(context)

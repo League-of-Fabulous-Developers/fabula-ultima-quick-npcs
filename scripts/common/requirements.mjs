@@ -33,7 +33,7 @@ function checkRequire(require, model, context) {
     let met = true
 
     if (require.anyResistance) {
-        met = met && Object.values(model.affinities).some(damageType => damageType === "res")
+        met = met && Object.values(model.affinities).some(damageType => damageType.value === "res")
     }
 
     if (require.attack) {

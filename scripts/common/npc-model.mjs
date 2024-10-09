@@ -87,13 +87,58 @@
  * @property {number} bonuses.init
  * @property {number} bonuses.accuracy
  * @property {number} bonuses.magic
- * @property {Record<DamageType, Affinity>} affinities
+ * @property {Record<DamageType, AffinityModel>} affinities
  * @property {Record<StatusEffect, boolean>} statusImmunities
  * @property {Record<string, Attack>} attacks
  * @property {Record<string, Action>} actions
  * @property {Record<string, Spell>} spells
  * @property {Record<string, Rule>} rules
  */
+
+/**
+ * @typedef AffinityModel
+ * @property {boolean, "species"} vul
+ * @property {boolean} res
+ * @property {boolean} imm
+ * @property {boolean} abs
+ * @property {Affinity} value
+ */
+
+/**
+ * @return AffinityModel
+ */
+function createAffinity() {
+    return {
+        vul: false,
+        res: false,
+        imm: false,
+        abs: false,
+        value: ""
+    };
+}
+
+/**
+ * @param {AffinityModel} affinity
+ * @return {Affinity}
+ */
+function computeAffinity(affinity) {
+    if (affinity.abs) {
+        return "abs";
+    }
+    if (affinity.imm) {
+        return "imm";
+    }
+    if (affinity.res && affinity.vul) {
+        return "";
+    }
+    if (affinity.res) {
+        return "res";
+    }
+    if (affinity.vul) {
+        return "vul";
+    }
+    return "";
+}
 
 
 /**
@@ -128,15 +173,15 @@ function newNpcModel() {
             magic: 0
         },
         affinities: {
-            physical: "",
-            air: "",
-            bolt: "",
-            dark: "",
-            earth: "",
-            fire: "",
-            ice: "",
-            light: "",
-            poison: "",
+            physical: createAffinity(),
+            air: createAffinity(),
+            bolt: createAffinity(),
+            dark: createAffinity(),
+            earth: createAffinity(),
+            fire: createAffinity(),
+            ice: createAffinity(),
+            light: createAffinity(),
+            poison: createAffinity(),
         },
         statusImmunities: {
             dazed: false,
@@ -274,7 +319,17 @@ function updateSpells(model) {
 /**
  * @param {NpcModel} model
  */
+function updateAffinities(model) {
+    for (const affinity of Object.values(model.affinities)) {
+        affinity.value = computeAffinity(affinity)
+    }
+}
+
+/**
+ * @param {NpcModel} model
+ */
 function updateDerivedValues(model) {
+    updateAffinities(model)
     updateDerived(model);
     updateAttacks(model);
     updateSpells(model);
@@ -405,7 +460,7 @@ async function createActor(model) {
                     bonus: model.bonuses.mp
                 },
             },
-            affinities: Object.fromEntries(Object.entries(model.affinities).map(([key, value]) => [key, {base: systemAffinityValues[value]}])),
+            affinities: Object.fromEntries(Object.entries(model.affinities).map(([key, value]) => [key, {base: systemAffinityValues[value.value]}])),
             isElite: {value: model.rank === "elite"},
             isChampion: {value: model.rank.startsWith("champion") ? Number(model.rank.substring(8)) : 1},
             rank: {
@@ -425,5 +480,6 @@ async function createActor(model) {
 export const NpcModel = {
     newNpcModel,
     updateDerivedValues,
-    createActor
+    createActor,
+    computeAffinity
 }

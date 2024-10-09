@@ -25,7 +25,7 @@ const undeadConditionalSkill = {
             label: "QUICKNPC.species.undead.upgradeImmToAbs.name",
             description: "QUICKNPC.species.undead.upgradeImmToAbs.description",
             apply: model => {
-                model.affinities.dark = "abs";
+                model.affinities.dark.abs = true;
             }
         },
         undeadSpell: {
@@ -48,9 +48,9 @@ class Undead extends Species {
     }
 
     apply(model, context) {
-        model.affinities.light = "vul";
-        model.affinities.dark = "imm";
-        model.affinities.poison = "imm";
+        model.affinities.light.vul = "species";
+        model.affinities.dark.imm = true;
+        model.affinities.poison.imm = true;
         model.statusImmunities.poisoned = true;
         model.rules.undeadHealing = Rules.simpleRule("QUICKNPC.species.undead.undeadHealing")
 

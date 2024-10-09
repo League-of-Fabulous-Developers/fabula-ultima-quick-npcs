@@ -70,7 +70,11 @@ export class AbstractAssignAffinityStep extends AbstractStep {
         if (!this.#damageType || !allDamageTypes.includes(this.#damageType)) {
             return false;
         }
-        return this.doApply(model, context);
+        const result = this.doApply(model, context);
+        if (result) {
+            NpcModel.updateDerivedValues(result);
+        }
+        return result;
     }
 
     /**
