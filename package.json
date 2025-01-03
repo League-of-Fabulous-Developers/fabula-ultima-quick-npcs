@@ -1,0 +1,17 @@
+{
+  "name": "fabula-ultima-quick-npcs",
+  "version": "0.0.1-irrevelant",
+  "description": "",
+  "scripts": {
+    "compile-schema": "node ./compile-schema.js",
+    "validate-data": "node ./validate-data-files.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/League-of-Fabulous-Developers/fabula-ultima-quick-npcs.git"
+  },
+  "private": true,
+  "devDependencies": {
+    "ajv": "^8.17.1"
+  }
+}

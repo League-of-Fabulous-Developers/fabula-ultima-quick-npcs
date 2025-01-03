@@ -1,0 +1,587 @@
+{
+  "type": "role",
+  "role": {
+    "label": "QUICKNPC.role.brute.name",
+    "baseAttributes": {
+      "dex": "d8",
+      "ins": "d6",
+      "mig": "d10",
+      "wlp": "d8"
+    },
+    "attributeChanges": [
+      {
+        "ins": "d8"
+      },
+      {
+        "mig": "d12"
+      },
+      {
+        "wlp": "d10"
+      }
+    ],
+    "skillsByLevel": [
+      {
+        "steps": [
+          {
+            "type": "AssignResistance",
+            "options": [
+              "air",
+              "bolt",
+              "dark",
+              "earth",
+              "fire",
+              "ice",
+              "light",
+              "poison"
+            ]
+          },
+          {
+            "type": "AssignResistance",
+            "options": [
+              "air",
+              "bolt",
+              "dark",
+              "earth",
+              "fire",
+              "ice",
+              "light",
+              "poison"
+            ]
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "AssignImmunity"
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "model": {
+          "bonuses": {
+            "hp": 10
+          }
+        }
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      }
+    ],
+    "baseline": {
+      "model": {
+        "bonuses": {
+          "hp": 10
+        },
+        "attacks": {
+          "normal": {
+            "name": "QUICKNPC.attacks.normal",
+            "attributes": [
+              "dex",
+              "mig"
+            ],
+            "targetDefense": "def",
+            "baseDamage": 5,
+            "special": [
+              "QUICKNPC.attacks.special.multi2"
+            ]
+          },
+          "strong": {
+            "name": "QUICKNPC.attacks.strong",
+            "attributes": [
+              "mig",
+              "mig"
+            ],
+            "range": "melee",
+            "targetDefense": "def",
+            "baseDamage": 10
+          }
+        }
+      },
+      "steps": [
+        {
+          "type": "AssignVulnerability"
+        },
+        {
+          "type": "AssignVulnerability"
+        },
+        {
+          "type": "ConfigureAttack",
+          "attack": "normal",
+          "configure": {
+            "damageType": true,
+            "range": true
+          }
+        },
+        {
+          "type": "ConfigureAttack",
+          "attack": "strong",
+          "configure": {
+            "damageType": true
+          }
+        }
+      ]
+    },
+    "roleSkills": {
+      "statusImmunities": {
+        "label": "QUICKNPC.role.brute.statusImmunities.name",
+        "description": "QUICKNPC.role.brute.statusImmunities.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "AssignStatusImmunity",
+              "options": [
+                "shaken",
+                "slow",
+                "poisoned"
+              ]
+            },
+            {
+              "type": "AssignStatusImmunity",
+              "options": [
+                "shaken",
+                "slow",
+                "poisoned"
+              ]
+            }
+          ]
+        }
+      },
+      "normalAttackMagic": {
+        "label": "QUICKNPC.commonSkills.normalAttackMagic.name",
+        "description": "QUICKNPC.commonSkills.normalAttackMagic.description",
+        "require": {
+          "attack": "normal"
+        },
+        "changes": {
+          "model": {
+            "attacks": {
+              "normal": {
+                "targetDefense": "mDef",
+                "special": [
+                  "QUICKNPC.attacks.special.targetsMDef"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "strongAttackRanged": {
+        "label": "QUICKNPC.role.brute.strongAttackRanged.name",
+        "description": "QUICKNPC.role.brute.strongAttackRanged.description",
+        "choices": {
+          "status": {
+            "label": "QUICKNPC.commonChoices.status",
+            "options": {
+              "dazed": "QUICKNPC.statusEffects.dazed",
+              "shaken": "QUICKNPC.statusEffects.shaken",
+              "slow": "QUICKNPC.statusEffects.slow",
+              "weak": "QUICKNPC.statusEffects.weak"
+            }
+          }
+        },
+        "changes": {
+          "model": {
+            "attacks": {
+              "strong": {
+                "range": "ranged",
+                "attributes": [
+                  "dex",
+                  "mig"
+                ],
+                "special": [
+                  "QUICKNPC.attacks.special.causesStatus"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "collapse": {
+        "label": "QUICKNPC.role.brute.collapse.name",
+        "description": "QUICKNPC.role.brute.collapse.description",
+        "choices": {
+          "damageType": {
+            "label": "QUICKNPC.commonChoices.damageType",
+            "options": {
+              "physical": "QUICKNPC.damageType.physical",
+              "air": "QUICKNPC.damageType.air",
+              "bolt": "QUICKNPC.damageType.bolt",
+              "dark": "QUICKNPC.damageType.dark",
+              "earth": "QUICKNPC.damageType.earth",
+              "fire": "QUICKNPC.damageType.fire",
+              "ice": "QUICKNPC.damageType.ice",
+              "light": "QUICKNPC.damageType.light",
+              "poison": "QUICKNPC.damageType.poison"
+            }
+          }
+        },
+        "disallow": {
+          "rank": [
+            "soldier"
+          ]
+        },
+        "changes": {
+          "model": {
+            "rules": {
+              "collapse": {
+                "name": "QUICKNPC.role.brute.collapse.name",
+                "summary": "QUICKNPC.role.brute.collapse.description",
+                "description": "QUICKNPC.role.brute.collapse.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "spells": {
+        "label": "QUICKNPC.role.brute.spells.name",
+        "description": "QUICKNPC.role.brute.spells.description",
+        "disallow": {
+          "rank": [
+            "soldier"
+          ]
+        },
+        "changes": {
+          "steps": [
+            {
+              "type": "ChooseSpell",
+              "spells": "bruteSpells"
+            },
+            {
+              "type": "ChooseSpell",
+              "spells": "bruteSpells"
+            }
+          ]
+        }
+      },
+      "crush": {
+        "label": "QUICKNPC.role.brute.crush.name",
+        "description": "QUICKNPC.role.brute.crush.description",
+        "changes": {
+          "model": {
+            "attacks": {
+              "strong": {
+                "special": [
+                  "QUICKNPC.role.brute.crush.attackSpecialText"
+                ]
+              }
+            },
+            "actions": {
+              "crush": {
+                "name": "QUICKNPC.role.brute.crush.name",
+                "summary": "QUICKNPC.role.brute.crush.description",
+                "description": "QUICKNPC.role.brute.crush.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "enhancingGuard": {
+        "label": "QUICKNPC.role.brute.enhancingGuard.name",
+        "description": "QUICKNPC.role.brute.enhancingGuard.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "enhancingGuard": {
+                "name": "QUICKNPC.role.brute.enhancingGuard.name",
+                "summary": "QUICKNPC.role.brute.enhancingGuard.description",
+                "description": "QUICKNPC.role.brute.enhancingGuard.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "soreLoser": {
+        "label": "QUICKNPC.role.brute.soreLoser.name",
+        "description": "QUICKNPC.role.brute.soreLoser.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "soreLoser": {
+                "name": "QUICKNPC.role.brute.soreLoser.name",
+                "summary": "QUICKNPC.role.brute.soreLoser.description",
+                "description": "QUICKNPC.role.brute.soreLoser.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "steadyRecovery": {
+        "label": "QUICKNPC.role.brute.steadyRecovery.name",
+        "description": "QUICKNPC.role.brute.steadyRecovery.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "steadyRecovery": {
+                "name": "QUICKNPC.role.brute.steadyRecovery.name",
+                "summary": "QUICKNPC.role.brute.steadyRecovery.description",
+                "description": "QUICKNPC.role.brute.steadyRecovery.ruleText"
+              }
+            }
+          }
+        }
+      }
+    },
+    "customizations": {
+      "hpPlus10": {
+        "label": "QUICKNPC.commonSkills.bonusHp.name",
+        "description": "QUICKNPC.commonSkills.bonusHp.description",
+        "changes": {
+          "model": {
+            "bonuses": {
+              "hp": 10
+            }
+          }
+        }
+      },
+      "badTemper": {
+        "label": "QUICKNPC.role.brute.badTemper.name",
+        "description": "QUICKNPC.role.brute.badTemper.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "badTemper": {
+                "name": "QUICKNPC.role.brute.badTemper.name",
+                "summary": "QUICKNPC.role.brute.badTemper.description",
+                "description": "QUICKNPC.role.brute.badTemper.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "collateralDamage": {
+        "label": "QUICKNPC.role.brute.collateralDamage.name",
+        "description": "QUICKNPC.role.brute.collateralDamage.description",
+        "choices": {
+          "damageType": {
+            "label": "QUICKNPC.commonChoices.damageType",
+            "options": {
+              "physical": "QUICKNPC.damageType.physical",
+              "air": "QUICKNPC.damageType.air",
+              "bolt": "QUICKNPC.damageType.bolt",
+              "dark": "QUICKNPC.damageType.dark",
+              "earth": "QUICKNPC.damageType.earth",
+              "fire": "QUICKNPC.damageType.fire",
+              "ice": "QUICKNPC.damageType.ice",
+              "light": "QUICKNPC.damageType.light",
+              "poison": "QUICKNPC.damageType.poison"
+            }
+          }
+        },
+        "changes": {
+          "model": {
+            "rules": {
+              "collateralDamage": {
+                "name": "QUICKNPC.role.brute.collateralDamage.name",
+                "summary": "QUICKNPC.role.brute.collateralDamage.description",
+                "description": "QUICKNPC.role.brute.collateralDamage.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "dieHard": {
+        "label": "QUICKNPC.role.brute.dieHard.name",
+        "description": "QUICKNPC.role.brute.dieHard.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "dieHard": {
+                "name": "QUICKNPC.role.brute.dieHard.name",
+                "summary": "QUICKNPC.role.brute.dieHard.description",
+                "description": "QUICKNPC.role.brute.dieHard.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "specialArmor": {
+        "label": "QUICKNPC.role.brute.specialArmor.name",
+        "description": "QUICKNPC.role.brute.specialArmor.description",
+        "choices": {
+          "type": {
+            "label": "QUICKNPC.role.brute.specialArmor.type",
+            "options": {
+              "attacks": "QUICKNPC.role.brute.specialArmor.attacks",
+              "spells": "QUICKNPC.role.brute.specialArmor.spells",
+              "skills": "QUICKNPC.role.brute.specialArmor.skills"
+            }
+          }
+        },
+        "changes": {
+          "model": {
+            "rules": {
+              "specialArmor": {
+                "name": "QUICKNPC.role.brute.specialArmor.name",
+                "summary": "QUICKNPC.role.brute.specialArmor.description",
+                "description": "QUICKNPC.role.brute.specialArmor.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "vengefulAttack": {
+        "label": "QUICKNPC.role.brute.vengefulAttack.name",
+        "description": "QUICKNPC.role.brute.vengefulAttack.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "vengefulAttack": {
+                "name": "QUICKNPC.role.brute.vengefulAttack.name",
+                "summary": "QUICKNPC.role.brute.vengefulAttack.description",
+                "description": "QUICKNPC.role.brute.vengefulAttack.ruleText"
+              }
+            }
+          }
+        }
+      }
+    },
+    "spellLists": {
+      "bruteSpells": {
+        "areaStatus": {
+          "name": "QUICKNPC.spell.areaStatus.name",
+          "summary": "QUICKNPC.spell.areaStatus.description",
+          "description": "QUICKNPC.spell.areaStatus.spellText",
+          "cost": 20,
+          "costType": "total",
+          "target": "special",
+          "duration": "instant",
+          "choices": {
+            "status": {
+              "label": "QUICKNPC.commonChoices.status",
+              "options": {
+                "dazed": "QUICKNPC.statusEffects.dazed",
+                "shaken": "QUICKNPC.statusEffects.shaken",
+                "slow": "QUICKNPC.statusEffects.slow",
+                "weak": "QUICKNPC.statusEffects.weak"
+              }
+            }
+          }
+        },
+        "curseXL": {
+          "name": "QUICKNPC.spell.curseXL.name",
+          "summary": "QUICKNPC.spell.curseXL.description",
+          "description": "QUICKNPC.spell.curseXL.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "single",
+          "duration": "instant",
+          "offensive": true,
+          "choices": {
+            "status1": {
+              "label": "QUICKNPC.spell.curseXL.status1",
+              "options": {
+                "dazed": "QUICKNPC.statusEffects.dazed",
+                "shaken": "QUICKNPC.statusEffects.shaken",
+                "slow": "QUICKNPC.statusEffects.slow",
+                "weak": "QUICKNPC.statusEffects.weak"
+              }
+            },
+            "status2": {
+              "label": "QUICKNPC.spell.curseXL.status2",
+              "options": {
+                "dazed": "QUICKNPC.statusEffects.dazed",
+                "shaken": "QUICKNPC.statusEffects.shaken",
+                "slow": "QUICKNPC.statusEffects.slow",
+                "weak": "QUICKNPC.statusEffects.weak"
+              }
+            }
+          }
+        },
+        "cursedBreath": {
+          "name": "QUICKNPC.spell.cursedBreath.name",
+          "summary": "QUICKNPC.spell.cursedBreath.description",
+          "description": "QUICKNPC.spell.cursedBreath.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "single",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "typeChoices": true
+          },
+          "choices": {
+            "status": {
+              "label": "QUICKNPC.commonChoices.status",
+              "options": {
+                "dazed": "QUICKNPC.statusEffects.dazed",
+                "shaken": "QUICKNPC.statusEffects.shaken",
+                "slow": "QUICKNPC.statusEffects.slow",
+                "weak": "QUICKNPC.statusEffects.weak"
+              }
+            }
+          }
+        },
+        "enrage": {
+          "name": "QUICKNPC.spell.enrage.name",
+          "summary": "QUICKNPC.spell.enrage.description",
+          "description": "QUICKNPC.spell.enrage.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "single",
+          "duration": "instant",
+          "offensive": true
+        },
+        "lickWounds": {
+          "name": "QUICKNPC.spell.lickWounds.name",
+          "summary": "QUICKNPC.spell.lickWounds.description",
+          "description": "QUICKNPC.spell.lickWounds.spellText",
+          "cost": 5,
+          "costType": "total",
+          "target": "self",
+          "duration": "instant"
+        },
+        "lifeTheft": {
+          "name": "QUICKNPC.spell.lifeTheft.name",
+          "summary": "QUICKNPC.spell.lifeTheft.description",
+          "description": "QUICKNPC.spell.lifeTheft.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "single",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "typeChoices": true
+          }
+        },
+        "poison": {
+          "name": "QUICKNPC.spell.poison.name",
+          "summary": "QUICKNPC.spell.poison.description",
+          "description": "QUICKNPC.spell.poison.spellText",
+          "cost": 10,
+          "costType": "perTarget",
+          "target": "upToThree",
+          "duration": "instant",
+          "offensive": true
+        },
+        "reinforce": {
+          "name": "QUICKNPC.spell.reinforce.name",
+          "summary": "QUICKNPC.spell.reinforce.description",
+          "description": "QUICKNPC.spell.reinforce.spellText",
+          "cost": 5,
+          "costType": "perTarget",
+          "target": "upToThree",
+          "duration": "scene"
+        }
+      }
+    }
+  }
+}

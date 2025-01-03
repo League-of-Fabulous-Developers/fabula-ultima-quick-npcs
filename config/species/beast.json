@@ -1,0 +1,127 @@
+{
+  "type": "species",
+  "species": {
+    "name": "QUICKNPC.species.beast.name",
+    "changes": {
+    },
+    "customizationCount": 2,
+    "customizationOptions": {
+      "beastHpPlus10": {
+        "label": "QUICKNPC.commonSkills.bonusHp.name",
+        "description": "QUICKNPC.commonSkills.bonusHp.description",
+        "changes": {
+          "model": {
+            "bonuses": {
+              "hp": 10
+            }
+          }
+        }
+      },
+      "beastSpell": {
+        "label": "QUICKNPC.species.beast.spell.name",
+        "description": "QUICKNPC.species.beast.spell.description",
+        "changes": {
+          "model": {
+            "bonuses": {
+              "mp": 10
+            }
+          },
+          "steps": [
+            {
+              "type": "ChooseSpell",
+              "spells": "beastSpells"
+            }
+          ]
+        }
+      },
+      "opposedCheckBonus": {
+        "label": "QUICKNPC.species.beast.opposedCheckBonus.name",
+        "description": "QUICKNPC.species.beast.opposedCheckBonus.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "opposedCheckBonus": {
+                "name": "QUICKNPC.species.beast.opposedCheckBonus.name",
+                "summary": "QUICKNPC.species.beast.opposedCheckBonus.description",
+                "description": "QUICKNPC.species.beast.opposedCheckBonus.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "flying": {
+        "label": "QUICKNPC.commonSkills.flying.name",
+        "description": "QUICKNPC.commonSkills.flying.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "opposedCheckBonus": {
+                "name": "QUICKNPC.commonSkills.flying.name",
+                "summary": "QUICKNPC.commonSkills.flying.description",
+                "description": "QUICKNPC.commonSkills.flying.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "beastAdditionalRoleSkill1": {
+        "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
+        "description": "QUICKNPC.commonSkills.additionalRoleSkill.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "ChooseRoleSkill"
+            }
+          ]
+        }
+      },
+      "beastAdditionalRoleSkill2": {
+        "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
+        "description": "QUICKNPC.commonSkills.additionalRoleSkill.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "ChooseRoleSkill"
+            }
+          ]
+        },
+        "require": {
+          "anyCustomization": [
+            "beastAdditionalRoleSkill1"
+          ]
+        }
+      }
+    },
+    "spellLists": {
+      "beastSpells": {
+        "lickWounds": {
+          "name": "QUICKNPC.spell.lickWounds.name",
+          "summary": "QUICKNPC.spell.lickWounds.name",
+          "description": "QUICKNPC.spell.lickWounds.name",
+          "cost": 5,
+          "costType": "total",
+          "target": "self",
+          "duration": "instant"
+        },
+        "shell": {
+          "name": "QUICKNPC.spell.shell.name",
+          "summary": "QUICKNPC.spell.shell.name",
+          "description": "QUICKNPC.spell.shell.name",
+          "cost": 10,
+          "costType": "total",
+          "target": "self",
+          "duration": "scene"
+        },
+        "warCry": {
+          "name": "QUICKNPC.spell.warCry.name",
+          "summary": "QUICKNPC.spell.warCry.name",
+          "description": "QUICKNPC.spell.warCry.name",
+          "cost": 10,
+          "costType": "perTarget",
+          "target": "upToThree",
+          "duration": "scene"
+        }
+      }
+    }
+  }
+}

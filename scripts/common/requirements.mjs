@@ -8,7 +8,7 @@ import {Customizations} from "./customizations.mjs";
  * @property {string} [attack]
  * @property {string[]} [anyRule]
  * @property {string[]} [anyAction]
- * @property {string[]} anyCustomization
+ * @property {string[]} [anyCustomization]
  */
 
 /**
