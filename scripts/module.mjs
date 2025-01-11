@@ -134,6 +134,10 @@ function initUi() {
     Hooks.on("closeApplicationV2", cleanUpApplication)
 
     Hooks.on("renderActorDirectory", (app, html) => {
+        if (!game.user.can("ACTOR_CREATE")) {
+            return;
+        }
+
         const placement = game.settings.get(MODULE, SETTINGS.actorsTabButtonPlacement);
         const template = document.createElement("template");
         template.innerHTML = `
@@ -165,7 +169,7 @@ function initUi() {
             title: "QUICKNPC.wizard.open",
             button: true,
             onClick: renderWizard,
-            visible: game.user.isGM && game.settings.get(MODULE, SETTINGS.showInSystemTools)
+            visible: game.settings.get(MODULE, SETTINGS.showInSystemTools) && game.user.can("ACTOR_CREATE")
         })
     };
 
