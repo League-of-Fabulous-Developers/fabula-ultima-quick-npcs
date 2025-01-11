@@ -24,7 +24,6 @@ export class QuickNpcWizardV11 extends FormApplication {
         return "/modules/fabula-ultima-quick-npcs/templates/v11compat.hbs";
     }
 
-
     async _updateObject(event) {
         return this.constructor.#commitData.call(this, event, this.form, new FormData(this.form));
     }

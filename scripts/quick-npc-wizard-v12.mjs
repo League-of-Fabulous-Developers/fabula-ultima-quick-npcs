@@ -1,7 +1,8 @@
 import {Stepper} from "./stepper.mjs";
 import {NpcModel} from "./common/npc-model.mjs";
 import {npcCreationSteps} from "./steps/steps.mjs";
-import {CONSTANTS} from "./constants.mjs";
+import {CONSTANTS, MODULE} from "./constants.mjs";
+import {SETTINGS} from "./settings.mjs";
 
 export class QuickNpcWizardV12 extends foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.api.ApplicationV2) {
 
@@ -12,6 +13,12 @@ export class QuickNpcWizardV12 extends foundry.applications.api.HandlebarsApplic
         window: {
             contentClasses: ["quick-npc-wizard"],
             title: "QUICKNPC.wizard.title",
+            controls: [{
+                icon: "fas fa-hat-wizard",
+                label: "Debug Info",
+                action: "debug",
+                tooltip: "Print debug info to log"
+            }]
         },
         position: {
             width: 900,
@@ -23,7 +30,8 @@ export class QuickNpcWizardV12 extends foundry.applications.api.HandlebarsApplic
             handler: QuickNpcWizardV12.#commitData
         },
         actions: {
-            back: QuickNpcWizardV12.#onBack
+            back: QuickNpcWizardV12.#onBack,
+            debug: QuickNpcWizardV12.#onDebug
         }
     };
 
@@ -67,6 +75,14 @@ export class QuickNpcWizardV12 extends foundry.applications.api.HandlebarsApplic
     static #onBack() {
         this.#latestFormData = this.#stepper.revertLastStep();
         this.render()
+    }
+
+    static #onDebug() {
+        console.log("Wizard debug info");
+        console.log("Current Model:", this.#stepper.currentState[0])
+        console.log("Formdata:", this.#latestFormData)
+        console.log("Model Preview:", this.#stepper.previewAfterCurrentStep(this.#latestFormData));
+        console.log("Stepper state:", this.#stepper)
     }
 
     /** @type {Stepper<NpcModel>} */

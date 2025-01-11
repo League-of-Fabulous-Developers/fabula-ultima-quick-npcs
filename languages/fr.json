@@ -136,6 +136,16 @@
       "physical": "Physique",
       "poison": "Poison"
     },
+    "dataType": {
+      "unknown": ""
+    },
+    "error": {
+      "invalidDataFile": "",
+      "unableToLoadDataFile": "",
+      "unknownChoice": "",
+      "unknownChoiceOption": "",
+      "unknownSpellList": ""
+    },
     "negativeSkills": {
       "finalDetonation": {
         "description": "Inflige des dégâts à vos alliés lorsque vous êtes éliminé.",
@@ -619,7 +629,12 @@
             "slow": "Les cibles subissent l'état Ralenti.",
             "weak": "Les cibles subissent l'état Affaibli."
           },
-          "specialText": "Chaque cible touchée par cette attaque subit l'état {status}."
+          "specialText": {
+            "dazed": "Chaque cible touchée par cette attaque subit l'état Étourdi.",
+            "shaken": "Chaque cible touchée par cette attaque subit l'état Traumatisé.",
+            "slow": "Chaque cible touchée par cette attaque subit l'état Ralenti.",
+            "weak": "Chaque cible touchée par cette attaque subit l'état Affaibli."
+          }
         },
         "reassuringAura": {
           "description": "Donner une immunité aux alliés contre un état spécifique.",
@@ -724,6 +739,11 @@
       },
       "showInSystemTools": {
         "name": "Afficher le bouton dans les outils du système ProjectFU ?"
+      },
+      "userDataFiles": {
+        "hint": "",
+        "label": "",
+        "name": ""
       }
     },
     "species": {
@@ -952,7 +972,7 @@
       "lickWounds": {
         "description": "Récupérer vos propres PV.",
         "name": "Lécher ses plaies",
-        "spellText": "Vous récupérez {amount} Points de Vie."
+        "spellText": "You recover 20 Hit Points. This amount increases to 30 Hit Points if you are level 20 or higher, to 40 Hit Points if you are level 40 or higher, or to 50 Hit Points if you are level 60 or higher."
       },
       "lifeTheft": {
         "description": "Inflige de lourds dégâts à une cible unique et vous soigne d'une partie des dégâts causés.",

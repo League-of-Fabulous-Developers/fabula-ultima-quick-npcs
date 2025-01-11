@@ -1,0 +1,53 @@
+<form>
+    <div class="flexrow">
+        <div class="picker flex0">
+            {{filePicker type=".json" target="dataFile"
+                         tooltip=(localize 'QUICKNPC.settings.userDataFiles.filePicker.tooltip')}}
+        </div>
+        <div class="flexcol">
+            <span>{{localize 'QUICKNPC.settings.userDataFiles.filePicker.prompt'}}</span>
+            <span>{{localize 'QUICKNPC.settings.userDataFiles.filePicker.hint'}}</span>
+        </div>
+        <input type="hidden" name="dataFile"/>
+    </div>
+    <hr/>
+    <div>
+        {{#each userDataFiles}}
+            <div class="data-file" data-index="{{@index}}">
+                <div class="file-name" data-tooltip="{{filePath}}">{{fileName}}</div>
+                <a data-action="delete" data-tooltip="{{localize 'QUICKNPC.settings.userDataFiles.delete'}}"><i
+                        class="fas fa-trash"></i></a>
+                <div class="flexrow">
+                    <div class="flex0 status-indicator">
+                        {{#if fileFound}}
+                            <i class="fas fa-cloud-arrow-down"
+                               data-tooltip="{{localize 'QUICKNPC.settings.userDataFiles.fileLoaded.success'}}"></i>
+                        {{else}}
+                            <i class="fas fa-cloud-bolt" {{localize
+                                    'QUICKNPC.settings.userDataFiles.fileLoaded.error'}}></i>
+                        {{/if}}
+                    </div>
+                    <div class="flex0 status-indicator">
+                        {{#if fileValid}}
+                            <i class="fas fa-check"
+                               data-tooltip="{{localize 'QUICKNPC.settings.userDataFiles.fileValidated.success'}}"></i>
+                        {{else}}
+                            <i class="fas fa-triangle-exclamation" {{localize
+                                    'QUICKNPC.settings.userDataFiles.fileValidated.error'}}></i>
+                        {{/if}}
+                    </div>
+                    <div>
+                        <span>{{localize 'QUICKNPC.settings.userDataFiles.fileType'}}</span>
+                        <span><b>{{type}}</b></span>
+                    </div>
+                </div>
+                <a data-action="refresh" data-tooltip="{{localize 'QUICKNPC.settings.userDataFiles.reload'}}">
+                    <i class="fas fa-arrows-rotate"></i>
+                </a>
+            </div>
+        {{/each}}
+    </div>
+    <div>
+        <button>{{localize 'QUICKNPC.settings.userDataFiles.save'}}</button>
+    </div>
+</form>

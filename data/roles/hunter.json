@@ -1,0 +1,505 @@
+{
+  "type": "role",
+  "role": {
+    "label": "QUICKNPC.role.hunter.name",
+    "baseAttributes": {
+      "dex": "d10",
+      "ins": "d8",
+      "mig": "d8",
+      "wlp": "d6"
+    },
+    "attributeChanges": [
+      {
+        "wlp": "d8"
+      },
+      {
+        "dex": "d12"
+      },
+      {
+        "ins": "d10"
+      }
+    ],
+    "baseline": {
+      "model": {
+        "attacks": {
+          "normal": {
+            "name": "QUICKNPC.attacks.normal",
+            "baseDamage": 10
+          }
+        }
+      },
+      "steps": [
+        {
+          "type": "ConfigureAttack",
+          "attack": "normal",
+          "configure": {
+            "attributes": [
+              [
+                "dex",
+                "ins"
+              ],
+              [
+                "dex",
+                "mig"
+              ]
+            ],
+            "damageType": true,
+            "range": true,
+            "special": {
+              "lifeSteal": {
+                "label": "QUICKNPC.role.hunter.lifeSteal.name",
+                "description": "QUICKNPC.role.hunter.lifeSteal.description",
+                "changes": {
+                  "model": {
+                    "attacks": {
+                      "normal": {
+                        "special": [
+                          "QUICKNPC.role.hunter.lifeSteal.specialText"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "extraDamage": {
+                "label": "QUICKNPC.role.hunter.extraDamage.name",
+                "description": "QUICKNPC.role.hunter.extraDamage.description",
+                "choices": {
+                  "condition": {
+                    "label": "QUICKNPC.role.hunter.extraDamage.condition",
+                    "options": {
+                      "specificStatus": "QUICKNPC.role.hunter.extraDamage.specificStatusLabel",
+                      "multipleStatuses": "QUICKNPC.role.hunter.extraDamage.multipleStatuses",
+                      "crisis": "QUICKNPC.role.hunter.extraDamage.crisis",
+                      "notCrisis": "QUICKNPC.role.hunter.extraDamage.notCrisis",
+                      "turnTaken": "QUICKNPC.role.hunter.extraDamage.turnTaken",
+                      "spell": "QUICKNPC.role.hunter.extraDamage.spell",
+                      "martialArmor": "QUICKNPC.role.hunter.extraDamage.martialArmor",
+                      "noMartialArmor": "QUICKNPC.role.hunter.extraDamage.noMartialArmor"
+                    }
+                  },
+                  "status": {
+                    "label": "QUICKNPC.commonChoices.status",
+                    "options": {
+                      "dazed": "QUICKNPC.statusEffects.dazed",
+                      "shaken": "QUICKNPC.statusEffects.shaken",
+                      "slow": "QUICKNPC.statusEffects.slow",
+                      "weak": "QUICKNPC.statusEffects.weak"
+                    },
+                    "conditional": {
+                      "condition": "specificStatus"
+                    }
+                  }
+                },
+                "changes": {
+                  "model": {
+                    "attacks": {
+                      "normal": {
+                        "special": [
+                          "QUICKNPC.role.hunter.extraDamage.specialText"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "skillsByLevel": [
+      {
+        "model": {
+          "bonuses": {
+            "accuracy": 3
+          }
+        }
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "model": {
+          "attacks": {
+            "normal": {
+              "special": [
+                "QUICKNPC.attacks.special.ignoreResistance"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "AssignResistance"
+          },
+          {
+            "type": "AssignResistance"
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      }
+    ],
+    "roleSkills": {
+      "normalAttackMagic": {
+        "label": "QUICKNPC.commonSkills.normalAttackMagic.name",
+        "description": "QUICKNPC.commonSkills.normalAttackMagic.description",
+        "changes": {
+          "model": {
+            "attacks": {
+              "normal": {
+                "targetDefense": "mDef",
+                "special": [
+                  "QUICKNPC.attacks.special.targetsMDef"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "strongAttack": {
+        "label": "QUICKNPC.role.hunter.strongAttack.name",
+        "description": "QUICKNPC.role.hunter.strongAttack.description",
+        "changes": {
+          "model": {
+            "attacks": {
+              "strong": {
+                "name": "QUICKNPC.attacks.strong",
+                "baseDamage": 15,
+                "special": [
+                  "QUICKNPC.attacks.special.multi2",
+                  "QUICKNPC.role.hunter.strongAttack.special"
+                ]
+              }
+            }
+          },
+          "steps": [
+            {
+              "type": "ConfigureAttack",
+              "attack": "strong",
+              "configure": {
+                "attributes": [
+                  [
+                    "dex",
+                    "ins"
+                  ],
+                  [
+                    "dex",
+                    "mig"
+                  ]
+                ],
+                "damageType": true,
+                "range": true
+              }
+            }
+          ]
+        }
+      },
+      "strongAttackMagic": {
+        "label": "QUICKNPC.commonSkills.strongAttackMagic.name",
+        "description": "QUICKNPC.commonSkills.strongAttackMagic.description",
+        "require": {
+          "attack": "strong"
+        },
+        "changes": {
+          "model": {
+            "attacks": {
+              "strong": {
+                "targetDefense": "mDef",
+                "special": [
+                  "QUICKNPC.attacks.special.targetsMDef"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "spells": {
+        "label": "QUICKNPC.role.hunter.spells.name",
+        "description": "QUICKNPC.role.hunter.spells.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "ChooseSpell",
+              "spells": "hunterSpells"
+            },
+            {
+              "type": "ChooseSpell",
+              "spells": "hunterSpells"
+            }
+          ]
+        }
+      },
+      "ambush": {
+        "label": "QUICKNPC.role.hunter.ambush.name",
+        "description": "QUICKNPC.role.hunter.ambush.description",
+        "choices": {
+          "attribute": {
+            "label": "QUICKNPC.commonChoices.attribute",
+            "options": {
+              "dex": "QUICKNPC.attributes.dex",
+              "ins": "QUICKNPC.attributes.ins",
+              "mig": "QUICKNPC.attributes.mig",
+              "wlp": "QUICKNPC.attributes.wlp"
+            }
+          }
+        },
+        "changes": {
+          "model": {
+            "rules": {
+              "ambush": {
+                "name": "QUICKNPC.role.hunter.ambush.name",
+                "summary": "QUICKNPC.role.hunter.ambush.description",
+                "description": "QUICKNPC.role.hunter.ambush.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "elusive": {
+        "label": "QUICKNPC.role.hunter.elusive.name",
+        "description": "QUICKNPC.role.hunter.elusive.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "elusive": {
+                "name": "QUICKNPC.role.hunter.elusive.name",
+                "summary": "QUICKNPC.role.hunter.elusive.description",
+                "description": "QUICKNPC.role.hunter.elusive.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "huntersBait": {
+        "label": "QUICKNPC.role.hunter.huntersBait.name",
+        "description": "QUICKNPC.role.hunter.huntersBait.description",
+        "choices": {
+          "action": {
+            "label": "QUICKNPC.role.hunter.huntersBait.action",
+            "options": {
+              "melee": "QUICKNPC.role.hunter.huntersBait.melee",
+              "ranged": "QUICKNPC.role.hunter.huntersBait.ranged",
+              "spell": "QUICKNPC.role.hunter.huntersBait.spell"
+            }
+          }
+        },
+        "changes": {
+          "model": {
+            "rules": {
+              "huntersBait": {
+                "name": "QUICKNPC.role.hunter.huntersBait.name",
+                "summary": "QUICKNPC.role.hunter.huntersBait.description",
+                "description": "QUICKNPC.role.hunter.huntersBait.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "opportunist": {
+        "label": "QUICKNPC.role.hunter.opportunist.name",
+        "description": "QUICKNPC.role.hunter.opportunist.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "opportunist": {
+                "name": "QUICKNPC.role.hunter.opportunist.name",
+                "summary": "QUICKNPC.role.hunter.opportunist.description",
+                "description": "QUICKNPC.role.hunter.opportunist.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "targetLock": {
+        "label": "QUICKNPC.role.hunter.targetLock.name",
+        "description": "QUICKNPC.role.hunter.targetLock.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "targetLock": {
+                "name": "QUICKNPC.role.hunter.targetLock.name",
+                "summary": "QUICKNPC.role.hunter.targetLock.description",
+                "description": "QUICKNPC.role.hunter.targetLock.ruleText"
+              }
+            }
+          }
+        }
+      }
+    },
+    "customizations": {
+      "hunterAdditionalRoleSkill": {
+        "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
+        "description": "QUICKNPC.commonSkills.additionalRoleSkill.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "ChooseRoleSkill"
+            }
+          ]
+        }
+      },
+      "emergencyCamouflage": {
+        "label": "QUICKNPC.role.hunter.emergencyCamouflage.name",
+        "description": "QUICKNPC.role.hunter.emergencyCamouflage.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "emergencyCamouflage": {
+                "name": "QUICKNPC.role.hunter.emergencyCamouflage.name",
+                "summary": "QUICKNPC.role.hunter.emergencyCamouflage.description",
+                "description": "QUICKNPC.role.hunter.emergencyCamouflage.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "falseSenseOfSecurity": {
+        "label": "QUICKNPC.role.hunter.falseSenseOfSecurity.name",
+        "description": "QUICKNPC.role.hunter.falseSenseOfSecurity.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "falseSenseOfSecurity": {
+                "name": "QUICKNPC.role.hunter.falseSenseOfSecurity.name",
+                "summary": "QUICKNPC.role.hunter.falseSenseOfSecurity.description",
+                "description": "QUICKNPC.role.hunter.falseSenseOfSecurity.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "lightningFast": {
+        "label": "QUICKNPC.role.hunter.lightningFast.name",
+        "description": "QUICKNPC.role.hunter.lightningFast.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "lightningFast": {
+                "name": "QUICKNPC.role.hunter.lightningFast.name",
+                "summary": "QUICKNPC.role.hunter.lightningFast.description",
+                "description": "QUICKNPC.role.hunter.lightningFast.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "specialResistance": {
+        "label": "QUICKNPC.role.hunter.specialResistance.name",
+        "description": "QUICKNPC.role.hunter.specialResistance.description",
+        "choices": {
+          "targets": {
+            "label": "QUICKNPC.role.hunter.specialResistance.targets",
+            "options": {
+              "single": "QUICKNPC.role.hunter.specialResistance.single",
+              "multi": "QUICKNPC.role.hunter.specialResistance.multi"
+            }
+          }
+        },
+        "changes": {
+          "model": {
+            "rules": {
+              "specialResistance": {
+                "name": "QUICKNPC.role.hunter.specialResistance.name",
+                "summary": "QUICKNPC.role.hunter.specialResistance.description",
+                "description": "QUICKNPC.role.hunter.specialResistance.ruleText"
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "spellLists": {
+      "hunterSpells": {
+        "breath": {
+          "name": "QUICKNPC.spell.breath.name",
+          "summary": "QUICKNPC.spell.breath.name",
+          "description": "QUICKNPC.spell.breath.description",
+          "cost": 5,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 10,
+            "damageType": true
+          }
+        },
+        "cursedBreath": {
+          "name": "QUICKNPC.spell.cursedBreath.name",
+          "summary": "QUICKNPC.spell.cursedBreath.description",
+          "description": "QUICKNPC.spell.cursedBreath.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "single",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": true
+          },
+          "choices": {
+            "status": {
+              "label": "QUICKNPC.commonChoices.status",
+              "options": {
+                "dazed": "QUICKNPC.statusEffects.dazed",
+                "shaken": "QUICKNPC.statusEffects.shaken",
+                "slow": "QUICKNPC.statusEffects.slow",
+                "weak": "QUICKNPC.statusEffects.weak"
+              }
+            }
+          }
+        },
+        "lickWounds": {
+          "name": "QUICKNPC.spell.lickWounds.name",
+          "summary": "QUICKNPC.spell.lickWounds.description",
+          "description": "QUICKNPC.spell.lickWounds.spellText",
+          "cost": 5,
+          "costType": "total",
+          "target": "self",
+          "duration": "instant"
+        },
+        "lifeTheft": {
+          "name": "QUICKNPC.spell.lifeTheft.name",
+          "summary": "QUICKNPC.spell.lifeTheft.description",
+          "description": "QUICKNPC.spell.lifeTheft.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "single",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": true
+          }
+        },
+        "mirror": {
+          "name": "QUICKNPC.spell.mirror.name",
+          "summary": "QUICKNPC.spell.mirror.description",
+          "description": "QUICKNPC.spell.mirror.spellText",
+          "cost": 5,
+          "target": "single",
+          "costType": "total",
+          "duration": "scene"
+        }
+      }
+    }
+  }
+}

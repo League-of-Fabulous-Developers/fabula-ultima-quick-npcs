@@ -24,6 +24,18 @@
             "name": {
               "type": "string"
             },
+            "npcSpecies": {
+              "enum": [
+                "beast",
+                "construct",
+                "demon",
+                "elemental",
+                "humanoid",
+                "monster",
+                "plant",
+                "undead"
+              ]
+            },
             "changes": {
               "$ref": "#/$defs/Changes"
             },
@@ -58,6 +70,7 @@
           },
           "required": [
             "name",
+            "npcSpecies",
             "changes",
             "customizationCount",
             "customizationOptions"
@@ -81,6 +94,45 @@
           "items": {
             "$ref": "#/$defs/Step"
           }
+        },
+        "conditional": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "choice": {
+                "type": "string"
+              },
+              "values": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "changes": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "model": {
+                    "$ref": "#/$defs/Model"
+                  },
+                  "steps": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/Step"
+                    }
+                  }
+                }
+              }
+            },
+            "required": [
+              "choice",
+              "values",
+              "changes"
+            ]
+          }
         }
       }
     },
@@ -88,45 +140,6 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "name": {
-          "type": "string"
-        },
-        "level": {
-          "type": "integer"
-        },
-        "rank": {
-          "$ref": "#/$defs/Rank"
-        },
-        "species": {
-          "enum": [
-            "beast",
-            "construct",
-            "demon",
-            "elemental",
-            "humanoid",
-            "monster",
-            "plant",
-            "undead"
-          ]
-        },
-        "attributes": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "dex": {
-              "$ref": "#/$defs/AttributeDice"
-            },
-            "ins": {
-              "$ref": "#/$defs/AttributeDice"
-            },
-            "mig": {
-              "$ref": "#/$defs/AttributeDice"
-            },
-            "wlp": {
-              "$ref": "#/$defs/AttributeDice"
-            }
-          }
-        },
         "bonuses": {
           "type": "object",
           "additionalProperties": false,
@@ -192,22 +205,22 @@
           "additionalProperties": false,
           "properties": {
             "dazed": {
-              "type": "boolean"
+              "const": true
             },
             "shaken": {
-              "type": "boolean"
+              "const": true
             },
             "slow": {
-              "type": "boolean"
+              "const": true
             },
             "weak": {
-              "type": "boolean"
+              "const": true
             },
             "enraged": {
-              "type": "boolean"
+              "const": true
             },
             "poisoned": {
-              "type": "boolean"
+              "const": true
             }
           }
         },
@@ -541,10 +554,17 @@
           "const": "AssignResistance"
         },
         "options": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/DamageType"
-          }
+          "oneOf": [
+            {
+              "const": true
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/DamageType"
+              }
+            }
+          ]
         }
       },
       "required": [
@@ -806,6 +826,9 @@
                       "type": "string"
                     }
                   }
+                },
+                "group": {
+                  "type": "string"
                 }
               }
             }
@@ -864,6 +887,15 @@
             "type": "string"
           },
           "minItems": 1
+        },
+        "level": {
+          "enum": [
+            10,
+            20,
+            30,
+            40,
+            50
+          ]
         }
       }
     },
@@ -1073,8 +1105,11 @@
                 "baseDamage": {
                   "type": "integer"
                 },
-                "typeChoices": {
+                "damageType": {
                   "oneOf": [
+                    {
+                      "$ref": "#/$defs/DamageType"
+                    },
                     {
                       "const": true
                     },
@@ -1083,14 +1118,14 @@
                       "items": {
                         "$ref": "#/$defs/DamageType"
                       },
-                      "minItems": 1
+                      "minItems": 2
                     }
                   ]
                 }
               },
               "required": [
                 "baseDamage",
-                "typeChoices"
+                "damageType"
               ]
             }
           ]
@@ -1123,10 +1158,19 @@
                       "type": "string"
                     }
                   }
+                },
+                "group": {
+                  "type": "string"
                 }
               }
             }
           }
+        },
+        "require": {
+          "$ref": "#/$defs/Requirements"
+        },
+        "disallow": {
+          "$ref": "#/$defs/Requirements"
         }
       },
       "required": [

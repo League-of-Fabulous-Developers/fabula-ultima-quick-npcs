@@ -1,0 +1,719 @@
+{
+  "type": "role",
+  "role": {
+    "label": "QUICKNPC.role.mage.name",
+    "baseAttributes": {
+      "dex": "d8",
+      "ins": "d8",
+      "mig": "d6",
+      "wlp": "d10"
+    },
+    "attributeChanges": [
+      {
+        "ins": "d10"
+      },
+      {
+        "wlp": "d12"
+      },
+      {
+        "mig": "d8"
+      }
+    ],
+    "baseline": {
+      "model": {
+        "bonuses": {
+          "def": 1,
+          "mDef": 2
+        },
+        "attacks": {
+          "normal": {
+            "name": "QUICKNPC.attacks.normal",
+            "baseDamage": 5
+          }
+        }
+      },
+      "steps": [
+        {
+          "type": "ConfigureAttack",
+          "attack": "normal",
+          "configure": {
+            "attributes": [
+              [
+                "dex",
+                "ins"
+              ],
+              [
+                "ins",
+                "wlp"
+              ]
+            ],
+            "damageType": true,
+            "range": true
+          }
+        },
+        {
+          "type": "ChooseCustomization",
+          "options": {
+            "baselineTwoSpells": {
+              "label": "QUICKNPC.role.mage.baselineTwoSpells.name",
+              "description": "QUICKNPC.role.mage.baselineTwoSpells.description",
+              "changes": {
+                "steps": [
+                  {
+                    "type": "ChooseSpell",
+                    "spells": "baseline"
+                  }
+                ]
+              }
+            },
+            "baselineOneSpellMpBonus": {
+              "label": "QUICKNPC.role.mage.baselineOneSpellMpBonus.name",
+              "description": "QUICKNPC.role.mage.baselineOneSpellMpBonus.description",
+              "changes": {
+                "steps": [
+                  {
+                    "type": "ChooseSpell",
+                    "spells": "baseline"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "skillsByLevel": [
+      {
+        "model": {
+          "attacks": {
+            "normal": {
+              "targetDefense": "mDef",
+              "special": [
+                "QUICKNPC.attacks.special.targetsMDef"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "AssignImmunity"
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "model": {
+          "bonuses": {
+            "magic": 3
+          }
+        }
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      }
+    ],
+    "customizations": {
+      "oneImmunity": {
+        "label": "QUICKNPC.commonSkills.oneImmunity.name",
+        "description": "QUICKNPC.commonSkills.oneImmunity.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "AssignImmunity"
+            }
+          ]
+        }
+      },
+      "collateralDamage": {
+        "label": "QUICKNPC.role.mage.collateralDamage.name",
+        "description": "QUICKNPC.role.mage.collateralDamage.description",
+        "choices": {
+          "damageType": {
+            "label": "QUICKNPC.commonChoices.damageType",
+            "options": {
+              "physical": "QUICKNPC.damageType.physical",
+              "air": "QUICKNPC.damageType.air",
+              "bolt": "QUICKNPC.damageType.bolt",
+              "dark": "QUICKNPC.damageType.dark",
+              "earth": "QUICKNPC.damageType.earth",
+              "fire": "QUICKNPC.damageType.fire",
+              "ice": "QUICKNPC.damageType.ice",
+              "light": "QUICKNPC.damageType.light",
+              "poison": "QUICKNPC.damageType.poison"
+            }
+          }
+        },
+        "changes": {
+          "model": {
+            "rules": {
+              "collateralDamage": {
+                "name": "QUICKNPC.role.mage.collateralDamage.name",
+                "summary": "QUICKNPC.role.mage.collateralDamage.description",
+                "description": "QUICKNPC.role.mage.collateralDamage.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "overwhelm": {
+        "label": "QUICKNPC.role.mage.overwhelm.name",
+        "description": "QUICKNPC.role.mage.overwhelm.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "overwhelm": {
+                "name": "QUICKNPC.role.mage.overwhelm.name",
+                "summary": "QUICKNPC.role.mage.overwhelm.description",
+                "description": "QUICKNPC.role.mage.overwhelm.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "soulburst": {
+        "label": "QUICKNPC.role.mage.soulburst.name",
+        "description": "QUICKNPC.role.mage.soulburst.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "soulburst": {
+                "name": "QUICKNPC.role.mage.soulburst.name",
+                "summary": "QUICKNPC.role.mage.soulburst.description",
+                "description": "QUICKNPC.role.mage.soulburst.ruleText"
+              }
+            }
+          }
+        }
+      }
+    },
+    "roleSkills": {
+      "statusImmunities": {
+        "label": "QUICKNPC.role.mage.statusImmunities.name",
+        "description": "QUICKNPC.role.mage.statusImmunities.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "AssignStatusImmunity",
+              "options": [
+                "dazed",
+                "shaken",
+                "enraged",
+                "poisoned"
+              ]
+            },
+            {
+              "type": "AssignStatusImmunity",
+              "options": [
+                "dazed",
+                "shaken",
+                "enraged",
+                "poisoned"
+              ]
+            }
+          ]
+        }
+      },
+      "twoResistances": {
+        "label": "QUICKNPC.commonSkills.twoResistances.name",
+        "description": "QUICKNPC.commonSkills.twoResistances.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "AssignResistance",
+              "options": true
+            },
+            {
+              "type": "AssignResistance",
+              "options": true
+            }
+          ]
+        }
+      },
+      "normalAttackMpRecovery": {
+        "label": "QUICKNPC.commonSkills.normalAttackMpRecovery.name",
+        "description": "QUICKNPC.commonSkills.normalAttackMpRecovery.description",
+        "changes": {
+          "model": {
+            "attacks": {
+              "normal": {
+                "special": [
+                  "QUICKNPC.commonSkills.normalAttackMpRecovery.specialText"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "normalAttackVolatile": {
+        "label": "QUICKNPC.role.mage.normalAttackVolatile.name",
+        "description": "QUICKNPC.role.mage.normalAttackVolatile.description",
+        "changes": {
+          "model": {
+            "attacks": {
+              "normal": {
+                "special": [
+                  "QUICKNPC.role.mage.normalAttackVolatile.specialText"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "spells": {
+        "label": "QUICKNPC.role.mage.spells.name",
+        "description": "QUICKNPC.role.mage.spells.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "ChooseCustomization",
+              "options": {
+                "twoSpells": {
+                  "label": "QUICKNPC.role.mage.twoSpells.name",
+                  "description": "QUICKNPC.role.mage.twoSpells.description",
+                  "changes": {
+                    "steps": [
+                      {
+                        "type": "ChooseSpell",
+                        "spells": "advanced"
+                      },
+                      {
+                        "type": "ChooseSpell",
+                        "spells": "advanced"
+                      }
+                    ]
+                  }
+                },
+                "oneSpellMpBonus": {
+                  "label": "QUICKNPC.role.mage.oneSpellMpBonus.name",
+                  "description": "QUICKNPC.role.mage.oneSpellMpBonus.description",
+                  "changes": {
+                    "model": {
+                      "bonuses": {
+                        "mp": 10
+                      }
+                    },
+                    "steps": [
+                      {
+                        "type": "ChooseSpell",
+                        "spells": "advanced"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "elementDrain": {
+        "label": "QUICKNPC.role.mage.elementDrain.name",
+        "description": "QUICKNPC.role.mage.elementDrain.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "elementDrain": {
+                "name": "QUICKNPC.role.mage.elementDrain.name",
+                "summary": "QUICKNPC.role.mage.elementDrain.description",
+                "description": "QUICKNPC.role.mage.elementDrain.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "elementShift": {
+        "label": "QUICKNPC.role.mage.elementShift.name",
+        "description": "QUICKNPC.role.mage.elementShift.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "elementShift": {
+                "name": "QUICKNPC.role.mage.elementShift.name",
+                "summary": "QUICKNPC.role.mage.elementShift.description",
+                "description": "QUICKNPC.role.mage.elementShift.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "magicalMastery": {
+        "label": "QUICKNPC.role.mage.magicalMastery.name",
+        "description": "QUICKNPC.role.mage.magicalMastery.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "magicalMastery": {
+                "name": "QUICKNPC.role.mage.magicalMastery.name",
+                "summary": "QUICKNPC.role.mage.magicalMastery.description",
+                "description": "QUICKNPC.role.mage.magicalMastery.ruleText"
+              }
+            }
+          }
+        }
+      }
+    },
+    "spellLists": {
+      "baseline": {
+        "breath": {
+          "name": "QUICKNPC.spell.breath.name",
+          "summary": "QUICKNPC.spell.breath.name",
+          "description": "QUICKNPC.spell.breath.description",
+          "cost": 5,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 10,
+            "damageType": true
+          }
+        },
+        "cursedBreath": {
+          "name": "QUICKNPC.spell.cursedBreath.name",
+          "summary": "QUICKNPC.spell.cursedBreath.description",
+          "description": "QUICKNPC.spell.cursedBreath.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "single",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": true
+          },
+          "choices": {
+            "status": {
+              "label": "QUICKNPC.commonChoices.status",
+              "options": {
+                "dazed": "QUICKNPC.statusEffects.dazed",
+                "shaken": "QUICKNPC.statusEffects.shaken",
+                "slow": "QUICKNPC.statusEffects.slow",
+                "weak": "QUICKNPC.statusEffects.weak"
+              }
+            }
+          }
+        },
+        "fulgur": {
+          "name": "QUICKNPC.spell.fulgur.name",
+          "summary": "QUICKNPC.spell.fulgur.name",
+          "description": "QUICKNPC.spell.fulgur.description",
+          "cost": 10,
+          "target": "upToThree",
+          "costType": "perTarget",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": "bolt"
+          },
+          "opportunity": "QUICKNPC.spell.fulgur.opportunity"
+        },
+        "glacies": {
+          "name": "QUICKNPC.spell.glacies.name",
+          "summary": "QUICKNPC.spell.glacies.name",
+          "description": "QUICKNPC.spell.glacies.description",
+          "cost": 10,
+          "target": "upToThree",
+          "costType": "perTarget",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": "ice"
+          },
+          "opportunity": "QUICKNPC.spell.glacies.opportunity"
+        },
+        "ignis": {
+          "name": "QUICKNPC.spell.ignis.name",
+          "summary": "QUICKNPC.spell.ignis.name",
+          "description": "QUICKNPC.spell.ignis.description",
+          "cost": 10,
+          "target": "upToThree",
+          "costType": "perTarget",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": "fire"
+          },
+          "opportunity": "QUICKNPC.spell.ignis.opportunity"
+        },
+        "lux": {
+          "name": "QUICKNPC.spell.lux.name",
+          "summary": "QUICKNPC.spell.lux.name",
+          "description": "QUICKNPC.spell.lux.description",
+          "cost": 10,
+          "target": "upToThree",
+          "costType": "perTarget",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": "light"
+          },
+          "opportunity": "QUICKNPC.spell.lux.opportunity"
+        },
+        "omega": {
+          "name": "QUICKNPC.spell.omega.name",
+          "summary": "QUICKNPC.spell.omega.name",
+          "description": "QUICKNPC.spell.omega.description",
+          "cost": 20,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": true
+        },
+        "terra": {
+          "name": "QUICKNPC.spell.terra.name",
+          "summary": "QUICKNPC.spell.terra.name",
+          "description": "QUICKNPC.spell.terra.description",
+          "cost": 10,
+          "target": "upToThree",
+          "costType": "perTarget",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": "earth"
+          },
+          "opportunity": "QUICKNPC.spell.terra.opportunity"
+        },
+        "umbra": {
+          "name": "QUICKNPC.spell.umbra.name",
+          "summary": "QUICKNPC.spell.umbra.name",
+          "description": "QUICKNPC.spell.umbra.description",
+          "cost": 10,
+          "target": "upToThree",
+          "costType": "perTarget",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": "dark"
+          },
+          "opportunity": "QUICKNPC.spell.umbra.opportunity"
+        },
+        "ventus": {
+          "name": "QUICKNPC.spell.ventus.name",
+          "summary": "QUICKNPC.spell.ventus.name",
+          "description": "QUICKNPC.spell.ventus.description",
+          "cost": 10,
+          "target": "upToThree",
+          "costType": "perTarget",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": "air"
+          },
+          "opportunity": "QUICKNPC.spell.ventus.opportunity"
+        },
+        "flare": {
+          "name": "QUICKNPC.spell.flare.name",
+          "summary": "QUICKNPC.spell.flare.name",
+          "description": "QUICKNPC.spell.flare.description",
+          "cost": 20,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 25,
+            "damageType": "fire"
+          },
+          "require": {
+            "level": 30
+          }
+        },
+        "iceberg": {
+          "name": "QUICKNPC.spell.iceberg.name",
+          "summary": "QUICKNPC.spell.iceberg.name",
+          "description": "QUICKNPC.spell.iceberg.description",
+          "cost": 20,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 25,
+            "damageType": "ice"
+          },
+          "require": {
+            "level": 30
+          }
+        },
+        "thunderbolt": {
+          "name": "QUICKNPC.spell.thunderbolt.name",
+          "summary": "QUICKNPC.spell.thunderbolt.name",
+          "description": "QUICKNPC.spell.thunderbolt.description",
+          "cost": 20,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 25,
+            "damageType": "bolt"
+          },
+          "require": {
+            "level": 30
+          }
+        }
+      },
+      "advanced": {
+        "cursedBreath": {
+          "name": "QUICKNPC.spell.cursedBreath.name",
+          "summary": "QUICKNPC.spell.cursedBreath.description",
+          "description": "QUICKNPC.spell.cursedBreath.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "single",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": true
+          },
+          "choices": {
+            "status": {
+              "label": "QUICKNPC.commonChoices.status",
+              "options": {
+                "dazed": "QUICKNPC.statusEffects.dazed",
+                "shaken": "QUICKNPC.statusEffects.shaken",
+                "slow": "QUICKNPC.statusEffects.slow",
+                "weak": "QUICKNPC.statusEffects.weak"
+              }
+            }
+          }
+        },
+        "drainSpirit": {
+          "name": "QUICKNPC.spell.drainSpirit.name",
+          "summary": "QUICKNPC.spell.drainSpirit.description",
+          "description": "QUICKNPC.spell.drainSpirit.spellText",
+          "cost": 5,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": true
+        },
+        "lifeTheft": {
+          "name": "QUICKNPC.spell.lifeTheft.name",
+          "summary": "QUICKNPC.spell.lifeTheft.description",
+          "description": "QUICKNPC.spell.lifeTheft.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "single",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": true
+          }
+        },
+        "mindTheft": {
+          "name": "QUICKNPC.spell.mindTheft.name",
+          "summary": "QUICKNPC.spell.mindTheft.description",
+          "description": "QUICKNPC.spell.mindTheft.spellText",
+          "cost": 10,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": true
+          }
+        },
+        "omega": {
+          "name": "QUICKNPC.spell.omega.name",
+          "summary": "QUICKNPC.spell.omega.name",
+          "description": "QUICKNPC.spell.omega.description",
+          "cost": 20,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": true
+        },
+        "devastation": {
+          "name": "QUICKNPC.spell.devastation.name",
+          "summary": "QUICKNPC.spell.devastation.name",
+          "description": "QUICKNPC.spell.devastation.description",
+          "cost": 30,
+          "target": "special",
+          "costType": "total",
+          "duration": "instant",
+          "choices": {
+            "damageType": {
+              "label": "QUICKNPC.commonChoices.damageType",
+              "options": {
+                "physical": "QUICKNPC.damageType.physical",
+                "air": "QUICKNPC.damageType.air",
+                "bolt": "QUICKNPC.damageType.bolt",
+                "dark": "QUICKNPC.damageType.dark",
+                "earth": "QUICKNPC.damageType.earth",
+                "fire": "QUICKNPC.damageType.fire",
+                "ice": "QUICKNPC.damageType.ice",
+                "light": "QUICKNPC.damageType.light",
+                "poison": "QUICKNPC.damageType.poison"
+              }
+            }
+          },
+          "require": {
+            "level": 30
+          }
+        },
+        "flare": {
+          "name": "QUICKNPC.spell.flare.name",
+          "summary": "QUICKNPC.spell.flare.name",
+          "description": "QUICKNPC.spell.flare.description",
+          "cost": 20,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 25,
+            "damageType": "fire"
+          },
+          "require": {
+            "level": 30
+          }
+        },
+        "iceberg": {
+          "name": "QUICKNPC.spell.iceberg.name",
+          "summary": "QUICKNPC.spell.iceberg.name",
+          "description": "QUICKNPC.spell.iceberg.description",
+          "cost": 20,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 25,
+            "damageType": "ice"
+          },
+          "require": {
+            "level": 30
+          }
+        },
+        "thunderbolt": {
+          "name": "QUICKNPC.spell.thunderbolt.name",
+          "summary": "QUICKNPC.spell.thunderbolt.name",
+          "description": "QUICKNPC.spell.thunderbolt.description",
+          "cost": 20,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 25,
+            "damageType": "bolt"
+          },
+          "require": {
+            "level": 30
+          }
+        }
+      }
+    }
+  }
+}

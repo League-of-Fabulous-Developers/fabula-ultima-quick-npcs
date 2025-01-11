@@ -1,0 +1,64 @@
+{
+  "type": "role",
+  "role": {
+    "label": "Dummy Role",
+    "baseAttributes": {
+      "dex": "d8",
+      "ins": "d8",
+      "mig": "d8",
+      "wlp": "d8"
+    },
+    "attributeChanges": [
+      {
+        "dex": "d8"
+      },
+      {
+        "dex": "d8"
+      },
+      {
+        "dex": "d8"
+      }
+    ],
+    "skillsByLevel": [
+      {
+        "steps": [],
+        "model": {
+        }
+      },
+      {
+        "steps": [],
+        "model": {
+        }
+      },
+      {
+        "steps": [],
+        "model": {
+        }
+      },
+      {
+        "steps": [],
+        "model": {
+        }
+      },
+      {
+        "steps": [],
+        "model": {
+        }
+      },
+      {
+        "steps": [],
+        "model": {
+        }
+      }
+    ],
+    "baseline": {
+      "model": {
+      },
+      "steps": []
+    },
+    "customizations": {
+    },
+    "roleSkills": {
+    }
+  }
+}

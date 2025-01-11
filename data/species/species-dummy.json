@@ -1,0 +1,15 @@
+{
+  "type": "species",
+  "species": {
+    "name": "Dummy Species",
+    "npcSpecies": "humanoid",
+    "changes": {
+      "model": {
+      },
+      "steps": []
+    },
+    "customizationCount": 0,
+    "customizationOptions": {
+    }
+  }
+}

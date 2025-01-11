@@ -9,6 +9,7 @@ import {Customizations} from "./customizations.mjs";
  * @property {string[]} [anyRule]
  * @property {string[]} [anyAction]
  * @property {string[]} [anyCustomization]
+ * @property {number} level
  */
 
 /**
@@ -54,6 +55,10 @@ function checkRequire(require, model, context) {
 
     if (require.anyCustomization) {
         met = met && require.anyCustomization.some(customization => Customizations.checkApplied(context, customization))
+    }
+
+    if (require.level) {
+        met = met && model.level >= require.level
     }
 
     return met

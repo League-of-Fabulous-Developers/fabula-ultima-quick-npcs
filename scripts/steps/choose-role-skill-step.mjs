@@ -19,7 +19,9 @@ export class ChooseRoleSkillStep extends AbstractChooseSkillStep {
      * @param {SkillOptions} options
      */
     static addRoleSkill(context, options) {
-        (context[roleSkillKey] ??= []).push(options);
+        if (Object.keys(options).length) {
+            (context[roleSkillKey] ??= []).push(options);
+        }
     }
 
     static filterOptions(allOptions, model, context) {

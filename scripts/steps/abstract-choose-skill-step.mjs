@@ -15,6 +15,7 @@ import {checkPrerequisites} from "../common/requirements.mjs";
  * @property {string} label
  * @property {Record<string, string>} options
  * @property {Record<string, string>} [conditional]
+ * @property {string} [group]
  */
 
 /**
@@ -151,11 +152,23 @@ export class AbstractChooseSkillStep extends AbstractStep {
             return true;
         }
 
-        return Object.entries(selectedSkill.choices)
+        const individualValuesValid = Object.entries(selectedSkill.choices)
             .filter(([, value]) => {
                 return !value.conditional || Object.entries(value.conditional).every(([condition, value]) => choices[condition] === value)
             })
-            .every(([key, value]) => !!value.options[choices[key]])
+            .every(([key, value]) => !!value.options[choices[key]]);
+        if (individualValuesValid) {
+            /** @type {Record<string, string[]>} */
+            const groups = {}
+            for (let [choice, config] of Object.entries(selectedSkill.choices)) {
+                if (config.group) {
+                    (groups[config.group] ??= []).push(choices[choice]);
+                }
+            }
+            return Object.values(groups).every(group => group.every((value, idx, array) => array.indexOf(value) === idx))
+        } else {
+            return false;
+        }
     }
 
     /**

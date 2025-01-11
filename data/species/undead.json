@@ -1,0 +1,158 @@
+{
+  "type": "species",
+  "species": {
+    "name": "QUICKNPC.species.undead.name",
+    "npcSpecies": "undead",
+    "changes": {
+      "model": {
+        "affinities": {
+          "light": "vul",
+          "dark": "imm",
+          "poison": "imm"
+        },
+        "statusImmunities": {
+          "poisoned": true
+        },
+        "rules": {
+          "undeadHealing": {
+            "name": "QUICKNPC.species.undead.undeadHealing.name",
+            "summary": "QUICKNPC.species.undead.undeadHealing.description",
+            "description": "QUICKNPC.species.undead.undeadHealing.ruleText"
+          }
+        }
+      },
+      "steps": [
+        {
+          "type": "ConditionalBonusSkill",
+          "drawback": {
+            "label": "QUICKNPC.species.undead.additionalVulnerability.name",
+            "description": "QUICKNPC.species.undead.additionalVulnerability.description",
+            "changes": {
+              "steps": [
+                {
+                  "type": "AssignSpeciesVulnerability",
+                  "options": [
+                    "air",
+                    "bolt",
+                    "earth",
+                    "fire",
+                    "ice"
+                  ]
+                }
+              ]
+            }
+          },
+          "options": {
+            "upgradeImmToAbs": {
+              "label": "QUICKNPC.species.undead.upgradeImmToAbs.name",
+              "description": "QUICKNPC.species.undead.upgradeImmToAbs.description",
+              "changes": {
+                "model": {
+                  "affinities": {
+                    "dark": "abs"
+                  }
+                }
+              }
+            },
+            "undeadSpell": {
+              "label": "QUICKNPC.species.undead.spell.name",
+              "description": "QUICKNPC.species.undead.spell.description",
+              "changes": {
+                "model": {
+                  "bonuses": {
+                    "mp": 10
+                  }
+                },
+                "steps": [
+                  {
+                    "type": "ChooseSpell",
+                    "spells": "undeadSpells"
+                  }
+                ]
+              }
+            },
+            "flying": {
+              "label": "QUICKNPC.commonSkills.flying.name",
+              "description": "QUICKNPC.commonSkills.flying.description",
+              "changes": {
+                "model": {
+                  "rules": {
+                    "flying": {
+                      "name": "QUICKNPC.commonSkills.flying.name",
+                      "summary": "QUICKNPC.commonSkills.flying.description",
+                      "description": "QUICKNPC.commonSkills.flying.ruleText"
+                    }
+                  }
+                }
+              }
+            },
+            "undeadAdditionalRoleSkill": {
+              "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
+              "description": "QUICKNPC.commonSkills.additionalRoleSkill.description",
+              "changes": {
+                "steps": [
+                  {
+                    "type": "ChooseRoleSkill"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "customizationCount": 0,
+    "customizationOptions": {
+    },
+    "spellLists": {
+      "undeadSpells": {
+        "breath": {
+          "name": "QUICKNPC.spell.breath.name",
+          "summary": "QUICKNPC.spell.breath.name",
+          "description": "QUICKNPC.spell.breath.description",
+          "cost": 5,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 10,
+            "damageType": true
+          }
+        },
+        "curse": {
+          "name": "QUICKNPC.spell.curse.name",
+          "summary": "QUICKNPC.spell.curse.description",
+          "description": "QUICKNPC.spell.curse.spellText",
+          "cost": 5,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": true
+        },
+        "lifeTheft": {
+          "name": "QUICKNPC.spell.lifeTheft.name",
+          "summary": "QUICKNPC.spell.lifeTheft.description",
+          "description": "QUICKNPC.spell.lifeTheft.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "single",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": true
+          }
+        },
+        "poison": {
+          "name": "QUICKNPC.spell.poison.name",
+          "summary": "QUICKNPC.spell.poison.description",
+          "description": "QUICKNPC.spell.poison.spellText",
+          "cost": 10,
+          "costType": "perTarget",
+          "target": "upToThree",
+          "duration": "instant",
+          "offensive": true
+        }
+      }
+    }
+  }
+}

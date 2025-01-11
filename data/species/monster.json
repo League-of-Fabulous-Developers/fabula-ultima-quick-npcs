@@ -1,0 +1,165 @@
+{
+  "type": "species",
+  "species": {
+    "name": "QUICKNPC.species.monster.name",
+    "npcSpecies": "monster",
+    "changes": {},
+    "customizationCount": 2,
+    "customizationOptions": {
+      "monsterHpPlus10": {
+        "label": "QUICKNPC.commonSkills.bonusHp.name",
+        "description": "QUICKNPC.commonSkills.bonusHp.description",
+        "changes": {
+          "model": {
+            "bonuses": {
+              "hp": 10
+            }
+          }
+        }
+      },
+      "monsterTwoResistancesExceptPhysical": {
+        "label": "QUICKNPC.commonSkills.twoResistancesExceptPhysical.name",
+        "description": "QUICKNPC.commonSkills.twoResistancesExceptPhysical.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "AssignResistance",
+              "options": [
+                "air",
+                "bolt",
+                "dark",
+                "earth",
+                "fire",
+                "ice",
+                "light",
+                "poison"
+              ]
+            },
+            {
+              "type": "AssignResistance",
+              "options": [
+                "air",
+                "bolt",
+                "dark",
+                "earth",
+                "fire",
+                "ice",
+                "light",
+                "poison"
+              ]
+            }
+          ]
+        }
+      },
+      "monsterSpell": {
+        "label": "QUICKNPC.species.monster.spell.name",
+        "description": "QUICKNPC.species.monster.spell.description",
+        "changes": {
+          "model": {
+            "bonuses": {
+              "mp": 10
+            }
+          },
+          "steps": [
+            {
+              "type": "ChooseSpell",
+              "spells": "monsterSpells"
+            }
+          ]
+        }
+      },
+      "flying": {
+        "label": "QUICKNPC.commonSkills.flying.name",
+        "description": "QUICKNPC.commonSkills.flying.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "flying": {
+                "name": "QUICKNPC.commonSkills.flying.name",
+                "summary": "QUICKNPC.commonSkills.flying.description",
+                "description": "QUICKNPC.commonSkills.flying.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "monsterAdditionalRoleSkill1": {
+        "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
+        "description": "QUICKNPC.commonSkills.additionalRoleSkill.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "ChooseRoleSkill"
+            }
+          ]
+        }
+      },
+      "monsterAdditionalRoleSkill2": {
+        "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
+        "description": "QUICKNPC.commonSkills.additionalRoleSkill.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "ChooseRoleSkill"
+            }
+          ]
+        },
+        "require": {
+          "anyCustomization": [
+            "monsterAdditionalRoleSkill1"
+          ]
+        }
+      }
+    },
+    "spellLists": {
+      "monsterSpells": {
+        "breath": {
+          "name": "QUICKNPC.spell.breath.name",
+          "summary": "QUICKNPC.spell.breath.name",
+          "description": "QUICKNPC.spell.breath.description",
+          "cost": 5,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 10,
+            "damageType": true
+          }
+        },
+        "cursedBreath": {
+          "name": "QUICKNPC.spell.cursedBreath.name",
+          "summary": "QUICKNPC.spell.cursedBreath.description",
+          "description": "QUICKNPC.spell.cursedBreath.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "single",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": true
+          },
+          "choices": {
+            "status": {
+              "label": "QUICKNPC.commonChoices.status",
+              "options": {
+                "dazed": "QUICKNPC.statusEffects.dazed",
+                "shaken": "QUICKNPC.statusEffects.shaken",
+                "slow": "QUICKNPC.statusEffects.slow",
+                "weak": "QUICKNPC.statusEffects.weak"
+              }
+            }
+          }
+        },
+        "lickWounds": {
+          "name": "QUICKNPC.spell.lickWounds.name",
+          "summary": "QUICKNPC.spell.lickWounds.description",
+          "description": "QUICKNPC.spell.lickWounds.spellText",
+          "cost": 5,
+          "costType": "total",
+          "target": "self",
+          "duration": "instant"
+        }
+      }
+    }
+  }
+}

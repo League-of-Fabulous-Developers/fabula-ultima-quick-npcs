@@ -25,6 +25,10 @@ export class Species {
         throw new Error("must override 'get label()'")
     }
 
+    get npcSpecies() {
+        throw new Error("must override 'get npcSpecies'")
+    }
+
     /**
      * @param {NpcModel} model
      * @param context

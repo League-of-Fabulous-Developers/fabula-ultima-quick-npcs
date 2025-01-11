@@ -1,0 +1,144 @@
+{
+  "type": "species",
+  "species": {
+    "name": "QUICKNPC.species.elemental.name",
+    "npcSpecies": "elemental",
+    "changes": {
+      "model": {
+        "affinities": {
+          "poison": "imm"
+        },
+        "statusImmunities": {
+          "poisoned": true
+        }
+      },
+      "steps": [
+        {
+          "type": "AssignImmunity"
+        },
+        {
+          "type": "ConditionalBonusSkill",
+          "drawback": {
+            "label": "QUICKNPC.species.elemental.additionalVulnerability.name",
+            "description": "QUICKNPC.species.elemental.additionalVulnerability.description",
+            "changes": {
+              "steps": [
+                {
+                  "type": "AssignVulnerability"
+                }
+              ]
+            }
+          },
+          "options": {
+            "upgradeImmToAbs": {
+              "label": "QUICKNPC.species.elemental.upgradeImmToAbs.name",
+              "description": "QUICKNPC.species.elemental.upgradeImmToAbs.description",
+              "changes": {
+                "steps": [
+                  {
+                    "type": "UpgradeImmToAbs"
+                  }
+                ]
+              }
+            },
+            "elementalSpell": {
+              "label": "QUICKNPC.species.elemental.spell.name",
+              "description": "QUICKNPC.species.elemental.spell.description",
+              "changes": {
+                "model": {
+                  "bonuses": {
+                    "mp": 10
+                  }
+                },
+                "steps": [
+                  {
+                    "type": "ChooseSpell",
+                    "spells": "elementalSpells"
+                  }
+                ]
+              }
+            },
+            "flying": {
+              "label": "QUICKNPC.commonSkills.flying.name",
+              "description": "QUICKNPC.commonSkills.flying.description",
+              "changes": {
+                "model": {
+                  "rules": {
+                    "flying": {
+                      "name": "QUICKNPC.commonSkills.flying.name",
+                      "summary": "QUICKNPC.commonSkills.flying.description",
+                      "description": "QUICKNPC.commonSkills.flying.ruleText"
+                    }
+                  }
+                }
+              }
+            },
+            "elementalAdditionalRoleSkill": {
+              "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
+              "description": "QUICKNPC.commonSkills.additionalRoleSkill.description",
+              "changes": {
+                "steps": [
+                  {
+                    "type": "ChooseRoleSkill"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "customizationCount": 0,
+    "customizationOptions": {},
+    "spellLists": {
+      "elementalSpells": {
+        "breath": {
+          "name": "QUICKNPC.spell.breath.name",
+          "summary": "QUICKNPC.spell.breath.name",
+          "description": "QUICKNPC.spell.breath.description",
+          "cost": 5,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 10,
+            "damageType": true
+          }
+        },
+        "cursedBreath": {
+          "name": "QUICKNPC.spell.cursedBreath.name",
+          "summary": "QUICKNPC.spell.cursedBreath.description",
+          "description": "QUICKNPC.spell.cursedBreath.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "single",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": true
+          },
+          "choices": {
+            "status": {
+              "label": "QUICKNPC.commonChoices.status",
+              "options": {
+                "dazed": "QUICKNPC.statusEffects.dazed",
+                "shaken": "QUICKNPC.statusEffects.shaken",
+                "slow": "QUICKNPC.statusEffects.slow",
+                "weak": "QUICKNPC.statusEffects.weak"
+              }
+            }
+          }
+        },
+        "lickWounds": {
+          "name": "QUICKNPC.spell.lickWounds.name",
+          "summary": "QUICKNPC.spell.lickWounds.description",
+          "description": "QUICKNPC.spell.lickWounds.spellText",
+          "cost": 5,
+          "costType": "total",
+          "target": "self",
+          "duration": "instant"
+        }
+      }
+    }
+  }
+}

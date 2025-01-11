@@ -14,6 +14,8 @@ export class Stepper {
     #CurrentStep
     /** @type FormData[] */
     #redoData = []
+    /** @type object */
+    #initialContext = {}
 
     /**
      * @param {typeof AbstractStep[]} steps
@@ -23,6 +25,8 @@ export class Stepper {
         this.#steps = [...steps]
         this.#initialValue = initialValue
         this.#CurrentStep = this.#steps[0]
+        this.#initialContext = {}
+        this.#steps.forEach(step => step.initContext(this.#initialContext))
     }
 
     /**
@@ -131,7 +135,7 @@ export class Stepper {
      */
     get currentState() {
         let value = foundry.utils.duplicate(this.#initialValue)
-        let context = {}
+        let context = {...this.#initialContext}
         for (const step of this.#stepsTaken) {
             value = step.apply(foundry.utils.duplicate(value), context)
         }

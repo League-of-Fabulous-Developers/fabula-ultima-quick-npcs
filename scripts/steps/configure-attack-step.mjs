@@ -156,7 +156,7 @@ export class ConfigureAttackStep extends AbstractStep {
      * @return boolean
      */
     static shouldActivate(current, value, context) {
-        return Object.keys(context[attacksKey]).length
+        return context[attacksKey] != null && Object.keys(context[attacksKey]).length > 0
     }
 
     apply(model, context) {

@@ -3,7 +3,7 @@ const path = require("path")
 const Ajv = require("ajv/dist/2020")
 const standaloneCode = require("ajv/dist/standalone").default
 
-const schema = require("./schema/schema.schema.json")
+const schema = require("./schema/quicknpc.schema.json")
 
 const ajv = new Ajv({code: {source: true, esm: true}})
 const validate = ajv.compile(schema)

@@ -1,0 +1,197 @@
+{
+  "type": "species",
+  "species": {
+    "name": "QUICKNPC.species.plant.name",
+    "npcSpecies": "plant",
+    "changes": {
+      "model": {
+        "statusImmunities": {
+          "dazed": true,
+          "enraged": true,
+          "shaken": true
+        }
+      },
+      "steps": [
+        {
+          "type": "AssignSpeciesVulnerability",
+          "options": [
+            "air",
+            "bolt",
+            "fire",
+            "ice"
+          ]
+        }
+      ]
+    },
+    "customizationCount": 1,
+    "customizationOptions": {
+      "plantHpPlus10": {
+        "label": "QUICKNPC.commonSkills.bonusHp.name",
+        "description": "QUICKNPC.commonSkills.bonusHp.description",
+        "changes": {
+          "model": {
+            "bonuses": {
+              "hp": 10
+            }
+          }
+        }
+      },
+      "plantTwoResistancesExceptPhysical": {
+        "label": "QUICKNPC.commonSkills.twoResistancesExceptPhysical.name",
+        "description": "QUICKNPC.commonSkills.twoResistancesExceptPhysical.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "AssignResistance",
+              "options": [
+                "air",
+                "bolt",
+                "dark",
+                "earth",
+                "fire",
+                "ice",
+                "light",
+                "poison"
+              ]
+            },
+            {
+              "type": "AssignResistance",
+              "options": [
+                "air",
+                "bolt",
+                "dark",
+                "earth",
+                "fire",
+                "ice",
+                "light",
+                "poison"
+              ]
+            }
+          ]
+        }
+      },
+      "plantSpell": {
+        "label": "QUICKNPC.species.plant.spell.name",
+        "description": "QUICKNPC.species.plant.spell.description",
+        "changes": {
+          "model": {
+            "bonuses": {
+              "mp": 10
+            }
+          },
+          "steps": [
+            {
+              "type": "ChooseSpell",
+              "spells": "plantSpells"
+            }
+          ]
+        }
+      },
+      "thorns": {
+        "label": "QUICKNPC.species.plant.thorns.name",
+        "description": "QUICKNPC.species.plant.thorns.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "thorns": {
+                "name": "QUICKNPC.species.plant.thorns.name",
+                "summary": "QUICKNPC.species.plant.thorns.description",
+                "description": "QUICKNPC.species.plant.thorns.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "flying": {
+        "label": "QUICKNPC.commonSkills.flying.name",
+        "description": "QUICKNPC.commonSkills.flying.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "flying": {
+                "name": "QUICKNPC.commonSkills.flying.name",
+                "summary": "QUICKNPC.commonSkills.flying.description",
+                "description": "QUICKNPC.commonSkills.flying.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "plantAdditionalRoleSkill": {
+        "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
+        "description": "QUICKNPC.commonSkills.additionalRoleSkill.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "ChooseRoleSkill"
+            }
+          ]
+        }
+      }
+    },
+    "spellLists": {
+      "plantSpells": {
+        "breath": {
+          "name": "QUICKNPC.spell.breath.name",
+          "summary": "QUICKNPC.spell.breath.name",
+          "description": "QUICKNPC.spell.breath.description",
+          "cost": 5,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 10,
+            "damageType": true
+          }
+        },
+        "cursedBreath": {
+          "name": "QUICKNPC.spell.cursedBreath.name",
+          "summary": "QUICKNPC.spell.cursedBreath.description",
+          "description": "QUICKNPC.spell.cursedBreath.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "single",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": true
+          },
+          "choices": {
+            "status": {
+              "label": "QUICKNPC.commonChoices.status",
+              "options": {
+                "dazed": "QUICKNPC.statusEffects.dazed",
+                "shaken": "QUICKNPC.statusEffects.shaken",
+                "slow": "QUICKNPC.statusEffects.slow",
+                "weak": "QUICKNPC.statusEffects.weak"
+              }
+            }
+          }
+        },
+        "lifeTheft": {
+          "name": "QUICKNPC.spell.lifeTheft.name",
+          "summary": "QUICKNPC.spell.lifeTheft.description",
+          "description": "QUICKNPC.spell.lifeTheft.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "single",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": true
+          }
+        },
+        "poison": {
+          "name": "QUICKNPC.spell.poison.name",
+          "summary": "QUICKNPC.spell.poison.description",
+          "description": "QUICKNPC.spell.poison.spellText",
+          "cost": 10,
+          "costType": "perTarget",
+          "target": "upToThree",
+          "duration": "instant",
+          "offensive": true
+        }
+      }
+    }
+  }
+}

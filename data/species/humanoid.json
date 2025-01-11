@@ -1,0 +1,146 @@
+{
+  "type": "species",
+  "species": {
+    "name": "QUICKNPC.species.humanoid.name",
+    "npcSpecies": "humanoid",
+    "changes": {
+      "steps": [
+        {
+          "type": "AssignVulnerability",
+          "options": [
+            "physical",
+            "dark",
+            "light",
+            "poison"
+          ]
+        }
+      ]
+    },
+    "customizationCount": 3,
+    "customizationOptions": {
+      "humanoidTwoResistancesExceptPhysical": {
+        "label": "QUICKNPC.commonSkills.twoResistancesExceptPhysical.name",
+        "description": "QUICKNPC.commonSkills.twoResistancesExceptPhysical.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "AssignResistance",
+              "options": [
+                "air",
+                "bolt",
+                "dark",
+                "earth",
+                "fire",
+                "ice",
+                "light",
+                "poison"
+              ]
+            },
+            {
+              "type": "AssignResistance",
+              "options": [
+                "air",
+                "bolt",
+                "dark",
+                "earth",
+                "fire",
+                "ice",
+                "light",
+                "poison"
+              ]
+            }
+          ]
+        }
+      },
+      "humanoidSpell": {
+        "label": "QUICKNPC.species.humanoid.spell.name",
+        "description": "QUICKNPC.species.humanoid.spell.description",
+        "changes": {
+          "model": {
+            "bonuses": {
+              "mp": 10
+            }
+          },
+          "steps": [
+            {
+              "type": "ChooseSpell",
+              "spells": "humanoidSpells"
+            }
+          ]
+        }
+      },
+      "opposedCheckBonus": {
+        "label": "QUICKNPC.species.humanoid.opposedCheckBonus.name",
+        "description": "QUICKNPC.species.humanoid.opposedCheckBonus.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "opposedCheckBonus": {
+                "name": "QUICKNPC.species.humanoid.opposedCheckBonus.name",
+                "summary": "QUICKNPC.species.humanoid.opposedCheckBonus.description",
+                "description": "QUICKNPC.species.humanoid.opposedCheckBonus.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "flying": {
+        "label": "QUICKNPC.commonSkills.flying.name",
+        "description": "QUICKNPC.commonSkills.flying.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "flying": {
+                "name": "QUICKNPC.commonSkills.flying.name",
+                "summary": "QUICKNPC.commonSkills.flying.description",
+                "description": "QUICKNPC.commonSkills.flying.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "humanoidAdditionalRoleSkill": {
+        "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
+        "description": "QUICKNPC.commonSkills.additionalRoleSkill.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "ChooseRoleSkill"
+            }
+          ]
+        }
+      }
+    },
+    "spellLists": {
+      "humanoidSpells": {
+        "lickWounds": {
+          "name": "QUICKNPC.spell.lickWounds.name",
+          "summary": "QUICKNPC.spell.lickWounds.description",
+          "description": "QUICKNPC.spell.lickWounds.spellText",
+          "cost": 5,
+          "costType": "total",
+          "target": "self",
+          "duration": "instant"
+        },
+        "shell": {
+          "name": "QUICKNPC.spell.shell.name",
+          "summary": "QUICKNPC.spell.shell.description",
+          "description": "QUICKNPC.spell.shell.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "self",
+          "duration": "scene"
+        },
+        "warCry": {
+          "name": "QUICKNPC.spell.warCry.name",
+          "summary": "QUICKNPC.spell.warCry.description",
+          "description": "QUICKNPC.spell.warCry.spellText",
+          "cost": 10,
+          "costType": "perTarget",
+          "target": "upToThree",
+          "duration": "scene"
+        }
+      }
+    }
+  }
+}

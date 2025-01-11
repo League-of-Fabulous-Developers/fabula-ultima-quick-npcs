@@ -1,6 +1,8 @@
 import {LOG_MESSAGE, MODULE} from "./constants.mjs";
 import {QuickNpcWizardV11} from "./quick-npc-wizard-v11.mjs";
 import {SETTINGS} from "./settings.mjs";
+import {reloadDatabase} from "./database.mjs";
+import {UserDataConfig} from "./user-data-config.mjs";
 
 const templates = {
     "QUICKNPC.step.chooseSkill": "/modules/fabula-ultima-quick-npcs/templates/steps/choose-skill.hbs",
@@ -20,6 +22,7 @@ const templates = {
     'QUICKNPC.preview.spells': "/modules/fabula-ultima-quick-npcs/templates/preview/spells.hbs",
     'QUICKNPC.preview.actions': "/modules/fabula-ultima-quick-npcs/templates/preview/actions.hbs",
     'QUICKNPC.preview.rules': "/modules/fabula-ultima-quick-npcs/templates/preview/rules.hbs",
+    'QUICKNPC.settings.userDataConfig': "/modules/fabula-ultima-quick-npcs/templates/user-data-config.hbs",
 }
 
 
@@ -94,6 +97,27 @@ function initSettings() {
         requiresReload: false,
         onChange: () => ui.controls.initialize()
     })
+
+    game.settings.register(MODULE, SETTINGS.userDataFiles, {
+        name: game.i18n.localize("QUICKNPC.settings.userDataFiles"),
+        type: new foundry.data.fields.SetField(new foundry.data.fields.FilePathField({
+            categories: ["TEXT"]
+        })),
+        default: [],
+        scope: "world",
+        config: false,
+        requiresReload: false,
+        onChange: reloadDatabase
+    })
+
+    game.settings.registerMenu(MODULE, SETTINGS.userDataFiles, {
+        name: game.i18n.localize('QUICKNPC.settings.userDataFiles.name'),
+        label: game.i18n.localize('QUICKNPC.settings.userDataFiles.label'),
+        hint: game.i18n.localize('QUICKNPC.settings.userDataFiles.hint'),
+        icon: 'fas fa-book',
+        type: UserDataConfig,
+        restricted: true,
+    });
 }
 
 
@@ -110,7 +134,6 @@ function initUi() {
     Hooks.on("closeApplicationV2", cleanUpApplication)
 
     Hooks.on("renderActorDirectory", (app, html) => {
-        console.log(app, html)
         const placement = game.settings.get(MODULE, SETTINGS.actorsTabButtonPlacement);
         const template = document.createElement("template");
         template.innerHTML = `

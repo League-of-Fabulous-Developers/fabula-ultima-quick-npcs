@@ -2,12 +2,12 @@ const fs = require("fs")
 const path = require("path")
 const Ajv = require("ajv/dist/2020")
 
-const schema = require("./schema/schema.schema.json")
+const schema = require("./schema/quicknpc.schema.json")
 
 const ajv = new Ajv()
 const validate = ajv.compile(schema)
 
-const dataDirectory = path.join(__dirname, "config");
+const dataDirectory = path.join(__dirname, "data");
 
 const dir = fs.opendirSync(dataDirectory, {recursive: true});
 try {

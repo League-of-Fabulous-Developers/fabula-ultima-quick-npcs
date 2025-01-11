@@ -121,6 +121,8 @@ jobs:
             styles/                              \
             templates/                           \
             packs/                               \
+            data/                                \
+            schema/                              \
             LICENSE                              \
             module.json                          \
             README.md

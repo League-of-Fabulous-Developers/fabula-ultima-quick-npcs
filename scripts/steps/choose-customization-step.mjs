@@ -26,7 +26,9 @@ export class ChooseCustomizationStep extends AbstractChooseSkillStep {
      * @param {SkillOptions} options
      */
     static addCustomization(context, options) {
-        (context[customizationsKey] ??= []).push(options)
+        if (Object.keys(options).length) {
+            (context[customizationsKey] ??= []).push(options)
+        }
     }
 
     /**

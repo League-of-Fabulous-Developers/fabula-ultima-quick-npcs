@@ -19,6 +19,10 @@
  */
 
 /**
+ * @typedef {"beast", "construct", "demon", "elemental", "humanoid", "monster", "plant", "undead"} NpcSpecies
+ */
+
+/**
  * @typedef {"dazed", "shaken", "slow", "weak", "enraged", "poisoned"} StatusEffect
  */
 
@@ -360,7 +364,7 @@ function createAttack(attack) {
             damage: {value: attack.damage},
             type: {value: attack.range},
             damageType: {value: attack.damageType},
-            description: attack.special.reduce((previousValue, currentValue) => `${previousValue}<p>${currentValue}</p>`, "")
+            description: (attack.special ?? []).reduce((previousValue, currentValue) => `${previousValue}<p>${currentValue}</p>`, "")
         }
     };
 }
@@ -481,5 +485,7 @@ export const NpcModel = {
     newNpcModel,
     updateDerivedValues,
     createActor,
-    computeAffinity
+    computeAffinity,
+    createBlankAttack: undefined
+
 }

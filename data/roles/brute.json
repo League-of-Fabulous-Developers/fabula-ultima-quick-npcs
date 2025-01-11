@@ -493,7 +493,8 @@
                 "shaken": "QUICKNPC.statusEffects.shaken",
                 "slow": "QUICKNPC.statusEffects.slow",
                 "weak": "QUICKNPC.statusEffects.weak"
-              }
+              },
+              "group": "status"
             },
             "status2": {
               "label": "QUICKNPC.spell.curseXL.status2",
@@ -502,7 +503,8 @@
                 "shaken": "QUICKNPC.statusEffects.shaken",
                 "slow": "QUICKNPC.statusEffects.slow",
                 "weak": "QUICKNPC.statusEffects.weak"
-              }
+              },
+              "group": "status"
             }
           }
         },
@@ -516,7 +518,7 @@
           "duration": "instant",
           "offensive": {
             "baseDamage": 15,
-            "typeChoices": true
+            "damageType": true
           },
           "choices": {
             "status": {
@@ -559,7 +561,7 @@
           "duration": "instant",
           "offensive": {
             "baseDamage": 15,
-            "typeChoices": true
+            "damageType": true
           }
         },
         "poison": {

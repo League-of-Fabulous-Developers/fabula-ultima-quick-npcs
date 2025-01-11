@@ -1,5 +1,6 @@
 
 export const SETTINGS = {
     actorsTabButtonPlacement: "actorsTabButtonPlacement",
-    showInSystemTools: "showInSystemTools"
+    showInSystemTools: "showInSystemTools",
+    userDataFiles: "userDataFiles",
 }

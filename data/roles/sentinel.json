@@ -1,0 +1,651 @@
+{
+  "type": "role",
+  "role": {
+    "label": "QUICKNPC.role.sentinel.name",
+    "baseAttributes": {
+      "dex": "d8",
+      "ins": "d8",
+      "mig": "d8",
+      "wlp": "d8"
+    },
+    "attributeChanges": [
+      {
+        "mig": "d10"
+      },
+      {
+        "wlp": "d10"
+      },
+      {
+        "dex": "d10"
+      }
+    ],
+    "skillsByLevel": [
+      {
+        "steps": [
+          {
+            "type": "AssignResistance",
+            "options": [
+              "air",
+              "bolt",
+              "dark",
+              "earth",
+              "fire",
+              "ice",
+              "light",
+              "poison"
+            ]
+          },
+          {
+            "type": "AssignResistance",
+            "options": [
+              "air",
+              "bolt",
+              "dark",
+              "earth",
+              "fire",
+              "ice",
+              "light",
+              "poison"
+            ]
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "model": {
+          "bonuses": {
+            "def": 2,
+            "mDef": 1
+          }
+        }
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "AssignStatusImmunity",
+            "options": [
+              "shaken",
+              "weak",
+              "poisoned"
+            ]
+          },
+          {
+            "type": "AssignStatusImmunity",
+            "options": [
+              "shaken",
+              "weak",
+              "poisoned"
+            ]
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      }
+    ],
+    "baseline": {
+      "model": {
+        "attacks": {
+          "normal": {
+            "name": "QUICKNPC.attacks.normal",
+            "attributes": [
+              "dex",
+              "mig"
+            ],
+            "baseDamage": 5
+          },
+          "strong": {
+            "name": "QUICKNPC.attacks.strong",
+            "attributes": [
+              "dex",
+              "mig"
+            ],
+            "baseDamage": 10
+          }
+        }
+      },
+      "steps": [
+        {
+          "type": "AssignVulnerability"
+        },
+        {
+          "type": "AssignVulnerability"
+        },
+        {
+          "type": "ConfigureAttack",
+          "attack": "normal",
+          "configure": {
+            "range": true,
+            "damageType": true,
+            "special": {
+              "normalAttackDazed": {
+                "label": "QUICKNPC.statusEffects.dazed",
+                "description": "QUICKNPC.role.sentinel.normalAttackStatus.description.dazed",
+                "changes": {
+                  "model": {
+                    "attacks": {
+                      "normal": {
+                        "special": [
+                          "QUICKNPC.role.sentinel.normalAttackStatus.specialText.dazed"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "normalAttackShaken": {
+                "label": "QUICKNPC.statusEffects.shaken",
+                "description": "QUICKNPC.role.sentinel.normalAttackStatus.description.shaken",
+                "changes": {
+                  "model": {
+                    "attacks": {
+                      "normal": {
+                        "special": [
+                          "QUICKNPC.role.sentinel.normalAttackStatus.specialText.shaken"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "normalAttackSlow": {
+                "label": "QUICKNPC.statusEffects.slow",
+                "description": "QUICKNPC.role.sentinel.normalAttackStatus.description.slow",
+                "changes": {
+                  "model": {
+                    "attacks": {
+                      "normal": {
+                        "special": [
+                          "QUICKNPC.role.sentinel.normalAttackStatus.specialText.slow"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "normalAttackWeak": {
+                "label": "QUICKNPC.statusEffects.weak",
+                "description": "QUICKNPC.role.sentinel.normalAttackStatus.description.weak",
+                "changes": {
+                  "model": {
+                    "attacks": {
+                      "normal": {
+                        "special": [
+                          "QUICKNPC.role.sentinel.normalAttackStatus.specialText.weak"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "ConfigureAttack",
+          "attack": "strong",
+          "configure": {
+            "range": true,
+            "damageType": true
+          }
+        }
+      ]
+    },
+    "customizations": {
+      "sentinelAdditionalRoleSkill": {
+        "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
+        "description": "QUICKNPC.commonSkills.additionalRoleSkill.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "ChooseRoleSkill"
+            }
+          ]
+        }
+      },
+      "intercept": {
+        "label": "QUICKNPC.role.sentinel.intercept.name",
+        "description": "QUICKNPC.role.sentinel.intercept.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "intercept": {
+                "name": "QUICKNPC.role.sentinel.intercept.name",
+                "summary": "QUICKNPC.role.sentinel.intercept.description",
+                "description": "QUICKNPC.role.sentinel.intercept.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "threaten": {
+        "label": "QUICKNPC.role.sentinel.threaten.name",
+        "description": "QUICKNPC.role.sentinel.threaten.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "threaten": {
+                "name": "QUICKNPC.role.sentinel.threaten.name",
+                "summary": "QUICKNPC.role.sentinel.threaten.description",
+                "description": "QUICKNPC.role.sentinel.threaten.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "vulnerabilityBlock": {
+        "label": "QUICKNPC.role.sentinel.vulnerabilityBlock.name",
+        "description": "QUICKNPC.role.sentinel.vulnerabilityBlock.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "vulnerabilityBlock": {
+                "name": "QUICKNPC.role.sentinel.vulnerabilityBlock.name",
+                "summary": "QUICKNPC.role.sentinel.vulnerabilityBlock.description",
+                "description": "QUICKNPC.role.sentinel.vulnerabilityBlock.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "unwaveringSupport": {
+        "label": "QUICKNPC.role.sentinel.unwaveringSupport.name",
+        "description": "QUICKNPC.role.sentinel.unwaveringSupport.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "unwaveringSupport": {
+                "name": "QUICKNPC.role.sentinel.unwaveringSupport.name",
+                "summary": "QUICKNPC.role.sentinel.unwaveringSupport.description",
+                "description": "QUICKNPC.role.sentinel.unwaveringSupport.ruleText"
+              }
+            }
+          }
+        }
+      }
+    },
+    "roleSkills": {
+      "twoResistances": {
+        "label": "QUICKNPC.commonSkills.twoResistances.name",
+        "description": "QUICKNPC.commonSkills.twoResistances.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "AssignResistance"
+            },
+            {
+              "type": "AssignResistance"
+            }
+          ]
+        }
+      },
+      "normalAttackMulti2": {
+        "label": "QUICKNPC.commonSkills.normalAttackMulti2.name",
+        "description": "QUICKNPC.commonSkills.normalAttackMulti2.description",
+        "disallow": {
+          "rank": [
+            "soldier"
+          ]
+        },
+        "changes": {
+          "model": {
+            "attacks": {
+              "normal": {
+                "special": [
+                  "QUICKNPC.attacks.special.multi2"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "normalAttackMagic": {
+        "label": "QUICKNPC.commonSkills.normalAttackMagic.name",
+        "description": "QUICKNPC.commonSkills.normalAttackMagic.description",
+        "changes": {
+          "model": {
+            "attacks": {
+              "normal": {
+                "targetDefense": "mDef",
+                "special": [
+                  "QUICKNPC.attacks.special.targetsMDef"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "strongAttackDispel": {
+        "label": "QUICKNPC.role.sentinel.strongAttackDispel.name",
+        "description": "QUICKNPC.role.sentinel.strongAttackDispel.description",
+        "choices": {
+          "status": {
+            "label": "QUICKNPC.commonChoices.status",
+            "options": {
+              "dazed": "QUICKNPC.statusEffects.dazed",
+              "shaken": "QUICKNPC.statusEffects.shaken",
+              "slow": "QUICKNPC.statusEffects.slow",
+              "weak": "QUICKNPC.statusEffects.weak",
+              "enraged": "QUICKNPC.statusEffects.enraged",
+              "poisoned": "QUICKNPC.statusEffects.poisoned"
+            }
+          }
+        },
+        "changes": {
+          "model": {
+            "attacks": {
+              "strong": {
+                "special": [
+                  "QUICKNPC.role.sentinel.strongAttackDispel.specialText"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "spell": {
+        "label": "QUICKNPC.role.sentinel.spell.name",
+        "description": "QUICKNPC.role.sentinel.spell.description",
+        "changes": {
+          "model": {
+            "bonuses": {
+              "mp": 10
+            }
+          },
+          "steps": [
+            {
+              "type": "ChooseSpell",
+              "spells": "sentinelSpells"
+            }
+          ]
+        }
+      },
+      "barricadeOneType": {
+        "label": "QUICKNPC.role.sentinel.barricade.name.oneType",
+        "description": "QUICKNPC.role.sentinel.barricade.description.oneType",
+        "choices": {
+          "damageType": {
+            "label": "QUICKNPC.commonChoices.damageType",
+            "options": {
+              "physical": "QUICKNPC.damageType.physical",
+              "air": "QUICKNPC.damageType.air",
+              "bolt": "QUICKNPC.damageType.bolt",
+              "dark": "QUICKNPC.damageType.dark",
+              "earth": "QUICKNPC.damageType.earth",
+              "fire": "QUICKNPC.damageType.fire",
+              "ice": "QUICKNPC.damageType.ice",
+              "light": "QUICKNPC.damageType.light",
+              "poison": "QUICKNPC.damageType.poison"
+            }
+          }
+        },
+        "disallow": {
+          "anyAction": [
+            "barricade"
+          ]
+        },
+        "changes": {
+          "model": {
+            "actions": {
+              "barricade": {
+                "name": "QUICKNPC.role.sentinel.barricade.name.rule",
+                "summary": "QUICKNPC.role.sentinel.barricade.description.oneType",
+                "description": "QUICKNPC.role.sentinel.barricade.actionText.oneType"
+              }
+            }
+          }
+        }
+      },
+      "barricadeTwoTypes": {
+        "label": "QUICKNPC.role.sentinel.barricade.name.twoTypes",
+        "description": "QUICKNPC.role.sentinel.barricade.description.twoTypes",
+        "choices": {
+          "damageType1": {
+            "label": "QUICKNPC.commonChoices.damageType",
+            "options": {
+              "physical": "QUICKNPC.damageType.physical",
+              "air": "QUICKNPC.damageType.air",
+              "bolt": "QUICKNPC.damageType.bolt",
+              "dark": "QUICKNPC.damageType.dark",
+              "earth": "QUICKNPC.damageType.earth",
+              "fire": "QUICKNPC.damageType.fire",
+              "ice": "QUICKNPC.damageType.ice",
+              "light": "QUICKNPC.damageType.light",
+              "poison": "QUICKNPC.damageType.poison"
+            },
+            "group": "damageType"
+          },
+          "damageType2": {
+            "label": "QUICKNPC.commonChoices.damageType",
+            "options": {
+              "physical": "QUICKNPC.damageType.physical",
+              "air": "QUICKNPC.damageType.air",
+              "bolt": "QUICKNPC.damageType.bolt",
+              "dark": "QUICKNPC.damageType.dark",
+              "earth": "QUICKNPC.damageType.earth",
+              "fire": "QUICKNPC.damageType.fire",
+              "ice": "QUICKNPC.damageType.ice",
+              "light": "QUICKNPC.damageType.light",
+              "poison": "QUICKNPC.damageType.poison"
+            },
+            "group": "damageType"
+          }
+        },
+        "disallow": {
+          "anyAction": [
+            "barricade"
+          ]
+        },
+        "changes": {
+          "model": {
+            "actions": {
+              "barricade": {
+                "name": "QUICKNPC.role.sentinel.barricade.name.rule",
+                "summary": "QUICKNPC.role.sentinel.barricade.description.twoTypes",
+                "description": "QUICKNPC.role.sentinel.barricade.actionText.twoTypes"
+              }
+            }
+          }
+        }
+      },
+      "avengeOneAction": {
+        "label": "QUICKNPC.role.sentinel.avenge.name.oneAction",
+        "description": "QUICKNPC.role.sentinel.avenge.description.oneAction",
+        "choices": {
+          "action": {
+            "label": "QUICKNPC.role.sentinel.avenge.action.label",
+            "options": {
+              "melee": "QUICKNPC.role.sentinel.avenge.action.melee",
+              "ranged": "QUICKNPC.role.sentinel.avenge.action.ranged",
+              "spell": "QUICKNPC.role.sentinel.avenge.action.spell"
+            }
+          }
+        },
+        "disallow": {
+          "anyRule": [
+            "avenge"
+          ]
+        },
+        "changes": {
+          "model": {
+            "rules": {
+              "avenge": {
+                "name": "QUICKNPC.role.sentinel.avenge.name.rule",
+                "summary": "QUICKNPC.role.sentinel.avenge.description.oneAction",
+                "description": "QUICKNPC.role.sentinel.avenge.ruleText.oneAction"
+              }
+            }
+          }
+        }
+      },
+      "avengeTwoAction": {
+        "label": "QUICKNPC.role.sentinel.avenge.name.twoActions",
+        "description": "QUICKNPC.role.sentinel.avenge.description.twoActions",
+        "choices": {
+          "action1": {
+            "label": "QUICKNPC.role.sentinel.avenge.action.label",
+            "options": {
+              "melee": "QUICKNPC.role.sentinel.avenge.action.melee",
+              "ranged": "QUICKNPC.role.sentinel.avenge.action.ranged",
+              "spell": "QUICKNPC.role.sentinel.avenge.action.spell"
+            },
+            "group": "action"
+          },
+          "action2": {
+            "label": "QUICKNPC.role.sentinel.avenge.action.label",
+            "options": {
+              "melee": "QUICKNPC.role.sentinel.avenge.action.melee",
+              "ranged": "QUICKNPC.role.sentinel.avenge.action.ranged",
+              "spell": "QUICKNPC.role.sentinel.avenge.action.spell"
+            },
+            "group": "action"
+          }
+        },
+        "disallow": {
+          "anyRule": [
+            "avenge"
+          ]
+        },
+        "changes": {
+          "model": {
+            "rules": {
+              "avenge": {
+                "name": "QUICKNPC.role.sentinel.avenge.name.rule",
+                "summary": "QUICKNPC.role.sentinel.avenge.description.twoActions",
+                "description": "QUICKNPC.role.sentinel.avenge.ruleText.twoActions"
+              }
+            }
+          }
+        }
+      },
+      "reassuringAura": {
+        "label": "QUICKNPC.role.sentinel.reassuringAura.name",
+        "description": "QUICKNPC.role.sentinel.reassuringAura.description",
+        "choices": {
+          "status": {
+            "label": "QUICKNPC.commonChoices.status",
+            "options": {
+              "dazed": "QUICKNPC.statusEffects.dazed",
+              "shaken": "QUICKNPC.statusEffects.shaken",
+              "slow": "QUICKNPC.statusEffects.slow",
+              "weak": "QUICKNPC.statusEffects.weak"
+            }
+          }
+        },
+        "changes": {
+          "model": {
+            "rules": {
+              "reassuringAura": {
+                "name": "QUICKNPC.role.sentinel.reassuringAura.name",
+                "summary": "QUICKNPC.role.sentinel.reassuringAura.description",
+                "description": "QUICKNPC.role.sentinel.reassuringAura.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "reduceProgress": {
+        "label": "QUICKNPC.role.sentinel.reduceProgress.name",
+        "description": "QUICKNPC.role.sentinel.reduceProgress.description",
+        "choices": {
+          "status1": {
+            "label": "QUICKNPC.commonChoices.status",
+            "options": {
+              "dazed": "QUICKNPC.statusEffects.dazed",
+              "shaken": "QUICKNPC.statusEffects.shaken",
+              "slow": "QUICKNPC.statusEffects.slow",
+              "weak": "QUICKNPC.statusEffects.weak",
+              "enraged": "QUICKNPC.statusEffects.enraged",
+              "poisoned": "QUICKNPC.statusEffects.poisoned"
+            },
+            "group": "status"
+          },
+          "status2": {
+            "label": "QUICKNPC.commonChoices.status",
+            "options": {
+              "dazed": "QUICKNPC.statusEffects.dazed",
+              "shaken": "QUICKNPC.statusEffects.shaken",
+              "slow": "QUICKNPC.statusEffects.slow",
+              "weak": "QUICKNPC.statusEffects.weak",
+              "enraged": "QUICKNPC.statusEffects.enraged",
+              "poisoned": "QUICKNPC.statusEffects.poisoned"
+            },
+            "group": "status"
+          }
+        },
+        "changes": {
+          "model": {
+            "rules": {
+              "reduceProgress": {
+                "name": "QUICKNPC.role.sentinel.reduceProgress.name",
+                "summary": "QUICKNPC.role.sentinel.reduceProgress.description",
+                "description": "QUICKNPC.role.sentinel.reduceProgress.ruleText"
+              }
+            }
+          }
+        }
+      }
+    },
+    "spellLists": {
+      "sentinelSpells": {
+        "breath": {
+          "name": "QUICKNPC.spell.breath.name",
+          "summary": "QUICKNPC.spell.breath.name",
+          "description": "QUICKNPC.spell.breath.description",
+          "cost": 5,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 10,
+            "damageType": true
+          }
+        },
+        "lickWounds": {
+          "name": "QUICKNPC.spell.lickWounds.name",
+          "summary": "QUICKNPC.spell.lickWounds.description",
+          "description": "QUICKNPC.spell.lickWounds.spellText",
+          "cost": 5,
+          "costType": "total",
+          "target": "self",
+          "duration": "instant"
+        },
+        "shell": {
+          "name": "QUICKNPC.spell.shell.name",
+          "summary": "QUICKNPC.spell.shell.description",
+          "description": "QUICKNPC.spell.shell.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "self",
+          "duration": "scene"
+        },
+        "warCry": {
+          "name": "QUICKNPC.spell.warCry.name",
+          "summary": "QUICKNPC.spell.warCry.description",
+          "description": "QUICKNPC.spell.warCry.spellText",
+          "cost": 10,
+          "costType": "perTarget",
+          "target": "upToThree",
+          "duration": "scene"
+        }
+      }
+    }
+  }
+}

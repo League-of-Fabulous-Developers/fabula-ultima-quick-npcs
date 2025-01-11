@@ -1,0 +1,162 @@
+{
+  "type": "species",
+  "species": {
+    "name": "QUICKNPC.species.demon.name",
+    "npcSpecies": "demon",
+    "changes": {
+      "steps": [
+        {
+          "type": "AssignResistance"
+        },
+        {
+          "type": "AssignResistance"
+        }
+      ]
+    },
+    "customizationCount": 1,
+    "customizationOptions": {
+      "upgradeResToAbs": {
+        "label": "QUICKNPC.species.demon.upgradeResToAbs.name",
+        "description": "QUICKNPC.species.demon.upgradeResToAbs.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "UpgradeResToAbs"
+            }
+          ]
+        }
+      },
+      "demonSpell": {
+        "label": "QUICKNPC.species.demon.spell.name",
+        "description": "QUICKNPC.species.demon.spell.description",
+        "changes": {
+          "model": {
+            "bonuses": {
+              "mp": 10
+            }
+          },
+          "steps": [
+            {
+              "type": "ChooseSpell",
+              "spells": "demonSpells"
+            }
+          ]
+        }
+      },
+      "flying": {
+        "label": "QUICKNPC.commonSkills.flying.name",
+        "description": "QUICKNPC.commonSkills.flying.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "flying": {
+                "name": "QUICKNPC.commonSkills.flying.name",
+                "summary": "QUICKNPC.commonSkills.flying.description",
+                "description": "QUICKNPC.commonSkills.flying.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "demonAdditionalRoleSkill": {
+        "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
+        "description": "QUICKNPC.commonSkills.additionalRoleSkill.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "ChooseRoleSkill"
+            }
+          ]
+        }
+      }
+    },
+    "spellLists": {
+      "demonSpells": {
+        "breath": {
+          "name": "QUICKNPC.spell.breath.name",
+          "summary": "QUICKNPC.spell.breath.name",
+          "description": "QUICKNPC.spell.breath.description",
+          "cost": 5,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 10,
+            "damageType": true
+          }
+        },
+        "curseXL": {
+          "name": "QUICKNPC.spell.curseXL.name",
+          "summary": "QUICKNPC.spell.curseXL.description",
+          "description": "QUICKNPC.spell.curseXL.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "single",
+          "duration": "instant",
+          "offensive": true,
+          "choices": {
+            "status1": {
+              "label": "QUICKNPC.spell.curseXL.status1",
+              "options": {
+                "dazed": "QUICKNPC.statusEffects.dazed",
+                "shaken": "QUICKNPC.statusEffects.shaken",
+                "slow": "QUICKNPC.statusEffects.slow",
+                "weak": "QUICKNPC.statusEffects.weak"
+              },
+              "group": "status"
+            },
+            "status2": {
+              "label": "QUICKNPC.spell.curseXL.status2",
+              "options": {
+                "dazed": "QUICKNPC.statusEffects.dazed",
+                "shaken": "QUICKNPC.statusEffects.shaken",
+                "slow": "QUICKNPC.statusEffects.slow",
+                "weak": "QUICKNPC.statusEffects.weak"
+              },
+              "group": "status"
+            }
+          }
+        },
+        "mindTheft": {
+          "name": "QUICKNPC.spell.mindTheft.name",
+          "summary": "QUICKNPC.spell.mindTheft.description",
+          "description": "QUICKNPC.spell.mindTheft.spellText",
+          "cost": 10,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": true
+          }
+        },
+        "weaken": {
+          "name": "QUICKNPC.spell.weaken.name",
+          "summary": "QUICKNPC.spell.weaken.description",
+          "description": "QUICKNPC.spell.weaken.spellText",
+          "cost": 10,
+          "target": "single",
+          "costType": "total",
+          "duration": "scene",
+          "offensive": true,
+          "choices": {
+            "damageType": {
+              "label": "QUICKNPC.commonChoices.damageType",
+              "options": {
+                "physical": "QUICKNPC.damageType.physical",
+                "air": "QUICKNPC.damageType.air",
+                "bolt": "QUICKNPC.damageType.bolt",
+                "dark": "QUICKNPC.damageType.dark",
+                "earth": "QUICKNPC.damageType.earth",
+                "fire": "QUICKNPC.damageType.fire",
+                "ice": "QUICKNPC.damageType.ice",
+                "light": "QUICKNPC.damageType.light",
+                "poison": "QUICKNPC.damageType.poison"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

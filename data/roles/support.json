@@ -1,0 +1,532 @@
+{
+  "type": "role",
+  "role": {
+    "label": "QUICKNPC.role.support.name",
+    "baseAttributes": {
+      "dex": "d8",
+      "ins": "d8",
+      "mig": "d6",
+      "wlp": "d10"
+    },
+    "attributeChanges": [
+      {
+        "ins": "d10"
+      },
+      {
+        "mig": "d8"
+      },
+      {
+        "ins": "d12"
+      }
+    ],
+    "skillsByLevel": [
+      {
+        "steps": [
+          {
+            "type": "AssignResistance",
+            "options": [
+              "air",
+              "bolt",
+              "dark",
+              "earth",
+              "fire",
+              "ice",
+              "light",
+              "poison"
+            ]
+          },
+          {
+            "type": "AssignResistance",
+            "options": [
+              "air",
+              "bolt",
+              "dark",
+              "earth",
+              "fire",
+              "ice",
+              "light",
+              "poison"
+            ]
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "model": {
+          "bonuses": {
+            "def": 1,
+            "mDef": 2
+          }
+        }
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "AssignImmunity",
+            "options": [
+              "air",
+              "bolt",
+              "dark",
+              "earth",
+              "fire",
+              "ice",
+              "light",
+              "poison"
+            ]
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      }
+    ],
+    "baseline": {
+      "model": {
+        "bonuses": {
+          "hp": 10
+        },
+        "attacks": {
+          "normal": {
+            "name": "QUICKNPC.attacks.normal",
+            "baseDamage": 5
+          }
+        }
+      },
+      "steps": [
+        {
+          "type": "ConfigureAttack",
+          "attack": "normal",
+          "configure": {
+            "attributes": [
+              [
+                "dex",
+                "wlp"
+              ],
+              [
+                "ins",
+                "wlp"
+              ]
+            ],
+            "range": true,
+            "damageType": true
+          }
+        },
+        {
+          "type": "ChooseCustomization",
+          "options": {
+            "twoSpells": {
+              "label": "QUICKNPC.role.support.twoSpells.name",
+              "description": "QUICKNPC.role.support.twoSpells.description",
+              "changes": {
+                "steps": [
+                  {
+                    "type": "ChooseSpell",
+                    "spells": "supportSpells"
+                  },
+                  {
+                    "type": "ChooseSpell",
+                    "spells": "supportSpells"
+                  }
+                ]
+              }
+            },
+            "oneSpellMpBonus": {
+              "label": "QUICKNPC.role.support.oneSpellMpBonus.name",
+              "description": "QUICKNPC.role.support.oneSpellMpBonus.description",
+              "changes": {
+                "model": {
+                  "bonuses": {
+                    "mp": 10
+                  }
+                },
+                "steps": [
+                  {
+                    "type": "ChooseSpell",
+                    "spells": "supportSpells"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "customizations": {
+      "additionalRoleSkill": {
+        "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
+        "description": "QUICKNPC.commonSkills.additionalRoleSkill.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "ChooseRoleSkill"
+            }
+          ]
+        }
+      },
+      "advise": {
+        "label": "QUICKNPC.role.support.advise.name",
+        "description": "QUICKNPC.role.support.advise.description",
+        "changes": {
+          "model": {
+            "actions": {
+              "advise": {
+                "name": "QUICKNPC.role.support.advise.name",
+                "summary": "QUICKNPC.role.support.advise.description",
+                "description": "QUICKNPC.role.support.advise.actionText"
+              }
+            }
+          }
+        }
+      },
+      "inspire": {
+        "label": "QUICKNPC.role.support.inspire.name",
+        "description": "QUICKNPC.role.support.inspire.description",
+        "choices": {
+          "resource": {
+            "label": "QUICKNPC.commonChoices.resource",
+            "options": {
+              "hp": "QUICKNPC.resource.hp",
+              "mp": "QUICKNPC.resource.mp"
+            }
+          },
+          "attribute": {
+            "label": "QUICKNPC.commonChoices.attribute",
+            "options": {
+              "dex": "QUICKNPC.attributes.dex",
+              "ins": "QUICKNPC.attributes.ins",
+              "mig": "QUICKNPC.attributes.mig",
+              "wlp": "QUICKNPC.attributes.wlp"
+            }
+          }
+        },
+        "changes": {
+          "model": {
+            "actions": {
+              "inspire": {
+                "name": "QUICKNPC.role.support.inspire.name",
+                "summary": "QUICKNPC.role.support.inspire.description",
+                "description": "QUICKNPC.role.support.inspire.actionText"
+              }
+            }
+          }
+        }
+      },
+      "vulnerabilityBlock": {
+        "label": "QUICKNPC.role.support.vulnerabilityBlock.name",
+        "description": "QUICKNPC.role.support.vulnerabilityBlock.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "vulnerabilityBlock": {
+                "name": "QUICKNPC.role.support.vulnerabilityBlock.name",
+                "summary": "QUICKNPC.role.support.vulnerabilityBlock.description",
+                "description": "QUICKNPC.role.support.vulnerabilityBlock.ruleText"
+              }
+            }
+          }
+        }
+      }
+    },
+    "roleSkills": {
+      "normalAttackMulti2": {
+        "label": "QUICKNPC.commonSkills.normalAttackMulti2.name",
+        "description": "QUICKNPC.commonSkills.normalAttackMulti2.description",
+        "changes": {
+          "model": {
+            "attacks": {
+              "normal": {
+                "special": [
+                  "QUICKNPC.attacks.special.multi2"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "normalAttackMagic": {
+        "label": "QUICKNPC.commonSkills.normalAttackMagic.name",
+        "description": "QUICKNPC.commonSkills.normalAttackMagic.description",
+        "changes": {
+          "model": {
+            "attacks": {
+              "normal": {
+                "targetDefense": "mDef",
+                "special": [
+                  "QUICKNPC.attacks.special.targetsMDef"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "normalAttackStatus": {
+        "label": "QUICKNPC.commonSkills.normalAttackStatus.name",
+        "description": "QUICKNPC.commonSkills.normalAttackStatus.description",
+        "choices": {
+          "status": {
+            "label": "QUICKNPC.commonChoices.status",
+            "options": {
+              "dazed": "QUICKNPC.statusEffects.dazed",
+              "shaken": "QUICKNPC.statusEffects.shaken",
+              "slow": "QUICKNPC.statusEffects.slow",
+              "weak": "QUICKNPC.statusEffects.weak"
+            }
+          }
+        },
+        "changes": {
+          "model": {
+            "attacks": {
+              "normal": {
+                "special": [
+                  "QUICKNPC.attacks.special.causesStatus"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "normalAttackMpRecovery": {
+        "label": "QUICKNPC.commonSkills.normalAttackMpRecovery.name",
+        "description": "QUICKNPC.commonSkills.normalAttackMpRecovery.description",
+        "changes": {
+          "model": {
+            "attacks": {
+              "normal": {
+                "special": [
+                  "QUICKNPC.commonSkills.normalAttackMpRecovery.specialText"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "improvedAdvise": {
+        "label": "QUICKNPC.role.support.improvedAdvise.name",
+        "description": "QUICKNPC.role.support.improvedAdvise.description",
+        "require": {
+          "anyAction": [
+            "advise"
+          ]
+        },
+        "changes": {
+          "model": {
+            "actions": {
+              "advise": {
+                "name": "QUICKNPC.role.support.advise.name",
+                "summary": "QUICKNPC.role.support.advise.description",
+                "description": "QUICKNPC.role.support.improvedAdvise.actionText"
+              }
+            }
+          }
+        }
+      },
+      "strategicCommand": {
+        "label": "QUICKNPC.role.support.strategicCommand.name",
+        "description": "QUICKNPC.role.support.strategicCommand.description",
+        "disallow": {
+          "rank": [
+            "soldier"
+          ]
+        },
+        "changes": {
+          "model": {
+            "actions": {
+              "strategicCommand": {
+                "name": "QUICKNPC.role.support.strategicCommand.name",
+                "summary": "QUICKNPC.role.support.strategicCommand.description",
+                "description": "QUICKNPC.role.support.strategicCommand.actionText"
+              }
+            }
+          }
+        }
+      },
+      "followUpAttack": {
+        "label": "QUICKNPC.role.support.followUpAttack.name",
+        "description": "QUICKNPC.role.support.followUpAttack.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "followUpAttack": {
+                "name": "QUICKNPC.role.support.followUpAttack.name",
+                "summary": "QUICKNPC.role.support.followUpAttack.description",
+                "description": "QUICKNPC.role.support.followUpAttack.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "healingAura": {
+        "label": "QUICKNPC.role.support.healingAura.name",
+        "description": "QUICKNPC.role.support.healingAura.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "healingAura": {
+                "name": "QUICKNPC.role.support.healingAura.name",
+                "summary": "QUICKNPC.role.support.healingAura.description",
+                "description": "QUICKNPC.role.support.healingAura.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "mpBattery": {
+        "label": "QUICKNPC.role.support.mpBattery.name",
+        "description": "QUICKNPC.role.support.mpBattery.description",
+        "changes": {
+          "model": {
+            "rules": {
+              "mpBattery": {
+                "name": "QUICKNPC.role.support.mpBattery.name",
+                "summary": "QUICKNPC.role.support.mpBattery.description",
+                "description": "QUICKNPC.role.support.mpBattery.ruleText"
+              }
+            }
+          }
+        }
+      },
+      "oneLastCommand": {
+        "label": "QUICKNPC.role.support.oneLastCommand.name",
+        "description": "QUICKNPC.role.support.oneLastCommand.description",
+        "require": {
+          "anyAction": [
+            "advise",
+            "inspire",
+            "strategicCommand"
+          ]
+        },
+        "changes": {
+          "model": {
+            "rules": {
+              "oneLastCommand": {
+                "name": "QUICKNPC.role.support.oneLastCommand.name",
+                "summary": "QUICKNPC.role.support.oneLastCommand.description",
+                "description": "QUICKNPC.role.support.oneLastCommand.ruleText"
+              }
+            }
+          }
+        }
+      }
+    },
+    "spellLists": {
+      "supportSpells": {
+        "aura": {
+          "name": "QUICKNPC.spell.aura.name",
+          "summary": "QUICKNPC.spell.aura.description",
+          "description": "QUICKNPC.spell.aura.spellText",
+          "cost": 5,
+          "target": "upToThree",
+          "costType": "perTarget",
+          "duration": "scene"
+        },
+        "awaken": {
+          "name": "QUICKNPC.spell.awaken.name",
+          "summary": "QUICKNPC.spell.awaken.description",
+          "description": "QUICKNPC.spell.awaken.spellText",
+          "cost": 20,
+          "target": "single",
+          "costType": "total",
+          "duration": "scene"
+        },
+        "barrier": {
+          "name": "QUICKNPC.spell.barrier.name",
+          "summary": "QUICKNPC.spell.barrier.description",
+          "description": "QUICKNPC.spell.barrier.spellText",
+          "cost": 5,
+          "target": "upToThree",
+          "costType": "perTarget",
+          "duration": "scene"
+        },
+        "cleanse": {
+          "name": "QUICKNPC.spell.cleanse.name",
+          "summary": "QUICKNPC.spell.cleanse.description",
+          "description": "QUICKNPC.spell.cleanse.spellText",
+          "cost": 5,
+          "target": "upToThree",
+          "costType": "perTarget",
+          "duration": "instant"
+        },
+        "divination": {
+          "name": "QUICKNPC.spell.divination.name",
+          "summary": "QUICKNPC.spell.divination.description",
+          "description": "QUICKNPC.spell.divination.spellText",
+          "cost": 10,
+          "target": "self",
+          "costType": "total",
+          "duration": "scene"
+        },
+        "elementalShroud": {
+          "name": "QUICKNPC.spell.elementalShroud.name",
+          "summary": "QUICKNPC.spell.elementalShroud.description",
+          "description": "QUICKNPC.spell.elementalShroud.spellText",
+          "cost": 5,
+          "target": "upToThree",
+          "costType": "perTarget",
+          "duration": "scene"
+        },
+        "heal": {
+          "name": "QUICKNPC.spell.heal.name",
+          "summary": "QUICKNPC.spell.heal.description",
+          "description": "QUICKNPC.spell.heal.spellText",
+          "cost": 10,
+          "target": "upToThree",
+          "costType": "perTarget",
+          "duration": "instant"
+        },
+        "mirror": {
+          "name": "QUICKNPC.spell.mirror.name",
+          "summary": "QUICKNPC.spell.mirror.description",
+          "description": "QUICKNPC.spell.mirror.spellText",
+          "cost": 5,
+          "target": "single",
+          "costType": "total",
+          "duration": "scene"
+        },
+        "reinforce": {
+          "name": "QUICKNPC.spell.reinforce.name",
+          "summary": "QUICKNPC.spell.reinforce.description",
+          "description": "QUICKNPC.spell.reinforce.spellText",
+          "cost": 5,
+          "costType": "perTarget",
+          "target": "upToThree",
+          "duration": "scene"
+        },
+        "quicken": {
+          "name": "QUICKNPC.spell.quicken.name",
+          "summary": "QUICKNPC.spell.quicken.description",
+          "description": "QUICKNPC.spell.quicken.spellText",
+          "cost": 20,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant"
+        },
+        "warCry": {
+          "name": "QUICKNPC.spell.warCry.name",
+          "summary": "QUICKNPC.spell.warCry.description",
+          "description": "QUICKNPC.spell.warCry.spellText",
+          "cost": 10,
+          "costType": "perTarget",
+          "target": "upToThree",
+          "duration": "scene"
+        }
+      }
+    }
+  }
+}

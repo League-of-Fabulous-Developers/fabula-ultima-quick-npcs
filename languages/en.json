@@ -136,6 +136,18 @@
       "physical": "Physical",
       "poison": "Poison"
     },
+    "dataType": {
+      "species": "Species",
+      "role": "Role",
+      "unknown": "Unknown"
+    },
+    "error": {
+      "invalidDataFile": "Invalid data file '{file}'. See log for more information.",
+      "unableToLoadDataFile": "Unable to load data file '{file}'. See log for more information.",
+      "unknownChoice": "Conditional changes reference unknown choice: {choice}",
+      "unknownChoiceOption": "Conditional changes reference unknown choice option: {choice} -> {option}",
+      "unknownSpellList": "'ChooseSpell' step references an unknown spell list: {spellList}"
+    },
     "negativeSkills": {
       "finalDetonation": {
         "description": "Deal damage to your allies when you get taken out.",
@@ -619,7 +631,12 @@
             "slow": "Targets suffer Slow.",
             "weak": "Targets suffer Weak."
           },
-          "specialText": "Each target hit by this attack suffers {status}."
+          "specialText": {
+            "dazed": "Each target hit by this attack suffers Dazed.",
+            "shaken": "Each target hit by this attack suffers Shaken.",
+            "slow": "Each target hit by this attack suffers Slow.",
+            "weak": "Each target hit by this attack suffers Weak."
+          }
         },
         "reassuringAura": {
           "description": "Grant allies immunity against a specific status effect.",
@@ -724,6 +741,28 @@
       },
       "showInSystemTools": {
         "name": "Show button in ProjectFU system tools?"
+      },
+      "userDataFiles": {
+        "hint": "Data files can be used to extend the available options in the wizard.",
+        "label": "Open Data File Manager",
+        "name": "User-supplied Data Files",
+        "fileType": "File type:",
+        "filePicker": {
+          "prompt": "Choose new data file",
+          "tooltip": "Choose data file...",
+          "hint": "Data files are .json files whose structure conforms to the QuickNPC schema."
+        },
+        "fileLoaded": {
+          "success": "File loaded",
+          "error": "File could not be loaded"
+        },
+        "fileValidated": {
+          "success": "File is valid",
+          "error": "File is not valid"
+        },
+        "save": "Save",
+        "delete": "Remove data file",
+        "reload": "Reload data file"
       }
     },
     "species": {
@@ -952,7 +991,7 @@
       "lickWounds": {
         "description": "Recover your own HP.",
         "name": "Lick Wounds",
-        "spellText": "You recover {amount} Hit Points."
+        "spellText": "You recover 20 Hit Points. This amount increases to 30 Hit Points if you are level 20 or higher, to 40 Hit Points if you are level 40 or higher, or to 50 Hit Points if you are level 60 or higher."
       },
       "lifeTheft": {
         "description": "Deal heavy damage to a single target and heal for part of the damage caused.",

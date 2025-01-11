@@ -2,6 +2,7 @@
   "type": "species",
   "species": {
     "name": "QUICKNPC.species.beast.name",
+    "npcSpecies": "beast",
     "changes": {
     },
     "customizationCount": 2,
@@ -55,7 +56,7 @@
         "changes": {
           "model": {
             "rules": {
-              "opposedCheckBonus": {
+              "flying": {
                 "name": "QUICKNPC.commonSkills.flying.name",
                 "summary": "QUICKNPC.commonSkills.flying.description",
                 "description": "QUICKNPC.commonSkills.flying.ruleText"
@@ -96,8 +97,8 @@
       "beastSpells": {
         "lickWounds": {
           "name": "QUICKNPC.spell.lickWounds.name",
-          "summary": "QUICKNPC.spell.lickWounds.name",
-          "description": "QUICKNPC.spell.lickWounds.name",
+          "summary": "QUICKNPC.spell.lickWounds.description",
+          "description": "QUICKNPC.spell.lickWounds.spellText",
           "cost": 5,
           "costType": "total",
           "target": "self",
@@ -105,8 +106,8 @@
         },
         "shell": {
           "name": "QUICKNPC.spell.shell.name",
-          "summary": "QUICKNPC.spell.shell.name",
-          "description": "QUICKNPC.spell.shell.name",
+          "summary": "QUICKNPC.spell.shell.description",
+          "description": "QUICKNPC.spell.shell.spellText",
           "cost": 10,
           "costType": "total",
           "target": "self",
@@ -114,8 +115,8 @@
         },
         "warCry": {
           "name": "QUICKNPC.spell.warCry.name",
-          "summary": "QUICKNPC.spell.warCry.name",
-          "description": "QUICKNPC.spell.warCry.name",
+          "summary": "QUICKNPC.spell.warCry.description",
+          "description": "QUICKNPC.spell.warCry.spellText",
           "cost": 10,
           "costType": "perTarget",
           "target": "upToThree",

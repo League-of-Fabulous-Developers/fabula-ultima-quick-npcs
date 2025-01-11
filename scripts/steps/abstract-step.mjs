@@ -50,6 +50,13 @@ export class AbstractStep {
     }
 
     /**
+     * @param context
+     */
+    static initContext(context) {
+        // do nothing by default
+    }
+
+    /**
      * @param {NpcModel} value
      * @param {Record} context
      * @return {NpcModel, false}
