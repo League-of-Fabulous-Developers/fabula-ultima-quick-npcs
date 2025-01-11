@@ -60,9 +60,9 @@
  * @property {[Attribute, Attribute]} offensive.attributes
  * @property {number} offensive.[accuracy]
  * @property {Object} offensive.[damage]
- * @property {number} offensive.damage.base
+ * @property {number} offensive.bonusDamage.base
  * @property {number} offensive.damage.[value]
- * @property {DamageType} offensive.damage.type
+ * @property {DamageType} offensive.bonusDamage.type
  */
 
 /**
@@ -83,6 +83,7 @@
  * @property {number} derived.crisis
  * @property {number} derived.mp
  * @property {number} derived.init
+ * @property {number} derived.bonusDamage
  * @property {string} traits
  * @property {number} bonuses.hp
  * @property {number} bonuses.mp
@@ -166,6 +167,7 @@ function newNpcModel() {
             crisis: 0,
             mp: 0,
             init: 8,
+            damageBonus: 0
         },
         bonuses: {
             hp: 0,
@@ -204,12 +206,21 @@ function newNpcModel() {
 
 /**
  * @param {NpcModel} model
+ * @return {number}
+ */
+function calculateBonusDamage(model) {
+    return Math.floor(model.level / 20) * 5;
+}
+
+/**
+ * @param {NpcModel} model
  */
 function updateDerived(model) {
     model.derived.hp = calculateHp(model);
     model.derived.crisis = Math.floor(model.derived.hp / 2)
     model.derived.mp = calculateMp(model)
     model.derived.init = calculateInit(model)
+    model.derived.bonusDamage = calculateBonusDamage(model)
 }
 
 /**
@@ -296,10 +307,9 @@ function calculateInit(model) {
  * @param {NpcModel} model
  */
 function updateAttacks(model) {
-    const damageBonus = Math.floor(model.level / 20) * 5
     Object.values(model.attacks).forEach(attack => {
         attack.accuracy = model.bonuses.accuracy
-        attack.damage = attack.baseDamage + damageBonus
+        attack.damage = attack.baseDamage + model.derived.bonusDamage
     })
 }
 
@@ -307,14 +317,13 @@ function updateAttacks(model) {
  * @param {NpcModel} model
  */
 function updateSpells(model) {
-    const damageBonus = Math.floor(model.level / 20) * 5
     Object.values(model.spells).forEach(value => {
         const offensive = value.offensive;
         if (offensive) {
             offensive.accuracy = model.bonuses.magic
             const damage = offensive.damage;
             if (damage) {
-                damage.value = damage.base + damageBonus
+                damage.value = damage.base + model.derived.bonusDamage;
             }
         }
     })
@@ -361,7 +370,7 @@ function createAttack(attack) {
                 secondary: {value: attack.attributes[1]}
             },
             defense: attack.targetDefense.toLowerCase(),
-            damage: {value: attack.damage},
+            damage: {value: attack.baseDamage},
             type: {value: attack.range},
             damageType: {value: attack.damageType},
             description: (attack.special ?? []).reduce((previousValue, currentValue) => `${previousValue}<p>${currentValue}</p>`, "")
@@ -447,6 +456,11 @@ async function createActor(model) {
                 accuracy: {
                     accuracyCheck: model.bonuses.accuracy,
                     magicCheck: model.bonuses.magic
+                },
+                damage: {
+                    melee: model.derived.bonusDamage,
+                    ranged: model.derived.bonusDamage,
+                    spell: model.derived.bonusDamage
                 }
             },
             derived: {
@@ -486,6 +500,4 @@ export const NpcModel = {
     updateDerivedValues,
     createActor,
     computeAffinity,
-    createBlankAttack: undefined
-
 }
