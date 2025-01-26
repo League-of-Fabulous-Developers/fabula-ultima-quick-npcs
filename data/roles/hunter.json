@@ -24,7 +24,8 @@
         "attacks": {
           "normal": {
             "name": "QUICKNPC.attacks.normal",
-            "baseDamage": 10
+            "baseDamage": 10,
+            "targetDefense": "def"
           }
         }
       },

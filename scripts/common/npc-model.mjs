@@ -366,13 +366,13 @@ function createAttack(attack) {
         system: {
             isFavored: {value: true},
             attributes: {
-                primary: {value: attack.attributes[0]},
-                secondary: {value: attack.attributes[1]}
+                primary: {value: (attack.attributes ?? ["dex", "ins"])[0]},
+                secondary: {value: (attack.attributes ?? ["dex", "ins"])[1]}
             },
-            defense: attack.targetDefense.toLowerCase(),
-            damage: {value: attack.baseDamage},
-            type: {value: attack.range},
-            damageType: {value: attack.damageType},
+            defense: (attack.targetDefense ?? "def").toLowerCase(),
+            damage: {value: attack.baseDamage ?? 0},
+            type: {value: attack.range ?? "melee"},
+            damageType: {value: attack.damageType ?? "physical"},
             description: (attack.special ?? []).reduce((previousValue, currentValue) => `${previousValue}<p>${currentValue}</p>`, "")
         }
     };
