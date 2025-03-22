@@ -238,12 +238,10 @@
         "changes": {
           "steps": [
             {
-              "type": "AssignResistance",
-              "options": true
+              "type": "AssignResistance"
             },
             {
-              "type": "AssignResistance",
-              "options": true
+              "type": "AssignResistance"
             }
           ]
         }

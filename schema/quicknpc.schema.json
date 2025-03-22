@@ -554,17 +554,10 @@
           "const": "AssignResistance"
         },
         "options": {
-          "oneOf": [
-            {
-              "const": true
-            },
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/DamageType"
-              }
-            }
-          ]
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DamageType"
+          }
         }
       },
       "required": [
