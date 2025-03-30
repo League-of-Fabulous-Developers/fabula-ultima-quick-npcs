@@ -379,6 +379,26 @@ function createAttack(attack) {
 }
 
 /**
+ * @type {Record<"self"| "single"| "upToThree"| "special", string>}
+ */
+const targetValuesToTargetingRules = {
+    self: "self",
+    single: "single",
+    upToThree: "multiple",
+    special: "special",
+}
+
+/**
+ * @type {Record<"self"| "single"| "upToThree"| "special", string>}
+ */
+const targetValuesToTargetCount = {
+    self: 1,
+    single: 1,
+    upToThree: 3,
+    special: 0,
+}
+
+/**
  * @param {Spell} spell
  */
 function createSpell(spell) {
@@ -392,6 +412,7 @@ function createSpell(spell) {
             mpCost: {value: spell.costType === "total" ? `${spell.cost}` : `${spell.cost}xT`},
             target: {value: game.i18n.localize(`QUICKNPC.spell.targets.${spell.target}`)},
             duration: {value: game.i18n.localize(`QUICKNPC.spell.duration.${spell.duration}`)},
+            isOffensive: {value: !!spell.offensive},
             rollInfo: spell.offensive ? {
                 attributes: {
                     primary: {value: spell.offensive.attributes[0]},
@@ -405,6 +426,14 @@ function createSpell(spell) {
             } : {},
             hasRoll: {
                 value: !!spell.offensive
+            },
+            cost: {
+                resource: "mp",
+                amount: spell.cost
+            },
+            targeting: {
+                rule: targetValuesToTargetingRules[spell.target],
+                max: targetValuesToTargetCount[spell.target],
             }
         }
     };

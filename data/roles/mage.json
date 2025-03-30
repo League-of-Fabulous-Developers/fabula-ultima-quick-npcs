@@ -62,6 +62,10 @@
                   {
                     "type": "ChooseSpell",
                     "spells": "baseline"
+                  },
+                  {
+                    "type": "ChooseSpell",
+                    "spells": "baseline"
                   }
                 ]
               }
@@ -70,6 +74,11 @@
               "label": "QUICKNPC.role.mage.baselineOneSpellMpBonus.name",
               "description": "QUICKNPC.role.mage.baselineOneSpellMpBonus.description",
               "changes": {
+                "model": {
+                  "bonuses": {
+                    "mp": 10
+                  }
+                },
                 "steps": [
                   {
                     "type": "ChooseSpell",

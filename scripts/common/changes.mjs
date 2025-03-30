@@ -356,7 +356,7 @@ function parseSpell(jsonData, key) {
                     spell.offensive.damage = {
                         base: jsonData.offensive.baseDamage,
                         value: 0,
-                        type: spell.offensive.damageType,
+                        type: jsonData.offensive.damageType,
                     }
                     if (chooseDamageType) {
                         spell.offensive.damage.type = choices[damageTypeKey];
