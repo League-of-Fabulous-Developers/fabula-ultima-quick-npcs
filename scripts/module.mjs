@@ -1,8 +1,8 @@
 import {LOG_MESSAGE, MODULE} from "./constants.mjs";
-import {QuickNpcWizardV11} from "./quick-npc-wizard-v11.mjs";
 import {SETTINGS} from "./settings.mjs";
 import {reloadDatabase} from "./database.mjs";
 import {UserDataConfig} from "./user-data-config.mjs";
+import {QuickNpcWizard} from "./quick-npc-wizard.mjs";
 
 const templates = {
     "QUICKNPC.step.chooseSkill": "/modules/fabula-ultima-quick-npcs/templates/steps/choose-skill.hbs",
@@ -39,15 +39,9 @@ Hooks.once('init', async function () {
 
     console.log(LOG_MESSAGE, "Initializing UI")
 
-    let WizardV12;
-    if (game.release.isNewer("12")) {
-        WizardV12 = await import("./quick-npc-wizard-v12.mjs").then(value => value.QuickNpcWizardV12);
-    }
-
     globalThis.quickNpc = {
-        WizardV12: WizardV12,
-        WizardV11: QuickNpcWizardV11,
-        Wizard: WizardV12 ?? QuickNpcWizardV11,
+        WizardV12: QuickNpcWizard,
+        Wizard: QuickNpcWizard,
     }
 
     Handlebars.registerHelper({
@@ -85,7 +79,7 @@ function initSettings() {
         scope: "world",
         config: true,
         requiresReload: false,
-        onChange: () => ui.sidebar.tabs.actors.render()
+        onChange: () => foundry.ui.actors.render()
     })
 
     game.settings.register(MODULE, SETTINGS.showInSystemTools, {
@@ -95,7 +89,7 @@ function initSettings() {
         scope: "world",
         config: true,
         requiresReload: false,
-        onChange: () => ui.controls.initialize()
+        onChange: () => foundry.ui.players.render()
     })
 
     game.settings.register(MODULE, SETTINGS.userDataFiles, {
@@ -141,32 +135,25 @@ function initUi() {
         const placement = game.settings.get(MODULE, SETTINGS.actorsTabButtonPlacement);
         const template = document.createElement("template");
         template.innerHTML = `
-        <div class="action-buttons flexrow">
-            <button type="button" data-action="openQuickNpcWizard">
+            <button type="button" data-action="openQuickNpcWizard" style="width: 100%; flex-basis: 100%">
                 <i class="fa-solid fa-hat-wizard"></i>
                 ${game.i18n.localize("QUICKNPC.wizard.open")}
             </button>
-        </div>
         `;
-        $(template.content).find("[data-action=openQuickNpcWizard]").on("click", renderWizard)
+        template.content.querySelector("[data-action=openQuickNpcWizard]").addEventListener("click", renderWizard)
         if (placement === "top") {
-            html.find(".header-actions.action-buttons").after(template.content)
+            html.querySelector(".header-actions.action-buttons").appendChild(template.content)
         }
         if (placement === "bottom") {
-            html.find(".directory-footer.action-buttons").append(template.content)
+            html.querySelector(".directory-footer.action-buttons").appendChild(template.content)
         }
 
     })
 
-
-    /**
-     * @param {SceneControlTool[]} tools
-     */
     const registerTool = function (tools) {
         tools.push({
-            name: globalThis.quickNpc.Wizard.name,
+            name: "QUICKNPC.wizard.open",
             icon: "fa-solid fa-hat-wizard",
-            title: "QUICKNPC.wizard.open",
             button: true,
             onClick: renderWizard,
             visible: game.settings.get(MODULE, SETTINGS.showInSystemTools) && game.user.can("ACTOR_CREATE")

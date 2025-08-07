@@ -1,41 +1,50 @@
 import {Stepper} from "./stepper.mjs";
 import {NpcModel} from "./common/npc-model.mjs";
 import {npcCreationSteps} from "./steps/steps.mjs";
-import {CONSTANTS} from "./constants.mjs";
+import {CONSTANTS, MODULE} from "./constants.mjs";
+import {SETTINGS} from "./settings.mjs";
 
-export class QuickNpcWizardV11 extends FormApplication {
+export class QuickNpcWizard extends foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.api.ApplicationV2) {
 
-    /**
-     * @return FormApplicationOptions
-     */
-    static get defaultOptions() {
-        return Object.assign(super.defaultOptions, {
-            id: "quick-npc-wizard",
-            classes: ["quick-npc-wizard"],
+    /** @type ApplicationConfiguration */
+    static DEFAULT_OPTIONS = {
+        id: "quick-npc-wizard",
+        tag: "form",
+        window: {
+            contentClasses: ["quick-npc-wizard"],
             title: "QUICKNPC.wizard.title",
+            controls: [{
+                icon: "fas fa-hat-wizard",
+                label: "Debug Info",
+                action: "debug",
+                tooltip: "Print debug info to log"
+            }]
+        },
+        position: {
             width: 900,
-            height: "auto",
+            height: "auto"
+        },
+        form: {
             closeOnSubmit: false,
             submitOnChange: true,
-        })
-    }
+            handler: QuickNpcWizard.#commitData
+        },
+        actions: {
+            back: QuickNpcWizard.#onBack,
+            debug: QuickNpcWizard.#onDebug
+        }
+    };
 
-    get template() {
-        return "/modules/fabula-ultima-quick-npcs/templates/v11compat.hbs";
-    }
-
-    async _updateObject(event) {
-        return this.constructor.#commitData.call(this, event, this.form, new FormData(this.form));
-    }
-
-    async getData(options = {}) {
-        return Object.assign(await super.getData(options), await this._prepareContext());
-    }
-
-    activateListeners(html) {
-        super.activateListeners(html)
-        html.find("[data-action=back]").on("click", this.constructor.#onBack.bind(this));
-    }
+    static PARTS = {
+        preview: {
+            id: "preview",
+            template: "QUICKNPC.wizard.preview"
+        },
+        stepper: {
+            id: "stepper",
+            template: "QUICKNPC.wizard.stepper"
+        }
+    };
 
     static async #commitData(event, form, formData) {
         let done = false;
@@ -66,6 +75,14 @@ export class QuickNpcWizardV11 extends FormApplication {
     static #onBack() {
         this.#latestFormData = this.#stepper.revertLastStep();
         this.render()
+    }
+
+    static #onDebug() {
+        console.log("Wizard debug info");
+        console.log("Current Model:", this.#stepper.currentState[0])
+        console.log("Formdata:", this.#latestFormData)
+        console.log("Model Preview:", this.#stepper.previewAfterCurrentStep(this.#latestFormData));
+        console.log("Stepper state:", this.#stepper)
     }
 
     /** @type {Stepper<NpcModel>} */
