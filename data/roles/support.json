@@ -111,6 +111,9 @@
       },
       "steps": [
         {
+          "type": "AssignVulnerability"
+        },
+        {
           "type": "ConfigureAttack",
           "attack": "normal",
           "configure": {
