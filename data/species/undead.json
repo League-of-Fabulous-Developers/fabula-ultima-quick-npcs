@@ -127,7 +127,18 @@
           "target": "single",
           "costType": "total",
           "duration": "instant",
-          "offensive": true
+          "offensive": true,
+          "choices": {
+            "status": {
+              "label": "QUICKNPC.commonChoices.status",
+              "options": {
+                "dazed": "QUICKNPC.statusEffects.dazed",
+                "shaken": "QUICKNPC.statusEffects.shaken",
+                "slow": "QUICKNPC.statusEffects.slow",
+                "weak": "QUICKNPC.statusEffects.weak"
+              }
+            }
+          }
         },
         "lifeTheft": {
           "name": "QUICKNPC.spell.lifeTheft.name",
