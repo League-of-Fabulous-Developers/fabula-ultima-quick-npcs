@@ -402,6 +402,11 @@ const targetValuesToTargetCount = {
  * @param {Spell} spell
  */
 function createSpell(spell) {
+    const systemDurations = {
+        instant: "instantaneous",
+        scene: "scene",
+    }
+
     return {
         name: spell.name,
         type: "spell",
@@ -411,7 +416,7 @@ function createSpell(spell) {
             description: spell.description,
             mpCost: {value: spell.costType === "total" ? `${spell.cost}` : `${spell.cost}xT`},
             target: {value: game.i18n.localize(`QUICKNPC.spell.targets.${spell.target}`)},
-            duration: {value: game.i18n.localize(`QUICKNPC.spell.duration.${spell.duration}`)},
+            duration: {value: systemDurations[spell.duration]},
             isOffensive: {value: !!spell.offensive},
             rollInfo: spell.offensive ? {
                 attributes: {
