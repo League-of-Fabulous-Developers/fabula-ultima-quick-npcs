@@ -99,7 +99,7 @@
           }
         }
       },
-      "humanoidAdditionalRoleSkill": {
+      "humanoidAdditionalRoleSkill1": {
         "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
         "description": "QUICKNPC.commonSkills.additionalRoleSkill.description",
         "changes": {
@@ -107,6 +107,22 @@
             {
               "type": "ChooseRoleSkill"
             }
+          ]
+        }
+      },
+      "humanoidAdditionalRoleSkill2": {
+        "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
+        "description": "QUICKNPC.commonSkills.additionalRoleSkill.description",
+        "changes": {
+          "steps": [
+            {
+              "type": "ChooseRoleSkill"
+            }
+          ]
+        },
+        "require": {
+          "anyCustomization": [
+            "humanoidAdditionalRoleSkill1"
           ]
         }
       }
