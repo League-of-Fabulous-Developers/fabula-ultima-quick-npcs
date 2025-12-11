@@ -191,7 +191,7 @@ export const designerSkillList = {
         rules: {
           finalAct: {
             name: name,
-            description: `<p>${game.i18n.localize('QUICKNPC.designer.skill.finalAct.rule.prefix')}</p>${text}`,
+            description: `<p>${game.i18n.localize('QUICKNPC.designer.skill.finalAct.prefix')}</p>${text}`,
           },
         },
       });

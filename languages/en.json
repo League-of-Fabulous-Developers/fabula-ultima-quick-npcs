@@ -420,6 +420,7 @@
       "wlp": "WLP"
     },
     "rank": {
+      "champion": "Champion",
       "champion1": "Champion (1)",
       "champion2": "Champion (2)",
       "champion3": "Champion (3)",
@@ -1495,6 +1496,16 @@
       "selectSpecies": {
         "blank": "Select species...",
         "name": "Select Species"
+      },
+      "upgradeAttribute": {
+        "name": "Upgrade Attribute",
+        "blank": "Choose attribute...",
+        "attribute": {
+          "dex": "Dexterity",
+          "ins": "Insight",
+          "mig": "Might",
+          "wlp": "Willpower"
+        }
       }
     },
     "wizard": {

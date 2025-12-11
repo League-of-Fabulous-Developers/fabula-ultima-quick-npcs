@@ -1,4 +1,5 @@
 import { AbstractStep } from '../../stepper/abstract-step.mjs';
+import { unallocatedSkills } from '../designer-steps.mjs';
 
 const ranks = {
   soldier: 'QUICKNPC.rank.soldier',
@@ -61,10 +62,12 @@ export class SelectRankStep extends AbstractStep {
 
       if (changes.rank === 'elite') {
         changes['bonuses.init'] = model.bonuses.init + 2;
+        context[unallocatedSkills] += 2;
       }
 
       if (changes.rank.startsWith('champion')) {
         const replacedSoldiers = Number(changes.rank.substring(8));
+        context[unallocatedSkills] += replacedSoldiers;
 
         changes['bonuses.init'] = model.bonuses.init + replacedSoldiers;
       }
