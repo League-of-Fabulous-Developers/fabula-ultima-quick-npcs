@@ -23,19 +23,19 @@
                         <span class="cost">
                             <strong>
                                 {{#if (eq costType 'total')}}
-                                    {{localize 'QUICKNPC.spell.totalCost' amount=cost}}
+                                    {{localize 'QUICKNPC.spells.totalCost' amount=cost}}
                                 {{else}}
-                                    {{localize 'QUICKNPC.spell.costPerTarget' amount=cost}}
+                                    {{localize 'QUICKNPC.spells.costPerTarget' amount=cost}}
                                 {{/if}}
                             </strong>
                         </span>
                         <span class="divider"></span>
                         <span>
-                            <strong>{{localize (concat 'QUICKNPC.spell.targets.' target)}}</strong>
+                            <strong>{{localize (concat 'QUICKNPC.spells.targets.' target)}}</strong>
                         </span>
                         <span class="divider"></span>
                         <span>
-                            <strong>{{localize (concat 'QUICKNPC.spell.duration.' duration)}}</strong>
+                            <strong>{{localize (concat 'QUICKNPC.spells.duration.' duration)}}</strong>
                         </span>
                     </div>
                     <div>

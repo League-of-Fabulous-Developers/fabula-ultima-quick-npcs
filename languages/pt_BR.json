@@ -903,7 +903,6 @@
         "name": "Limpar",
         "spellText": "Você fortalece e purifica a energia da alma que flui através de seus companheiros. Cada alvo se recupera de todos os efeitos de status.."
       },
-      "costPerTarget": "{amount}xT PM",
       "curse": {
         "description": "Causa um efeito de status em um único alvo.",
         "name": "Maldição",
@@ -940,10 +939,6 @@
         "description": "Faça com que um único alvo perca PM enquanto restaura o seu próprio.",
         "name": "Drenar Espírito",
         "spellText": "Você consome a psique de uma criatura. O alvo perde 【RA + 15】 Pontos Mentais. Em seguida, você recupera uma quantidade de Pontos Mentais igual à metade da perda de Pontos Mentais que sofreu (se a perda foi reduzida a 0 de alguma forma, você não recupera nenhum)."
-      },
-      "duration": {
-        "instant": "Instantâneo",
-        "scene": "Cena"
       },
       "elementalShroud": {
         "description": "Conceda até três alvos Resistência a um tipo de dano elemental.",
@@ -1049,12 +1044,6 @@
         "name": "Parar",
         "spellText": "Você aprisiona um inimigo dentro de um círculo de tempo e espaço alterados. O alvo realizará uma ação a menos no próximo turno (até um mínimo de 0 ações)."
       },
-      "targets": {
-        "self": "Próprio",
-        "single": "Uma Criatura",
-        "special": "Especial",
-        "upToThree": "Até três criaturas"
-      },
       "terra": {
         "description": "Causar grandes danos terrestres a vários alvos no solo.",
         "name": "Terra",
@@ -1066,7 +1055,6 @@
         "name": "Relâmpago",
         "spellText": "<div>Você lança um raio em seu inimigo. O alvo sofre dano de raio.</div><div>O dano causado por esta magia ignora as Resistências.</div>"
       },
-      "totalCost": "{amount} PM",
       "umbra": {
         "description": "Causa dano Sombrio pesado a vários alvos.",
         "name": "Umbra",
@@ -1090,7 +1078,20 @@
         "spellText": "<div>Até que esta magia termine, o alvo sofre 5 de dano extra de todas as fontes que causam dano de <b>{damageType}</b> .</div>"
       }
     },
-    "spells": "Feitiços",
+    "spells": {
+      "costPerTarget": "{amount}xT PM",
+      "totalCost": "{amount} PM",
+      "targets": {
+        "self": "Próprio",
+        "single": "Uma Criatura",
+        "special": "Especial",
+        "upToThree": "Até três criaturas"
+      },
+      "duration": {
+        "instant": "Instantâneo",
+        "scene": "Cena"
+      }
+    },
     "statusEffects": {
       "dazed": "Confuso",
       "enraged": "Enfurecido",

@@ -7,6 +7,9 @@
     },
     {
       "$ref": "#/$defs/Role"
+    },
+    {
+      "$ref": "#/$defs/DesignerSpellList"
     }
   ],
   "$defs": {
@@ -378,7 +381,8 @@
             "self",
             "single",
             "upToThree",
-            "special"
+            "special",
+            "weapon"
           ]
         },
         "costType": {
@@ -1068,7 +1072,8 @@
             "self",
             "single",
             "upToThree",
-            "special"
+            "special",
+            "weapon"
           ]
         },
         "costType": {
@@ -1174,6 +1179,33 @@
         "costType",
         "target",
         "duration"
+      ]
+    },
+    "DesignerSpellList": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "designer-spell-list"
+        },
+        "name": {
+          "type": "string"
+        },
+        "spellList": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            ".+": {
+              "$ref": "#/$defs/UnconfiguredSpell"
+            }
+          },
+          "minProperties": 1
+        }
+      },
+      "required": [
+        "type",
+        "name",
+        "spellList"
       ]
     }
   }

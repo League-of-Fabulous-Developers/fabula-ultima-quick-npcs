@@ -1,0 +1,142 @@
+{
+  "type": "designer-spell-list",
+  "name": "QUICKNPC.spellList.elementalist",
+  "spellList": {
+    "elementalShroud": {
+      "name": "QUICKNPC.spell.elementalShroud.name",
+      "summary": "QUICKNPC.spell.elementalShroud.description",
+      "description": "QUICKNPC.spell.elementalShroud.spellText",
+      "cost": 5,
+      "target": "upToThree",
+      "costType": "perTarget",
+      "duration": "scene"
+    },
+    "elementalWeapon": {
+      "name": "QUICKNPC.spell.elementalWeapon.name",
+      "summary": "QUICKNPC.spell.elementalWeapon.description",
+      "description": "QUICKNPC.spell.elementalWeapon.spellText",
+      "cost": 10,
+      "target": "weapon",
+      "costType": "total",
+      "duration": "scene"
+    },
+    "flare": {
+      "name": "QUICKNPC.spell.flare.name",
+      "summary": "QUICKNPC.spell.flare.description",
+      "description": "QUICKNPC.spell.flare.spellText",
+      "cost": 20,
+      "target": "single",
+      "costType": "total",
+      "duration": "instant",
+      "offensive": {
+        "baseDamage": 25,
+        "damageType": "fire"
+      }
+    },
+    "fulgur": {
+      "name": "QUICKNPC.spell.fulgur.name",
+      "summary": "QUICKNPC.spell.fulgur.description",
+      "description": "QUICKNPC.spell.fulgur.spellText",
+      "cost": 10,
+      "target": "upToThree",
+      "costType": "perTarget",
+      "duration": "instant",
+      "offensive": {
+        "baseDamage": 15,
+        "damageType": "bolt"
+      },
+      "opportunity": "QUICKNPC.spell.fulgur.opportunity"
+    },
+    "glacies": {
+      "name": "QUICKNPC.spell.glacies.name",
+      "summary": "QUICKNPC.spell.glacies.description",
+      "description": "QUICKNPC.spell.glacies.spellText",
+      "cost": 10,
+      "target": "upToThree",
+      "costType": "perTarget",
+      "duration": "instant",
+      "offensive": {
+        "baseDamage": 15,
+        "damageType": "ice"
+      },
+      "opportunity": "QUICKNPC.spell.glacies.opportunity"
+    },
+    "iceberg": {
+      "name": "QUICKNPC.spell.iceberg.name",
+      "summary": "QUICKNPC.spell.iceberg.description",
+      "description": "QUICKNPC.spell.iceberg.spellText",
+      "cost": 20,
+      "target": "single",
+      "costType": "total",
+      "duration": "instant",
+      "offensive": {
+        "baseDamage": 25,
+        "damageType": "ice"
+      }
+    },
+    "ignis": {
+      "name": "QUICKNPC.spell.ignis.name",
+      "summary": "QUICKNPC.spell.ignis.description",
+      "description": "QUICKNPC.spell.ignis.spellText",
+      "cost": 10,
+      "target": "upToThree",
+      "costType": "perTarget",
+      "duration": "instant",
+      "offensive": {
+        "baseDamage": 15,
+        "damageType": "fire"
+      },
+      "opportunity": "QUICKNPC.spell.ignis.opportunity"
+    },
+    "terra": {
+      "name": "QUICKNPC.spell.terra.name",
+      "summary": "QUICKNPC.spell.terra.description",
+      "description": "QUICKNPC.spell.terra.spellText",
+      "cost": 10,
+      "target": "upToThree",
+      "costType": "perTarget",
+      "duration": "instant",
+      "offensive": {
+        "baseDamage": 15,
+        "damageType": "earth"
+      },
+      "opportunity": "QUICKNPC.spell.terra.opportunity"
+    },
+    "thunderbolt": {
+      "name": "QUICKNPC.spell.thunderbolt.name",
+      "summary": "QUICKNPC.spell.thunderbolt.description",
+      "description": "QUICKNPC.spell.thunderbolt.spellText",
+      "cost": 20,
+      "target": "single",
+      "costType": "total",
+      "duration": "instant",
+      "offensive": {
+        "baseDamage": 25,
+        "damageType": "bolt"
+      }
+    },
+    "ventus": {
+      "name": "QUICKNPC.spell.ventus.name",
+      "summary": "QUICKNPC.spell.ventus.description",
+      "description": "QUICKNPC.spell.ventus.spellText",
+      "cost": 10,
+      "target": "upToThree",
+      "costType": "perTarget",
+      "duration": "instant",
+      "offensive": {
+        "baseDamage": 15,
+        "damageType": "air"
+      },
+      "opportunity": "QUICKNPC.spell.ventus.opportunity"
+    },
+    "vortex": {
+      "name": "QUICKNPC.spell.vortex.name",
+      "summary": "QUICKNPC.spell.vortex.description",
+      "description": "QUICKNPC.spell.vortex.spellText",
+      "cost": 10,
+      "target": "self",
+      "costType": "total",
+      "duration": "scene"
+    }
+  }
+}

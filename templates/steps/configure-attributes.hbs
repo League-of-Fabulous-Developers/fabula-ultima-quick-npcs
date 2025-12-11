@@ -1,0 +1,16 @@
+<div>
+    <label class="primary">{{localize 'QUICKNPC.step.configureAttributes.name'}}</label>
+    {{#each attributes}}
+        <div>
+            <label class="secondary">
+                {{localize label}}
+                <select name="{{name}}">
+                    <option value="">{{localize "QUICKNPC.step.configureAttributes.blank"}}</option>
+                    {{#each options}}
+                        <option value="{{value}}" {{#if selected}}selected{{/if}} {{#if disabled}}disabled{{/if}}>{{localize label}}</option>
+                    {{/each}}
+                </select>
+            </label>
+        </div>
+    {{/each}}
+</div>

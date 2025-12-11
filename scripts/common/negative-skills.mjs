@@ -2,8 +2,8 @@ import {CONSTANTS} from "../constants.mjs";
 import {Rules} from "./rules.mjs";
 import {pick} from "./utils.mjs";
 import {CommonSkills} from "./skills.mjs";
-import {ChooseRoleSkillStep} from "../steps/choose-role-skill-step.mjs";
-import {Role} from "../roles/role.mjs";
+import {ChooseRoleSkillStep} from "../wizard/steps/choose-role-skill-step.mjs";
+import {Role} from "../wizard/roles/role.mjs";
 
 /**
  * @type {SkillOptions}

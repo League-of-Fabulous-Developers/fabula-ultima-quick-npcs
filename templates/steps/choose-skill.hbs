@@ -2,7 +2,8 @@
     <label class="primary">
         {{localize step}}
         <select name="selected">
-            {{selectOptions options selected=selected blank='QUICKNPC.step.chooseSkill.blank' localize=true labelAttr='label'}}
+            {{selectOptions options selected=selected blank='QUICKNPC.step.chooseSkill.blank' localize=true
+                            labelAttr='label' groups=groups}}
         </select>
     </label>
     <p>{{localize (lookup (lookup options selected) 'description')}}</p>
@@ -10,9 +11,22 @@
         <hr/>
         <label class="secondary">
             {{localize label}}
-            <select name="choice.{{@key}}">
-                {{selectOptions options selected=(lookup ../selectedChoices @key) blank='QUICKNPC.step.chooseSkill.blank' localize=true}}
-            </select>
+            {{#if options}}
+                <select name="choice.{{@key}}">
+                    {{selectOptions options selected=(lookup ../selectedChoices @key)
+                                    blank='QUICKNPC.step.chooseSkill.blank' localize=true}}
+                </select>
+
+            {{else}}
+                {{#if (eq editor 'textfield')}}
+                        <input type="text" name="choice.{{@key}}" value="{{lookup ../selectedChoices @key}}"/>
+                {{/if}}
+
+                {{#if (eq editor 'editor')}}
+                    <prose-mirror name="choice.{{@key}}" value="{{{lookup ../selectedChoices @key}}}">
+                    </prose-mirror>
+                {{/if}}
+            {{/if}}
         </label>
     {{/each}}
 </div>

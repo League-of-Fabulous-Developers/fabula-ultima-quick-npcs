@@ -1,21 +1,30 @@
 import {Customizations} from "./customizations.mjs";
 
 /**
+ * @callback CustomRequirement
+ * @param {NpcDataModel} model
+ * @param {Object} context
+ * @return boolean
+ */
+
+/**
  * @typedef Requirements
  * @property {boolean} [anyResistance]
  * @property {boolean} [anyImmunity]
+ * @property {boolean} [anyNeutral]
  * @property {Rank[]} [rank]
  * @property {string} [attack]
  * @property {string[]} [anyRule]
  * @property {string[]} [anyAction]
  * @property {string[]} [anyCustomization]
+ * @property {CustomRequirement} [custom]
  * @property {number} level
  */
 
 /**
  * @param {Requirements} require
  * @param {Requirements} disallow
- * @param {NpcModel} model
+ * @param {NpcDataModel} model
  * @param context
  * @return boolean
  */
@@ -25,7 +34,7 @@ export function checkPrerequisites(require, disallow, model, context) {
 
 /**
  * @param {Requirements} require
- * @param {NpcModel} model
+ * @param {NpcDataModel} model
  * @param context
  * @return {boolean}
  */
@@ -35,6 +44,14 @@ function checkRequire(require, model, context) {
 
     if (require.anyResistance) {
         met = met && Object.values(model.affinities).some(damageType => damageType.value === "res")
+    }
+
+    if (require.anyImmunity) {
+        met = met && Object.values(model.affinities).some(damageType => damageType.value === "imm")
+    }
+
+    if (require.anyNeutral) {
+        met = met && Object.values(model.affinities).some(damageType => damageType.value === "" && !damageType.vul)
     }
 
     if (require.attack) {
@@ -61,37 +78,20 @@ function checkRequire(require, model, context) {
         met = met && model.level >= require.level
     }
 
+    if (require.custom instanceof Function) {
+        met = met && require.custom(model, context);
+    }
+
     return met
 }
 
 /**
  * @param {Requirements} disallow
- * @param {NpcModel} model
+ * @param {NpcDataModel} model
  * @param context
  * @return {boolean}
  */
 function checkDisallow(disallow, model, context) {
     if (!disallow) return true;
     return !checkRequire(disallow, model, context)
-}
-
-/**
- * @type {Record<string, Requirements>}
- */
-export const CommonRequirements = {
-    anyResistance: {
-        anyResistance: true
-    },
-    anyImmunity: {
-        anyImmunity: true
-    },
-    eliteOrChampion: {
-        rank: ["elite", "champion1", "champion2", "champion3", "champion4", "champion5", "champion6"]
-    },
-    normalAttack: {
-        attack: "normal"
-    },
-    strongAttack: {
-        attack: "strong"
-    }
 }

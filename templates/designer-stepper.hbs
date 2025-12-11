@@ -1,0 +1,10 @@
+<div class="stepper">
+    <header>
+        <button type="button" {{#if backDisabled}}disabled{{/if}} data-action="back">{{localize 'QUICKNPC.designer.back'}}</button>
+        <button type="submit" {{#if nextDisabled}}disabled{{/if}}>{{localize 'QUICKNPC.designer.next'}}</button>
+    </header>
+    <div>{{localize "QUICKNPC.designer.unallocatedSkills" unallocatedSkills=unallocatedSkills}}</div>
+    <div class="step">
+        {{> (lookup this 'stepTemplate') templateData}}
+    </div>
+</div>

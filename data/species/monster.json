@@ -115,8 +115,8 @@
       "monsterSpells": {
         "breath": {
           "name": "QUICKNPC.spell.breath.name",
-          "summary": "QUICKNPC.spell.breath.name",
-          "description": "QUICKNPC.spell.breath.description",
+          "summary": "QUICKNPC.spell.breath.description",
+          "description": "QUICKNPC.spell.breath.spellText",
           "cost": 5,
           "target": "single",
           "costType": "total",

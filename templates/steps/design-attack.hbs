@@ -1,0 +1,49 @@
+<div>
+    <label class="primary">{{localize 'QUICKNPC.step.designAttack.name'}}</label>
+    <div>
+        <label class="secondary">
+            {{localize 'QUICKNPC.step.designAttack.attackName.label'}}
+            <input type="text" name="name" value="{{name}}"/>
+        </label>
+    </div>
+    <div>
+        <label class="secondary">
+            {{localize 'QUICKNPC.step.designAttack.attributes.label'}}
+            <span class="flexrow">
+                <select name="attributes">
+                    {{selectOptions attributes selected=firstSelectedAttribute
+                                    blank="QUICKNPC.step.designAttack.blank" localize=true}}
+                </select>
+                <span class="flex0"> + </span>
+                <select name="attributes">
+                    {{selectOptions attributes selected=secondSelectedAttribute
+                                    blank="QUICKNPC.step.designAttack.blank" localize=true}}
+                </select>
+            </span>
+        </label>
+    </div>
+    <div>
+        <label class="secondary">
+            {{localize 'QUICKNPC.step.designAttack.range.label'}}
+            <select name="range">
+                {{selectOptions ranges selected=selectedRange blank="QUICKNPC.step.designAttack.blank"
+                                localize=true}}
+            </select>
+        </label>
+    </div>
+    <div>
+        <label class="secondary">
+            {{localize 'QUICKNPC.step.designAttack.damageType.label'}}
+            <select name="damageType">
+                {{selectOptions damageTypes selected=selectedDamageType
+                                blank="QUICKNPC.step.designAttack.blank" localize=true}}
+            </select>
+        </label>
+    </div>
+    <div>
+        <label class="secondary">
+            <input name="createMore" type="checkbox" {{checked createMore}} style="width: auto;"/>
+            {{localize 'QUICKNPC.step.designAttack.createMore.label'}}
+        </label>
+    </div>
+</div>

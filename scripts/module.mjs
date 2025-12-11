@@ -2,17 +2,23 @@ import {LOG_MESSAGE, MODULE} from "./constants.mjs";
 import {SETTINGS} from "./settings.mjs";
 import {reloadDatabase} from "./database.mjs";
 import {UserDataConfig} from "./user-data-config.mjs";
-import {QuickNpcWizard} from "./quick-npc-wizard.mjs";
+import {QuickNpcWizard} from "./wizard/quick-npc-wizard.mjs";
+import {NpcDesigner} from "./designer/npc-designer.mjs";
 
 const templates = {
     "QUICKNPC.step.chooseSkill": "/modules/fabula-ultima-quick-npcs/templates/steps/choose-skill.hbs",
     "QUICKNPC.step.chooseTraits": "/modules/fabula-ultima-quick-npcs/templates/steps/choose-traits.hbs",
     "QUICKNPC.step.conditionalBonusSkill": "/modules/fabula-ultima-quick-npcs/templates/steps/conditional-bonus-skill.hbs",
     "QUICKNPC.step.configureAttack": "/modules/fabula-ultima-quick-npcs/templates/steps/configure-attack.hbs",
+    "QUICKNPC.step.designAttack": "/modules/fabula-ultima-quick-npcs/templates/steps/design-attack.hbs",
     "QUICKNPC.step.finish": "/modules/fabula-ultima-quick-npcs/templates/steps/finish.hbs",
     "QUICKNPC.step.singleSelect": "/modules/fabula-ultima-quick-npcs/templates/steps/single-select.hbs",
-    "QUICKNPC.wizard.preview": "/modules/fabula-ultima-quick-npcs/templates/preview.hbs",
-    "QUICKNPC.wizard.stepper": "/modules/fabula-ultima-quick-npcs/templates/stepper.hbs",
+    "QUICKNPC.step.configureAttributes": "/modules/fabula-ultima-quick-npcs/templates/steps/configure-attributes.hbs",
+    "QUICKNPC.step.editor": "/modules/fabula-ultima-quick-npcs/templates/steps/editor.hbs",
+    "QUICKNPC.wizard.preview": "/modules/fabula-ultima-quick-npcs/templates/wizard-preview.hbs",
+    "QUICKNPC.wizard.stepper": "/modules/fabula-ultima-quick-npcs/templates/wizard-stepper.hbs",
+    "QUICKNPC.designer.preview": "/modules/fabula-ultima-quick-npcs/templates/designer-preview.hbs",
+    "QUICKNPC.designer.stepper": "/modules/fabula-ultima-quick-npcs/templates/designer-stepper.hbs",
     'QUICKNPC.preview.header': "/modules/fabula-ultima-quick-npcs/templates/preview/header.hbs",
     'QUICKNPC.preview.subHeader': "/modules/fabula-ultima-quick-npcs/templates/preview/sub-header.hbs",
     'QUICKNPC.preview.statistics': "/modules/fabula-ultima-quick-npcs/templates/preview/statistics.hbs",
@@ -26,7 +32,7 @@ const templates = {
 }
 
 
-Hooks.once('init', async function () {
+Hooks.once('init', function () {
     console.log(LOG_MESSAGE, "Initialization started")
 
     console.log(LOG_MESSAGE, "Registering settings")
@@ -35,13 +41,12 @@ Hooks.once('init', async function () {
 
     console.log(LOG_MESSAGE, "Loading templates")
 
-    await loadTemplates(templates)
-
     console.log(LOG_MESSAGE, "Initializing UI")
 
     globalThis.quickNpc = {
         WizardV12: QuickNpcWizard,
         Wizard: QuickNpcWizard,
+        Designer: NpcDesigner
     }
 
     Handlebars.registerHelper({
@@ -62,6 +67,8 @@ Hooks.once('init', async function () {
     initUi()
 
     console.log(LOG_MESSAGE, "Initialized")
+
+    return foundry.applications.handlebars.loadTemplates(templates)
 });
 
 
@@ -117,13 +124,21 @@ function initSettings() {
 
 function initUi() {
 
-    let app;
-    const renderWizard = () => (app ??= new globalThis.quickNpc.Wizard()).render(true);
+    let wizardApp;
+    const renderWizard = () => (wizardApp ??= new globalThis.quickNpc.Wizard()).render(true);
+
+    let designerApp;
+    const renderDesigner = () => (designerApp ??= new globalThis.quickNpc.Designer()).render(true)
+
     const cleanUpApplication = (application) => {
-        if (application === app) {
-            app = null;
+        if (application === wizardApp) {
+            wizardApp = null;
+        }
+        if (application === designerApp) {
+            designerApp = null;
         }
     };
+
     Hooks.on("closeApplication", cleanUpApplication)
     Hooks.on("closeApplicationV2", cleanUpApplication)
 
@@ -133,19 +148,31 @@ function initUi() {
         }
 
         const placement = game.settings.get(MODULE, SETTINGS.actorsTabButtonPlacement);
-        const template = document.createElement("template");
-        template.innerHTML = `
-            <button type="button" data-action="openQuickNpcWizard" style="width: 100%; flex-basis: 100%">
+        const wizardTemplate = document.createElement("template");
+        wizardTemplate.innerHTML = `
+            <button type="button" data-action="openQuickNpcWizard" style="width: 50%; flex-basis: 50%">
                 <i class="fa-solid fa-hat-wizard"></i>
                 ${game.i18n.localize("QUICKNPC.wizard.open")}
             </button>
         `;
-        template.content.querySelector("[data-action=openQuickNpcWizard]").addEventListener("click", renderWizard)
+        wizardTemplate.content.querySelector("[data-action=openQuickNpcWizard]").addEventListener("click", renderWizard)
+
+        const designerTemplate = document.createElement("template");
+        designerTemplate.innerHTML = `
+            <button type="button" data-action="openNpcDesigner" style="width: 50%; flex-basis: 50%">
+                <i class="fa-solid fa-flask-vial"></i>
+                ${game.i18n.localize("QUICKNPC.designer.open")}
+            </button>
+        `;
+        designerTemplate.content.querySelector("[data-action=openNpcDesigner]").addEventListener("click", renderDesigner)
+
         if (placement === "top") {
-            html.querySelector(".header-actions.action-buttons").appendChild(template.content)
+            html.querySelector(".header-actions.action-buttons").appendChild(wizardTemplate.content)
+            html.querySelector(".header-actions.action-buttons").appendChild(designerTemplate.content)
         }
         if (placement === "bottom") {
-            html.querySelector(".directory-footer.action-buttons").appendChild(template.content)
+            html.querySelector(".directory-footer.action-buttons").appendChild(wizardTemplate.content)
+            html.querySelector(".directory-footer.action-buttons").appendChild(designerTemplate.content)
         }
 
     })
@@ -154,8 +181,13 @@ function initUi() {
         tools.push({
             name: "QUICKNPC.wizard.open",
             icon: "fa-solid fa-hat-wizard",
-            button: true,
             onClick: renderWizard,
+            visible: game.settings.get(MODULE, SETTINGS.showInSystemTools) && game.user.can("ACTOR_CREATE")
+        });
+        tools.push({
+            name: "QUICKNPC.designer.open",
+            icon: "fa-solid fa-flask-vial",
+            onClick: renderDesigner,
             visible: game.settings.get(MODULE, SETTINGS.showInSystemTools) && game.user.can("ACTOR_CREATE")
         })
     };

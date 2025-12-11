@@ -10,6 +10,9 @@ const validate = ajv.compile(schema)
 const dataDirectory = path.join(__dirname, "data");
 
 const dir = fs.opendirSync(dataDirectory, {recursive: true});
+
+let errorCount = 0;
+
 try {
     let entry;
     while (entry = dir.readSync()) {
@@ -22,9 +25,14 @@ try {
                 for (let error of validate.errors) {
                     console.log(error)
                 }
+                errorCount++;
             }
         }
     }
 } finally {
     dir.closeSync();
+}
+
+if (errorCount > 0) {
+    throw new Error(`Encountered ${errorCount} errors`);
 }

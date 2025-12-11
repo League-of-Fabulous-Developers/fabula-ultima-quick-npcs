@@ -873,6 +873,16 @@
       }
     },
     "spell": {
+      "acceleration": {
+        "name": "Acceleration",
+        "description": "Grant the target additional actions during their turns.",
+        "spellText": "You bend the fabric of time. Until this spell ends, the target gains the ability to perform a single additional action during each of their turns. Once the target has performed a total of two additional actions granted by this spell, this spell ends."
+      },
+      "anomaly": {
+        "name": "Anomaly",
+        "description": "Make an enemy Vulnerable to a damage type they are normally impervious to.",
+        "spellText": "You alter the very nature of your target. Until this spell ends, if the target would suffer damage of a type they Absorb or are Immune to, they are instead treated as if they were Vulnerable to that damage type. Once that happens, this spell ends."
+      },
       "areaStatus": {
         "description": "Cause a status effect on multiple targets.",
         "name": "Area Status",
@@ -903,7 +913,6 @@
         "name": "Cleanse",
         "spellText": "You strengthen and purify the soul energy coursing through your companions. Each target recovers from all status effects."
       },
-      "costPerTarget": "{amount}xT MP",
       "curse": {
         "description": "Cause a status effect on a single target.",
         "name": "Curse",
@@ -920,6 +929,11 @@
         "description": "Cause heavy damage and a status effect on as single target.",
         "name": "Cursed Breath",
         "spellText": "<div>The target suffers {damageType} damage and {status}.</div>"
+      },
+      "darkWeapon": {
+        "name": "Dark Weapon",
+        "description": "Enchant a weapon to deal dark damage.",
+        "spellText": "You imbue a weapon with dark energy. Until this spell ends, all damage dealt by the weapon becomes of the <b>dark</b> type. If you have that weapon equipped while you cast this spell, you may perform a <b>free attack</b> with it as part of the same action.<br>This spell can only be cast on a weapon equipped by a willing creature."
       },
       "devastation": {
         "description": "Cause massive damage to any number of targets.",
@@ -941,14 +955,20 @@
         "name": "Drain Spirit",
         "spellText": "You consume a creature's psyche. The target loses 【HR + 15】 Mind Points. Then, you recover an amount of Mind Points equal to half the Mind Points loss they suffered (if the loss was reduced to 0 in some way, you recover none)."
       },
-      "duration": {
-        "instant": "Instantaneous",
-        "scene": "Scene"
+      "drainVigor": {
+        "name": "Drain Vigor",
+        "description": "Deal dark damage to a single creature while restoring your own HP.",
+        "spellText": "You steal another creature's life force. The target suffers <b>dark</b> damage. Then, you recover an amount of Hit Points equal to half the Hit Points loss they suffered (if the loss was reduced to 0 in some way, you recover none)."
       },
       "elementalShroud": {
         "description": "Grant up to three targets Resistance to an elemental damage type.",
         "name": "Elemental Shroud",
         "spellText": "You weave magical energy and protect the targets from the fury of the elements. Choose a damage type: <b>air</b>, <b>bolt</b>, <b>earth</b>, <b>fire</b> or <b>ice</b>. Until this spell ends, each target gains Resistance against the chosen damage type."
+      },
+      "elementalWeapon": {
+        "description": "Enchant a weapon to deal damage of an elemental damage type.",
+        "name": "Elemental Weapon",
+        "spellText": "You imbue a weapon with elemental energy. Choose a damage type: <b>air</b>, <b>bolt</b>, <b>earth</b>, <b>fire</b>, or <b>ice</b>. Until this spell ends, all damage dealt by the weapon becomes of the chosen damage type. If you have that weapon equipped while you cast this spell, you may perform a <b>free attack</b> with it as part of the same action.<br>This spell can only be cast on a weapon equipped by a willing creature."
       },
       "enrage": {
         "description": "Cause multiple targets to suffer Enraged.",
@@ -966,11 +986,21 @@
         "opportunity": "Each target hit by this spell suffers dazed.",
         "spellText": "You weave electricity into a wave of crackling bolts. Each target hit by this spell suffers bolt damage."
       },
+      "gamble": {
+        "name": "Gamble",
+        "description": "Cause a random effect based on a roll of your WLP die.",
+        "spellText": "You summon a vortex of chaotic energy. Spend up to 20 Mind Points. Roll your current <b>Willpower</b> die once for every 10 Mind Points spent while casting this spell, then keep the single die you prefer: the number on that die determines the effects of this spell.<ul><li>1: You lose half of your current Hit Points and half of your current Mind Points.</li><li>2-3: Each creature present on the scene, including yourself, suffers poisoned.</li><li>4-6: Each creature present on the scene, including yourself, suffers slow.</li><li>7-8: Choose up to three creatures you can see: each of them recovers 50 Hit Points and also recovers from all status effects.</li><li>9+: Choose any number of creatures you can see: each of them suffers 30 damage. The damage type is determined randomly by rolling a d6:<ul><li>1: <b>air</b></li><li>2: <b>bolt</b></li><li>3: <b>dark</b></li><li>4: <b>earth</b></li><li>5: <b>fire</b></li><li>6: <b>poison</b></li></ul>"
+      },
       "glacies": {
         "description": "Cause heavy ice damage to multiple targets.",
         "name": "Glacies",
         "opportunity": "Each target hit by this spell suffers slow.",
         "spellText": "You coat your foes under a thick layer of frost. Each target hit by this spell suffers ice damage."
+      },
+      "hallucination": {
+        "name": "Hallucination",
+        "description": "Inflict your choice of dazed or shaken on multiple targets.",
+        "spellText": "You alter the senses of your enemies, causing them to experience bizarre or frightening hallucinations. Choose <b>dazed</b> or <b>shaken</b>: you inflict the chosen status effect on each target hit by this spell."
       },
       "heal": {
         "description": "Restore HP of up to three targets.",
@@ -1003,6 +1033,11 @@
         "name": "Lux",
         "opportunity": "Each target hit by this spell suffers dazed.",
         "spellText": "You focus your inner energy into a barrage of blinding soul rays. Each target hit by this spell suffers light damage."
+      },
+      "mercy": {
+        "name": "Mercy",
+        "description": "Stop the target from being reduced to 0 HP.",
+        "spellText": "You strengthen the heart of a creature against suffering and despair. Until this spell ends, if the target would be reduced to 0 Hit Points, they are instead left standing with exactly 1 Hit Point. Once that happens, this spell ends."
       },
       "mindTheft": {
         "description": "Cause heavy damage to a single target, then recover MP.",
@@ -1044,16 +1079,15 @@
         "name": "Shell",
         "spellText": "Until this spell ends, you gain Resistance to <b>physical</b> damage."
       },
+      "soulWeapon": {
+        "name": "Soul Weapon",
+        "description": "Enchant a weapon to deal light damage.",
+        "spellText": "You imbue a weapon with the cleansing energy of your spirit. Until this spell ends, all damage dealt by the weapon becomes of the <b>light</b> type. If you have that weapon equipped while you cast this spell, you may perform a <b>free attack</b> with it as part of the same action.<br>This spell can only be cast on a weapon equipped by a willing creature."
+      },
       "stop": {
         "description": "Cause the target to lose an action.",
         "name": "Stop",
         "spellText": "You trap a foe inside a circle of altered time and space. The target will perform one fewer action on their next turn (to a minimum of 0 actions)."
-      },
-      "targets": {
-        "self": "Self",
-        "single": "One creature",
-        "special": "Special",
-        "upToThree": "Up to three creatures"
       },
       "terra": {
         "description": "Cause heavy earth damage to multiple grounded targets.",
@@ -1066,7 +1100,11 @@
         "name": "Thunderbolt",
         "spellText": "<div>You send lightning striking at your foe. The target suffers bolt damage.</div><div>Damage dealt by this spell ignores Resistances.</div>"
       },
-      "totalCost": "{amount} MP",
+      "torpor": {
+        "name": "Torpor",
+        "description": "Inflict your choice of slow or weak on multiple targets.",
+        "spellText": "You smother the soul energy coursing through the bodies of your foes, hindering their movements. Choose <b>slow</b> or <b>weak</b>: you inflict the chosen status effect on each target hit by this spell."
+      },
       "umbra": {
         "description": "Cause heavy dark damage to multiple targets.",
         "name": "Umbra",
@@ -1079,6 +1117,11 @@
         "opportunity": "Each flying target hit by this spell is forced to land immediately.",
         "spellText": "You summon the power of winds against your enemy. Each target hit by this spell suffers air damage."
       },
+      "vortex": {
+        "description": "Improve your defenses against ranged attacks.",
+        "name": "Vortex",
+        "spellText": "A roaring gale surrounds you, blowing away arrows and bullets. Until this spell ends, you gain a +2 bonus to your Defense against <b>ranged</b> attacks."
+      },
       "warCry": {
         "description": "Grant a bonus to Accuracy Checks.",
         "name": "War Cry",
@@ -1090,7 +1133,21 @@
         "spellText": "<div>Until this spell ends, the target suffers 5 extra damage from all sources that deal <b>{damageType}</b> damage.</div>"
       }
     },
-    "spells": "Spells",
+    "spells": {
+      "totalCost": "{amount} MP",
+      "costPerTarget": "{amount}xT MP",
+      "duration": {
+        "instant": "Instantaneous",
+        "scene": "Scene"
+      },
+      "targets": {
+        "self": "Self",
+        "single": "One creature",
+        "special": "Special",
+        "upToThree": "Up to three creatures",
+        "weapon": "One Weapon"
+      }
+    },
     "statusEffects": {
       "dazed": "Dazed",
       "enraged": "Enraged",
@@ -1122,7 +1179,12 @@
         "customization": "Choose Customization",
         "negative": "Choose Negative Skill",
         "role": "Choose Role Skill",
-        "spell": "Choose Spell"
+        "spell": "Choose Spell",
+        "skill": "Choose Skill",
+        "skillPoint": {
+          "gain": "Gain {number} Skill Point(s)",
+          "cost": "Costs {number} Skill Point(s)"
+        }
       },
       "chooseTraits": {
         "name": "Choose Traits",
@@ -1180,6 +1242,57 @@
       "selectSpecies": {
         "blank": "Select species...",
         "name": "Select Species"
+      },
+      "selectAttributeDistribution": {
+        "name": "Select Attribute Distribution",
+        "attributeDistribution": {
+          "balanced": {
+            "label": "Balanced",
+            "description": "d8, d8, d8, d8"
+          },
+          "standard": {
+            "label": "Standard",
+            "description": "d10, d8, d8, d6"
+          },
+          "specialized": {
+            "label": "Specialized",
+            "description": "d10, d10, d6, d6"
+          },
+          "hyperSpecialized": {
+            "label": "Hyper Specialized",
+            "description": "d12, d8, d6, d6"
+          }
+        }
+      },
+      "configureAttributes": {
+        "name": "Configure Attributes",
+        "blank": "Select...",
+        "attributes": {
+          "ins": "Insight",
+          "dex": "Dexterity",
+          "mig": "Might",
+          "wlp": "Willpower"
+        }
+      },
+      "designAttack": {
+        "name": "Design Basic Attack",
+        "blank": "Select...",
+        "attackName": {
+          "label": "Attack Name",
+          "default": "Basic Attack"
+        },
+        "attributes": {
+          "label": "Attributes"
+        },
+        "range": {
+          "label": "Range"
+        },
+        "damageType": {
+          "label": "Damage Type"
+        },
+        "createMore": {
+          "label": "Create another basic attack?"
+        }
       }
     },
     "wizard": {
@@ -1187,6 +1300,208 @@
       "next": "Next",
       "open": "Open Quick NPC Wizard",
       "title": "Quick NPC Wizard"
+    },
+    "designer": {
+      "back": "Back",
+      "next": "Next",
+      "open": "Open NPC Designer",
+      "title": "NPC Designer",
+      "unallocatedSkills": "Unallocated Skills: {unallocatedSkills}",
+      "skill": {
+        "damageVulnerability": {
+          "label": "Damage Vulnerability",
+          "description": "Add a Vulnerability and gain an additional Skill or two for a Vulnerability to Physical damage.",
+          "choice": {
+            "vulnerability": {
+              "label": "Damage Type"
+            }
+          }
+        },
+        "crisisEffect": {
+          "label": "Crisis Effect",
+          "description": "Add an effect that activates while the NPC is in Crisis.",
+          "prefix": "While in Crisis, this NPC gains the following:",
+          "choices": {
+            "name": {
+              "label": "Name",
+              "default": "Crisis Effect"
+            },
+            "text": {
+              "label": "Effect",
+              "default": "Describe what changes..."
+            }
+          }
+        },
+        "damageAbsorption": {
+          "label": "Damage Absorption",
+          "description": "Upgrade a Resistance or Immunity to Absorption.",
+          "choices": {
+            "absorption": {
+              "label": "Choose Damage Type"
+            }
+          }
+        },
+        "damageImmunity": {
+          "label": "Damage Immunity",
+          "description": "Upgrade a Resistance to Immunity.",
+          "choices": {
+            "immunity": {
+              "label": "Choose Damage Type"
+            }
+          }
+        },
+        "damageResistance": {
+          "label": "Damage Resistance",
+          "description": "Upgrade a neutral affinity to Resistance, or remove a Vulnerability caused by the NPCs Species.",
+          "choices": {
+            "resistance": {
+              "label": "Choose Damage Type"
+            }
+          }
+        },
+        "finalAct": {
+          "label": "Final Act",
+          "description": "Add a rule that activates when the NPC is reduced to 0 HP.",
+          "prefix": "When this NPC is reduced to 0 HP the following happens:",
+          "choices": {
+            "name": {
+              "label": "Name",
+              "default": "Final Act"
+            },
+            "text": {
+              "label": "Effect",
+              "default": "Describe what happens..."
+            }
+          }
+        },
+        "upgradeDamage": {
+          "label": "Upgrade Damage",
+          "description": "Upgrade the damage of a basic attack or spell by +5.",
+          "choices": {
+            "upgradeTarget": {
+              "label": "Choose Attack or Spell"
+            }
+          }
+        },
+        "improveDefenses": {
+          "label": "Improve Defenses",
+          "description": "Improve the NPCs defenses. This skill can be taken twice, once for each option.",
+          "choices": {
+            "improvement": {
+              "label": "Choose Improvement",
+              "defImprovement": " +2 DEF / +1 M.DEF",
+              "mDefImprovement": " +2 M.DEF / +1 DEF"
+            }
+          }
+        },
+        "improveHitPoints": {
+          "label": "Improve Hit Points",
+          "description": "The NPC gains a +10 bonus to Hit Points."
+        },
+        "improveInitiative": {
+          "label": "Improve Initiative",
+          "description": "The NPC gains a +4 bonus to their Initiative Score."
+        },
+        "reaction": {
+          "label": "Reaction",
+          "description": "Add a rule that allows your NPC to react to a trigger.",
+          "choices": {
+            "name": {
+              "label": "Name",
+              "default": "Reaction"
+            },
+            "trigger": {
+              "label": "Trigger",
+              "default": "Describe the trigger condition...",
+              "heading": "Trigger:"
+            },
+            "text": {
+              "label": "Effect",
+              "default": "Describe the triggered effect..."
+            }
+          }
+        },
+        "attackSpecialEffect": {
+          "label": "Attack Special Effect",
+          "description": "Add a special effect to one of the NPCs Basic Attacks.",
+          "choices": {
+            "attack": {
+              "label": "Attack"
+            },
+            "effect": {
+              "label": "Effect",
+              "default": "Describe the effect... "
+            }
+          }
+        },
+        "specialized": {
+          "label": "Specialized",
+          "description": "Grant the NPC a bonus to specific checks.",
+          "choices": {
+            "specialization": {
+              "label": "Choose Specialization",
+              "accuracySpecialization": {
+                "label": "+3 to Accuracy checks"
+              },
+              "magicSpecialization": {
+                "label": "+3 to Magic checks"
+              },
+              "opposedCheckSpecialization": {
+                "label": "+3 to Opposed Checks",
+                "name": "Bonus to Opposed Checks",
+                "summary": "This NPC gains a +3 bonus to Opposed Checks that fall into their area of expertise."
+              }
+            }
+          }
+        },
+        "spellcaster": {
+          "label": "Spellcaster",
+          "description": "The NPC gains access to spells.",
+          "choices": {
+            "spells": {
+              "label": "Choose Number of Spells",
+              "oneSpell": "One Spell and a +10 bonus to Mind Points.",
+              "twoSpells": "Two Spells"
+            }
+          }
+        },
+        "statusEffectImmunity": {
+          "label": "Status Effect Immunity",
+          "description": "The NPC gains immunity to two status effects.",
+          "choices": {
+            "status": {
+              "label": "Choose Status Effects"
+            }
+          }
+        },
+        "uniqueAction": {
+          "label": "Unique Action",
+          "description": "Grant the NPC a unique Skill action.",
+          "prefix": "This NPC can take the Skill action to produce the following effect:",
+          "choices": {
+            "name": {
+              "label": "Name",
+              "default": "Unique Action"
+            },
+            "text": {
+              "label": "Effect",
+              "default": "Describe the effect..."
+            }
+          }
+        }
+      }
+    },
+    "attributeDice": {
+      "d6": "d6",
+      "d8": "d8",
+      "d10": "d10",
+      "d12": "d12"
+    },
+    "spellList": {
+      "npc": "NPC Spells",
+      "elementalist": "Elementalist Spells",
+      "entropist": "Entropist Spells",
+      "spiritist": "Spiritist Spells"
     }
   }
 }

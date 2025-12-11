@@ -1,0 +1,126 @@
+{
+  "type": "designer-spell-list",
+  "name": "QUICKNPC.spellList.entropist",
+  "spellList": {
+    "acceleration": {
+      "name": "QUICKNPC.spell.acceleration.name",
+      "summary": "QUICKNPC.spell.acceleration.description",
+      "description": "QUICKNPC.spell.acceleration.spellText",
+      "cost": 20,
+      "target": "single",
+      "costType": "total",
+      "duration": "scene"
+    },
+    "anomaly": {
+      "name": "QUICKNPC.spell.anomaly.name",
+      "summary": "QUICKNPC.spell.anomaly.description",
+      "description": "QUICKNPC.spell.anomaly.spellText",
+      "cost": 20,
+      "target": "single",
+      "costType": "total",
+      "duration": "scene"
+    },
+    "darkWeapon": {
+      "name": "QUICKNPC.spell.darkWeapon.name",
+      "summary": "QUICKNPC.spell.darkWeapon.description",
+      "description": "QUICKNPC.spell.darkWeapon.spellText",
+      "cost": 10,
+      "target": "weapon",
+      "costType": "total",
+      "duration": "scene"
+    },
+    "dispel": {
+      "name": "QUICKNPC.spell.dispel.name",
+      "summary": "QUICKNPC.spell.dispel.description",
+      "description": "QUICKNPC.spell.dispel.spellText",
+      "cost": 10,
+      "target": "single",
+      "costType": "total",
+      "duration": "instant"
+    },
+    "divination": {
+      "name": "QUICKNPC.spell.divination.name",
+      "summary": "QUICKNPC.spell.divination.description",
+      "description": "QUICKNPC.spell.divination.spellText",
+      "cost": 10,
+      "target": "self",
+      "costType": "total",
+      "duration": "scene"
+    },
+    "drainSpirit": {
+      "name": "QUICKNPC.spell.drainSpirit.name",
+      "summary": "QUICKNPC.spell.drainSpirit.description",
+      "description": "QUICKNPC.spell.drainSpirit.spellText",
+      "cost": 5,
+      "target": "single",
+      "costType": "total",
+      "duration": "instant",
+      "offensive": true
+    },
+    "drainVigor": {
+      "name": "QUICKNPC.spell.drainVigor.name",
+      "summary": "QUICKNPC.spell.drainVigor.description",
+      "description": "QUICKNPC.spell.drainVigor.spellText",
+      "cost": 10,
+      "target": "single",
+      "costType": "total",
+      "duration": "instant",
+      "offensive": {
+        "baseDamage": 15,
+        "damageType": "dark"
+      }
+    },
+    "gamble": {
+      "name": "QUICKNPC.spell.gamble.name",
+      "summary": "QUICKNPC.spell.gamble.description",
+      "description": "QUICKNPC.spell.gamble.spellText",
+      "cost": 0,
+      "target": "special",
+      "costType": "total",
+      "duration": "instant"
+    },
+    "mirror": {
+      "name": "QUICKNPC.spell.mirror.name",
+      "summary": "QUICKNPC.spell.mirror.description",
+      "description": "QUICKNPC.spell.mirror.spellText",
+      "cost": 5,
+      "target": "single",
+      "costType": "total",
+      "duration": "scene"
+    },
+    "omega": {
+      "name": "QUICKNPC.spell.omega.name",
+      "summary": "QUICKNPC.spell.omega.description",
+      "description": "QUICKNPC.spell.omega.spellText",
+      "cost": 20,
+      "target": "single",
+      "costType": "total",
+      "duration": "instant",
+      "offensive": true
+    },
+    "stop": {
+      "name": "QUICKNPC.spell.stop.name",
+      "summary": "QUICKNPC.spell.stop.description",
+      "description": "QUICKNPC.spell.stop.spellText",
+      "cost": 10,
+      "target": "single",
+      "costType": "total",
+      "duration": "instant",
+      "offensive": true
+    },
+    "umbra": {
+      "name": "QUICKNPC.spell.umbra.name",
+      "summary": "QUICKNPC.spell.umbra.description",
+      "description": "QUICKNPC.spell.umbra.spellText",
+      "cost": 10,
+      "target": "upToThree",
+      "costType": "perTarget",
+      "duration": "instant",
+      "offensive": {
+        "baseDamage": 15,
+        "damageType": "dark"
+      },
+      "opportunity": "QUICKNPC.spell.umbra.opportunity"
+    }
+  }
+}

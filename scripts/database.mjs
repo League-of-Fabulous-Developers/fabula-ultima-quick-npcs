@@ -1,8 +1,9 @@
 import validate from "./generated/schema-validator.mjs";
-import {JsonRole} from "./roles/json-role.mjs";
-import {JsonSpecies} from "./species/json-species.mjs";
+import {JsonRole} from "./wizard/roles/json-role.mjs";
+import {JsonSpecies} from "./wizard/species/json-species.mjs";
 import {MODULE} from "./constants.mjs";
 import {SETTINGS} from "./settings.mjs";
+import {DesignerSpellList} from "./designer/designer-spell-list.mjs";
 
 const defaultRoles = [
     "/modules/fabula-ultima-quick-npcs/data/roles/brute.json",
@@ -24,14 +25,23 @@ const defaultSpecies = [
     "/modules/fabula-ultima-quick-npcs/data/species/undead.json"
 ]
 
+const defaultDesignerData = [
+    "/modules/fabula-ultima-quick-npcs/data/designer/npc-spell-list.json",
+    "/modules/fabula-ultima-quick-npcs/data/designer/elementalist-spell-list.json",
+    "/modules/fabula-ultima-quick-npcs/data/designer/entropist-spell-list.json",
+    "/modules/fabula-ultima-quick-npcs/data/designer/spiritist-spell-list.json"
+];
+
 const defaultDataSources = [
     ...defaultRoles,
     ...defaultSpecies,
+    ...defaultDesignerData
 ]
 
 const types = {
     role: JsonRole,
-    species: JsonSpecies
+    species: JsonSpecies,
+    "designer-spell-list": DesignerSpellList
 }
 
 class Database {
@@ -46,7 +56,7 @@ class Database {
 
         for (const [file, fileData] of Object.entries(data)) {
             if (validate(fileData)) {
-                const value = new types[fileData.type](fileData);
+                const value = new types[fileData.type](fileData, file);
                 (typeData[fileData.type] ??= {})[file] = value;
             } else {
                 ui.notifications?.warn(game.i18n.format("QUICKNPC.error.invalidDataFile", {file: file}))

@@ -1,0 +1,122 @@
+{
+  "type": "designer-spell-list",
+  "name": "QUICKNPC.spellList.spiritist",
+  "spellList": {
+    "aura": {
+      "name": "QUICKNPC.spell.aura.name",
+      "summary": "QUICKNPC.spell.aura.description",
+      "description": "QUICKNPC.spell.aura.spellText",
+      "cost": 5,
+      "target": "upToThree",
+      "costType": "perTarget",
+      "duration": "scene"
+    },
+    "awaken": {
+      "name": "QUICKNPC.spell.awaken.name",
+      "summary": "QUICKNPC.spell.awaken.description",
+      "description": "QUICKNPC.spell.awaken.spellText",
+      "cost": 20,
+      "target": "single",
+      "costType": "total",
+      "duration": "scene"
+    },
+    "barrier": {
+      "name": "QUICKNPC.spell.barrier.name",
+      "summary": "QUICKNPC.spell.barrier.description",
+      "description": "QUICKNPC.spell.barrier.spellText",
+      "cost": 5,
+      "target": "upToThree",
+      "costType": "perTarget",
+      "duration": "scene"
+    },
+    "cleanse": {
+      "name": "QUICKNPC.spell.cleanse.name",
+      "summary": "QUICKNPC.spell.cleanse.description",
+      "description": "QUICKNPC.spell.cleanse.spellText",
+      "cost": 5,
+      "target": "upToThree",
+      "costType": "perTarget",
+      "duration": "instant"
+    },
+    "enrage": {
+      "name": "QUICKNPC.spell.enrage.name",
+      "summary": "QUICKNPC.spell.enrage.description",
+      "description": "QUICKNPC.spell.enrage.spellText",
+      "cost": 10,
+      "costType": "total",
+      "target": "single",
+      "duration": "instant",
+      "offensive": true
+    },
+    "hallucination": {
+      "name": "QUICKNPC.spell.hallucination.name",
+      "summary": "QUICKNPC.spell.hallucination.description",
+      "description": "QUICKNPC.spell.hallucination.spellText",
+      "cost": 5,
+      "costType": "perTarget",
+      "target": "upToThree",
+      "duration": "instant",
+      "offensive": true
+    },
+    "heal": {
+      "name": "QUICKNPC.spell.heal.name",
+      "summary": "QUICKNPC.spell.heal.description",
+      "description": "QUICKNPC.spell.heal.spellText",
+      "cost": 10,
+      "target": "upToThree",
+      "costType": "perTarget",
+      "duration": "instant"
+    },
+    "lux": {
+      "name": "QUICKNPC.spell.lux.name",
+      "summary": "QUICKNPC.spell.lux.description",
+      "description": "QUICKNPC.spell.lux.spellText",
+      "cost": 10,
+      "target": "upToThree",
+      "costType": "perTarget",
+      "duration": "instant",
+      "offensive": {
+        "baseDamage": 15,
+        "damageType": "light"
+      },
+      "opportunity": "QUICKNPC.spell.lux.opportunity"
+    },
+    "mercy": {
+      "name": "QUICKNPC.spell.mercy.name",
+      "summary": "QUICKNPC.spell.mercy.description",
+      "description": "QUICKNPC.spell.mercy.spellText",
+      "cost": 20,
+      "target": "single",
+      "costType": "total",
+      "duration": "scene"
+    },
+    "reinforce": {
+      "name": "QUICKNPC.spell.reinforce.name",
+      "summary": "QUICKNPC.spell.reinforce.description",
+      "description": "QUICKNPC.spell.reinforce.spellText",
+      "cost": 5,
+      "costType": "perTarget",
+      "target": "upToThree",
+      "duration": "scene"
+    },
+    "soulWeapon": {
+      "name": "QUICKNPC.spell.soulWeapon.name",
+      "summary": "QUICKNPC.spell.soulWeapon.description",
+      "description": "QUICKNPC.spell.soulWeapon.spellText",
+      "cost": 10,
+      "costType": "total",
+      "target": "weapon",
+      "duration": "scene"
+    },
+    "torpor": {
+      "name": "QUICKNPC.spell.torpor.name",
+      "summary": "QUICKNPC.spell.torpor.description",
+      "description": "QUICKNPC.spell.torpor.spellText",
+      "cost": 5,
+      "target": "upToThree",
+      "costType": "perTarget",
+      "duration": "instant",
+      "offensive": true
+    }
+  }
+}
