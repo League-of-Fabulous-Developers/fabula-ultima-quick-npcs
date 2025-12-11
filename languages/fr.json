@@ -884,7 +884,6 @@
         "name": "Purification",
         "spellText": "Vous renforcez et purifier l'énergie des âmes parcourant vos compagnons. Chaque cible récupère de tous ses états."
       },
-      "costPerTarget": "{amount}xC PM",
       "curse": {
         "description": "Provoque un état sur une cible unique.",
         "name": "Malédiction",
@@ -921,10 +920,6 @@
         "description": "Vol les PM d'une cible tandis que vous restaurez les vôtres.",
         "name": "Drain Spirituel",
         "spellText": "Vous consumez l'esprit d'une créature. La cible perds【VH + 15】Points de Magie. Ensuite, vous récupérez un montant de Points de Magie égal à la moitié des Points de Magie perdue par la cible (si la perte est réduite à 0 d'une façon ou d'une autre, vous ne récupérez rien)."
-      },
-      "duration": {
-        "instant": "Instantanée",
-        "scene": "Scène"
       },
       "elementalShroud": {
         "description": "Accorde une résistance à un type dégât élémentaire à jusqu'à trois cibles.",
@@ -1030,12 +1025,6 @@
         "name": "Stop",
         "spellText": "Vous piégez un ennemi à l'intérieur d'une altération du temps et de l'espace. La cible fera une action de moins à son prochain tour (jusqu'à un minimum de 0 actions)."
       },
-      "targets": {
-        "self": "Soi-même",
-        "single": "Une créature",
-        "special": "Spécial",
-        "upToThree": "Jusqu'à trois créatures"
-      },
       "terra": {
         "description": "Inflige de lourds dégâts de terre aux cibles au sol.",
         "name": "Terra",
@@ -1047,7 +1036,6 @@
         "name": "Éclair",
         "spellText": "<div>Vous envoyez un éclair frapper vos ennemis. La cible subit des dégâts de foudre.</div><div>Les dégâts infligés par ce sort ignore les résistances.</div>"
       },
-      "totalCost": "{amount} PM",
       "umbra": {
         "description": "Inflige de lourds dégâts de ténèbres à plusieurs cibles.",
         "name": "Umbra",
@@ -1071,7 +1059,20 @@
         "spellText": "<div>Jusqu'à la fin de ce sort, chaque cible subit 5 dégâts supplémentaires de toutes les sources de dégâts faisant des dégâts de type <b>{damageType}</b>.</div>"
       }
     },
-    "spells": "Sorts",
+    "spells": {
+      "costPerTarget": "{amount}xC PM",
+      "duration": {
+        "instant": "Instantanée",
+        "scene": "Scène"
+      },
+      "targets": {
+        "self": "Soi-même",
+        "single": "Une créature",
+        "special": "Spécial",
+        "upToThree": "Jusqu'à trois créatures"
+      },
+      "totalCost": "{amount} PM"
+    },
     "statusEffects": {
       "dazed": "Étourdi",
       "enraged": "Enragé",

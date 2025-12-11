@@ -35,14 +35,8 @@
           "attack": "normal",
           "configure": {
             "attributes": [
-              [
-                "dex",
-                "ins"
-              ],
-              [
-                "dex",
-                "mig"
-              ]
+              ["dex", "ins"],
+              ["dex", "mig"]
             ],
             "damageType": true,
             "range": true,
@@ -54,9 +48,7 @@
                   "model": {
                     "attacks": {
                       "normal": {
-                        "special": [
-                          "QUICKNPC.role.hunter.lifeSteal.specialText"
-                        ]
+                        "special": ["QUICKNPC.role.hunter.lifeSteal.specialText"]
                       }
                     }
                   }
@@ -96,9 +88,7 @@
                   "model": {
                     "attacks": {
                       "normal": {
-                        "special": [
-                          "QUICKNPC.role.hunter.extraDamage.specialText"
-                        ]
+                        "special": ["QUICKNPC.role.hunter.extraDamage.specialText"]
                       }
                     }
                   }
@@ -131,9 +121,7 @@
         "model": {
           "attacks": {
             "normal": {
-              "special": [
-                "QUICKNPC.attacks.special.ignoreResistance"
-              ]
+              "special": ["QUICKNPC.attacks.special.ignoreResistance"]
             }
           }
         }
@@ -172,9 +160,7 @@
             "attacks": {
               "normal": {
                 "targetDefense": "mDef",
-                "special": [
-                  "QUICKNPC.attacks.special.targetsMDef"
-                ]
+                "special": ["QUICKNPC.attacks.special.targetsMDef"]
               }
             }
           }
@@ -189,10 +175,7 @@
               "strong": {
                 "name": "QUICKNPC.attacks.strong",
                 "baseDamage": 15,
-                "special": [
-                  "QUICKNPC.attacks.special.multi2",
-                  "QUICKNPC.role.hunter.strongAttack.special"
-                ]
+                "special": ["QUICKNPC.attacks.special.multi2", "QUICKNPC.role.hunter.strongAttack.special"]
               }
             }
           },
@@ -202,14 +185,8 @@
               "attack": "strong",
               "configure": {
                 "attributes": [
-                  [
-                    "dex",
-                    "ins"
-                  ],
-                  [
-                    "dex",
-                    "mig"
-                  ]
+                  ["dex", "ins"],
+                  ["dex", "mig"]
                 ],
                 "damageType": true,
                 "range": true
@@ -229,9 +206,7 @@
             "attacks": {
               "strong": {
                 "targetDefense": "mDef",
-                "special": [
-                  "QUICKNPC.attacks.special.targetsMDef"
-                ]
+                "special": ["QUICKNPC.attacks.special.targetsMDef"]
               }
             }
           }
@@ -437,8 +412,8 @@
       "hunterSpells": {
         "breath": {
           "name": "QUICKNPC.spell.breath.name",
-          "summary": "QUICKNPC.spell.breath.name",
-          "description": "QUICKNPC.spell.breath.description",
+          "summary": "QUICKNPC.spell.breath.description",
+          "description": "QUICKNPC.spell.breath.spellText",
           "cost": 5,
           "target": "single",
           "costType": "total",

@@ -32,21 +32,19 @@
 #
 name: Create Module Files For GitHub Release
 
-
 env:
   # The URL used for the module's "Project URL" link on FoundryVTT's website.
-  project_url: "https://github.com/${{github.repository}}"
+  project_url: 'https://github.com/${{github.repository}}'
 
   # A URL that will always point to the latest manifest.
   # FoundryVTT uses this URL to check whether the current module version that
   # is installed is the latest version. This URL should NOT change,
   # otherwise FoundryVTT won't be able to perform this check.
-  latest_manifest_url: "https://github.com/${{github.repository}}/releases/latest/download/module.json"
+  latest_manifest_url: 'https://github.com/${{github.repository}}/releases/latest/download/module.json'
 
   # The URL to the module archive associated with the module release being
   # processed by this workflow.
-  release_module_url: "https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/module.zip"
-
+  release_module_url: 'https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/module.zip'
 
 on:
   # Only run this workflow when a release is published.
@@ -61,7 +59,6 @@ on:
   release:
     types: [published]
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -71,7 +68,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-
 
       # Extract version embedded in the tag.
       # This step expects the tag to be one of the following formats:
@@ -83,7 +79,6 @@ jobs:
       - name: Extract Version From Tag
         id: get_version
         uses: battila7/get-version-action@v2
-
 
       # Modify "module.json" with values specific to the release.
       # Since the values for the "version" and "url" keys aren't known ahead of
@@ -101,7 +96,6 @@ jobs:
           URL: ${{ env.project_url }}
           MANIFEST: ${{ env.latest_manifest_url }}
           DOWNLOAD: ${{ env.release_module_url }}
-
 
       # Create a "module.zip" archive containing all the module's required files.
       # If you have other directories or files that will need to be added to
@@ -129,7 +123,6 @@ jobs:
             
           # Don't forget to add a backslash at the end of the line for any
           # additional files or directories!
-
 
       # Update the GitHub release with the manifest and module archive files.
       - name: Update Release With Files

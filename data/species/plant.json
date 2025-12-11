@@ -14,12 +14,7 @@
       "steps": [
         {
           "type": "AssignSpeciesVulnerability",
-          "options": [
-            "air",
-            "bolt",
-            "fire",
-            "ice"
-          ]
+          "options": ["air", "bolt", "fire", "ice"]
         }
       ]
     },
@@ -43,29 +38,11 @@
           "steps": [
             {
               "type": "AssignResistance",
-              "options": [
-                "air",
-                "bolt",
-                "dark",
-                "earth",
-                "fire",
-                "ice",
-                "light",
-                "poison"
-              ]
+              "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
             },
             {
               "type": "AssignResistance",
-              "options": [
-                "air",
-                "bolt",
-                "dark",
-                "earth",
-                "fire",
-                "ice",
-                "light",
-                "poison"
-              ]
+              "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
             }
           ]
         }
@@ -133,8 +110,8 @@
       "plantSpells": {
         "breath": {
           "name": "QUICKNPC.spell.breath.name",
-          "summary": "QUICKNPC.spell.breath.name",
-          "description": "QUICKNPC.spell.breath.description",
+          "summary": "QUICKNPC.spell.breath.description",
+          "description": "QUICKNPC.spell.breath.spellText",
           "cost": 5,
           "target": "single",
           "costType": "total",

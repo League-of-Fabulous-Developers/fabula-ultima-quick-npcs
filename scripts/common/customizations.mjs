@@ -1,4 +1,4 @@
-const appliedCustomizationsKey = "appliedCustomizations"
+const appliedCustomizationsKey = 'appliedCustomizations';
 
 /**
  * @param context
@@ -6,14 +6,14 @@ const appliedCustomizationsKey = "appliedCustomizations"
  * @return {boolean}
  */
 function checkApplied(context, key) {
-    return (context[appliedCustomizationsKey] ??= []).includes(key);
+  return (context[appliedCustomizationsKey] ??= []).includes(key);
 }
 
 function markApplied(context, key) {
-    (context[appliedCustomizationsKey] ??= []).push(key);
+  (context[appliedCustomizationsKey] ??= []).push(key);
 }
 
 export const Customizations = {
-    checkApplied,
-    markApplied
-}
+  checkApplied,
+  markApplied,
+};

@@ -38,14 +38,8 @@
           "attack": "normal",
           "configure": {
             "attributes": [
-              [
-                "dex",
-                "ins"
-              ],
-              [
-                "ins",
-                "wlp"
-              ]
+              ["dex", "ins"],
+              ["ins", "wlp"]
             ],
             "damageType": true,
             "range": true
@@ -100,9 +94,7 @@
           "attacks": {
             "normal": {
               "targetDefense": "mDef",
-              "special": [
-                "QUICKNPC.attacks.special.targetsMDef"
-              ]
+              "special": ["QUICKNPC.attacks.special.targetsMDef"]
             }
           }
         }
@@ -225,21 +217,11 @@
           "steps": [
             {
               "type": "AssignStatusImmunity",
-              "options": [
-                "dazed",
-                "shaken",
-                "enraged",
-                "poisoned"
-              ]
+              "options": ["dazed", "shaken", "enraged", "poisoned"]
             },
             {
               "type": "AssignStatusImmunity",
-              "options": [
-                "dazed",
-                "shaken",
-                "enraged",
-                "poisoned"
-              ]
+              "options": ["dazed", "shaken", "enraged", "poisoned"]
             }
           ]
         }
@@ -265,9 +247,7 @@
           "model": {
             "attacks": {
               "normal": {
-                "special": [
-                  "QUICKNPC.commonSkills.normalAttackMpRecovery.specialText"
-                ]
+                "special": ["QUICKNPC.commonSkills.normalAttackMpRecovery.specialText"]
               }
             }
           }
@@ -280,9 +260,7 @@
           "model": {
             "attacks": {
               "normal": {
-                "special": [
-                  "QUICKNPC.role.mage.normalAttackVolatile.specialText"
-                ]
+                "special": ["QUICKNPC.role.mage.normalAttackVolatile.specialText"]
               }
             }
           }
@@ -384,8 +362,8 @@
       "baseline": {
         "breath": {
           "name": "QUICKNPC.spell.breath.name",
-          "summary": "QUICKNPC.spell.breath.name",
-          "description": "QUICKNPC.spell.breath.description",
+          "summary": "QUICKNPC.spell.breath.description",
+          "description": "QUICKNPC.spell.breath.spellText",
           "cost": 5,
           "target": "single",
           "costType": "total",
@@ -421,8 +399,8 @@
         },
         "fulgur": {
           "name": "QUICKNPC.spell.fulgur.name",
-          "summary": "QUICKNPC.spell.fulgur.name",
-          "description": "QUICKNPC.spell.fulgur.description",
+          "summary": "QUICKNPC.spell.fulgur.description",
+          "description": "QUICKNPC.spell.fulgur.spellText",
           "cost": 10,
           "target": "upToThree",
           "costType": "perTarget",
@@ -435,8 +413,8 @@
         },
         "glacies": {
           "name": "QUICKNPC.spell.glacies.name",
-          "summary": "QUICKNPC.spell.glacies.name",
-          "description": "QUICKNPC.spell.glacies.description",
+          "summary": "QUICKNPC.spell.glacies.description",
+          "description": "QUICKNPC.spell.glacies.spellText",
           "cost": 10,
           "target": "upToThree",
           "costType": "perTarget",
@@ -449,8 +427,8 @@
         },
         "ignis": {
           "name": "QUICKNPC.spell.ignis.name",
-          "summary": "QUICKNPC.spell.ignis.name",
-          "description": "QUICKNPC.spell.ignis.description",
+          "summary": "QUICKNPC.spell.ignis.description",
+          "description": "QUICKNPC.spell.ignis.spellText",
           "cost": 10,
           "target": "upToThree",
           "costType": "perTarget",
@@ -463,8 +441,8 @@
         },
         "lux": {
           "name": "QUICKNPC.spell.lux.name",
-          "summary": "QUICKNPC.spell.lux.name",
-          "description": "QUICKNPC.spell.lux.description",
+          "summary": "QUICKNPC.spell.lux.description",
+          "description": "QUICKNPC.spell.lux.spellText",
           "cost": 10,
           "target": "upToThree",
           "costType": "perTarget",
@@ -477,8 +455,8 @@
         },
         "omega": {
           "name": "QUICKNPC.spell.omega.name",
-          "summary": "QUICKNPC.spell.omega.name",
-          "description": "QUICKNPC.spell.omega.description",
+          "summary": "QUICKNPC.spell.omega.description",
+          "description": "QUICKNPC.spell.omega.spellText",
           "cost": 20,
           "target": "single",
           "costType": "total",
@@ -487,8 +465,8 @@
         },
         "terra": {
           "name": "QUICKNPC.spell.terra.name",
-          "summary": "QUICKNPC.spell.terra.name",
-          "description": "QUICKNPC.spell.terra.description",
+          "summary": "QUICKNPC.spell.terra.description",
+          "description": "QUICKNPC.spell.terra.spellText",
           "cost": 10,
           "target": "upToThree",
           "costType": "perTarget",
@@ -501,8 +479,8 @@
         },
         "umbra": {
           "name": "QUICKNPC.spell.umbra.name",
-          "summary": "QUICKNPC.spell.umbra.name",
-          "description": "QUICKNPC.spell.umbra.description",
+          "summary": "QUICKNPC.spell.umbra.description",
+          "description": "QUICKNPC.spell.umbra.spellText",
           "cost": 10,
           "target": "upToThree",
           "costType": "perTarget",
@@ -515,8 +493,8 @@
         },
         "ventus": {
           "name": "QUICKNPC.spell.ventus.name",
-          "summary": "QUICKNPC.spell.ventus.name",
-          "description": "QUICKNPC.spell.ventus.description",
+          "summary": "QUICKNPC.spell.ventus.description",
+          "description": "QUICKNPC.spell.ventus.spellText",
           "cost": 10,
           "target": "upToThree",
           "costType": "perTarget",
@@ -529,8 +507,8 @@
         },
         "flare": {
           "name": "QUICKNPC.spell.flare.name",
-          "summary": "QUICKNPC.spell.flare.name",
-          "description": "QUICKNPC.spell.flare.description",
+          "summary": "QUICKNPC.spell.flare.description",
+          "description": "QUICKNPC.spell.flare.spellText",
           "cost": 20,
           "target": "single",
           "costType": "total",
@@ -545,8 +523,8 @@
         },
         "iceberg": {
           "name": "QUICKNPC.spell.iceberg.name",
-          "summary": "QUICKNPC.spell.iceberg.name",
-          "description": "QUICKNPC.spell.iceberg.description",
+          "summary": "QUICKNPC.spell.iceberg.description",
+          "description": "QUICKNPC.spell.iceberg.spellText",
           "cost": 20,
           "target": "single",
           "costType": "total",
@@ -561,8 +539,8 @@
         },
         "thunderbolt": {
           "name": "QUICKNPC.spell.thunderbolt.name",
-          "summary": "QUICKNPC.spell.thunderbolt.name",
-          "description": "QUICKNPC.spell.thunderbolt.description",
+          "summary": "QUICKNPC.spell.thunderbolt.description",
+          "description": "QUICKNPC.spell.thunderbolt.spellText",
           "cost": 20,
           "target": "single",
           "costType": "total",
@@ -639,8 +617,8 @@
         },
         "omega": {
           "name": "QUICKNPC.spell.omega.name",
-          "summary": "QUICKNPC.spell.omega.name",
-          "description": "QUICKNPC.spell.omega.description",
+          "summary": "QUICKNPC.spell.omega.description",
+          "description": "QUICKNPC.spell.omega.spellText",
           "cost": 20,
           "target": "single",
           "costType": "total",
@@ -649,8 +627,8 @@
         },
         "devastation": {
           "name": "QUICKNPC.spell.devastation.name",
-          "summary": "QUICKNPC.spell.devastation.name",
-          "description": "QUICKNPC.spell.devastation.description",
+          "summary": "QUICKNPC.spell.devastation.description",
+          "description": "QUICKNPC.spell.devastation.spellText",
           "cost": 30,
           "target": "special",
           "costType": "total",
@@ -677,8 +655,8 @@
         },
         "flare": {
           "name": "QUICKNPC.spell.flare.name",
-          "summary": "QUICKNPC.spell.flare.name",
-          "description": "QUICKNPC.spell.flare.description",
+          "summary": "QUICKNPC.spell.flare.description",
+          "description": "QUICKNPC.spell.flare.spellText",
           "cost": 20,
           "target": "single",
           "costType": "total",
@@ -693,8 +671,8 @@
         },
         "iceberg": {
           "name": "QUICKNPC.spell.iceberg.name",
-          "summary": "QUICKNPC.spell.iceberg.name",
-          "description": "QUICKNPC.spell.iceberg.description",
+          "summary": "QUICKNPC.spell.iceberg.description",
+          "description": "QUICKNPC.spell.iceberg.spellText",
           "cost": 20,
           "target": "single",
           "costType": "total",
@@ -709,8 +687,8 @@
         },
         "thunderbolt": {
           "name": "QUICKNPC.spell.thunderbolt.name",
-          "summary": "QUICKNPC.spell.thunderbolt.name",
-          "description": "QUICKNPC.spell.thunderbolt.description",
+          "summary": "QUICKNPC.spell.thunderbolt.description",
+          "description": "QUICKNPC.spell.thunderbolt.spellText",
           "cost": 20,
           "target": "single",
           "costType": "total",

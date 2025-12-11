@@ -8,6 +8,7 @@ The wizard is accessible from the ProjectFU scene controls and the Actors tab.
 ![](screenshot.png)
 
 ## Installation
+
 Use automatic Foundry module installation.\
 Module Manifest:\
 `https://github.com/League-of-Fabulous-Developers/fabula-ultima-quick-npcs/releases/latest/download/module.json`

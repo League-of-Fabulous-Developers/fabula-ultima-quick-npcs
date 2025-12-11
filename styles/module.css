@@ -1,601 +1,607 @@
 @font-face {
-    font-family: "FabulaUltimaIcons";
-    src: url("fonts/FabulaUltimaIcons-Regular.otf");
+  font-family: 'FabulaUltimaIcons';
+  src: url('fonts/FabulaUltimaIcons-Regular.otf');
 }
 
-.window-content.quick-npc-wizard, .quick-npc-wizard .window-content form {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    grid-gap: 0.5rem;
-
-    .preview {
-        background: linear-gradient(to right, darkmagenta, color-mix(in srgb, darkmagenta 100%, white 80%));
-
-        .divider {
-            padding: 2px 0;
-
-            &::before {
-                content: '\2BC1';
-            }
-        }
-
-        .border-bottom {
-            border-bottom: 2px solid transparent;
-            background-clip: padding-box;
-        }
-
-        .border-left {
-            border-left: 2px solid transparent;
-            background-clip: padding-box;
-        }
-
-        .header, .stats {
-            font-family: "Antonio", sans-serif;
-            display: flex;
-            color: black;
-        }
-
-        .header {
-
-            & > * {
-                padding: 2px;
-            }
-
-            & > *:not(.name) {
-                background-color: white;
-            }
-
-            .name {
-                flex-grow: 1;
-                color: white;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            .level {
-                flex-grow: 0;
-                flex-basis: 110px;
-                text-align: end;
-            }
-
-            .species {
-                flex-grow: 0;
-                flex-basis: 75px;
-            }
-        }
-
-        .sub-header {
-            color: black;
-            display: flex;
-
-            & > * {
-                background-color: white;
-                padding: 2px;
-            }
-
-            .defenses {
-                font-family: "Antonio", sans-serif;
-                flex: 0 1 110px;
-                display: flex;
-                justify-content: space-around;
-            }
-
-            .traits {
-                font-family: "PT Sans Narrow", sans-serif;
-                flex: 1 1 auto;
-
-                :first-child {
-                    font-weight: bold;
-                    padding-left: 2px;
-                }
-            }
-        }
-
-        .stats {
-            display: flex;
-
-            & > * {
-                flex: 1 0 auto;
-                display: flex;
-                background-color: white;
-                padding: 2px;
-
-                & > * {
-                    flex: 1 1 auto;
-                }
-            }
-
-            .attributes {
-                justify-content: space-around;
-                padding-left: 0.5rem;
-            }
-
-            .hp, .mp {
-                & > :first-child {
-                    text-align: end;
-                    flex-grow: 2;
-                    padding-right: 0.5rem;
-                }
-
-                & > :last-child {
-                    text-align: center;
-                    margin: -2px -2px -2px 0;
-                    padding: 2px 2px 2px 0;
-                }
-            }
-
-            .hp > :last-child {
-                background: color-mix(in srgb, red, black 20%);
-                color: white;
-            }
-
-            .mp > :last-child {
-                background: color-mix(in srgb, blue, black 20%);
-                color: white;
-            }
-
-            .init {
-                text-align: right;
-                padding-right: 0.5rem;
-            }
-        }
-
-        .affinities {
-            display: flex;
-
-            .icon {
-                font-size: 1.5rem;
-            }
-
-            > * {
-                flex: 0 0 calc(100% / 9);
-                background-color: white;
-                font-family: "Antonio", sans-serif;
-                color: black;
-                font-size: 1rem;
-                padding-left: 2px;
-            }
-        }
-
-        .immunities {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 2px;
-
-            > * {
-                background-color: white;
-                color: black;
-                font-family: "PT Sans Narrow", sans-serif;
-                font-size: 0.75rem;
-                padding: 2px;
-            }
-        }
-
-        .attacks {
-            > :first-child {
-                font-family: "Antonio", sans-serif;
-                color: white;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                padding: .5rem;
-            }
-
-            .attack {
-                background-color: white;
-                color: black;
-                font-family: "PT Sans Narrow", sans-serif;
-
-                .icon {
-                    font-size: 1.25rem;
-                    width: 20px;
-                }
-
-                .fa-regular {
-                    font-size: 1rem;
-                    width: 20px;
-                    line-height: 1.625;
-                    text-align: center;
-                }
-
-                > :first-child {
-                    display: flex;
-                    align-items: center;
-                    font-size: 105%;
-
-                    > * {
-                        padding: 2px;
-                    }
-
-                    > :nth-child(2) {
-                        padding-right: 0.5rem;
-                    }
-
-                    .name {
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
-                    }
-
-                    .attributes {
-                        flex-shrink: 0;
-                        flex-basis: 90px;
-
-                        &.has-accuracy {
-                            flex-basis: 100px;
-                        }
-
-                        &:not(.has-accuracy) + * {
-                            margin-left: -10px;
-                        }
-
-                        > :first-child {
-                            margin: 0 -5px;
-                        }
-                    }
-
-                    .damage {
-                        flex-shrink: 0;
-                        flex-basis: 160px;
-
-                        > :first-child {
-                            margin: 0 -5px;
-                        }
-
-                    }
-                }
-
-                .special {
-                    padding-left: 1.5rem;
-                }
-            }
-        }
-
-        .spells {
-            > :first-child {
-                font-family: "Antonio", sans-serif;
-                color: white;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                padding: .5rem;
-            }
-
-            .spell {
-                background-color: white;
-                color: black;
-                font-family: "PT Sans Narrow", sans-serif;
-
-                .icon {
-                    font-size: 1.25rem;
-                    width: 20px;
-                }
-
-                > :first-child {
-                    display: flex;
-                    align-items: center;
-                    font-size: 105%;
-
-                    > * {
-                        padding: 2px;
-                    }
-
-                    .name {
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
-                    }
-
-                    .offensive {
-                        flex-shrink: 0;
-                        flex-basis: 90px;
-
-                        &.has-accuracy {
-                            flex-basis: 100px;
-                        }
-
-                        &:not(.has-accuracy) + * {
-                            margin-left: -10px;
-                        }
-
-                        > :first-child {
-                            margin: 0 -5px;
-                        }
-                    }
-                }
-
-                .damage {
-                    flex-shrink: 0;
-                    flex-basis: 160px;
-
-                    > :first-child {
-                        margin: 0 -5px;
-                    }
-                }
-
-                & > :not(:first-child) {
-                    padding-left: 1.5rem;
-                }
-            }
-        }
-
-        .actions {
-
-            .icon {
-                font-size: 1.25rem;
-                width: 20px;
-            }
-
-            > :first-child {
-                font-family: "Antonio", sans-serif;
-                color: white;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                padding: .5rem;
-            }
-
-            .action {
-                background-color: white;
-                color: black;
-                font-family: "PT Sans Narrow", sans-serif;
-
-                > :first-child {
-                    display: flex;
-                    align-items: center;
-                    font-size: 105%;
-
-                    > * {
-                        padding: 2px;
-                    }
-                }
-
-                > :last-child {
-                    padding-left: 1.5rem;
-                }
-            }
-        }
-
-        .rules {
-            > :first-child {
-                font-family: "Antonio", sans-serif;
-                color: white;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                padding: .5rem;
-            }
-
-            .rule {
-                background-color: white;
-                color: black;
-                font-family: "PT Sans Narrow", sans-serif;
-
-                .fa-solid {
-                    font-size: 1rem;
-                    width: 20px;
-                    line-height: 1.625;
-                    text-align: center;
-                }
-
-                > :first-child {
-                    display: flex;
-                    align-items: center;
-                    font-size: 105%;
-
-                    > * {
-                        padding: 2px;
-                    }
-                }
-
-                > :last-child {
-                    padding-left: 1.5rem;
-                }
-            }
-        }
+.window-content.quick-npc-wizard,
+.quick-npc-wizard .window-content form {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-gap: 0.5rem;
+
+  .preview {
+    background: linear-gradient(to right, darkmagenta, color-mix(in srgb, darkmagenta 100%, white 80%));
+
+    .divider {
+      padding: 2px 0;
+
+      &::before {
+        content: '\2BC1';
+      }
     }
 
-    .stepper {
-        > header {
-            display: flex;
-        }
-
-        .step {
-            font-size: initial;
-            font-family: "PT Sans Narrow", sans-serif;
-
-            .primary, .secondary {
-                font-family: "Antonio", sans-serif;
-                display: inline-block;
-                width: 100%;
-
-                > select, input {
-                    margin: 0.25rem;
-                    width: 100%;
-                }
-            }
-
-            .primary {
-                font-size: 120%;
-                margin-top: 1em;
-            }
-
-            .secondary {
-                font-size: 100%;
-                margin-top: 0.5rem;
-            }
-
-            .conditional-bonus-skill-step {
-
-                .choices {
-                    display: flex;
-                    flex-direction: column;
-
-                    > * {
-                        margin-top: 0.5rem;
-                    }
-                }
-
-            }
-        }
+    .border-bottom {
+      border-bottom: 2px solid transparent;
+      background-clip: padding-box;
     }
 
-    .icon {
-        &::before {
-            font-family: "FabulaUltimaIcons";
-            font-style: normal;
-            font-weight: normal;
-            color: revert;
-        }
-
-        &.icon-physical::before {
-            content: "P"
-        }
-
-        &.icon-air::before {
-            content: "A"
-        }
-
-        &.icon-bolt::before {
-            content: "B"
-        }
-
-        &.icon-dark::before {
-            content: "D"
-        }
-
-        &.icon-earth::before {
-            content: "E"
-        }
-
-        &.icon-fire::before {
-            content: "F"
-        }
-
-        &.icon-ice::before {
-            content: "I"
-        }
-
-        &.icon-light::before {
-            content: "L"
-        }
-
-        &.icon-poison::before {
-            content: "T"
-        }
-
-        &.icon-spell::before {
-            content: "C"
-        }
-
-        &.icon-offensive::before {
-            content: "O";
-        }
-
-        &.icon-skill::before {
-            content: "S"
-        }
-
-        &.icon-melee::before {
-            content: "M"
-        }
-
-        &.icon-ranged::before {
-            content: "R"
-        }
+    .border-left {
+      border-left: 2px solid transparent;
+      background-clip: padding-box;
     }
+
+    .header,
+    .stats {
+      font-family: 'Antonio', sans-serif;
+      display: flex;
+      color: black;
+    }
+
+    .header {
+      & > * {
+        padding: 2px;
+      }
+
+      & > *:not(.name) {
+        background-color: white;
+      }
+
+      .name {
+        flex-grow: 1;
+        color: white;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .level {
+        flex-grow: 0;
+        flex-basis: 110px;
+        text-align: end;
+      }
+
+      .species {
+        flex-grow: 0;
+        flex-basis: 75px;
+      }
+    }
+
+    .sub-header {
+      color: black;
+      display: flex;
+
+      & > * {
+        background-color: white;
+        padding: 2px;
+      }
+
+      .defenses {
+        font-family: 'Antonio', sans-serif;
+        flex: 0 1 110px;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .traits {
+        font-family: 'PT Sans Narrow', sans-serif;
+        flex: 1 1 auto;
+
+        :first-child {
+          font-weight: bold;
+          padding-left: 2px;
+        }
+      }
+    }
+
+    .stats {
+      display: flex;
+
+      & > * {
+        flex: 1 0 auto;
+        display: flex;
+        background-color: white;
+        padding: 2px;
+
+        & > * {
+          flex: 1 1 auto;
+        }
+      }
+
+      .attributes {
+        justify-content: space-around;
+        padding-left: 0.5rem;
+      }
+
+      .hp,
+      .mp {
+        & > :first-child {
+          text-align: end;
+          flex-grow: 2;
+          padding-right: 0.5rem;
+        }
+
+        & > :last-child {
+          text-align: center;
+          margin: -2px -2px -2px 0;
+          padding: 2px 2px 2px 0;
+        }
+      }
+
+      .hp > :last-child {
+        background: color-mix(in srgb, red, black 20%);
+        color: white;
+      }
+
+      .mp > :last-child {
+        background: color-mix(in srgb, blue, black 20%);
+        color: white;
+      }
+
+      .init {
+        text-align: right;
+        padding-right: 0.5rem;
+      }
+    }
+
+    .affinities {
+      display: flex;
+
+      .icon {
+        font-size: 1.5rem;
+      }
+
+      > * {
+        flex: 0 0 calc(100% / 9);
+        background-color: white;
+        font-family: 'Antonio', sans-serif;
+        color: black;
+        font-size: 1rem;
+        padding-left: 2px;
+      }
+    }
+
+    .immunities {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+
+      > * {
+        background-color: white;
+        color: black;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-size: 0.75rem;
+        padding: 2px;
+      }
+    }
+
+    .attacks {
+      > :first-child {
+        font-family: 'Antonio', sans-serif;
+        color: white;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0.5rem;
+      }
+
+      .attack {
+        background-color: white;
+        color: black;
+        font-family: 'PT Sans Narrow', sans-serif;
+
+        .icon {
+          font-size: 1.25rem;
+          width: 20px;
+        }
+
+        .fa-regular {
+          font-size: 1rem;
+          width: 20px;
+          line-height: 1.625;
+          text-align: center;
+        }
+
+        > :first-child {
+          display: flex;
+          align-items: center;
+          font-size: 105%;
+
+          > * {
+            padding: 2px;
+          }
+
+          > :nth-child(2) {
+            padding-right: 0.5rem;
+          }
+
+          .name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .attributes {
+            flex-shrink: 0;
+            flex-basis: 90px;
+
+            &.has-accuracy {
+              flex-basis: 100px;
+            }
+
+            &:not(.has-accuracy) + * {
+              margin-left: -10px;
+            }
+
+            > :first-child {
+              margin: 0 -5px;
+            }
+          }
+
+          .damage {
+            flex-shrink: 0;
+            flex-basis: 160px;
+
+            > :first-child {
+              margin: 0 -5px;
+            }
+          }
+        }
+
+        .special {
+          padding-left: 1.5rem;
+        }
+      }
+    }
+
+    .spells {
+      > :first-child {
+        font-family: 'Antonio', sans-serif;
+        color: white;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0.5rem;
+      }
+
+      .spell {
+        background-color: white;
+        color: black;
+        font-family: 'PT Sans Narrow', sans-serif;
+
+        .icon {
+          font-size: 1.25rem;
+          width: 20px;
+        }
+
+        > :first-child {
+          display: flex;
+          align-items: center;
+          font-size: 105%;
+
+          > * {
+            padding: 2px;
+          }
+
+          .name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .offensive {
+            flex-shrink: 0;
+            flex-basis: 90px;
+
+            &.has-accuracy {
+              flex-basis: 100px;
+            }
+
+            &:not(.has-accuracy) + * {
+              margin-left: -10px;
+            }
+
+            > :first-child {
+              margin: 0 -5px;
+            }
+          }
+        }
+
+        .damage {
+          flex-shrink: 0;
+          flex-basis: 160px;
+
+          > :first-child {
+            margin: 0 -5px;
+          }
+        }
+
+        & > :not(:first-child) {
+          padding-left: 1.5rem;
+        }
+      }
+    }
+
+    .actions {
+      .icon {
+        font-size: 1.25rem;
+        width: 20px;
+      }
+
+      > :first-child {
+        font-family: 'Antonio', sans-serif;
+        color: white;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0.5rem;
+      }
+
+      .action {
+        background-color: white;
+        color: black;
+        font-family: 'PT Sans Narrow', sans-serif;
+
+        > :first-child {
+          display: flex;
+          align-items: center;
+          font-size: 105%;
+
+          > * {
+            padding: 2px;
+          }
+        }
+
+        > :last-child {
+          padding-left: 1.5rem;
+        }
+      }
+    }
+
+    .rules {
+      > :first-child {
+        font-family: 'Antonio', sans-serif;
+        color: white;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0.5rem;
+      }
+
+      .rule {
+        background-color: white;
+        color: black;
+        font-family: 'PT Sans Narrow', sans-serif;
+
+        .fa-solid {
+          font-size: 1rem;
+          width: 20px;
+          line-height: 1.625;
+          text-align: center;
+        }
+
+        > :first-child {
+          display: flex;
+          align-items: center;
+          font-size: 105%;
+
+          > * {
+            padding: 2px;
+          }
+        }
+
+        > :last-child {
+          padding-left: 1.5rem;
+        }
+      }
+    }
+  }
+
+  .stepper {
+    > header {
+      display: flex;
+    }
+
+    .step {
+      font-size: initial;
+      font-family: 'PT Sans Narrow', sans-serif;
+
+      .primary,
+      .secondary {
+        font-family: 'Antonio', sans-serif;
+        display: inline-block;
+        width: 100%;
+
+        > select,
+        input {
+          margin: 0.25rem;
+          width: 100%;
+        }
+      }
+
+      .primary {
+        font-size: 120%;
+        margin-top: 1em;
+      }
+
+      .secondary {
+        font-size: 100%;
+        margin-top: 0.5rem;
+      }
+
+      .conditional-bonus-skill-step {
+        .choices {
+          display: flex;
+          flex-direction: column;
+
+          > * {
+            margin-top: 0.5rem;
+          }
+        }
+      }
+
+      .editor {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 0.5rem;
+      }
+    }
+  }
+
+  .icon {
+    &::before {
+      font-family: 'FabulaUltimaIcons';
+      font-style: normal;
+      font-weight: normal;
+      color: revert;
+    }
+
+    &.icon-physical::before {
+      content: 'P';
+    }
+
+    &.icon-air::before {
+      content: 'A';
+    }
+
+    &.icon-bolt::before {
+      content: 'B';
+    }
+
+    &.icon-dark::before {
+      content: 'D';
+    }
+
+    &.icon-earth::before {
+      content: 'E';
+    }
+
+    &.icon-fire::before {
+      content: 'F';
+    }
+
+    &.icon-ice::before {
+      content: 'I';
+    }
+
+    &.icon-light::before {
+      content: 'L';
+    }
+
+    &.icon-poison::before {
+      content: 'T';
+    }
+
+    &.icon-spell::before {
+      content: 'C';
+    }
+
+    &.icon-offensive::before {
+      content: 'O';
+    }
+
+    &.icon-skill::before {
+      content: 'S';
+    }
+
+    &.icon-melee::before {
+      content: 'M';
+    }
+
+    &.icon-ranged::before {
+      content: 'R';
+    }
+  }
 }
 
 @supports not font-tech(color-SVG) {
-    .window-content.quick-npc-wizard, .quick-npc-wizard .window-content form {
-        .icon {
-            &::before {
-                -webkit-text-stroke: 0.05rem black;
-            }
+  .window-content.quick-npc-wizard,
+  .quick-npc-wizard .window-content form {
+    .icon {
+      &::before {
+        -webkit-text-stroke: 0.05rem black;
+      }
 
-            &.icon-physical::before {
-                color: #dedede;
-                content: 'p';
-            }
+      &.icon-physical::before {
+        color: #dedede;
+        content: 'p';
+      }
 
-            &.icon-air::before {
-                color: #cfd600;
-                content: 'a';
-            }
+      &.icon-air::before {
+        color: #cfd600;
+        content: 'a';
+      }
 
-            &.icon-bolt::before {
-                color: #ffef26;
-                content: 'b';
-            }
+      &.icon-bolt::before {
+        color: #ffef26;
+        content: 'b';
+      }
 
-            &.icon-dark::before {
-                color: #543987;
-                content: 'd';
-            }
+      &.icon-dark::before {
+        color: #543987;
+        content: 'd';
+      }
 
-            &.icon-earth::before {
-                color: #d28d3e;
-                content: 'e';
-            }
+      &.icon-earth::before {
+        color: #d28d3e;
+        content: 'e';
+      }
 
-            &.icon-fire::before {
-                color: #f58a00;
-                content: 'f';
-            }
+      &.icon-fire::before {
+        color: #f58a00;
+        content: 'f';
+      }
 
-            &.icon-ice::before {
-                color: #bce4fa;
-                content: 'i';
-            }
+      &.icon-ice::before {
+        color: #bce4fa;
+        content: 'i';
+      }
 
-            &.icon-light::before {
-                color: #fff7b2;
-                content: 'l';
-            }
+      &.icon-light::before {
+        color: #fff7b2;
+        content: 'l';
+      }
 
-            &.icon-poison::before {
-                color: #d678a2;
-                content: 't';
-            }
+      &.icon-poison::before {
+        color: #d678a2;
+        content: 't';
+      }
 
-            &.icon-spell::before {
-                content: "C"
-            }
+      &.icon-spell::before {
+        content: 'C';
+      }
 
-            &.icon-offensive::before {
-                color: #d1232a;
-                content: "o";
-            }
+      &.icon-offensive::before {
+        color: #d1232a;
+        content: 'o';
+      }
 
-            &.icon-skill::before {
-                content: "S"
-            }
+      &.icon-skill::before {
+        content: 'S';
+      }
 
-            &.icon-melee::before {
-                content: "M"
-            }
+      &.icon-melee::before {
+        content: 'M';
+      }
 
-            &.icon-ranged::before {
-                content: "R"
-            }
-        }
+      &.icon-ranged::before {
+        content: 'R';
+      }
     }
+  }
 }
 
 .quick-npc-user-data-config {
-    .data-file {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        margin-bottom: 0.5em;
+  .data-file {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    margin-bottom: 0.5em;
 
-        .file-name {
-            font-size: 120%;
-            font-weight: bold;
-        }
-
-        .status-indicator {
-            padding: 0 0.5em;
-        }
+    .file-name {
+      font-size: 120%;
+      font-weight: bold;
     }
 
-    .picker {
-        min-width: 100px;
-        padding-right: 1em;
+    .status-indicator {
+      padding: 0 0.5em;
     }
+  }
+
+  .picker {
+    min-width: 100px;
+    padding-right: 1em;
+  }
 }

@@ -1,0 +1,255 @@
+{
+  "type": "designer-spell-list",
+  "name": "QUICKNPC.spellList.npc",
+  "spellList": {
+    "areaStatus": {
+      "name": "QUICKNPC.spell.areaStatus.name",
+      "summary": "QUICKNPC.spell.areaStatus.description",
+      "description": "QUICKNPC.spell.areaStatus.spellText",
+      "cost": 20,
+      "costType": "total",
+      "target": "special",
+      "duration": "instant",
+      "choices": {
+        "status": {
+          "label": "QUICKNPC.commonChoices.status",
+          "options": {
+            "dazed": "QUICKNPC.statusEffects.dazed",
+            "shaken": "QUICKNPC.statusEffects.shaken",
+            "slow": "QUICKNPC.statusEffects.slow",
+            "weak": "QUICKNPC.statusEffects.weak"
+          }
+        }
+      }
+    },
+    "breath": {
+      "name": "QUICKNPC.spell.breath.name",
+      "summary": "QUICKNPC.spell.breath.description",
+      "description": "QUICKNPC.spell.breath.spellText",
+      "cost": 5,
+      "target": "single",
+      "costType": "total",
+      "duration": "instant",
+      "offensive": {
+        "baseDamage": 10,
+        "damageType": true
+      }
+    },
+    "curse": {
+      "name": "QUICKNPC.spell.curse.name",
+      "summary": "QUICKNPC.spell.curse.description",
+      "description": "QUICKNPC.spell.curse.spellText",
+      "cost": 5,
+      "target": "single",
+      "costType": "total",
+      "duration": "instant",
+      "offensive": true,
+      "choices": {
+        "status": {
+          "label": "QUICKNPC.commonChoices.status",
+          "options": {
+            "dazed": "QUICKNPC.statusEffects.dazed",
+            "shaken": "QUICKNPC.statusEffects.shaken",
+            "slow": "QUICKNPC.statusEffects.slow",
+            "weak": "QUICKNPC.statusEffects.weak"
+          }
+        }
+      }
+    },
+    "curseXL": {
+      "name": "QUICKNPC.spell.curseXL.name",
+      "summary": "QUICKNPC.spell.curseXL.description",
+      "description": "QUICKNPC.spell.curseXL.spellText",
+      "cost": 10,
+      "costType": "total",
+      "target": "single",
+      "duration": "instant",
+      "offensive": true,
+      "choices": {
+        "status1": {
+          "label": "QUICKNPC.spell.curseXL.status1",
+          "options": {
+            "dazed": "QUICKNPC.statusEffects.dazed",
+            "shaken": "QUICKNPC.statusEffects.shaken",
+            "slow": "QUICKNPC.statusEffects.slow",
+            "weak": "QUICKNPC.statusEffects.weak"
+          },
+          "group": "status"
+        },
+        "status2": {
+          "label": "QUICKNPC.spell.curseXL.status2",
+          "options": {
+            "dazed": "QUICKNPC.statusEffects.dazed",
+            "shaken": "QUICKNPC.statusEffects.shaken",
+            "slow": "QUICKNPC.statusEffects.slow",
+            "weak": "QUICKNPC.statusEffects.weak"
+          },
+          "group": "status"
+        }
+      }
+    },
+    "cursedBreath": {
+      "name": "QUICKNPC.spell.cursedBreath.name",
+      "summary": "QUICKNPC.spell.cursedBreath.description",
+      "description": "QUICKNPC.spell.cursedBreath.spellText",
+      "cost": 10,
+      "costType": "total",
+      "target": "single",
+      "duration": "instant",
+      "offensive": {
+        "baseDamage": 15,
+        "damageType": true
+      },
+      "choices": {
+        "status": {
+          "label": "QUICKNPC.commonChoices.status",
+          "options": {
+            "dazed": "QUICKNPC.statusEffects.dazed",
+            "shaken": "QUICKNPC.statusEffects.shaken",
+            "slow": "QUICKNPC.statusEffects.slow",
+            "weak": "QUICKNPC.statusEffects.weak"
+          }
+        }
+      }
+    },
+    "devastation": {
+      "name": "QUICKNPC.spell.devastation.name",
+      "summary": "QUICKNPC.spell.devastation.description",
+      "description": "QUICKNPC.spell.devastation.spellText",
+      "cost": 30,
+      "target": "special",
+      "costType": "total",
+      "duration": "instant",
+      "choices": {
+        "damageType": {
+          "label": "QUICKNPC.commonChoices.damageType",
+          "options": {
+            "physical": "QUICKNPC.damageType.physical",
+            "air": "QUICKNPC.damageType.air",
+            "bolt": "QUICKNPC.damageType.bolt",
+            "dark": "QUICKNPC.damageType.dark",
+            "earth": "QUICKNPC.damageType.earth",
+            "fire": "QUICKNPC.damageType.fire",
+            "ice": "QUICKNPC.damageType.ice",
+            "light": "QUICKNPC.damageType.light",
+            "poison": "QUICKNPC.damageType.poison"
+          }
+        }
+      },
+      "require": {
+        "level": 30
+      },
+      "disallow": {
+        "rank": ["soldier"]
+      }
+    },
+    "lickWounds": {
+      "name": "QUICKNPC.spell.lickWounds.name",
+      "summary": "QUICKNPC.spell.lickWounds.description",
+      "description": "QUICKNPC.spell.lickWounds.spellText",
+      "cost": 5,
+      "costType": "total",
+      "target": "self",
+      "duration": "instant"
+    },
+    "lifeTheft": {
+      "name": "QUICKNPC.spell.lifeTheft.name",
+      "summary": "QUICKNPC.spell.lifeTheft.description",
+      "description": "QUICKNPC.spell.lifeTheft.spellText",
+      "cost": 10,
+      "costType": "total",
+      "target": "single",
+      "duration": "instant",
+      "offensive": {
+        "baseDamage": 15,
+        "damageType": true
+      }
+    },
+    "mindTheft": {
+      "name": "QUICKNPC.spell.mindTheft.name",
+      "summary": "QUICKNPC.spell.mindTheft.description",
+      "description": "QUICKNPC.spell.mindTheft.spellText",
+      "cost": 10,
+      "target": "single",
+      "costType": "total",
+      "duration": "instant",
+      "offensive": {
+        "baseDamage": 15,
+        "damageType": true
+      }
+    },
+    "poison": {
+      "name": "QUICKNPC.spell.poison.name",
+      "summary": "QUICKNPC.spell.poison.description",
+      "description": "QUICKNPC.spell.poison.spellText",
+      "cost": 10,
+      "costType": "perTarget",
+      "target": "upToThree",
+      "duration": "instant",
+      "offensive": true
+    },
+    "quicken": {
+      "name": "QUICKNPC.spell.quicken.name",
+      "summary": "QUICKNPC.spell.quicken.description",
+      "description": "QUICKNPC.spell.quicken.spellText",
+      "cost": 20,
+      "target": "single",
+      "costType": "total",
+      "duration": "instant"
+    },
+    "rage": {
+      "name": "QUICKNPC.spell.rage.name",
+      "summary": "QUICKNPC.spell.rage.description",
+      "description": "QUICKNPC.spell.rage.spellText",
+      "cost": 10,
+      "target": "upToThree",
+      "costType": "perTarget",
+      "duration": "instant",
+      "offensive": true
+    },
+    "shell": {
+      "name": "QUICKNPC.spell.shell.name",
+      "summary": "QUICKNPC.spell.shell.description",
+      "description": "QUICKNPC.spell.shell.spellText",
+      "cost": 10,
+      "costType": "total",
+      "target": "self",
+      "duration": "scene"
+    },
+    "warCry": {
+      "name": "QUICKNPC.spell.warCry.name",
+      "summary": "QUICKNPC.spell.warCry.description",
+      "description": "QUICKNPC.spell.warCry.spellText",
+      "cost": 10,
+      "costType": "perTarget",
+      "target": "upToThree",
+      "duration": "scene"
+    },
+    "weaken": {
+      "name": "QUICKNPC.spell.weaken.name",
+      "summary": "QUICKNPC.spell.weaken.description",
+      "description": "QUICKNPC.spell.weaken.spellText",
+      "cost": 10,
+      "target": "single",
+      "costType": "total",
+      "duration": "scene",
+      "offensive": true,
+      "choices": {
+        "damageType": {
+          "label": "QUICKNPC.commonChoices.damageType",
+          "options": {
+            "physical": "QUICKNPC.damageType.physical",
+            "air": "QUICKNPC.damageType.air",
+            "bolt": "QUICKNPC.damageType.bolt",
+            "dark": "QUICKNPC.damageType.dark",
+            "earth": "QUICKNPC.damageType.earth",
+            "fire": "QUICKNPC.damageType.fire",
+            "ice": "QUICKNPC.damageType.ice",
+            "light": "QUICKNPC.damageType.light",
+            "poison": "QUICKNPC.damageType.poison"
+          }
+        }
+      }
+    }
+  }
+}

@@ -28,12 +28,8 @@
     ],
     "requires": []
   },
-  "esmodules": [
-    "scripts/module.mjs"
-  ],
-  "styles": [
-    "styles/module.css"
-  ],
+  "esmodules": ["scripts/module.mjs"],
+  "styles": ["styles/module.css"],
   "languages": [
     {
       "lang": "en",

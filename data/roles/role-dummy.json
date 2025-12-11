@@ -22,43 +22,34 @@
     "skillsByLevel": [
       {
         "steps": [],
-        "model": {
-        }
+        "model": {}
       },
       {
         "steps": [],
-        "model": {
-        }
+        "model": {}
       },
       {
         "steps": [],
-        "model": {
-        }
+        "model": {}
       },
       {
         "steps": [],
-        "model": {
-        }
+        "model": {}
       },
       {
         "steps": [],
-        "model": {
-        }
+        "model": {}
       },
       {
         "steps": [],
-        "model": {
-        }
+        "model": {}
       }
     ],
     "baseline": {
-      "model": {
-      },
+      "model": {},
       "steps": []
     },
-    "customizations": {
-    },
-    "roleSkills": {
-    }
+    "customizations": {},
+    "roleSkills": {}
   }
 }

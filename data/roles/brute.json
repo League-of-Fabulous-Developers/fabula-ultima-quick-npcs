@@ -24,29 +24,11 @@
         "steps": [
           {
             "type": "AssignResistance",
-            "options": [
-              "air",
-              "bolt",
-              "dark",
-              "earth",
-              "fire",
-              "ice",
-              "light",
-              "poison"
-            ]
+            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
           },
           {
             "type": "AssignResistance",
-            "options": [
-              "air",
-              "bolt",
-              "dark",
-              "earth",
-              "fire",
-              "ice",
-              "light",
-              "poison"
-            ]
+            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
           }
         ]
       },
@@ -94,22 +76,14 @@
         "attacks": {
           "normal": {
             "name": "QUICKNPC.attacks.normal",
-            "attributes": [
-              "dex",
-              "mig"
-            ],
+            "attributes": ["dex", "mig"],
             "targetDefense": "def",
             "baseDamage": 5,
-            "special": [
-              "QUICKNPC.attacks.special.multi2"
-            ]
+            "special": ["QUICKNPC.attacks.special.multi2"]
           },
           "strong": {
             "name": "QUICKNPC.attacks.strong",
-            "attributes": [
-              "mig",
-              "mig"
-            ],
+            "attributes": ["mig", "mig"],
             "range": "melee",
             "targetDefense": "def",
             "baseDamage": 10
@@ -148,19 +122,11 @@
           "steps": [
             {
               "type": "AssignStatusImmunity",
-              "options": [
-                "shaken",
-                "slow",
-                "poisoned"
-              ]
+              "options": ["shaken", "slow", "poisoned"]
             },
             {
               "type": "AssignStatusImmunity",
-              "options": [
-                "shaken",
-                "slow",
-                "poisoned"
-              ]
+              "options": ["shaken", "slow", "poisoned"]
             }
           ]
         }
@@ -176,9 +142,7 @@
             "attacks": {
               "normal": {
                 "targetDefense": "mDef",
-                "special": [
-                  "QUICKNPC.attacks.special.targetsMDef"
-                ]
+                "special": ["QUICKNPC.attacks.special.targetsMDef"]
               }
             }
           }
@@ -203,13 +167,8 @@
             "attacks": {
               "strong": {
                 "range": "ranged",
-                "attributes": [
-                  "dex",
-                  "mig"
-                ],
-                "special": [
-                  "QUICKNPC.attacks.special.causesStatus"
-                ]
+                "attributes": ["dex", "mig"],
+                "special": ["QUICKNPC.attacks.special.causesStatus"]
               }
             }
           }
@@ -235,9 +194,7 @@
           }
         },
         "disallow": {
-          "rank": [
-            "soldier"
-          ]
+          "rank": ["soldier"]
         },
         "changes": {
           "model": {
@@ -255,9 +212,7 @@
         "label": "QUICKNPC.role.brute.spells.name",
         "description": "QUICKNPC.role.brute.spells.description",
         "disallow": {
-          "rank": [
-            "soldier"
-          ]
+          "rank": ["soldier"]
         },
         "changes": {
           "steps": [
@@ -279,9 +234,7 @@
           "model": {
             "attacks": {
               "strong": {
-                "special": [
-                  "QUICKNPC.role.brute.crush.attackSpecialText"
-                ]
+                "special": ["QUICKNPC.role.brute.crush.attackSpecialText"]
               }
             },
             "actions": {

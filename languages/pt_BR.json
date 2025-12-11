@@ -137,8 +137,8 @@
       "poison": "Veneno"
     },
     "dataType": {
-      "species": "Espécie",
       "role": "Função",
+      "species": "Espécie",
       "unknown": "Desconhecido"
     },
     "error": {
@@ -743,26 +743,26 @@
         "name": "Mostrar botão nas ferramentas do sistema ProjectFU?"
       },
       "userDataFiles": {
+        "delete": "Remover arquivo de dados",
+        "fileLoaded": {
+          "error": "O arquivo não pôde ser carregado",
+          "success": "Arquivo carregado"
+        },
+        "filePicker": {
+          "hint": "Os arquivos de dados são arquivos .json cuja estrutura está em conformidade com o esquema QuickNPC.",
+          "prompt": "Escolha um novo arquivo de dados",
+          "tooltip": "Escolha o arquivo de dados..."
+        },
+        "fileType": "Tipo de arquivo:",
+        "fileValidated": {
+          "error": "O arquivo não é válido",
+          "success": "O arquivo é válido"
+        },
         "hint": "Os arquivos de dados podem ser usados ​​para estender as opções disponíveis no assistente.",
         "label": "Gerenciador de arquivos de dados abertos",
         "name": "Arquivos de dados fornecidos pelo usuário",
-        "fileType": "Tipo de arquivo:",
-        "filePicker": {
-          "prompt": "Escolha um novo arquivo de dados",
-          "tooltip": "Escolha o arquivo de dados...",
-          "hint": "Os arquivos de dados são arquivos .json cuja estrutura está em conformidade com o esquema QuickNPC."
-        },
-        "fileLoaded": {
-          "success": "Arquivo carregado",
-          "error": "O arquivo não pôde ser carregado"
-        },
-        "fileValidated": {
-          "success": "O arquivo é válido",
-          "error": "O arquivo não é válido"
-        },
-        "save": "Salvar",
-        "delete": "Remover arquivo de dados",
-        "reload": "Recarregar arquivo de dados"
+        "reload": "Recarregar arquivo de dados",
+        "save": "Salvar"
       }
     },
     "species": {
@@ -903,7 +903,6 @@
         "name": "Limpar",
         "spellText": "Você fortalece e purifica a energia da alma que flui através de seus companheiros. Cada alvo se recupera de todos os efeitos de status.."
       },
-      "costPerTarget": "{amount}xT PM",
       "curse": {
         "description": "Causa um efeito de status em um único alvo.",
         "name": "Maldição",
@@ -940,10 +939,6 @@
         "description": "Faça com que um único alvo perca PM enquanto restaura o seu próprio.",
         "name": "Drenar Espírito",
         "spellText": "Você consome a psique de uma criatura. O alvo perde 【RA + 15】 Pontos Mentais. Em seguida, você recupera uma quantidade de Pontos Mentais igual à metade da perda de Pontos Mentais que sofreu (se a perda foi reduzida a 0 de alguma forma, você não recupera nenhum)."
-      },
-      "duration": {
-        "instant": "Instantâneo",
-        "scene": "Cena"
       },
       "elementalShroud": {
         "description": "Conceda até três alvos Resistência a um tipo de dano elemental.",
@@ -1049,12 +1044,6 @@
         "name": "Parar",
         "spellText": "Você aprisiona um inimigo dentro de um círculo de tempo e espaço alterados. O alvo realizará uma ação a menos no próximo turno (até um mínimo de 0 ações)."
       },
-      "targets": {
-        "self": "Próprio",
-        "single": "Uma Criatura",
-        "special": "Especial",
-        "upToThree": "Até três criaturas"
-      },
       "terra": {
         "description": "Causar grandes danos terrestres a vários alvos no solo.",
         "name": "Terra",
@@ -1066,7 +1055,6 @@
         "name": "Relâmpago",
         "spellText": "<div>Você lança um raio em seu inimigo. O alvo sofre dano de raio.</div><div>O dano causado por esta magia ignora as Resistências.</div>"
       },
-      "totalCost": "{amount} PM",
       "umbra": {
         "description": "Causa dano Sombrio pesado a vários alvos.",
         "name": "Umbra",
@@ -1090,7 +1078,20 @@
         "spellText": "<div>Até que esta magia termine, o alvo sofre 5 de dano extra de todas as fontes que causam dano de <b>{damageType}</b> .</div>"
       }
     },
-    "spells": "Feitiços",
+    "spells": {
+      "costPerTarget": "{amount}xT PM",
+      "duration": {
+        "instant": "Instantâneo",
+        "scene": "Cena"
+      },
+      "targets": {
+        "self": "Próprio",
+        "single": "Uma Criatura",
+        "special": "Especial",
+        "upToThree": "Até três criaturas"
+      },
+      "totalCost": "{amount} PM"
+    },
     "statusEffects": {
       "dazed": "Confuso",
       "enraged": "Enfurecido",

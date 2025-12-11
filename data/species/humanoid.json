@@ -7,12 +7,7 @@
       "steps": [
         {
           "type": "AssignVulnerability",
-          "options": [
-            "physical",
-            "dark",
-            "light",
-            "poison"
-          ]
+          "options": ["physical", "dark", "light", "poison"]
         }
       ]
     },
@@ -25,29 +20,11 @@
           "steps": [
             {
               "type": "AssignResistance",
-              "options": [
-                "air",
-                "bolt",
-                "dark",
-                "earth",
-                "fire",
-                "ice",
-                "light",
-                "poison"
-              ]
+              "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
             },
             {
               "type": "AssignResistance",
-              "options": [
-                "air",
-                "bolt",
-                "dark",
-                "earth",
-                "fire",
-                "ice",
-                "light",
-                "poison"
-              ]
+              "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
             }
           ]
         }
@@ -121,9 +98,7 @@
           ]
         },
         "require": {
-          "anyCustomization": [
-            "humanoidAdditionalRoleSkill1"
-          ]
+          "anyCustomization": ["humanoidAdditionalRoleSkill1"]
         }
       }
     },
