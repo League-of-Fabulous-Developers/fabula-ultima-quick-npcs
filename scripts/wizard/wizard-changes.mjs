@@ -68,7 +68,7 @@ import {Spells} from "../common/spells.mjs";
 
 
 /**
- * @type {Record<string, (AffinityModel, boolean) => void>}
+ * @type {Record<string, (AffinityDataModel, boolean) => void>}
  */
 const applyAffinity = new Proxy({
     vul: (model, speciesVuln) => model.vul = speciesVuln ? "species" : true,
@@ -137,7 +137,7 @@ function applyToModel(model, jsonModel, choices, vulnAsSpeciesVuln) {
     }
     if (jsonModel.affinities) {
         Object.entries(jsonModel.affinities).forEach(([element, affinity]) => {
-            /** @type AffinityModel */
+            /** @type AffinityDataModel */
             const affinityModel = model.affinities[element];
             applyAffinity[affinity](affinityModel, vulnAsSpeciesVuln)
         })

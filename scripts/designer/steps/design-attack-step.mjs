@@ -6,14 +6,6 @@ const designAttacksDoneKey = "designAttacksDone"
 
 const attackIndexKey = "attackIndex"
 
-const attributeKey = "attributes"
-
-const damageTypeKey = "damageType"
-
-const rangeKey = "range"
-
-const specialKey = "special"
-
 export class DesignAttackStep extends AbstractStep {
 
     /**

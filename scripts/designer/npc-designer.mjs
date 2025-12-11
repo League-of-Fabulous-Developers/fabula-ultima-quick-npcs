@@ -85,7 +85,7 @@ export class NpcDesigner extends foundry.applications.api.HandlebarsApplicationM
         console.log("Stepper state:", this.#stepper)
     }
 
-    /** @type {Stepper<NpcModel>} */
+    /** @type {Stepper<NpcDataModel>} */
     #stepper = new Stepper(npcDesignerSteps, NpcDataModel)
     /** @type {Object} */
     #latestFormValues = {}

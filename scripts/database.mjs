@@ -56,8 +56,7 @@ class Database {
 
         for (const [file, fileData] of Object.entries(data)) {
             if (validate(fileData)) {
-                const value = new types[fileData.type](fileData, file);
-                (typeData[fileData.type] ??= {})[file] = value;
+                (typeData[fileData.type] ??= {})[file] = new types[fileData.type](fileData, file);
             } else {
                 ui.notifications?.warn(game.i18n.format("QUICKNPC.error.invalidDataFile", {file: file}))
                 console.error("Data file is invalid", file, [...validate.errors])

@@ -72,7 +72,7 @@ export class AbstractChooseSkillStep extends AbstractStep {
 
     /**
      * @param {SkillOptions} options
-     * @param {NpcModel} model
+     * @param {NpcDataModel} model
      * @param context
      * @return SkillOptions
      */
@@ -82,7 +82,7 @@ export class AbstractChooseSkillStep extends AbstractStep {
 
     /**
      * @param {AbstractStep} current
-     * @param {NpcModel} value
+     * @param {NpcDataModel} value
      * @param context
      * @return boolean
      */
@@ -171,7 +171,7 @@ export class AbstractChooseSkillStep extends AbstractStep {
 
     /**
      * @param {SkillOptions} options
-     * @param {NpcModel} model
+     * @param {NpcDataModel} model
      * @param context
      * @return {SkillOptions}
      */

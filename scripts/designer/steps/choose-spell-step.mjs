@@ -29,7 +29,6 @@ export class ChooseSpellStep extends AbstractChooseSkillStep {
 
     /**
      * @param context
-     * @param {SkillOptions} options
      */
     static addSpell(context) {
         (context[spellKey] ??= 0);

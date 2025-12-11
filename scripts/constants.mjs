@@ -30,6 +30,10 @@ CONSTANTS.damageTypes = {
 }
 
 /**
+ * @typedef {"dazed", "shaken", "slow", "weak", "enraged", "poisoned"} StatusEffect
+ */
+
+/**
  * @type {Record<StatusEffect, string>}
  */
 CONSTANTS.statusEffects = {

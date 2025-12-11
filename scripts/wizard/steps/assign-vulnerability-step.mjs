@@ -2,7 +2,7 @@ import {CONSTANTS} from "../../constants.mjs";
 import {AbstractAssignAffinityStep} from "./abstract-assign-affinity-step.mjs";
 
 /**
- * @param {AffinityModel} affinity
+ * @param {AffinityDataModel} affinity
  * @return boolean
  */
 const validAffinity = (affinity) => {

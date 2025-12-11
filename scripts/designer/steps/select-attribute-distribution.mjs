@@ -1,5 +1,4 @@
 import {AbstractStep} from "../../stepper/abstract-step.mjs";
-import {unallocatedSkills} from "../designer-steps.mjs";
 import {ConfigureAttributesStep} from "./configure-attributes-step.mjs";
 
 /**

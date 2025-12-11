@@ -1,6 +1,6 @@
 import {Stepper} from "../stepper/stepper.mjs";
 import {npcWizardSteps} from "./wizard-steps.mjs";
-import {CONSTANTS, MODULE} from "../constants.mjs";
+import {CONSTANTS} from "../constants.mjs";
 import {NpcDataModel} from "../model/npc-data-model.mjs";
 
 export class QuickNpcWizard extends foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.api.ApplicationV2) {
@@ -85,7 +85,7 @@ export class QuickNpcWizard extends foundry.applications.api.HandlebarsApplicati
         console.log("Stepper state:", this.#stepper)
     }
 
-    /** @type {Stepper<NpcModel>} */
+    /** @type {Stepper<NpcDataModel>} */
     #stepper = new Stepper(npcWizardSteps, NpcDataModel)
     /** @type Object */
     #latestFormValues = {}
