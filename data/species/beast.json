@@ -3,8 +3,7 @@
   "species": {
     "name": "QUICKNPC.species.beast.name",
     "npcSpecies": "beast",
-    "changes": {
-    },
+    "changes": {},
     "customizationCount": 2,
     "customizationOptions": {
       "beastHpPlus10": {
@@ -87,9 +86,7 @@
           ]
         },
         "require": {
-          "anyCustomization": [
-            "beastAdditionalRoleSkill1"
-          ]
+          "anyCustomization": ["beastAdditionalRoleSkill1"]
         }
       }
     },

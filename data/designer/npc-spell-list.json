@@ -140,9 +140,7 @@
         "level": 30
       },
       "disallow": {
-        "rank": [
-          "soldier"
-        ]
+        "rank": ["soldier"]
       }
     },
     "lickWounds": {

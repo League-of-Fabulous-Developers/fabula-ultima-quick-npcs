@@ -24,29 +24,11 @@
         "steps": [
           {
             "type": "AssignResistance",
-            "options": [
-              "air",
-              "bolt",
-              "dark",
-              "earth",
-              "fire",
-              "ice",
-              "light",
-              "poison"
-            ]
+            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
           },
           {
             "type": "AssignResistance",
-            "options": [
-              "air",
-              "bolt",
-              "dark",
-              "earth",
-              "fire",
-              "ice",
-              "light",
-              "poison"
-            ]
+            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
           }
         ]
       },
@@ -76,16 +58,7 @@
         "steps": [
           {
             "type": "AssignImmunity",
-            "options": [
-              "air",
-              "bolt",
-              "dark",
-              "earth",
-              "fire",
-              "ice",
-              "light",
-              "poison"
-            ]
+            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
           }
         ]
       },
@@ -118,14 +91,8 @@
           "attack": "normal",
           "configure": {
             "attributes": [
-              [
-                "dex",
-                "wlp"
-              ],
-              [
-                "ins",
-                "wlp"
-              ]
+              ["dex", "wlp"],
+              ["ins", "wlp"]
             ],
             "range": true,
             "damageType": true
@@ -255,9 +222,7 @@
           "model": {
             "attacks": {
               "normal": {
-                "special": [
-                  "QUICKNPC.attacks.special.multi2"
-                ]
+                "special": ["QUICKNPC.attacks.special.multi2"]
               }
             }
           }
@@ -271,9 +236,7 @@
             "attacks": {
               "normal": {
                 "targetDefense": "mDef",
-                "special": [
-                  "QUICKNPC.attacks.special.targetsMDef"
-                ]
+                "special": ["QUICKNPC.attacks.special.targetsMDef"]
               }
             }
           }
@@ -297,9 +260,7 @@
           "model": {
             "attacks": {
               "normal": {
-                "special": [
-                  "QUICKNPC.attacks.special.causesStatus"
-                ]
+                "special": ["QUICKNPC.attacks.special.causesStatus"]
               }
             }
           }
@@ -312,9 +273,7 @@
           "model": {
             "attacks": {
               "normal": {
-                "special": [
-                  "QUICKNPC.commonSkills.normalAttackMpRecovery.specialText"
-                ]
+                "special": ["QUICKNPC.commonSkills.normalAttackMpRecovery.specialText"]
               }
             }
           }
@@ -324,9 +283,7 @@
         "label": "QUICKNPC.role.support.improvedAdvise.name",
         "description": "QUICKNPC.role.support.improvedAdvise.description",
         "require": {
-          "anyAction": [
-            "advise"
-          ]
+          "anyAction": ["advise"]
         },
         "changes": {
           "model": {
@@ -344,9 +301,7 @@
         "label": "QUICKNPC.role.support.strategicCommand.name",
         "description": "QUICKNPC.role.support.strategicCommand.description",
         "disallow": {
-          "rank": [
-            "soldier"
-          ]
+          "rank": ["soldier"]
         },
         "changes": {
           "model": {
@@ -409,11 +364,7 @@
         "label": "QUICKNPC.role.support.oneLastCommand.name",
         "description": "QUICKNPC.role.support.oneLastCommand.description",
         "require": {
-          "anyAction": [
-            "advise",
-            "inspire",
-            "strategicCommand"
-          ]
+          "anyAction": ["advise", "inspire", "strategicCommand"]
         },
         "changes": {
           "model": {

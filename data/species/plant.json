@@ -14,12 +14,7 @@
       "steps": [
         {
           "type": "AssignSpeciesVulnerability",
-          "options": [
-            "air",
-            "bolt",
-            "fire",
-            "ice"
-          ]
+          "options": ["air", "bolt", "fire", "ice"]
         }
       ]
     },
@@ -43,29 +38,11 @@
           "steps": [
             {
               "type": "AssignResistance",
-              "options": [
-                "air",
-                "bolt",
-                "dark",
-                "earth",
-                "fire",
-                "ice",
-                "light",
-                "poison"
-              ]
+              "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
             },
             {
               "type": "AssignResistance",
-              "options": [
-                "air",
-                "bolt",
-                "dark",
-                "earth",
-                "fire",
-                "ice",
-                "light",
-                "poison"
-              ]
+              "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
             }
           ]
         }

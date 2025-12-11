@@ -23,12 +23,7 @@
               "steps": [
                 {
                   "type": "AssignVulnerability",
-                  "options": [
-                    "air",
-                    "bolt",
-                    "fire",
-                    "ice"
-                  ]
+                  "options": ["air", "bolt", "fire", "ice"]
                 }
               ]
             }
@@ -94,7 +89,6 @@
       ]
     },
     "customizationCount": 0,
-    "customizationOptions": {
-    }
+    "customizationOptions": {}
   }
 }

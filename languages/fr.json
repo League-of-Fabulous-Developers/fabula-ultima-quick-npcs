@@ -1061,17 +1061,17 @@
     },
     "spells": {
       "costPerTarget": "{amount}xC PM",
-      "totalCost": "{amount} PM",
+      "duration": {
+        "instant": "Instantanée",
+        "scene": "Scène"
+      },
       "targets": {
         "self": "Soi-même",
         "single": "Une créature",
         "special": "Spécial",
         "upToThree": "Jusqu'à trois créatures"
       },
-      "duration": {
-        "instant": "Instantanée",
-        "scene": "Scène"
-      }
+      "totalCost": "{amount} PM"
     },
     "statusEffects": {
       "dazed": "Étourdi",

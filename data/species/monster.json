@@ -24,29 +24,11 @@
           "steps": [
             {
               "type": "AssignResistance",
-              "options": [
-                "air",
-                "bolt",
-                "dark",
-                "earth",
-                "fire",
-                "ice",
-                "light",
-                "poison"
-              ]
+              "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
             },
             {
               "type": "AssignResistance",
-              "options": [
-                "air",
-                "bolt",
-                "dark",
-                "earth",
-                "fire",
-                "ice",
-                "light",
-                "poison"
-              ]
+              "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
             }
           ]
         }
@@ -105,9 +87,7 @@
           ]
         },
         "require": {
-          "anyCustomization": [
-            "monsterAdditionalRoleSkill1"
-          ]
+          "anyCustomization": ["monsterAdditionalRoleSkill1"]
         }
       }
     },

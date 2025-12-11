@@ -62,9 +62,7 @@
         "model": {
           "attacks": {
             "normal": {
-              "special": [
-                "QUICKNPC.attacks.special.ignoreResistance"
-              ]
+              "special": ["QUICKNPC.attacks.special.ignoreResistance"]
             }
           }
         }
@@ -113,14 +111,8 @@
           "attack": "normal",
           "configure": {
             "attributes": [
-              [
-                "dex",
-                "ins"
-              ],
-              [
-                "dex",
-                "wlp"
-              ]
+              ["dex", "ins"],
+              ["dex", "wlp"]
             ],
             "damageType": true,
             "range": true,
@@ -132,9 +124,7 @@
                   "model": {
                     "attacks": {
                       "normal": {
-                        "special": [
-                          "QUICKNPC.role.saboteur.normalAttackDrainMp.specialText"
-                        ]
+                        "special": ["QUICKNPC.role.saboteur.normalAttackDrainMp.specialText"]
                       }
                     }
                   }
@@ -147,9 +137,7 @@
                   "model": {
                     "attacks": {
                       "normal": {
-                        "special": [
-                          "QUICKNPC.role.saboteur.normalAttackDrainIp.specialText"
-                        ]
+                        "special": ["QUICKNPC.role.saboteur.normalAttackDrainIp.specialText"]
                       }
                     }
                   }
@@ -175,19 +163,14 @@
                   "model": {
                     "attacks": {
                       "normal": {
-                        "special": [
-                          "QUICKNPC.role.saboteur.normalAttackStatus.specialText"
-                        ]
+                        "special": ["QUICKNPC.role.saboteur.normalAttackStatus.specialText"]
                       }
                     }
                   },
                   "conditional": [
                     {
                       "choice": "status",
-                      "values": [
-                        "enraged",
-                        "poisoned"
-                      ],
+                      "values": ["enraged", "poisoned"],
                       "changes": {
                         "steps": [
                           {
@@ -326,9 +309,7 @@
           "model": {
             "attacks": {
               "normal": {
-                "special": [
-                  "QUICKNPC.attacks.special.multi2"
-                ]
+                "special": ["QUICKNPC.attacks.special.multi2"]
               }
             }
           }
@@ -341,9 +322,7 @@
           "model": {
             "attacks": {
               "normal": {
-                "special": [
-                  "QUICKNPC.attacks.special.targetsMDef"
-                ]
+                "special": ["QUICKNPC.attacks.special.targetsMDef"]
               }
             }
           }
@@ -357,10 +336,7 @@
             "attacks": {
               "strong": {
                 "name": "QUICKNPC.attacks.strong",
-                "attributes": [
-                  "dex",
-                  "ins"
-                ],
+                "attributes": ["dex", "ins"],
                 "baseDamage": 5
               }
             }
@@ -388,9 +364,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockHpRecovery.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockHpRecovery.specialText"]
                                     }
                                   }
                                 }
@@ -403,9 +377,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockMpRecovery.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockMpRecovery.specialText"]
                                     }
                                   }
                                 }
@@ -433,9 +405,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockAction.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockAction.specialText"]
                                     }
                                   }
                                 }
@@ -448,9 +418,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockFreeAttacks.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockFreeAttacks.specialText"]
                                     }
                                   }
                                 }
@@ -463,9 +431,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockSelfVision.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockSelfVision.specialText"]
                                     }
                                   }
                                 }
@@ -478,9 +444,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockAllyVision.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockAllyVision.specialText"]
                                     }
                                   }
                                 }
@@ -493,9 +457,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackStripResAndImm.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackStripResAndImm.specialText"]
                                     }
                                   }
                                 }
@@ -521,9 +483,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockHpRecovery.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockHpRecovery.specialText"]
                                     }
                                   }
                                 }
@@ -536,9 +496,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockMpRecovery.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockMpRecovery.specialText"]
                                     }
                                   }
                                 }
@@ -566,9 +524,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockAction.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockAction.specialText"]
                                     }
                                   }
                                 }
@@ -581,9 +537,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockFreeAttacks.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockFreeAttacks.specialText"]
                                     }
                                   }
                                 }
@@ -596,9 +550,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockSelfVision.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockSelfVision.specialText"]
                                     }
                                   }
                                 }
@@ -611,9 +563,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockAllyVision.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockAllyVision.specialText"]
                                     }
                                   }
                                 }
@@ -626,9 +576,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackStripResAndImm.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackStripResAndImm.specialText"]
                                     }
                                   }
                                 }
@@ -646,9 +594,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockHpRecovery.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockHpRecovery.specialText"]
                                     }
                                   }
                                 }
@@ -661,9 +607,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockMpRecovery.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockMpRecovery.specialText"]
                                     }
                                   }
                                 }
@@ -691,9 +635,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockAction.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockAction.specialText"]
                                     }
                                   }
                                 }
@@ -706,9 +648,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockFreeAttacks.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockFreeAttacks.specialText"]
                                     }
                                   }
                                 }
@@ -721,9 +661,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockSelfVision.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockSelfVision.specialText"]
                                     }
                                   }
                                 }
@@ -736,9 +674,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackBlockAllyVision.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackBlockAllyVision.specialText"]
                                     }
                                   }
                                 }
@@ -751,9 +687,7 @@
                                 "model": {
                                   "attacks": {
                                     "strong": {
-                                      "special": [
-                                        "QUICKNPC.role.saboteur.strongAttackStripResAndImm.specialText"
-                                      ]
+                                      "special": ["QUICKNPC.role.saboteur.strongAttackStripResAndImm.specialText"]
                                     }
                                   }
                                 }
@@ -780,9 +714,7 @@
           "model": {
             "attacks": {
               "strong": {
-                "special": [
-                  "QUICKNPC.attacks.special.targetsMDef"
-                ]
+                "special": ["QUICKNPC.attacks.special.targetsMDef"]
               }
             }
           }
@@ -819,9 +751,7 @@
           }
         },
         "disallow": {
-          "rank": [
-            "soldier"
-          ]
+          "rank": ["soldier"]
         },
         "changes": {
           "model": {
@@ -854,10 +784,7 @@
         "label": "QUICKNPC.role.saboteur.partingGift.name",
         "description": "QUICKNPC.role.saboteur.partingGift.description",
         "require": {
-          "rank": [
-            "soldier",
-            "elite"
-          ]
+          "rank": ["soldier", "elite"]
         },
         "changes": {
           "model": {

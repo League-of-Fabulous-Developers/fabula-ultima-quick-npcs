@@ -31,13 +31,7 @@
               "steps": [
                 {
                   "type": "AssignSpeciesVulnerability",
-                  "options": [
-                    "air",
-                    "bolt",
-                    "earth",
-                    "fire",
-                    "ice"
-                  ]
+                  "options": ["air", "bolt", "earth", "fire", "ice"]
                 }
               ]
             }
@@ -102,8 +96,7 @@
       ]
     },
     "customizationCount": 0,
-    "customizationOptions": {
-    },
+    "customizationOptions": {},
     "spellLists": {
       "undeadSpells": {
         "breath": {
