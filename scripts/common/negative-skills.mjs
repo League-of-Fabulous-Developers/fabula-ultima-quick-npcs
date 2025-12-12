@@ -20,8 +20,12 @@ const negativeSkills = {
       },
     },
     apply: (model, context, { damageType }) => {
-      model.rules.finalDetonation = Rules.simpleRule('QUICKNPC.negativeSkills.finalDetonation', {
-        damageType: game.i18n.localize(CONSTANTS.damageTypes[damageType]),
+      model.updateSource({
+        rules: {
+          finalDetonation: Rules.simpleRule('QUICKNPC.negativeSkills.finalDetonation', {
+            damageType: game.i18n.localize(CONSTANTS.damageTypes[damageType]),
+          }),
+        },
       });
       ChooseRoleSkillStep.addRoleSkill(context, Role.getRole(context).roleSkills);
     },
@@ -36,8 +40,12 @@ const negativeSkills = {
       },
     },
     apply: (model, context, { resource }) => {
-      model.rules.finalRestore = Rules.simpleRule('QUICKNPC.negativeSkills.finalRestore', {
-        resource: game.i18n.localize(CONSTANTS.resources[resource]),
+      model.updateSource({
+        rules: {
+          finalRestore: Rules.simpleRule('QUICKNPC.negativeSkills.finalRestore', {
+            resource: game.i18n.localize(CONSTANTS.resources[resource]),
+          }),
+        },
       });
       ChooseRoleSkillStep.addRoleSkill(context, Role.getRole(context).roleSkills);
     },
@@ -58,9 +66,13 @@ const negativeSkills = {
       attack: 'strong',
     },
     apply: (model, context, { target }) => {
-      model.rules.painfulMiss = Rules.simpleRule('QUICKNPC.negativeSkills.painfulMiss', {
-        attack: model.attacks.normal.name,
-        target: game.i18n.localize(`QUICKNPC.negativeSkills.painfulMiss.target.${target}.rule`),
+      model.updateSource({
+        rules: {
+          painfulMiss: Rules.simpleRule('QUICKNPC.negativeSkills.painfulMiss', {
+            attack: model.attacks.normal.name,
+            target: game.i18n.localize(`QUICKNPC.negativeSkills.painfulMiss.target.${target}.rule`),
+          }),
+        },
       });
       ChooseRoleSkillStep.addRoleSkill(context, Role.getRole(context).roleSkills);
     },
@@ -88,9 +100,13 @@ const negativeSkills = {
       attack: 'strong',
     },
     apply: (model, context, { attack, target }) => {
-      model.rules.painfulMiss = Rules.simpleRule('QUICKNPC.negativeSkills.painfulMiss', {
-        attack: model.attacks[attack].name,
-        target: game.i18n.localize(`QUICKNPC.negativeSkills.painfulMiss.target.${target}.rule`),
+      model.updateSource({
+        rules: {
+          painfulMiss: Rules.simpleRule('QUICKNPC.negativeSkills.painfulMiss', {
+            attack: model.attacks[attack].name,
+            target: game.i18n.localize(`QUICKNPC.negativeSkills.painfulMiss.target.${target}.rule`),
+          }),
+        },
       });
       ChooseRoleSkillStep.addRoleSkill(context, Role.getRole(context).roleSkills);
     },
