@@ -21,9 +21,13 @@ const bossSkills = {
       },
     },
     apply: (model, context, choices) => {
-      model.actions.corrosiveStatus = Actions.simpleAction('QUICKNPC.bossSkills.corrosiveStatus', {
-        damageType: game.i18n.localize(CONSTANTS.damageTypes[choices.damageType]),
-        status: game.i18n.localize(CONSTANTS.statusEffects[choices.status]),
+      model.updateSource({
+        actions: {
+          corrosiveStatus: Actions.simpleAction('QUICKNPC.bossSkills.corrosiveStatus', {
+            damageType: game.i18n.localize(CONSTANTS.damageTypes[choices.damageType]),
+            status: game.i18n.localize(CONSTANTS.statusEffects[choices.status]),
+          }),
+        },
       });
     },
   },
@@ -31,21 +35,33 @@ const bossSkills = {
     label: 'QUICKNPC.bossSkills.crushingAdvantage.name',
     description: 'QUICKNPC.bossSkills.crushingAdvantage.description',
     apply: (model) => {
-      model.rules.crushingAdvantage = Rules.simpleRule('QUICKNPC.bossSkills.crushingAdvantage');
+      model.updateSource({
+        rules: {
+          crushingAdvantage: Rules.simpleRule('QUICKNPC.bossSkills.crushingAdvantage'),
+        },
+      });
     },
   },
   elementalCrisis: {
     label: 'QUICKNPC.bossSkills.elementalCrisis.name',
     description: 'QUICKNPC.bossSkills.elementalCrisis.description',
     apply: (model) => {
-      model.rules.elementalCrisis = Rules.simpleRule('QUICKNPC.bossSkills.elementalCrisis');
+      model.updateSource({
+        rules: {
+          elementalCrisis: Rules.simpleRule('QUICKNPC.bossSkills.elementalCrisis'),
+        },
+      });
     },
   },
   partRegeneration: {
     label: 'QUICKNPC.bossSkills.partRegeneration.name',
     description: 'QUICKNPC.bossSkills.partRegeneration.description',
     apply: (model) => {
-      model.rules.partRegeneration = Rules.simpleRule('QUICKNPC.bossSkills.partRegeneration');
+      model.updateSource({
+        rules: {
+          partRegeneration: Rules.simpleRule('QUICKNPC.bossSkills.partRegeneration'),
+        },
+      });
     },
   },
   temporaryDefenses: {
@@ -61,9 +77,13 @@ const bossSkills = {
       },
     },
     apply: (model, context, { defense }) => {
-      model.rules.temporaryDefenses = Rules.simpleRule('QUICKNPC.bossSkills.temporaryDefenses', {
-        defense: game.i18n.localize(`QUICKNPC.bossSkills.temporaryDefenses.${defense}`),
-        value: 12 + Math.floor(model.level / 20),
+      model.updateSource({
+        rules: {
+          temporaryDefenses: Rules.simpleRule('QUICKNPC.bossSkills.temporaryDefenses', {
+            defense: game.i18n.localize(`QUICKNPC.bossSkills.temporaryDefenses.${defense}`),
+            value: 12 + Math.floor(model.level / 20),
+          }),
+        },
       });
     },
   },
@@ -77,8 +97,12 @@ const bossSkills = {
       },
     },
     apply: (model, context, { status }) => {
-      model.rules.zombification = Rules.simpleRule('QUICKNPC.bossSkills.zombification', {
-        status: game.i18n.localize(CONSTANTS.statusEffects[status]),
+      model.updateSource({
+        rules: {
+          zombification: Rules.simpleRule('QUICKNPC.bossSkills.zombification', {
+            status: game.i18n.localize(CONSTANTS.statusEffects[status]),
+          }),
+        },
       });
     },
   },
