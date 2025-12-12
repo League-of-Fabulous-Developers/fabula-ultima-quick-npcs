@@ -1,6 +1,3 @@
-/**
- * @typedef {"vul", "", "res", "imm", "abs"} Affinity
- */
 import { NpcDataModel } from './npc-data-model.mjs';
 
 export class DerivedValuesDataModel extends foundry.abstract.DataModel {

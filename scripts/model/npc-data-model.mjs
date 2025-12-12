@@ -144,8 +144,8 @@ export class NpcDataModel extends foundry.abstract.DataModel {
         ),
         bonuses: {
           accuracy: {
-            accuracyCheck: this.bonuses.accuracy,
-            magicCheck: this.bonuses.magic,
+            accuracyCheck: this.derived.bonusAccuracy + this.bonuses.accuracy,
+            magicCheck: this.derived.bonusAccuracy + this.bonuses.magic,
           },
           damage: {
             melee: this.derived.bonusDamage,
