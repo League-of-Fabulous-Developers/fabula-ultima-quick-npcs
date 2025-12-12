@@ -3,6 +3,10 @@ import { ChooseSpellStep } from './steps/choose-spell-step.mjs';
 import { unallocatedSkills } from './designer-steps.mjs';
 import { Customizations } from '../common/customizations.mjs';
 
+const ruleIndexKey = 'ruleIndex';
+
+const actionIndexKey = 'actionIndex';
+
 /** @type {SkillOptions} */
 export const designerSkillList = {
   damageVulnerability: {
@@ -51,7 +55,8 @@ export const designerSkillList = {
       },
     },
     apply: (model, context, choices) => {
-      const ruleIndex = (context['ruleIndex'] ??= 0);
+      const ruleIndex = (context[ruleIndexKey] ??= 0);
+      context[ruleIndexKey]++;
       const {
         name = game.i18n.localize('QUICKNPC.designer.skill.crisisEffect.choices.name.default'),
         text = game.i18n.localize('QUICKNPC.designer.skill.crisisEffect.choices.text.default'),
@@ -351,7 +356,8 @@ export const designerSkillList = {
       },
     },
     apply: (model, context, choices) => {
-      const ruleIndex = (context['ruleIndex'] ??= 0);
+      const ruleIndex = (context[ruleIndexKey] ??= 0);
+      context[ruleIndexKey]++;
       const {
         name = game.i18n.localize('QUICKNPC.designer.skill.reaction.choices.name.default'),
         trigger = game.i18n.localize('QUICKNPC.designer.skill.reaction.choices.trigger.default'),
@@ -523,15 +529,16 @@ export const designerSkillList = {
       },
     },
     apply: (model, context, choices) => {
-      const ruleIndex = (context['ruleIndex'] ??= 0);
+      const actionIndex = (context[actionIndexKey] ??= 0);
+      context[actionIndexKey]++;
       const {
         name = game.i18n.localize('QUICKNPC.designer.skill.uniqueAction.choices.name.default'),
         text = game.i18n.localize('QUICKNPC.designer.skill.uniqueAction.choices.text.default'),
       } = choices;
 
       model.updateSource({
-        rules: {
-          [ruleIndex]: {
+        actions: {
+          [actionIndex]: {
             name: name,
             description: `<p>${game.i18n.localize('QUICKNPC.designer.skill.uniqueAction.prefix')}</p>${text}`,
           },
