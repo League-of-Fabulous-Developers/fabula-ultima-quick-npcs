@@ -47,12 +47,12 @@ export class SelectLevelStep extends AbstractStep {
       const role = Role.getRole(context);
 
       role.attributeChanges
-        .slice(0, Math.floor(model.level / 20))
+        .slice(0, Math.floor(this.#level / 20))
         .forEach((change) => Object.assign(changes.attributes, change));
 
       model.updateSource(changes);
 
-      role.skillsByLevel.slice(0, Math.floor(model.level / 10)).forEach((apply) => apply(model, context));
+      role.skillsByLevel.slice(0, Math.floor(this.#level / 10)).forEach((apply) => apply(model, context));
 
       return model;
     }
