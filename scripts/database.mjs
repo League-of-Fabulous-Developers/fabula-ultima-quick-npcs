@@ -4,25 +4,34 @@ import { JsonSpecies } from './wizard/species/json-species.mjs';
 import { MODULE } from './constants.mjs';
 import { SETTINGS } from './settings.mjs';
 import { DesignerSpellList } from './designer/designer-spell-list.mjs';
+import { BossSkillList } from './wizard/boss-skill-list.mjs';
+import { NegativeSkillList } from './wizard/negative-skill-list.mjs';
 
 const defaultRoles = [
-  '/modules/fabula-ultima-quick-npcs/data/roles/brute.json',
-  '/modules/fabula-ultima-quick-npcs/data/roles/hunter.json',
-  '/modules/fabula-ultima-quick-npcs/data/roles/mage.json',
-  '/modules/fabula-ultima-quick-npcs/data/roles/saboteur.json',
-  '/modules/fabula-ultima-quick-npcs/data/roles/sentinel.json',
-  '/modules/fabula-ultima-quick-npcs/data/roles/support.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/roles/brute.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/roles/hunter.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/roles/mage.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/roles/saboteur.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/roles/sentinel.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/roles/support.json',
 ];
 
 const defaultSpecies = [
-  '/modules/fabula-ultima-quick-npcs/data/species/beast.json',
-  '/modules/fabula-ultima-quick-npcs/data/species/construct.json',
-  '/modules/fabula-ultima-quick-npcs/data/species/demon.json',
-  '/modules/fabula-ultima-quick-npcs/data/species/elemental.json',
-  '/modules/fabula-ultima-quick-npcs/data/species/humanoid.json',
-  '/modules/fabula-ultima-quick-npcs/data/species/monster.json',
-  '/modules/fabula-ultima-quick-npcs/data/species/plant.json',
-  '/modules/fabula-ultima-quick-npcs/data/species/undead.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/species/beast.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/species/construct.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/species/demon.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/species/elemental.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/species/humanoid.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/species/monster.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/species/plant.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/species/undead.json',
+];
+
+const defaultWizardData = [
+  ...defaultRoles,
+  ...defaultSpecies,
+  '/modules/fabula-ultima-quick-npcs/data/wizard/boss-skill-list.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/negative-skill-list.json',
 ];
 
 const defaultDesignerData = [
@@ -32,12 +41,14 @@ const defaultDesignerData = [
   '/modules/fabula-ultima-quick-npcs/data/designer/spiritist-spell-list.json',
 ];
 
-const defaultDataSources = [...defaultRoles, ...defaultSpecies, ...defaultDesignerData];
+const defaultDataSources = [...defaultWizardData, ...defaultDesignerData];
 
 const types = {
   role: JsonRole,
   species: JsonSpecies,
   'designer-spell-list': DesignerSpellList,
+  'boss-skill-list': BossSkillList,
+  'negative-skill-list': NegativeSkillList,
 };
 
 class Database {

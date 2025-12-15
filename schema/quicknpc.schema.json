@@ -10,6 +10,12 @@
     },
     {
       "$ref": "#/$defs/DesignerSpellList"
+    },
+    {
+      "$ref": "#/$defs/BossSkillList"
+    },
+    {
+      "$ref": "#/$defs/NegativeSkillList"
     }
   ],
   "$defs": {
@@ -1027,6 +1033,52 @@
         }
       },
       "required": ["type", "name", "spellList"]
+    },
+    "BossSkillList": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "boss-skill-list"
+        },
+        "name": {
+          "type": "string"
+        },
+        "skillList": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            ".+": {
+              "$ref": "#/$defs/Skill"
+            }
+          },
+          "minProperties": 1
+        }
+      },
+      "required": ["type", "name", "skillList"]
+    },
+    "NegativeSkillList": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "negative-skill-list"
+        },
+        "name": {
+          "type": "string"
+        },
+        "skillList": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            ".+": {
+              "$ref": "#/$defs/Skill"
+            }
+          },
+          "minProperties": 1
+        }
+      },
+      "required": ["type", "name", "skillList"]
     }
   }
 }

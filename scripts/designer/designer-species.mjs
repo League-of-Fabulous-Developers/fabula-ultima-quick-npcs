@@ -1,7 +1,6 @@
 import { AssignResistanceStep } from './steps/assign-resistance-step.mjs';
 import { AssignImmunityStep } from './steps/assign-immunity-step.mjs';
 import { AssignSpeciesVulnerabilityStep } from './steps/assign-species-vulnerability-step.mjs';
-import { Rules } from '../common/rules.mjs';
 
 export const designerSpecies = {
   beast: {
@@ -79,7 +78,11 @@ export const designerSpecies = {
           poisoned: true,
         },
         rules: {
-          undeadHealing: Rules.simpleRule('QUICKNPC.species.undead.undeadHealing'),
+          undeadHealing: {
+            name: game.i18n.localize('QUICKNPC.species.undead.undeadHealing.name'),
+            summary: game.i18n.localize('QUICKNPC.species.undead.undeadHealing.description'),
+            description: game.i18n.localize('QUICKNPC.species.undead.undeadHealing.ruleText'),
+          },
         },
       });
     },

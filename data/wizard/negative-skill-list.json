@@ -1,0 +1,122 @@
+{
+  "type": "negative-skill-list",
+  "name": "QUICKNPC.skillList.negative",
+  "skillList": {
+    "finalDetonation": {
+      "label": "QUICKNPC.negativeSkills.finalDetonation.name",
+      "description": "QUICKNPC.negativeSkills.finalDetonation.description",
+      "choices": {
+        "damageType": {
+          "label": "QUICKNPC.commonChoices.damageType",
+          "options": {
+            "physical": "QUICKNPC.damageType.physical",
+            "air": "QUICKNPC.damageType.air",
+            "bolt": "QUICKNPC.damageType.bolt",
+            "dark": "QUICKNPC.damageType.dark",
+            "earth": "QUICKNPC.damageType.earth",
+            "fire": "QUICKNPC.damageType.fire",
+            "ice": "QUICKNPC.damageType.ice",
+            "light": "QUICKNPC.damageType.light",
+            "poison": "QUICKNPC.damageType.poison"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "finalDetonation": {
+              "name": "QUICKNPC.negativeSkills.finalDetonation.name",
+              "summary": "QUICKNPC.negativeSkills.finalDetonation.description",
+              "description": "QUICKNPC.negativeSkills.finalDetonation.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "finalRestore": {
+      "label": "QUICKNPC.negativeSkills.finalRestore.name",
+      "description": "QUICKNPC.negativeSkills.finalRestore.description",
+      "choices": {
+        "resource": {
+          "label": "QUICKNPC.commonChoices.resource",
+          "options": {
+            "hp": "QUICKNPC.resource.hp",
+            "mp": "QUICKNPC.resource.mp"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "finalRestore": {
+              "name": "QUICKNPC.negativeSkills.finalRestore.name",
+              "summary": "QUICKNPC.negativeSkills.finalRestore.description",
+              "description": "QUICKNPC.negativeSkills.finalRestore.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "painfulMissNoAttackChoice": {
+      "label": "QUICKNPC.negativeSkills.painfulMiss.name",
+      "description": "QUICKNPC.negativeSkills.painfulMiss.description",
+      "choices": {
+        "target": {
+          "label": "QUICKNPC.negativeSkills.painfulMiss.target.label",
+          "options": {
+            "self": "QUICKNPC.negativeSkills.painfulMiss.target.self.label",
+            "ally": "QUICKNPC.negativeSkills.painfulMiss.target.ally.label"
+          }
+        }
+      },
+      "disallow": {
+        "attack": "strong"
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "painfulMiss": {
+              "name": "QUICKNPC.negativeSkills.painfulMiss.name",
+              "summary": "QUICKNPC.negativeSkills.painfulMiss.description",
+              "description": "QUICKNPC.negativeSkills.painfulMiss.ruleText.noChoice"
+            }
+          }
+        }
+      }
+    },
+    "painfulMissAttackChoice": {
+      "label": "QUICKNPC.negativeSkills.painfulMiss.name",
+      "description": "QUICKNPC.negativeSkills.painfulMiss.description",
+      "choices": {
+        "attack": {
+          "label": "QUICKNPC.negativeSkills.painfulMiss.attack.label",
+          "options": {
+            "normal": "QUICKNPC.negativeSkills.painfulMiss.attack.normal",
+            "strong": "QUICKNPC.negativeSkills.painfulMiss.attack.strong"
+          }
+        },
+        "target": {
+          "label": "QUICKNPC.negativeSkills.painfulMiss.target.label",
+          "options": {
+            "self": "QUICKNPC.negativeSkills.painfulMiss.target.self.label",
+            "ally": "QUICKNPC.negativeSkills.painfulMiss.target.ally.label"
+          }
+        }
+      },
+      "require": {
+        "attack": "strong"
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "painfulMiss": {
+              "name": "QUICKNPC.negativeSkills.painfulMiss.name",
+              "summary": "QUICKNPC.negativeSkills.painfulMiss.description",
+              "description": "QUICKNPC.negativeSkills.painfulMiss.ruleText.withChoice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

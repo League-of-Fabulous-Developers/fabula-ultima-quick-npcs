@@ -1,4 +1,5 @@
 import { AbstractChooseSkillStep } from './abstract-choose-skill-step.mjs';
+import { database } from '../../database.mjs';
 
 const bossSkillKey = 'bossSkills';
 const appliedBossSkillKey = 'appliedBossSkills';
@@ -9,28 +10,36 @@ export class ChooseBossSkillStep extends AbstractChooseSkillStep {
   }
 
   static getOptions(model, context) {
-    return context[bossSkillKey][0];
+    const options = {};
+
+    const db = database.typeData['boss-skill-list'];
+    Object.entries(db).forEach(([file, data]) =>
+      Object.entries(data.skills).forEach(
+        ([key, skill]) => (options[`${file}|${key}`] = { ...skill, group: data.name }),
+      ),
+    );
+
+    return options;
+  }
+
+  static getGroups(model, context) {
+    return Object.values(database.typeData['boss-skill-list']).map((data) => data.name);
   }
 
   /**
    * @param context
-   * @param {SkillOptions} options
    */
-  static addBossSkill(context, options) {
-    (context[bossSkillKey] ??= []).push(options);
-  }
-
-  static filterOptions(options, model, context) {
-    const applied = context[appliedBossSkillKey] ?? [];
-    return Object.fromEntries(Object.entries(options).filter(([key]) => !applied.includes(key)));
+  static addBossSkill(context) {
+    context[bossSkillKey] ??= 0;
+    context[bossSkillKey] += 1;
   }
 
   static shouldActivate(current, value, context) {
-    return context[bossSkillKey]?.length;
+    return context[bossSkillKey] > 0;
   }
 
   static markApplied(context, selected) {
-    context[bossSkillKey].shift();
+    context[bossSkillKey] -= 1;
     (context[appliedBossSkillKey] ??= []).push(selected);
   }
 }

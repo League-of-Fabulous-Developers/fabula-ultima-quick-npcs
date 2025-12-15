@@ -58,7 +58,7 @@
       "temporaryDefenses": {
         "choice": "Choose defensive Statistic",
         "def": "Defense",
-        "description": "Treat one of your defenses as a static vaue until you enter Crisis.",
+        "description": "Treat one of your defenses as a static value until you enter Crisis.",
         "mDef": "Magic Defense",
         "name": "Temporary Defenses",
         "ruleText": "<div>Quick Assembly Rules Preview V3 p17.</div><div>Chosen defensive statistic: {defense}</div>"
@@ -363,7 +363,10 @@
         },
         "description": "Deal damage to yourself or allies when you miss with your attacks.",
         "name": "Painful Miss",
-        "ruleText": "<div>Quick Assembly Rules Preview V3 p17.</div><div>Chosen Attack: {attack}</div><div>Chosen Target: {target}</div>",
+        "ruleText": {
+          "noChoice": "<div>Quick Assembly Rules Preview V3 p17.</div><div>Chosen Attack: Normal Attack</div><div>Chosen Target: {target}</div>",
+          "withChoice": "<div>Quick Assembly Rules Preview V3 p17.</div><div>Chosen Attack: {attack}</div><div>Chosen Target: {target}</div>"
+        },
         "target": {
           "ally": {
             "label": "Your Allies",
@@ -1335,6 +1338,10 @@
       "entropist": "Entropist Spells",
       "npc": "NPC Spells",
       "spiritist": "Spiritist Spells"
+    },
+    "skillList": {
+      "boss": "Bestiary Boss Skills",
+      "negative": "Bestiary Negative Skills"
     },
     "spells": {
       "costPerTarget": "{amount}xT MP",

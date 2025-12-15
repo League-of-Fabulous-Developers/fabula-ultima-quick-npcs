@@ -9,8 +9,8 @@ export class DesignerSpellList {
   #spells;
 
   constructor(data, filePath) {
-    this.#data = foundry.utils.deepFreeze(foundry.utils.deepClone(data.spellList));
     this.#name = data.name;
+    this.#data = foundry.utils.deepFreeze(foundry.utils.deepClone(data.spellList));
     this.#spells = Object.fromEntries(
       Object.entries(this.#data).map(([key, value]) => {
         let fullKey = `${filePath}|${key}`;
