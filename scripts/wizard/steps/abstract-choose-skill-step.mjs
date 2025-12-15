@@ -71,6 +71,15 @@ export class AbstractChooseSkillStep extends AbstractStep {
   }
 
   /**
+   * @param model
+   * @param context
+   * @return string[]
+   */
+  static getGroups(model, context) {
+    return undefined;
+  }
+
+  /**
    * @param {SkillOptions} options
    * @param {NpcDataModel} model
    * @param context
@@ -128,6 +137,7 @@ export class AbstractChooseSkillStep extends AbstractStep {
       selected,
       choices,
       selectedChoices,
+      groups: this.getGroups(current, context),
     };
   }
 

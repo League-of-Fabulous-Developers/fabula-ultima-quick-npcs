@@ -2,10 +2,8 @@ import { AbstractStep } from '../../stepper/abstract-step.mjs';
 import { Role } from '../roles/role.mjs';
 import { ChooseRoleSkillStep } from './choose-role-skill-step.mjs';
 import { ChooseBossSkillStep } from './choose-boss-skill-step.mjs';
-import { BossSkills } from '../../common/boss-skills.mjs';
 import { ChooseCustomizationStep } from './choose-customization-step.mjs';
 import { ChooseNegativeSkillStep } from './choose-negative-skill-step.mjs';
-import { NegativeSkills } from '../../common/negative-skills.mjs';
 
 const ranks = {
   soldier: 'QUICKNPC.rank.soldier',
@@ -69,14 +67,14 @@ export class SelectRankStep extends AbstractStep {
         Array.from({ length: replacedSoldiers }, () => {
           ChooseRoleSkillStep.addRoleSkill(context, role.roleSkills);
         });
-        ChooseBossSkillStep.addBossSkill(context, BossSkills.list);
+        ChooseBossSkillStep.addBossSkill(context);
       }
 
       if (['soldier', 'elite'].includes(model.rank)) {
         ChooseCustomizationStep.addCustomization(context, role.customizations);
       }
 
-      ChooseNegativeSkillStep.addNegativeSkill(context, NegativeSkills.list);
+      ChooseNegativeSkillStep.addNegativeSkill(context);
 
       return model;
     }
