@@ -1,5 +1,7 @@
 import { AbstractChooseSkillStep } from './abstract-choose-skill-step.mjs';
 import { database } from '../../database.mjs';
+import { ChooseRoleSkillStep } from './choose-role-skill-step.mjs';
+import { Role } from '../roles/role.mjs';
 
 const negativeSkillKey = 'negativeSkills';
 const appliedNegativeSkillKey = 'appliedNegativeSkills';
@@ -47,5 +49,9 @@ export class ChooseNegativeSkillStep extends AbstractChooseSkillStep {
   static markApplied(context, selected) {
     context[negativeSkillKey] -= 1;
     (context[appliedNegativeSkillKey] ??= []).push(selected);
+    if (selected !== 'none') {
+      const role = Role.getRole(context);
+      ChooseRoleSkillStep.addRoleSkill(context, role.roleSkills);
+    }
   }
 }
