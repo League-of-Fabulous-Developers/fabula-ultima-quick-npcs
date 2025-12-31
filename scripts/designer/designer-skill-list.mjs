@@ -276,11 +276,11 @@ export const designerSkillList = {
     description: 'QUICKNPC.designer.skill.improveDefenses.description',
     choices: {
       improvement: {
-        label: 'QUICKNPC.designer.skill.improveDefenses.description.choices.improvement.label',
+        label: 'QUICKNPC.designer.skill.improveDefenses.choices.improvement.label',
         options: (model, context) => {
           return ['defImprovement', 'mDefImprovement'].reduce((options, key) => {
             if (!Customizations.checkApplied(context, key)) {
-              options[key] = `QUICKNPC.designer.skill.improveDefenses.description.choices.improvement.${key}`;
+              options[key] = `QUICKNPC.designer.skill.improveDefenses.choices.improvement.${key}`;
             }
             return options;
           }, {});
