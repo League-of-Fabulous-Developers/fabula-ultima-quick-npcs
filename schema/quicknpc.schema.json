@@ -734,6 +734,12 @@
         "attack": {
           "type": "string"
         },
+        "anySpell": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "anyRule": {
           "type": "array",
           "items": {

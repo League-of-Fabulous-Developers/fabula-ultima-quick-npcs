@@ -14,6 +14,7 @@ import { Customizations } from './customizations.mjs';
  * @property {boolean} [anyNeutral]
  * @property {Rank[]} [rank]
  * @property {string} [attack]
+ * @property {string[]} [anySpell]
  * @property {string[]} [anyRule]
  * @property {string[]} [anyAction]
  * @property {string[]} [anyCustomization]
@@ -60,6 +61,10 @@ function checkRequire(require, model, context) {
 
   if (require.rank) {
     met = met && require.rank.includes(model.rank);
+  }
+
+  if (require.anySpell) {
+    met = met && require.anySpell.some((spell) => !!model.spells[spell]);
   }
 
   if (require.anyRule) {
