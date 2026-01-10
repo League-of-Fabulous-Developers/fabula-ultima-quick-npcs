@@ -19,63 +19,12 @@
         "dex": "d10"
       }
     ],
-    "skillsByLevel": [
-      {
-        "steps": [
-          {
-            "type": "AssignResistance",
-            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
-          },
-          {
-            "type": "AssignResistance",
-            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
-          }
-        ]
-      },
-      {
-        "steps": [
-          {
-            "type": "ChooseRoleSkill"
-          }
-        ]
-      },
-      {
-        "model": {
-          "bonuses": {
-            "def": 2,
-            "mDef": 1
-          }
-        }
-      },
-      {
-        "steps": [
-          {
-            "type": "ChooseRoleSkill"
-          }
-        ]
-      },
-      {
-        "steps": [
-          {
-            "type": "AssignStatusImmunity",
-            "options": ["shaken", "weak", "poisoned"]
-          },
-          {
-            "type": "AssignStatusImmunity",
-            "options": ["shaken", "weak", "poisoned"]
-          }
-        ]
-      },
-      {
-        "steps": [
-          {
-            "type": "ChooseRoleSkill"
-          }
-        ]
-      }
-    ],
     "baseline": {
       "model": {
+        "bonuses": {
+          "def": 2,
+          "mDef": 1
+        },
         "attacks": {
           "normal": {
             "name": "QUICKNPC.attacks.normal",
@@ -168,6 +117,61 @@
         }
       ]
     },
+    "skillsByLevel": [
+      {
+        "steps": [
+          {
+            "type": "AssignResistance",
+            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
+          },
+          {
+            "type": "AssignResistance",
+            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "model": {
+          "bonuses": {
+            "def": 2,
+            "mDef": 1
+          }
+        }
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "AssignStatusImmunity",
+            "options": ["shaken", "weak", "poisoned"]
+          },
+          {
+            "type": "AssignStatusImmunity",
+            "options": ["shaken", "weak", "poisoned"]
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      }
+    ],
     "customizations": {
       "sentinelAdditionalRoleSkill": {
         "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
@@ -272,15 +276,14 @@
           }
         }
       },
-      "normalAttackMagic": {
-        "label": "QUICKNPC.commonSkills.normalAttackMagic.name",
-        "description": "QUICKNPC.commonSkills.normalAttackMagic.description",
+      "normalAttackIgnoreReistance": {
+        "label": "QUICKNPC.commonSkills.normalAttackIgnoreResistance.name",
+        "description": "QUICKNPC.commonSkills.normalAttackIgnoreResistance.description",
         "changes": {
           "model": {
             "attacks": {
               "normal": {
-                "targetDefense": "mDef",
-                "special": ["QUICKNPC.attacks.special.targetsMDef"]
+                "special": ["QUICKNPC.attacks.special.ignoreResistance"]
               }
             }
           }
@@ -296,9 +299,7 @@
               "dazed": "QUICKNPC.statusEffects.dazed",
               "shaken": "QUICKNPC.statusEffects.shaken",
               "slow": "QUICKNPC.statusEffects.slow",
-              "weak": "QUICKNPC.statusEffects.weak",
-              "enraged": "QUICKNPC.statusEffects.enraged",
-              "poisoned": "QUICKNPC.statusEffects.poisoned"
+              "weak": "QUICKNPC.statusEffects.weak"
             }
           }
         },
@@ -427,7 +428,8 @@
           }
         },
         "disallow": {
-          "anyRule": ["avenge"]
+          "anyRule": ["avenge"],
+          "rank": ["soldier"]
         },
         "changes": {
           "model": {
@@ -465,7 +467,8 @@
           }
         },
         "disallow": {
-          "anyRule": ["avenge"]
+          "anyRule": ["avenge"],
+          "rank": ["soldier"]
         },
         "changes": {
           "model": {

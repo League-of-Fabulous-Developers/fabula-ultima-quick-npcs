@@ -16,7 +16,7 @@
       "ranged": "Ranged",
       "special": {
         "causesStatus": "Targets hit by this attack suffer {status}",
-        "ignoreResistance": "Damage dealt by this attack ignores Resistance.",
+        "ignoreResistance": "Damage dealt by this attack ignores Resistances.",
         "multi2": "<b>Multi (2)</b>",
         "targetsMDef": "This attack targets Magic Defense instead of Defense."
       },
@@ -92,6 +92,10 @@
       "none": {
         "description": "Don't add a Skill.",
         "name": "None"
+      },
+      "normalAttackIgnoreResistance": {
+        "description": "Damage dealt by Normal Attack ignores Resistances.",
+        "name": "Normal Attack Ignore Resistances"
       },
       "normalAttackMagic": {
         "description": "Normal Attack targets M.DEF instead of DEF",
