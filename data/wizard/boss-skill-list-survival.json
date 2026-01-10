@@ -1,0 +1,169 @@
+{
+  "type": "boss-skill-list",
+  "name": "QUICKNPC.skillList.boss.survival",
+  "skillList": {
+    "adaptiveAffinities": {
+      "label": "QUICKNPC.bossSkills.adaptiveAffinities.name",
+      "description": "QUICKNPC.bossSkills.adaptiveAffinities.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "adaptiveAffinities": {
+              "name": "QUICKNPC.bossSkills.adaptiveAffinities.name",
+              "summary": "QUICKNPC.bossSkills.adaptiveAffinities.description",
+              "description": "QUICKNPC.bossSkills.adaptiveAffinities.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "camouflage": {
+      "label": "QUICKNPC.bossSkills.camouflage.name",
+      "description": "QUICKNPC.bossSkills.camouflage.description",
+      "choices": {
+        "effect": {
+          "label": "QUICKNPC.bossSkills.camouflage.choices.effect.label",
+          "options": {
+            "invisible": "QUICKNPC.bossSkills.camouflage.choices.effect.invisible",
+            "untargetableMelee": "QUICKNPC.bossSkills.camouflage.choices.effect.untargetableMelee",
+            "untargetableRangedSpells": "QUICKNPC.bossSkills.camouflage.choices.effect.untargetableRangedSpells"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "camouflage": {
+              "name": "QUICKNPC.bossSkills.camouflage.name",
+              "summary": "QUICKNPC.bossSkills.camouflage.description",
+              "description": "QUICKNPC.bossSkills.camouflage.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "catchMeIfYouCan": {
+      "label": "QUICKNPC.bossSkills.catchMeIfYouCan.name",
+      "description": "QUICKNPC.bossSkills.catchMeIfYouCan.description",
+      "changes": {
+        "model": {
+          "actions": {
+            "catchMeIfYouCan": {
+              "name": "QUICKNPC.bossSkills.catchMeIfYouCan.name",
+              "summary": "QUICKNPC.bossSkills.catchMeIfYouCan.description",
+              "description": "QUICKNPC.bossSkills.catchMeIfYouCan.actionText"
+            }
+          }
+        }
+      }
+    },
+    "defensiveStance": {
+      "label": "QUICKNPC.bossSkills.defensiveStance.name",
+      "description": "QUICKNPC.bossSkills.defensiveStance.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "defensiveStance": {
+              "name": "QUICKNPC.bossSkills.defensiveStance.name",
+              "summary": "QUICKNPC.bossSkills.defensiveStance.description",
+              "description": "QUICKNPC.bossSkills.defensiveStance.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "regeneration": {
+      "label": "QUICKNPC.bossSkills.regeneration.name",
+      "description": "QUICKNPC.bossSkills.regeneration.description",
+      "choices": {
+        "resource": {
+          "label": "QUICKNPC.commonChoices.resource",
+          "options": {
+            "hp": "QUICKNPC.resource.hp",
+            "mp": "QUICKNPC.resource.mp"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "regeneration": {
+              "name": "QUICKNPC.bossSkills.regeneration.name",
+              "summary": "QUICKNPC.bossSkills.regeneration.description",
+              "description": "QUICKNPC.bossSkills.regeneration.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "secondWind": {
+      "label": "QUICKNPC.bossSkills.secondWind.name",
+      "description": "QUICKNPC.bossSkills.secondWind.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "secondWind": {
+              "name": "QUICKNPC.bossSkills.secondWind.name",
+              "summary": "QUICKNPC.bossSkills.secondWind.description",
+              "description": "QUICKNPC.bossSkills.secondWind.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "temporaryDefenses": {
+      "label": "QUICKNPC.bossSkills.temporaryDefenses.name",
+      "description": "QUICKNPC.bossSkills.temporaryDefenses.description",
+      "choices": {
+        "defense": {
+          "label": "QUICKNPC.bossSkills.temporaryDefenses.choice",
+          "options": {
+            "def": "QUICKNPC.bossSkills.temporaryDefenses.def",
+            "mDef": "QUICKNPC.bossSkills.temporaryDefenses.mDef"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "temporaryDefenses": {
+              "name": "QUICKNPC.bossSkills.temporaryDefenses.name",
+              "summary": "QUICKNPC.bossSkills.temporaryDefenses.description",
+              "description": "QUICKNPC.bossSkills.temporaryDefenses.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "undo": {
+      "label": "QUICKNPC.bossSkills.undo.name",
+      "description": "QUICKNPC.bossSkills.undo.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "undo": {
+              "name": "QUICKNPC.bossSkills.undo.name",
+              "summary": "QUICKNPC.bossSkills.undo.description",
+              "description": "QUICKNPC.bossSkills.undo.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "vampiricFormation": {
+      "label": "QUICKNPC.bossSkills.vampiricFormation.name",
+      "description": "QUICKNPC.bossSkills.vampiricFormation.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "vampiricFormation": {
+              "name": "QUICKNPC.bossSkills.vampiricFormation.name",
+              "summary": "QUICKNPC.bossSkills.vampiricFormation.description",
+              "description": "QUICKNPC.bossSkills.vampiricFormation.ruleText"
+            }
+          }
+        }
+      }
+    }
+  }
+}

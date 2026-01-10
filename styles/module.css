@@ -421,6 +421,10 @@
       .secondary {
         font-size: 100%;
         margin-top: 0.5rem;
+
+        .bound {
+          font-size: 80%;
+        }
       }
 
       .conditional-bonus-skill-step {

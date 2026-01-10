@@ -10,13 +10,24 @@
     {{#each choices}}
         <hr/>
         <label class="secondary">
-            {{localize label}}
+            {{localize label}}<br />
+            {{#if multi.min}}
+                <span class="bound">{{localize 'QUICKNPC.wizard.min' min=multi.min}}</span>
+            {{/if}}
+            {{#if multi.max}}
+                <span class="bound">{{localize 'QUICKNPC.wizard.max' max=multi.max}}</span>
+            {{/if}}
             {{#if options}}
-                <select name="choice.{{@key}}">
-                    {{selectOptions options selected=(lookup ../selectedChoices @key)
-                                    blank='QUICKNPC.step.chooseSkill.blank' localize=true}}
-                </select>
-
+                {{#if multi}}
+                    <multi-select name="choice.{{@key}}">
+                        {{selectOptions options selected=(lookup ../selectedChoices @key) localize=true}}
+                    </multi-select>
+                {{else}}
+                    <select name="choice.{{@key}}">
+                        {{selectOptions options selected=(lookup ../selectedChoices @key)
+                                        blank='QUICKNPC.step.chooseSkill.blank' localize=true}}
+                    </select>
+                {{/if}}
             {{else}}
                 {{#if (eq editor 'textfield')}}
                         <input type="text" name="choice.{{@key}}" value="{{lookup ../selectedChoices @key}}"/>

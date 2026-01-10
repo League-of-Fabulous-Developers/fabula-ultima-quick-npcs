@@ -15,6 +15,7 @@ import { checkPrerequisites } from '../../common/requirements.mjs';
  * @property {Record<string, string>} options
  * @property {Record<string, string>} [conditional]
  * @property {string} [group]
+ * @property {{min: number, max: number}} [multi]
  */
 
 /**
@@ -144,15 +145,36 @@ export class AbstractChooseSkillStep extends AbstractStep {
   apply(model, context) {
     const options = this.constructor.getOptions(model, context);
     const selectedSkill = options[this.#skill];
-    if (!selectedSkill || !this.#choicesValid(selectedSkill, this.#choices)) {
+
+    if (!selectedSkill) {
       return false;
     }
-    const result = selectedSkill.apply(model, context, this.#choices);
+
+    const cleanedChoices = this.#cleanChoices(selectedSkill, this.#choices);
+
+    if (!this.#choicesValid(selectedSkill, cleanedChoices)) {
+      return false;
+    }
+    const result = selectedSkill.apply(model, context, cleanedChoices);
     if (result === false) {
       return false;
     }
     this.constructor.markApplied(context, this.#skill);
     return model;
+  }
+
+  #cleanChoices(selectedSkill, choices) {
+    return Object.fromEntries(
+      Object.entries(selectedSkill.choices ?? {})
+        .filter(
+          ([, value]) =>
+            !value.conditional ||
+            Object.entries(value.conditional).every(
+              ([conditionKey, conditionValue]) => conditionValue === choices[conditionKey],
+            ),
+        )
+        .map(([key]) => [key, choices[key]]),
+    );
   }
 
   /**
@@ -172,7 +194,20 @@ export class AbstractChooseSkillStep extends AbstractStep {
           Object.entries(value.conditional).every(([condition, value]) => choices[condition] === value)
         );
       })
-      .every(([key, value]) => !!value.options[choices[key]]);
+      .every(([key, value]) => {
+        const formValue = choices[key];
+        if (value.multi) {
+          return (
+            Array.isArray(formValue) &&
+            formValue.length >= (value.multi.min ?? 1) &&
+            formValue.length <= (value.multi.max ?? Number.MAX_VALUE) &&
+            formValue.every((item) => item in value.options)
+          );
+        } else {
+          return !!value.options[formValue];
+        }
+      });
+
     if (individualValuesValid) {
       /** @type {Record<string, string[]>} */
       const groups = {};

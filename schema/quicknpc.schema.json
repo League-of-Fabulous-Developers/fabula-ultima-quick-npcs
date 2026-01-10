@@ -317,6 +317,9 @@
         "summary": {
           "type": "string"
         },
+        "description": {
+          "type": "string"
+        },
         "cost": {
           "type": "integer"
         },
@@ -679,6 +682,17 @@
               "properties": {
                 "label": {
                   "type": "string"
+                },
+                "multi": {
+                  "type": "object",
+                  "properties": {
+                    "min": {
+                      "type": "number"
+                    },
+                    "max": {
+                      "type": "number"
+                    }
+                  }
                 },
                 "options": {
                   "type": "object",

@@ -1,0 +1,181 @@
+{
+  "type": "boss-skill-list",
+  "name": "QUICKNPC.skillList.boss.control",
+  "skillList": {
+    "autoCounter": {
+      "label": "QUICKNPC.bossSkills.autoCounter.name",
+      "description": "QUICKNPC.bossSkills.autoCounter.description",
+      "choices": {
+        "reaction": {
+          "label": "QUICKNPC.bossSkills.autoCounter.choices.reaction.label",
+          "options": {
+            "attack": "QUICKNPC.bossSkills.autoCounter.choices.reaction.attack",
+            "spell": "QUICKNPC.bossSkills.autoCounter.choices.reaction.spell"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "autoCounter": {
+              "name": "QUICKNPC.bossSkills.autoCounter.name",
+              "summary": "QUICKNPC.bossSkills.autoCounter.description",
+              "description": "QUICKNPC.bossSkills.autoCounter.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "crisisStatus": {
+      "label": "QUICKNPC.bossSkills.crisisStatus.name",
+      "description": "QUICKNPC.bossSkills.crisisStatus.description",
+      "choices": {
+        "status": {
+          "label": "QUICKNPC.commonChoices.status",
+          "multi": {
+            "max": 2
+          },
+          "options": {
+            "dazed": "QUICKNPC.statusEffects.dazed",
+            "shaken": "QUICKNPC.statusEffects.shaken",
+            "slow": "QUICKNPC.statusEffects.slow",
+            "weak": "QUICKNPC.statusEffects.weak",
+            "enraged": "QUICKNPC.statusEffects.enraged",
+            "poisoned": "QUICKNPC.statusEffects.poisoned"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "crisisStatus": {
+              "name": "QUICKNPC.bossSkills.crisisStatus.name",
+              "summary": "QUICKNPC.bossSkills.crisisStatus.description",
+              "description": "QUICKNPC.bossSkills.crisisStatus.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "markOfSharedPain": {
+      "label": "QUICKNPC.bossSkills.markOfSharedPain.name",
+      "description": "QUICKNPC.bossSkills.markOfSharedPain.description",
+      "choices": {
+        "markSource": {
+          "label": "QUICKNPC.bossSkills.markOfSharedPain.choices.markSource.label",
+          "options": {
+            "boss": "QUICKNPC.bossSkills.markOfSharedPain.choices.markSource.boss",
+            "ally": "QUICKNPC.bossSkills.markOfSharedPain.choices.markSource.ally"
+          }
+        },
+        "markTrigger": {
+          "label": "QUICKNPC.bossSkills.markOfSharedPain.choices.markTrigger.label",
+          "options": {
+            "attack": "QUICKNPC.bossSkills.markOfSharedPain.choices.markTrigger.attack",
+            "spell": "QUICKNPC.bossSkills.markOfSharedPain.choices.markTrigger.spell"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "markOfSharedPain": {
+              "name": "QUICKNPC.bossSkills.markOfSharedPain.name",
+              "summary": "QUICKNPC.bossSkills.markOfSharedPain.description",
+              "description": "QUICKNPC.bossSkills.markOfSharedPain.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "observeAndPunish": {
+      "label": "QUICKNPC.bossSkills.observeAndPunish.name",
+      "description": "QUICKNPC.bossSkills.observeAndPunish.description",
+      "choices": {
+        "trigger": {
+          "label": "QUICKNPC.bossSkills.observeAndPunish.choices.trigger.label",
+          "options": {
+            "boss": "QUICKNPC.bossSkills.observeAndPunish.choices.trigger.boss",
+            "ally": "QUICKNPC.bossSkills.observeAndPunish.choices.trigger.ally",
+            "action": "QUICKNPC.bossSkills.observeAndPunish.choices.trigger.action"
+          }
+        },
+        "status": {
+          "label": "QUICKNPC.commonChoices.status",
+          "options": {
+            "dazed": "QUICKNPC.statusEffects.dazed",
+            "shaken": "QUICKNPC.statusEffects.shaken",
+            "slow": "QUICKNPC.statusEffects.slow",
+            "weak": "QUICKNPC.statusEffects.weak"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "observeAndPunish": {
+              "name": "QUICKNPC.bossSkills.observeAndPunish.name",
+              "summary": "QUICKNPC.bossSkills.observeAndPunish.description",
+              "description": "QUICKNPC.bossSkills.observeAndPunish.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "tyrantsDecree": {
+      "label": "QUICKNPC.bossSkills.tyrantsDecree.name",
+      "description": "QUICKNPC.bossSkills.tyrantsDecree.description",
+      "choices": {
+        "actions": {
+          "label": "QUICKNPC.bossSkills.tyrantsDecree.choices.actions.label",
+          "multi": {
+            "max": 3
+          },
+          "options": {
+            "attack": "QUICKNPC.actions.attack",
+            "guard": "QUICKNPC.actions.guard",
+            "hinder": "QUICKNPC.actions.hinder",
+            "inventory": "QUICKNPC.actions.inventory",
+            "objective": "QUICKNPC.actions.objective",
+            "spell": "QUICKNPC.actions.spell",
+            "skill": "QUICKNPC.actions.skill"
+          }
+        },
+        "sanction": {
+          "label": "QUICKNPC.bossSkills.tyrantsDecree.choices.sanction.label",
+          "options": {
+            "hinder": "QUICKNPC.bossSkills.tyrantsDecree.choices.sanction.hinder",
+            "attack": "QUICKNPC.bossSkills.tyrantsDecree.choices.sanction.attack",
+            "spell": "QUICKNPC.bossSkills.tyrantsDecree.choices.sanction.spell"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "actions": {
+            "tyrantsDecree": {
+              "name": "QUICKNPC.bossSkills.tyrantsDecree.name",
+              "summary": "QUICKNPC.bossSkills.tyrantsDecree.description",
+              "description": "QUICKNPC.bossSkills.tyrantsDecree.actionText"
+            }
+          }
+        }
+      }
+    },
+    "youJustProvedMyPoint": {
+      "label": "QUICKNPC.bossSkills.youJustProvedMyPoint.name",
+      "description": "QUICKNPC.bossSkills.youJustProvedMyPoint.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "youJustProvedMyPoint": {
+              "name": "QUICKNPC.bossSkills.youJustProvedMyPoint.name",
+              "summary": "QUICKNPC.bossSkills.youJustProvedMyPoint.description",
+              "description": "QUICKNPC.bossSkills.youJustProvedMyPoint.ruleText"
+            }
+          }
+        }
+      }
+    }
+  }
+}

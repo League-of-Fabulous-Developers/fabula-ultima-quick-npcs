@@ -7,6 +7,7 @@
       "hinder": "Hinder",
       "inventory": "Inventory",
       "objective": "Objective",
+      "skill": "Skill",
       "spell": "Spell",
       "study": "Study"
     },
@@ -35,25 +36,258 @@
       "wlp": "WLP"
     },
     "bossSkills": {
+      "adaptiveAffinities": {
+        "name": "Adaptive Affinities",
+        "description": "Change your Affinities in response to damage.",
+        "ruleText": "<div>Bestiary Volume I p66</div>"
+      },
+      "attrition": {
+        "name": "Attrition",
+        "description": "Retaliate when losing an Opposed Check.",
+        "ruleText": {
+          "default": "<div>Bestiary Volume I p62</div><div>Status: {status}</div><div>Effect: {effect}</div>",
+          "additionalStatus": "<div>Bestiary Volume I p62</div><div>Status: {status}</div><div>Effect: {effect}</div><div>Additional Status: {additionalStatus}</div>"
+        },
+        "choices": {
+          "effect": {
+            "label": "Choose Effect",
+            "drainHp": "Drain HP",
+            "drainMp": "Drain MP",
+            "additionalStatus": "Additional Status Effect"
+          },
+          "additionalStatus": {
+            "label": "Choose additional Status Effect"
+          }
+        }
+      },
+      "auraOfSuffering": {
+        "name": "Aura of Suffering",
+        "description": "Prevent recovery from a specific Status Effects.",
+        "ruleText": "<div>Bestiary Volume I p55</div><div>Status: {status}</div>"
+      },
+      "autoCounter": {
+        "name": "Auto-Counter",
+        "description": "Retaliate when taking damage.",
+        "ruleText": "<div>Bestiary Volume I p56</div><div>Reaction: {reaction}</div>",
+        "choices": {
+          "reaction": {
+            "label": "Choose Reaction",
+            "attack": "Normal Attack",
+            "spell": "Specific Spell"
+          }
+        }
+      },
+      "binaryElements": {
+        "name": "Binary Elements",
+        "description": "Regularly switch between opposing affinities.",
+        "ruleText": "<div>Bestiary Volume I p60</div><div>Elemental Pairings: {elements}</div>",
+        "choices": {
+          "elements": {
+            "label": "Choose elemental pairings",
+            "airEarth": "air/earth",
+            "darkLight": "dark/light",
+            "fireIce": "fire/ice"
+          }
+        }
+      },
+      "callReinforcements": {
+        "name": "Call Reinforcements",
+        "description": "Use Ultima Points to summon reinforcements.",
+        "actionText": "<div>Bestiary Volume I p64</div>"
+      },
+      "camouflage": {
+        "name": "Camouflage",
+        "description": "Become temporarily untargetable.",
+        "ruleText": "<div>Bestiary Volume I p66</div><div>Effect: {effect}</div>",
+        "choices": {
+          "effect": {
+            "label": "Choose Effect",
+            "invisible": "Become Invisible",
+            "untargetableMelee": "Become untargetable by Melee Attacks",
+            "untargetableRangedSpells": "Become untargetable by Spells and Ranged Attacks"
+          }
+        }
+      },
+      "catastropheCharger": {
+        "name": "Catastrophe Charger",
+        "description": "Charge a devastating explosion using the MP of your allies.",
+        "actionText": "<div>Bestiary Volume I p58</div><div>Damage Type: {damageType}</div><div>Status: {status}</div>"
+      },
+      "catchMeIfYouCan": {
+        "name": "Catch Me If You Can",
+        "description": "Use a Pursuit Clock to stay out of range of the PCs.",
+        "actionText": "<div>Bestiary Volume I p66</div>"
+      },
       "corrosiveStatus": {
-        "actionText": "<div>Quick Assembly Rules Preview V3 p16.</div><div>Damage: {damageType}</div><div>Status: {status}</div>",
+        "actionText": "<div>Bestiary Volume I p58.</div><div>Damage: {damageType}</div><div>Status: {status}</div>",
         "description": "Deal damage to enemies suffering from a particular status.",
         "name": "Corrosive Status"
+      },
+      "countdown": {
+        "name": "Countdown",
+        "description": "Use a Countdown Clock to increase the pressure.",
+        "ruleText": "<div>Bestiary Volume I p62</div>"
+      },
+      "counterSummoning": {
+        "name": "Counter-Summoning",
+        "description": "Summon reinforcements in response to damage.",
+        "ruleText": "<div>Bestiary Volume I p64</div>"
+      },
+      "crisisStatus": {
+        "name": "Crisis Status",
+        "description": "Afflict enemies with specific statuses when entering crisis.",
+        "ruleText": "<div>Bestiary Volume I p56</div><div>Status(es): {status}</div>"
+      },
+      "cruelTwist": {
+        "name": "Cruel Twist",
+        "description": "Swap the fill state of two clocks.",
+        "ruleText": "<div>Bestiary Volume I p62</div>"
       },
       "crushingAdvantage": {
         "description": "Fill or empty clocks without having to perform checks.",
         "name": "Crushing Advantage",
-        "ruleText": "<div>Quick Assembly Rules Preview V3 p16.</div>"
+        "ruleText": "<div>Bestiary Volume I p63</div>"
+      },
+      "defensiveStance": {
+        "name": "Defensive Stance",
+        "description": "Reduce damage taken.",
+        "ruleText": "<div>Bestiary Volume I p66</div>"
+      },
+      "destructiveFormation": {
+        "name": "Destructive Formation",
+        "description": "Use your allies to deal damage to all enemies.",
+        "actionText": "<div>Bestiary Volume I p58</div><div>Damage Type: {damageType}</div>"
+      },
+      "devastation": {
+        "name": "Devastation",
+        "description": "Gain access to the Devastation spell."
+      },
+      "doom": {
+        "name": "Doom",
+        "description": "Ready your Ultimate Move using a Doom Clock.",
+        "actionText": "<div>Bestiary Volume I p59</div>"
       },
       "elementalCrisis": {
         "description": "Change elemental affinities and damages type once you enter Crisis.",
         "name": "Elemental Crisis",
-        "ruleText": "<div>Quick Assembly Rules Preview V3 p16.</div>"
+        "ruleText": "<div>Bestiary Volume I p60</div>"
+      },
+      "elementalStance": {
+        "name": "Elemental Stance",
+        "description": "Cycle through elementally aligned stances.",
+        "ruleText": "<div>Bestiary Volume I p61</div><div>Stance Change Trigger: {trigger}</div><div>Stances: {stances}</div>",
+        "choices": {
+          "trigger": {
+            "label": "Choose Stance Change Trigger",
+            "attack": "After Normal Attack",
+            "guard": "After Guard Action",
+            "vulnerability": "After Vulnerability Hit",
+            "combatRound": "End of Combat Round"
+          },
+          "stances": {
+            "label": "Available Stances",
+            "air": "Air Stance",
+            "bolt": "Bolt Stance",
+            "dark": "Dark Stance",
+            "earth": "Earth Stance",
+            "fire": "Fire Stance",
+            "ice": "Ice Stance",
+            "light": "Light Stance"
+          }
+        }
+      },
+      "emergencyReinforcements": {
+        "name": "Emergency Reinforcements",
+        "description": "Summon reinforcements while in Crisis.",
+        "ruleText": "<div>Bestiary Volume I p65</div>"
+      },
+      "hellishGamble": {
+        "name": "Hellish Gamble",
+        "description": "Randomly blast the battlefield, to devastating effect.",
+        "actionText": "<div>Bestiary Volume I p59</div><div>Damage Type: {damageType}</div>"
+      },
+      "iKnowYouWell": {
+        "name": "I Know You Well",
+        "description": "Obstruct the PCs using their own traits.",
+        "ruleText": "<div>Bestiary Volume I p63</div>"
+      },
+      "lifeAndDeath": {
+        "name": "Life and Death",
+        "description": "Amplify changes to HP.",
+        "ruleText": "<div>Bestiary Volume I p55</div>"
+      },
+      "markOfSharedPain": {
+        "name": "Mark of Shared Pain",
+        "description": "Mark enemies and partially redirect incoming damage to marked targets.",
+        "ruleText": "<div>Bestiary Volume I p56</div><div>Mark Source: {markSource}</div><div>Mark Trigger: {markTrigger}</div>",
+        "choices": {
+          "markSource": {
+            "label": "Choose source of the Marks",
+            "boss": "Boss",
+            "ally": "Ally"
+          },
+          "markTrigger": {
+            "label": "Choose what applies a Mark",
+            "attack": "Normal Attacks",
+            "spell": "Offensive Spells"
+          }
+        }
+      },
+      "nearAndFar": {
+        "name": "Near and Far",
+        "description": "Restrict when creatures can be targeted by attacks.",
+        "ruleText": "<div>Bestiary Volume I p55</div><div>Restricted: {restriction}</div>",
+        "choices": {
+          "restriction": {
+            "label": "Choose Restricted Attacks",
+            "restrictMelee": "Melee Attacks",
+            "restrictRanged": "Ranged Attacks",
+            "restrictBoth": "Melee & Ranged Attacks"
+          }
+        }
+      },
+      "nihilo": {
+        "name": "Nihilo",
+        "description": "Banish persistent magic.",
+        "actionText": "<div>Bestiary Volume I p59</div>"
+      },
+      "observeAndPunish": {
+        "name": "Observe and Punish",
+        "description": "Severely punish whoever draws your ire.",
+        "ruleText": "<div>Bestiary Volume I p57</div><div>Trigger: {trigger}</div><div>Status: {status}</div>",
+        "choices": {
+          "trigger": {
+            "label": "Choose Trigger",
+            "boss": "Dealt damage to the Boss",
+            "ally": "Dealt damage to an ally of the Boss",
+            "action": "Used the Spell or Skill action"
+          }
+        }
       },
       "partRegeneration": {
         "description": "Recover from status effects and summon reinforcements when you enter Crisis.",
         "name": "Part Regeneration",
-        "ruleText": "<div>Quick Assembly Rules Preview V3 p16.</div>"
+        "ruleText": "<div>Bestiary Volume I p65.</div>"
+      },
+      "perfectCoordination": {
+        "name": "Perfect Coordination",
+        "description": "Allies can spend your Ultima Points for rerolls.",
+        "ruleText": "<div>Bestiary Volume I p65</div>"
+      },
+      "regeneration": {
+        "name": "Regeneration",
+        "description": "Recover your resources while in Crisis.",
+        "ruleText": "<div>Bestiary Volume I p66</div><div>Resource: {resource}</div>"
+      },
+      "ruinousInfluence": {
+        "name": "Ruinous Influence",
+        "description": "Force the PCs to fumble on an Opposed Check.",
+        "ruleText": "<div>Bestiary Volume I p63</div>"
+      },
+      "secondWind": {
+        "name": "Second Wind",
+        "description": "Recover HP and remove Status Effects the first time you enter Crisis.",
+        "ruleText": "<div>Bestiary Volume I p67</div>"
       },
       "temporaryDefenses": {
         "choice": "Choose defensive Statistic",
@@ -61,19 +295,52 @@
         "description": "Treat one of your defenses as a static value until you enter Crisis.",
         "mDef": "Magic Defense",
         "name": "Temporary Defenses",
-        "ruleText": "<div>Quick Assembly Rules Preview V3 p17.</div><div>Chosen defensive statistic: {defense}</div>"
+        "ruleText": "<div>Bestiary Volume I p67.</div><div>Chosen defensive statistic: {defense}</div>"
+      },
+      "tyrantsDecree": {
+        "name": "Tyrant's Decree",
+        "description": "Forbid the use of certain actions, sanction those who break the decree.",
+        "actionText": "<div>Bestiary Volume I p57</div><div>Action(s): {actions}</div><div>Sanction: {sanction}</div>",
+        "choices": {
+          "actions": {
+            "label": "Choose sanctionable Actions"
+          },
+          "sanction": {
+            "label": "Choose Sanction",
+            "hinder": "Hinder action",
+            "attack": "Normal Attack",
+            "spell": "Offensive Spell"
+          }
+        }
+      },
+      "undo": {
+        "name": "Undo",
+        "description": "Rewind time to avoid getting taken out.",
+        "ruleText": "<div>Bestiary Volume I p67</div>"
+      },
+      "vampiricFormation": {
+        "name": "Vampiric Formation",
+        "description": "Gain lifesteal while you have allies.",
+        "ruleText": "<div>Bestiary Volume I p67</div>"
+      },
+      "youJustProvedMyPoint": {
+        "name": "You Just Proved My Point",
+        "description": "Make using Fabula Points a risky proposition.",
+        "ruleText": "<div>Bestiary Volume I p57</div>"
       },
       "zombification": {
         "description": "Invert healing to damage when the target suffers from a certain status effect.",
         "name": "Zombification",
-        "ruleText": "<div>Quick Assembly Rules Preview V3 p17.</div><div>Chosen status: {status}</div>"
+        "ruleText": "<div>Bestiary Volume I p55.</div><div>Chosen status: {status}</div>"
       }
     },
     "commonChoices": {
       "attribute": "Choose Attribute",
       "damageType": "Choose Damage Type",
       "resource": "Choose Resource",
-      "status": "Choose Status Effect"
+      "status": "Choose Status Effect",
+      "status1": "First Status Effect",
+      "status2": "Second Status Effect"
     },
     "commonSkills": {
       "additionalRoleSkill": {
@@ -1356,7 +1623,15 @@
       "spiritist": "Spiritist Spells"
     },
     "skillList": {
-      "boss": "Bestiary Boss Skills",
+      "boss": {
+        "battlefield": "Battlefield Boss Skills",
+        "control": "Control Boss Skills",
+        "destructive": "Destructive Boss Skills",
+        "elemental": "Elemental Boss Skills",
+        "objective": "Objective Boss Skills",
+        "summoner": "Summoner Boss Skills",
+        "survival": "Survival Boss Skills"
+      },
       "negative": "Bestiary Negative Skills"
     },
     "spells": {
@@ -1535,7 +1810,9 @@
       "back": "Back",
       "next": "Next",
       "open": "Open Quick NPC Wizard",
-      "title": "Quick NPC Wizard"
+      "title": "Quick NPC Wizard",
+      "min": "Min: {min}",
+      "max": "Max: {max}"
     }
   }
 }
