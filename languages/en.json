@@ -1290,6 +1290,11 @@
         "name": "Shell",
         "spellText": "Until this spell ends, you gain Resistance to <b>physical</b> damage."
       },
+      "soulShroud": {
+        "description": "Grant up to three targets Resistance to a non-elemental damage type.",
+        "name": "Soul Shroud",
+        "spellText": "Choose a damage type: <b>dark</b>, <b>light</b> or <b>poison</b>. Until this spell ends, each target gains Resistance against the chosen damage type."
+      },
       "soulWeapon": {
         "description": "Enchant a weapon to deal light damage.",
         "name": "Soul Weapon",
