@@ -441,9 +441,16 @@
     "role": {
       "brute": {
         "badTemper": {
-          "description": "Gain almost total status effect immunity while in Crisis.",
+          "description": "Gain bonuses while in Crisis.",
           "name": "Bad Temper",
-          "ruleText": "<div>Quick Assembly Rules Preview V3 p4</div>"
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p4</div><div>Crisis effect: {effect}</div>",
+          "choices": {
+            "effect": {
+              "label": "Choose Crisis effect",
+              "statusImmunity": "Immunity to status effects, except enraged.",
+              "extraDamage": "Normal attack deals 5 extra damage."
+            }
+          }
         },
         "collapse": {
           "description": "Fill a Clock when Strong Attack misses, deal damage when the clock fills.",

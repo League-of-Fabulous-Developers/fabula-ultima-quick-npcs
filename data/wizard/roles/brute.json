@@ -19,55 +19,6 @@
         "wlp": "d10"
       }
     ],
-    "skillsByLevel": [
-      {
-        "steps": [
-          {
-            "type": "AssignResistance",
-            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
-          },
-          {
-            "type": "AssignResistance",
-            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
-          }
-        ]
-      },
-      {
-        "steps": [
-          {
-            "type": "ChooseRoleSkill"
-          }
-        ]
-      },
-      {
-        "steps": [
-          {
-            "type": "AssignImmunity"
-          }
-        ]
-      },
-      {
-        "steps": [
-          {
-            "type": "ChooseRoleSkill"
-          }
-        ]
-      },
-      {
-        "model": {
-          "bonuses": {
-            "hp": 10
-          }
-        }
-      },
-      {
-        "steps": [
-          {
-            "type": "ChooseRoleSkill"
-          }
-        ]
-      }
-    ],
     "baseline": {
       "model": {
         "bonuses": {
@@ -114,6 +65,53 @@
         }
       ]
     },
+    "skillsByLevel": [
+      {
+        "steps": [
+          {
+            "type": "AssignResistance"
+          },
+          {
+            "type": "AssignResistance"
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "AssignImmunity"
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "model": {
+          "bonuses": {
+            "hp": 10
+          }
+        }
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      }
+    ],
     "roleSkills": {
       "statusImmunities": {
         "label": "QUICKNPC.role.brute.statusImmunities.name",
@@ -308,6 +306,15 @@
       "badTemper": {
         "label": "QUICKNPC.role.brute.badTemper.name",
         "description": "QUICKNPC.role.brute.badTemper.description",
+        "choices": {
+          "effect": {
+            "label": "QUICKNPC.role.brute.badTemper.choices.effect.label",
+            "options": {
+              "statusImmunity": "QUICKNPC.role.brute.badTemper.choices.effect.statusImmunity",
+              "extraDamage": "QUICKNPC.role.brute.badTemper.choices.effect.extraDamage"
+            }
+          }
+        },
         "changes": {
           "model": {
             "rules": {
