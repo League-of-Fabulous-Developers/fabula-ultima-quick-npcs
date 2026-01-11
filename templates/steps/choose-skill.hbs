@@ -24,7 +24,7 @@
                     </multi-select>
                 {{else}}
                     <select name="choice.{{@key}}">
-                        {{selectOptions options selected=(lookup ../selectedChoices @key)
+                        {{selectOptions options selected=(lookup ../selectedChoices @key) labelAttr='label'
                                         blank='QUICKNPC.step.chooseSkill.blank' localize=true}}
                     </select>
                 {{/if}}

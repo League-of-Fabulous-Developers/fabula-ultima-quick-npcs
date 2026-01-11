@@ -117,12 +117,14 @@ export class AbstractChooseSkillStep extends AbstractStep {
     const selected = formValues.selected;
 
     const choices = Object.fromEntries(
-      Object.entries(options[selected]?.choices ?? {}).filter(([, value]) => {
-        return (
-          !value.conditional ||
-          Object.entries(value.conditional).every(([key, value]) => formValues[`choice.${key}`] === value)
-        );
-      }),
+      Object.entries(options[selected]?.choices ?? {})
+        .map(([key, value]) => [key, foundry.utils.deepClone(value)])
+        .filter(([, value]) => {
+          return (
+            !value.conditional ||
+            Object.entries(value.conditional).every(([key, value]) => formValues[`choice.${key}`] === value)
+          );
+        }),
     );
 
     const selectedChoices = Object.fromEntries(
@@ -131,6 +133,24 @@ export class AbstractChooseSkillStep extends AbstractStep {
         return [key, formValue];
       }),
     );
+
+    Object.entries(choices).forEach(([choiceKey, choiceConfig]) => {
+      if (!choiceConfig.multi && !choiceConfig.editor) {
+        choiceConfig.options = Object.fromEntries(
+          Object.entries(choiceConfig.options).map(([key, value]) => [key, { label: value }]),
+        );
+        if (choiceConfig.group) {
+          const groupSelection = Object.entries(choices)
+            .filter(([key, value]) => key !== choiceKey && value.group === choiceConfig.group)
+            .map(([key]) => selectedChoices[key]);
+          Object.entries(choiceConfig.options).forEach(([key, value]) => {
+            if (groupSelection.includes(key)) {
+              value.disabled = true;
+            }
+          });
+        }
+      }
+    });
 
     return {
       step: this.stepName,

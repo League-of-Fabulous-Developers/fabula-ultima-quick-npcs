@@ -14,10 +14,10 @@ import { Customizations } from './customizations.mjs';
  * @property {boolean} [anyNeutral]
  * @property {Rank[]} [rank]
  * @property {string} [attack]
- * @property {string[]} [anySpell]
- * @property {string[]} [anyRule]
- * @property {string[]} [anyAction]
- * @property {string[]} [anyCustomization]
+ * @property {string[], "*"} [anySpell]
+ * @property {string[], "*"} [anyRule]
+ * @property {string[], "*"} [anyAction]
+ * @property {string[], "*"} [anyCustomization]
  * @property {CustomRequirement} [custom]
  * @property {number} level
  */
@@ -65,15 +65,27 @@ function evaluateRequirements(requirements, model, context) {
   }
 
   if (requirements.anySpell) {
-    evaluation.anySpell = requirements.anySpell.some((spell) => !!model.spells[spell]);
+    if (requirements.anySpell === '*') {
+      evaluation.anySpell = Object.entries(model.spells).length > 0;
+    } else {
+      evaluation.anySpell = requirements.anySpell.some((spell) => !!model.spells[spell]);
+    }
   }
 
   if (requirements.anyRule) {
-    evaluation.anyRule = requirements.anyRule.some((rule) => !!model.rules[rule]);
+    if (requirements.anyRule === '*') {
+      evaluation.anyRule = Object.entries(model.rules).length > 0;
+    } else {
+      evaluation.anyRule = requirements.anyRule.some((rule) => !!model.rules[rule]);
+    }
   }
 
   if (requirements.anyAction) {
-    evaluation.anyAction = requirements.anyAction.some((action) => !!model.actions[action]);
+    if (requirements.anyAction === '*') {
+      evaluation.anyAction = Object.entries(model.actions).length > 0;
+    } else {
+      evaluation.anyAction = requirements.anyAction.some((action) => !!model.actions[action]);
+    }
   }
 
   if (requirements.anyCustomization) {

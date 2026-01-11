@@ -616,6 +616,11 @@
       "unknownSpellList": "'ChooseSpell' step references an unknown spell list: {spellList}"
     },
     "negativeSkills": {
+      "finalDelay": {
+        "name": "Final Delay",
+        "description": "Turn back a beneficial clock when you get taken out.",
+        "ruleText": "<div>Bestiary Volume I p68</div>"
+      },
       "finalDetonation": {
         "description": "Deal damage to your allies when you get taken out.",
         "name": "Final Detonation",
@@ -625,6 +630,21 @@
         "description": "Restore resources to your enemies when you get taken out.",
         "name": "Final Restore",
         "ruleText": "<div>Quick Assembly Rules Preview V3 p17.</div><div>Chosen resource: {resource}</div>"
+      },
+      "finalStatus": {
+        "name": "Final Status",
+        "description": "Afflict your allies with a status effect when you get taken out.",
+        "ruleText": "<div>Bestiary Volume I p68</div><div>Status: {status}</div>"
+      },
+      "finalWeakening": {
+        "name": "Final Weakening",
+        "description": "Make a Champion Vulnerable when you get taken out.",
+        "ruleText": "<div>Bestiary Volume I p69</div><div>Damage Type: {damageType}</div>"
+      },
+      "forcedLanding": {
+        "name": "Forced Landing",
+        "description": "Lose the benefits of flying for the round after you use your Strong Attack.",
+        "ruleText": "<div>Bestiary Volume I p69</div>"
       },
       "painfulMiss": {
         "attack": {
@@ -647,6 +667,25 @@
           "self": {
             "label": "Yourself",
             "rule": "Yourself"
+          }
+        }
+      },
+      "statusBind": {
+        "name": "Status Bind",
+        "description": "Status Effects restrict you from using certain actions.",
+        "ruleText": "<div>Bestiary Volume I p69</div><div>Normal Attack: {normalAttack}</div><div>Strong Attack: {strongAttack}</div><div>Skill Action: {skillAction}</div><div>Spell Action: {spellAction}</div>",
+        "choices": {
+          "normalAttack": {
+            "label": "Normal Attack"
+          },
+          "strongAttack": {
+            "label": "Strong Attack"
+          },
+          "skillAction": {
+            "label": "Skill Action"
+          },
+          "spellAction": {
+            "label": "Spell Action"
           }
         }
       }
