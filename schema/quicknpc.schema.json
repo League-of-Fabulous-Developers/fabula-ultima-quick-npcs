@@ -317,6 +317,9 @@
         "summary": {
           "type": "string"
         },
+        "description": {
+          "type": "string"
+        },
         "cost": {
           "type": "integer"
         },
@@ -680,6 +683,17 @@
                 "label": {
                   "type": "string"
                 },
+                "multi": {
+                  "type": "object",
+                  "properties": {
+                    "min": {
+                      "type": "number"
+                    },
+                    "max": {
+                      "type": "number"
+                    }
+                  }
+                },
                 "options": {
                   "type": "object",
                   "additionalProperties": false,
@@ -734,19 +748,41 @@
         "attack": {
           "type": "string"
         },
+        "anySpell": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            },
+            { "const": "*" }
+          ]
+        },
         "anyRule": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "minItems": 1
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            },
+            { "const": "*" }
+          ]
         },
         "anyAction": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "minItems": 1
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            },
+            { "const": "*" }
+          ]
         },
         "anyCustomization": {
           "type": "array",

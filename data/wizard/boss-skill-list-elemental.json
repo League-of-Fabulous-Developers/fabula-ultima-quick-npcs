@@ -1,0 +1,91 @@
+{
+  "type": "boss-skill-list",
+  "name": "QUICKNPC.skillList.boss.elemental",
+  "skillList": {
+    "binaryElements": {
+      "label": "QUICKNPC.bossSkills.binaryElements.name",
+      "description": "QUICKNPC.bossSkills.binaryElements.description",
+      "choices": {
+        "elements": {
+          "label": "QUICKNPC.bossSkills.binaryElements.choices.elements.label",
+          "multi": {
+            "max": 2
+          },
+          "options": {
+            "airEarth": "QUICKNPC.bossSkills.binaryElements.choices.elements.airEarth",
+            "darkLight": "QUICKNPC.bossSkills.binaryElements.choices.elements.darkLight",
+            "fireIce": "QUICKNPC.bossSkills.binaryElements.choices.elements.fireIce"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "binaryElements": {
+              "name": "QUICKNPC.bossSkills.binaryElements.name",
+              "summary": "QUICKNPC.bossSkills.binaryElements.description",
+              "description": "QUICKNPC.bossSkills.binaryElements.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "elementalCrisis": {
+      "label": "QUICKNPC.bossSkills.elementalCrisis.name",
+      "description": "QUICKNPC.bossSkills.elementalCrisis.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "elementalCrisis": {
+              "name": "QUICKNPC.bossSkills.elementalCrisis.name",
+              "summary": "QUICKNPC.bossSkills.elementalCrisis.description",
+              "description": "QUICKNPC.bossSkills.elementalCrisis.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "elementalStance": {
+      "label": "QUICKNPC.bossSkills.elementalStance.name",
+      "description": "QUICKNPC.bossSkills.elementalStance.description",
+      "choices": {
+        "trigger": {
+          "label": "QUICKNPC.bossSkills.elementalStance.choices.trigger.label",
+          "options": {
+            "attack": "QUICKNPC.bossSkills.elementalStance.choices.trigger.attack",
+            "guard": "QUICKNPC.bossSkills.elementalStance.choices.trigger.guard",
+            "vulnerability": "QUICKNPC.bossSkills.elementalStance.choices.trigger.vulnerability",
+            "combatRound": "QUICKNPC.bossSkills.elementalStance.choices.trigger.combatRound"
+          }
+        },
+        "stances": {
+          "label": "QUICKNPC.bossSkills.elementalStance.choices.stances.label",
+          "multi": {
+            "min": 2,
+            "max": 5
+          },
+          "options": {
+            "air": "QUICKNPC.bossSkills.elementalStance.choices.stances.air",
+            "bolt": "QUICKNPC.bossSkills.elementalStance.choices.stances.bolt",
+            "dark": "QUICKNPC.bossSkills.elementalStance.choices.stances.dark",
+            "earth": "QUICKNPC.bossSkills.elementalStance.choices.stances.earth",
+            "fire": "QUICKNPC.bossSkills.elementalStance.choices.stances.fire",
+            "ice": "QUICKNPC.bossSkills.elementalStance.choices.stances.ice",
+            "light": "QUICKNPC.bossSkills.elementalStance.choices.stances.light"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "elementalStance": {
+              "name": "QUICKNPC.bossSkills.elementalStance.name",
+              "summary": "QUICKNPC.bossSkills.elementalStance.description",
+              "description": "QUICKNPC.bossSkills.elementalStance.ruleText"
+            }
+          }
+        }
+      }
+    }
+  }
+}

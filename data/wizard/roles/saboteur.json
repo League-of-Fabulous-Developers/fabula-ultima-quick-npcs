@@ -19,81 +19,11 @@
         "dex": "d10"
       }
     ],
-    "skillsByLevel": [
-      {
-        "steps": [
-          {
-            "type": "ChooseCustomization",
-            "options": {
-              "accuracyCheckBonus": {
-                "label": "QUICKNPC.role.saboteur.accuracyCheckBonus.name",
-                "description": "QUICKNPC.role.saboteur.accuracyCheckBonus.description",
-                "changes": {
-                  "model": {
-                    "bonuses": {
-                      "accuracy": 3
-                    }
-                  }
-                }
-              },
-              "magicCheckBonus": {
-                "label": "QUICKNPC.role.saboteur.magicCheckBonus.name",
-                "description": "QUICKNPC.role.saboteur.magicCheckBonus.description",
-                "changes": {
-                  "model": {
-                    "bonuses": {
-                      "magic": 3
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ]
-      },
-      {
-        "steps": [
-          {
-            "type": "ChooseRoleSkill"
-          }
-        ]
-      },
-      {
-        "model": {
-          "attacks": {
-            "normal": {
-              "special": ["QUICKNPC.attacks.special.ignoreResistance"]
-            }
-          }
-        }
-      },
-      {
-        "steps": [
-          {
-            "type": "ChooseRoleSkill"
-          }
-        ]
-      },
-      {
-        "steps": [
-          {
-            "type": "AssignImmunity"
-          }
-        ]
-      },
-      {
-        "steps": [
-          {
-            "type": "ChooseRoleSkill"
-          }
-        ]
-      }
-    ],
     "baseline": {
       "model": {
         "bonuses": {
-          "def": 1,
-          "mDef": 2
+          "def": 2,
+          "mDef": 1
         },
         "attacks": {
           "normal": {
@@ -187,6 +117,76 @@
         }
       ]
     },
+    "skillsByLevel": [
+      {
+        "steps": [
+          {
+            "type": "ChooseCustomization",
+            "options": {
+              "accuracyCheckBonus": {
+                "label": "QUICKNPC.role.saboteur.accuracyCheckBonus.name",
+                "description": "QUICKNPC.role.saboteur.accuracyCheckBonus.description",
+                "changes": {
+                  "model": {
+                    "bonuses": {
+                      "accuracy": 3
+                    }
+                  }
+                }
+              },
+              "magicCheckBonus": {
+                "label": "QUICKNPC.role.saboteur.magicCheckBonus.name",
+                "description": "QUICKNPC.role.saboteur.magicCheckBonus.description",
+                "changes": {
+                  "model": {
+                    "bonuses": {
+                      "magic": 3
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "model": {
+          "attacks": {
+            "normal": {
+              "special": ["QUICKNPC.attacks.special.ignoreResistance"]
+            }
+          }
+        }
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "AssignImmunity"
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      }
+    ],
     "customizations": {
       "additionalRoleSkill": {
         "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
@@ -322,6 +322,7 @@
           "model": {
             "attacks": {
               "normal": {
+                "targetDefense": "mDef",
                 "special": ["QUICKNPC.attacks.special.targetsMDef"]
               }
             }
@@ -714,6 +715,7 @@
           "model": {
             "attacks": {
               "strong": {
+                "targetDefense": "mDef",
                 "special": ["QUICKNPC.attacks.special.targetsMDef"]
               }
             }
@@ -784,7 +786,8 @@
         "label": "QUICKNPC.role.saboteur.partingGift.name",
         "description": "QUICKNPC.role.saboteur.partingGift.description",
         "require": {
-          "rank": ["soldier", "elite"]
+          "rank": ["soldier", "elite"],
+          "anySpell": ["weaken"]
         },
         "changes": {
           "model": {

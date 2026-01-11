@@ -2,6 +2,21 @@
   "type": "negative-skill-list",
   "name": "QUICKNPC.skillList.negative",
   "skillList": {
+    "finalDelay": {
+      "label": "QUICKNPC.negativeSkills.finalDelay.name",
+      "description": "QUICKNPC.negativeSkills.finalDelay.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "finalDelay": {
+              "name": "QUICKNPC.negativeSkills.finalDelay.name",
+              "summary": "QUICKNPC.negativeSkills.finalDelay.description",
+              "description": "QUICKNPC.negativeSkills.finalDelay.ruleText"
+            }
+          }
+        }
+      }
+    },
     "finalDetonation": {
       "label": "QUICKNPC.negativeSkills.finalDetonation.name",
       "description": "QUICKNPC.negativeSkills.finalDetonation.description",
@@ -52,6 +67,82 @@
               "name": "QUICKNPC.negativeSkills.finalRestore.name",
               "summary": "QUICKNPC.negativeSkills.finalRestore.description",
               "description": "QUICKNPC.negativeSkills.finalRestore.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "finalStatus": {
+      "label": "QUICKNPC.negativeSkills.finalStatus.name",
+      "description": "QUICKNPC.negativeSkills.finalStatus.description",
+      "choices": {
+        "status": {
+          "label": "QUICKNPC.commonChoices.status",
+          "options": {
+            "dazed": "QUICKNPC.statusEffects.dazed",
+            "shaken": "QUICKNPC.statusEffects.shaken",
+            "slow": "QUICKNPC.statusEffects.slow",
+            "weak": "QUICKNPC.statusEffects.weak"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "finalStatus": {
+              "name": "QUICKNPC.negativeSkills.finalStatus.name",
+              "summary": "QUICKNPC.negativeSkills.finalStatus.description",
+              "description": "QUICKNPC.negativeSkills.finalStatus.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "finalWeakening": {
+      "label": "QUICKNPC.negativeSkills.finalWeakening.name",
+      "description": "QUICKNPC.negativeSkills.finalWeakening.description",
+      "choices": {
+        "damageType": {
+          "label": "QUICKNPC.commonChoices.damageType",
+          "options": {
+            "physical": "QUICKNPC.damageType.physical",
+            "air": "QUICKNPC.damageType.air",
+            "bolt": "QUICKNPC.damageType.bolt",
+            "dark": "QUICKNPC.damageType.dark",
+            "earth": "QUICKNPC.damageType.earth",
+            "fire": "QUICKNPC.damageType.fire",
+            "ice": "QUICKNPC.damageType.ice",
+            "light": "QUICKNPC.damageType.light",
+            "poison": "QUICKNPC.damageType.poison"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "finalWeakening": {
+              "name": "QUICKNPC.negativeSkills.finalWeakening.name",
+              "summary": "QUICKNPC.negativeSkills.finalWeakening.description",
+              "description": "QUICKNPC.negativeSkills.finalWeakening.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "forcedLanding": {
+      "label": "QUICKNPC.negativeSkills.forcedLanding.name",
+      "description": "QUICKNPC.negativeSkills.forcedLanding.description",
+      "require": {
+        "attack": "strong",
+        "anyRule": ["flying"]
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "forcedLanding": {
+              "name": "QUICKNPC.negativeSkills.forcedLanding.name",
+              "summary": "QUICKNPC.negativeSkills.forcedLanding.description",
+              "description": "QUICKNPC.negativeSkills.forcedLanding.ruleText"
             }
           }
         }
@@ -113,6 +204,63 @@
               "name": "QUICKNPC.negativeSkills.painfulMiss.name",
               "summary": "QUICKNPC.negativeSkills.painfulMiss.description",
               "description": "QUICKNPC.negativeSkills.painfulMiss.ruleText.withChoice"
+            }
+          }
+        }
+      }
+    },
+    "statusBind": {
+      "label": "QUICKNPC.negativeSkills.statusBind.name",
+      "description": "QUICKNPC.negativeSkills.statusBind.description",
+      "choices": {
+        "normalAttack": {
+          "label": "QUICKNPC.negativeSkills.statusBind.choices.normalAttack.label",
+          "group": "status",
+          "options": {
+            "dazed": "QUICKNPC.statusEffects.dazed",
+            "shaken": "QUICKNPC.statusEffects.shaken",
+            "slow": "QUICKNPC.statusEffects.slow",
+            "weak": "QUICKNPC.statusEffects.weak"
+          }
+        },
+        "strongAttack": {
+          "label": "QUICKNPC.negativeSkills.statusBind.choices.strongAttack.label",
+          "group": "status",
+          "options": {
+            "dazed": "QUICKNPC.statusEffects.dazed",
+            "shaken": "QUICKNPC.statusEffects.shaken",
+            "slow": "QUICKNPC.statusEffects.slow",
+            "weak": "QUICKNPC.statusEffects.weak"
+          }
+        },
+        "skillAction": {
+          "label": "QUICKNPC.negativeSkills.statusBind.choices.skillAction.label",
+          "group": "status",
+          "options": {
+            "dazed": "QUICKNPC.statusEffects.dazed",
+            "shaken": "QUICKNPC.statusEffects.shaken",
+            "slow": "QUICKNPC.statusEffects.slow",
+            "weak": "QUICKNPC.statusEffects.weak"
+          }
+        },
+        "spellAction": {
+          "label": "QUICKNPC.negativeSkills.statusBind.choices.spellAction.label",
+          "group": "status",
+          "options": {
+            "dazed": "QUICKNPC.statusEffects.dazed",
+            "shaken": "QUICKNPC.statusEffects.shaken",
+            "slow": "QUICKNPC.statusEffects.slow",
+            "weak": "QUICKNPC.statusEffects.weak"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "statusBind": {
+              "name": "QUICKNPC.negativeSkills.statusBind.name",
+              "summary": "QUICKNPC.negativeSkills.statusBind.description",
+              "description": "QUICKNPC.negativeSkills.statusBind.ruleText"
             }
           }
         }

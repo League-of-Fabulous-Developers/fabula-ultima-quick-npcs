@@ -227,15 +227,17 @@
         }
       },
       "twoResistances": {
-        "label": "QUICKNPC.commonSkills.twoResistances.name",
-        "description": "QUICKNPC.commonSkills.twoResistances.description",
+        "label": "QUICKNPC.commonSkills.twoResistancesExceptPhysical.name",
+        "description": "QUICKNPC.commonSkills.twoResistancesExceptPhysical.description",
         "changes": {
           "steps": [
             {
-              "type": "AssignResistance"
+              "type": "AssignResistance",
+              "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
             },
             {
-              "type": "AssignResistance"
+              "type": "AssignResistance",
+              "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
             }
           ]
         }
@@ -397,6 +399,22 @@
             }
           }
         },
+        "flare": {
+          "name": "QUICKNPC.spell.flare.name",
+          "summary": "QUICKNPC.spell.flare.description",
+          "description": "QUICKNPC.spell.flare.spellText",
+          "cost": 20,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 25,
+            "damageType": "fire"
+          },
+          "require": {
+            "level": 30
+          }
+        },
         "fulgur": {
           "name": "QUICKNPC.spell.fulgur.name",
           "summary": "QUICKNPC.spell.fulgur.description",
@@ -424,6 +442,22 @@
             "damageType": "ice"
           },
           "opportunity": "QUICKNPC.spell.glacies.opportunity"
+        },
+        "iceberg": {
+          "name": "QUICKNPC.spell.iceberg.name",
+          "summary": "QUICKNPC.spell.iceberg.description",
+          "description": "QUICKNPC.spell.iceberg.spellText",
+          "cost": 20,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 25,
+            "damageType": "ice"
+          },
+          "require": {
+            "level": 30
+          }
         },
         "ignis": {
           "name": "QUICKNPC.spell.ignis.name",
@@ -477,6 +511,22 @@
           },
           "opportunity": "QUICKNPC.spell.terra.opportunity"
         },
+        "thunderbolt": {
+          "name": "QUICKNPC.spell.thunderbolt.name",
+          "summary": "QUICKNPC.spell.thunderbolt.description",
+          "description": "QUICKNPC.spell.thunderbolt.spellText",
+          "cost": 20,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 25,
+            "damageType": "bolt"
+          },
+          "require": {
+            "level": 30
+          }
+        },
         "umbra": {
           "name": "QUICKNPC.spell.umbra.name",
           "summary": "QUICKNPC.spell.umbra.description",
@@ -504,6 +554,70 @@
             "damageType": "air"
           },
           "opportunity": "QUICKNPC.spell.ventus.opportunity"
+        }
+      },
+      "advanced": {
+        "cursedBreath": {
+          "name": "QUICKNPC.spell.cursedBreath.name",
+          "summary": "QUICKNPC.spell.cursedBreath.description",
+          "description": "QUICKNPC.spell.cursedBreath.spellText",
+          "cost": 10,
+          "costType": "total",
+          "target": "single",
+          "duration": "instant",
+          "offensive": {
+            "baseDamage": 15,
+            "damageType": true
+          },
+          "choices": {
+            "status": {
+              "label": "QUICKNPC.commonChoices.status",
+              "options": {
+                "dazed": "QUICKNPC.statusEffects.dazed",
+                "shaken": "QUICKNPC.statusEffects.shaken",
+                "slow": "QUICKNPC.statusEffects.slow",
+                "weak": "QUICKNPC.statusEffects.weak"
+              }
+            }
+          }
+        },
+        "devastation": {
+          "name": "QUICKNPC.spell.devastation.name",
+          "summary": "QUICKNPC.spell.devastation.description",
+          "description": "QUICKNPC.spell.devastation.spellText",
+          "cost": 30,
+          "target": "special",
+          "costType": "total",
+          "duration": "instant",
+          "choices": {
+            "damageType": {
+              "label": "QUICKNPC.commonChoices.damageType",
+              "options": {
+                "physical": "QUICKNPC.damageType.physical",
+                "air": "QUICKNPC.damageType.air",
+                "bolt": "QUICKNPC.damageType.bolt",
+                "dark": "QUICKNPC.damageType.dark",
+                "earth": "QUICKNPC.damageType.earth",
+                "fire": "QUICKNPC.damageType.fire",
+                "ice": "QUICKNPC.damageType.ice",
+                "light": "QUICKNPC.damageType.light",
+                "poison": "QUICKNPC.damageType.poison"
+              }
+            }
+          },
+          "require": {
+            "level": 30
+          }
+        },
+        "drainSpirit": {
+          "name": "QUICKNPC.spell.drainSpirit.name",
+          "summary": "QUICKNPC.spell.drainSpirit.description",
+          "description": "QUICKNPC.spell.drainSpirit.spellText",
+          "cost": 5,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant",
+          "offensive": true
         },
         "flare": {
           "name": "QUICKNPC.spell.flare.name",
@@ -536,58 +650,6 @@
           "require": {
             "level": 30
           }
-        },
-        "thunderbolt": {
-          "name": "QUICKNPC.spell.thunderbolt.name",
-          "summary": "QUICKNPC.spell.thunderbolt.description",
-          "description": "QUICKNPC.spell.thunderbolt.spellText",
-          "cost": 20,
-          "target": "single",
-          "costType": "total",
-          "duration": "instant",
-          "offensive": {
-            "baseDamage": 25,
-            "damageType": "bolt"
-          },
-          "require": {
-            "level": 30
-          }
-        }
-      },
-      "advanced": {
-        "cursedBreath": {
-          "name": "QUICKNPC.spell.cursedBreath.name",
-          "summary": "QUICKNPC.spell.cursedBreath.description",
-          "description": "QUICKNPC.spell.cursedBreath.spellText",
-          "cost": 10,
-          "costType": "total",
-          "target": "single",
-          "duration": "instant",
-          "offensive": {
-            "baseDamage": 15,
-            "damageType": true
-          },
-          "choices": {
-            "status": {
-              "label": "QUICKNPC.commonChoices.status",
-              "options": {
-                "dazed": "QUICKNPC.statusEffects.dazed",
-                "shaken": "QUICKNPC.statusEffects.shaken",
-                "slow": "QUICKNPC.statusEffects.slow",
-                "weak": "QUICKNPC.statusEffects.weak"
-              }
-            }
-          }
-        },
-        "drainSpirit": {
-          "name": "QUICKNPC.spell.drainSpirit.name",
-          "summary": "QUICKNPC.spell.drainSpirit.description",
-          "description": "QUICKNPC.spell.drainSpirit.spellText",
-          "cost": 5,
-          "target": "single",
-          "costType": "total",
-          "duration": "instant",
-          "offensive": true
         },
         "lifeTheft": {
           "name": "QUICKNPC.spell.lifeTheft.name",
@@ -624,66 +686,6 @@
           "costType": "total",
           "duration": "instant",
           "offensive": true
-        },
-        "devastation": {
-          "name": "QUICKNPC.spell.devastation.name",
-          "summary": "QUICKNPC.spell.devastation.description",
-          "description": "QUICKNPC.spell.devastation.spellText",
-          "cost": 30,
-          "target": "special",
-          "costType": "total",
-          "duration": "instant",
-          "choices": {
-            "damageType": {
-              "label": "QUICKNPC.commonChoices.damageType",
-              "options": {
-                "physical": "QUICKNPC.damageType.physical",
-                "air": "QUICKNPC.damageType.air",
-                "bolt": "QUICKNPC.damageType.bolt",
-                "dark": "QUICKNPC.damageType.dark",
-                "earth": "QUICKNPC.damageType.earth",
-                "fire": "QUICKNPC.damageType.fire",
-                "ice": "QUICKNPC.damageType.ice",
-                "light": "QUICKNPC.damageType.light",
-                "poison": "QUICKNPC.damageType.poison"
-              }
-            }
-          },
-          "require": {
-            "level": 30
-          }
-        },
-        "flare": {
-          "name": "QUICKNPC.spell.flare.name",
-          "summary": "QUICKNPC.spell.flare.description",
-          "description": "QUICKNPC.spell.flare.spellText",
-          "cost": 20,
-          "target": "single",
-          "costType": "total",
-          "duration": "instant",
-          "offensive": {
-            "baseDamage": 25,
-            "damageType": "fire"
-          },
-          "require": {
-            "level": 30
-          }
-        },
-        "iceberg": {
-          "name": "QUICKNPC.spell.iceberg.name",
-          "summary": "QUICKNPC.spell.iceberg.description",
-          "description": "QUICKNPC.spell.iceberg.spellText",
-          "cost": 20,
-          "target": "single",
-          "costType": "total",
-          "duration": "instant",
-          "offensive": {
-            "baseDamage": 25,
-            "damageType": "ice"
-          },
-          "require": {
-            "level": 30
-          }
         },
         "thunderbolt": {
           "name": "QUICKNPC.spell.thunderbolt.name",

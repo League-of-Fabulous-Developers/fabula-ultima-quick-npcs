@@ -1,0 +1,98 @@
+{
+  "type": "boss-skill-list",
+  "name": "QUICKNPC.skillList.boss.battlefield",
+  "skillList": {
+    "auraOfSuffering": {
+      "label": "QUICKNPC.bossSkills.auraOfSuffering.name",
+      "description": "QUICKNPC.bossSkills.auraOfSuffering.description",
+      "choices": {
+        "status": {
+          "label": "QUICKNPC.commonChoices.status",
+          "options": {
+            "dazed": "QUICKNPC.statusEffects.dazed",
+            "shaken": "QUICKNPC.statusEffects.shaken",
+            "slow": "QUICKNPC.statusEffects.slow",
+            "weak": "QUICKNPC.statusEffects.weak",
+            "enraged": "QUICKNPC.statusEffects.enraged",
+            "poisoned": "QUICKNPC.statusEffects.poisoned"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "auraOfSuffering": {
+              "name": "QUICKNPC.bossSkills.auraOfSuffering.name",
+              "summary": "QUICKNPC.bossSkills.auraOfSuffering.description",
+              "description": "QUICKNPC.bossSkills.auraOfSuffering.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "lifeAndDeath": {
+      "label": "QUICKNPC.bossSkills.lifeAndDeath.name",
+      "description": "QUICKNPC.bossSkills.lifeAndDeath.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "lifeAndDeath": {
+              "name": "QUICKNPC.bossSkills.lifeAndDeath.name",
+              "summary": "QUICKNPC.bossSkills.lifeAndDeath.description",
+              "description": "QUICKNPC.bossSkills.lifeAndDeath.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "nearAndFar": {
+      "label": "QUICKNPC.bossSkills.nearAndFar.name",
+      "description": "QUICKNPC.bossSkills.nearAndFar.description",
+      "choices": {
+        "restriction": {
+          "label": "QUICKNPC.bossSkills.nearAndFar.choices.restriction.label",
+          "options": {
+            "restrictMelee": "QUICKNPC.bossSkills.nearAndFar.choices.restriction.restrictMelee",
+            "restrictRanged": "QUICKNPC.bossSkills.nearAndFar.choices.restriction.restrictRanged",
+            "restrictBoth": "QUICKNPC.bossSkills.nearAndFar.choices.restriction.restrictBoth"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "nearAndFar": {
+              "name": "QUICKNPC.bossSkills.nearAndFar.name",
+              "summary": "QUICKNPC.bossSkills.nearAndFar.description",
+              "description": "QUICKNPC.bossSkills.nearAndFar.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "zombification": {
+      "label": "QUICKNPC.bossSkills.zombification.name",
+      "description": "QUICKNPC.bossSkills.zombification.description",
+      "choices": {
+        "status": {
+          "label": "QUICKNPC.commonChoices.status",
+          "options": {
+            "weak": "QUICKNPC.statusEffects.weak",
+            "poisoned": "QUICKNPC.statusEffects.poisoned"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "zombification": {
+              "name": "QUICKNPC.bossSkills.zombification.name",
+              "summary": "QUICKNPC.bossSkills.zombification.description",
+              "description": "QUICKNPC.bossSkills.zombification.ruleText"
+            }
+          }
+        }
+      }
+    }
+  }
+}

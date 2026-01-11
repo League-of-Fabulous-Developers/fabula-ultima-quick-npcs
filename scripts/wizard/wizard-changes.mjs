@@ -288,10 +288,18 @@ export function parseChanges(data, spellLists = {}, vulnAsSpeciesVuln = false, s
   return (model, context, choices = {}) => {
     const changes = model.toObject(true);
     const localizedChoices = Object.fromEntries(
-      Object.entries(choices).map(([key, value]) => [
-        key,
-        game.i18n.localize(skillChoices[key]?.options[value] ?? value),
-      ]),
+      Object.entries(skillChoices).map(([key, choiceConfig]) => {
+        const choice = choices[key];
+        let localized;
+        if (choice == null) {
+          localized = '';
+        } else if (Array.isArray(choice)) {
+          localized = choice.map((item) => game.i18n.format(choiceConfig.options[item] ?? item)).join(', ');
+        } else {
+          localized = game.i18n.localize(choiceConfig.options[choice] ?? choice);
+        }
+        return [key, localized];
+      }),
     );
     if (data.model) {
       applyToModel(changes, data.model, localizedChoices, vulnAsSpeciesVuln);
@@ -303,12 +311,12 @@ export function parseChanges(data, spellLists = {}, vulnAsSpeciesVuln = false, s
       for (const conditionalChange of data.conditional) {
         const choice = choices[conditionalChange.choice];
         if (conditionalChange.values.some((value) => value === choice)) {
-          const changes = conditionalChange.changes;
-          if (changes.model) {
-            applyToModel(changes, data.model, localizedChoices, vulnAsSpeciesVuln);
+          const condiChanges = conditionalChange.changes;
+          if (condiChanges.model) {
+            applyToModel(changes, condiChanges.model, localizedChoices, vulnAsSpeciesVuln);
           }
-          if (changes.steps) {
-            changes.steps.forEach((step) => registerStep(step, context, spellLists));
+          if (condiChanges.steps) {
+            condiChanges.steps.forEach((step) => registerStep(step, context, spellLists));
           }
         }
       }

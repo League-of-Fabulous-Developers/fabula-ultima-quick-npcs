@@ -19,57 +19,6 @@
         "ins": "d12"
       }
     ],
-    "skillsByLevel": [
-      {
-        "steps": [
-          {
-            "type": "AssignResistance",
-            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
-          },
-          {
-            "type": "AssignResistance",
-            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
-          }
-        ]
-      },
-      {
-        "steps": [
-          {
-            "type": "ChooseRoleSkill"
-          }
-        ]
-      },
-      {
-        "model": {
-          "bonuses": {
-            "def": 1,
-            "mDef": 2
-          }
-        }
-      },
-      {
-        "steps": [
-          {
-            "type": "ChooseRoleSkill"
-          }
-        ]
-      },
-      {
-        "steps": [
-          {
-            "type": "AssignImmunity",
-            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
-          }
-        ]
-      },
-      {
-        "steps": [
-          {
-            "type": "ChooseRoleSkill"
-          }
-        ]
-      }
-    ],
     "baseline": {
       "model": {
         "bonuses": {
@@ -138,6 +87,57 @@
         }
       ]
     },
+    "skillsByLevel": [
+      {
+        "steps": [
+          {
+            "type": "AssignResistance",
+            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
+          },
+          {
+            "type": "AssignResistance",
+            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "model": {
+          "bonuses": {
+            "def": 1,
+            "mDef": 2
+          }
+        }
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "AssignImmunity",
+            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      }
+    ],
     "customizations": {
       "additionalRoleSkill": {
         "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
@@ -279,6 +279,53 @@
           }
         }
       },
+      "adviseAndInspire": {
+        "label": "QUICKNPC.role.support.adviseAndInspire.name",
+        "description": "QUICKNPC.role.support.adviseAndInspire.description",
+        "disallow": {
+          "rank": ["soldier", "elite"],
+          "anyAction": ["advise", "inspire"]
+        },
+        "choices": {
+          "resource": {
+            "label": "QUICKNPC.commonChoices.resource",
+            "options": {
+              "hp": "QUICKNPC.resource.hp",
+              "mp": "QUICKNPC.resource.mp"
+            }
+          },
+          "attribute": {
+            "label": "QUICKNPC.commonChoices.attribute",
+            "options": {
+              "dex": "QUICKNPC.attributes.dex",
+              "ins": "QUICKNPC.attributes.ins",
+              "mig": "QUICKNPC.attributes.mig",
+              "wlp": "QUICKNPC.attributes.wlp"
+            }
+          }
+        },
+        "changes": {
+          "model": {
+            "actions": {
+              "advise": {
+                "name": "QUICKNPC.role.support.advise.name",
+                "summary": "QUICKNPC.role.support.advise.description",
+                "description": "QUICKNPC.role.support.advise.actionText"
+              },
+              "inspire": {
+                "name": "QUICKNPC.role.support.inspire.name",
+                "summary": "QUICKNPC.role.support.inspire.description",
+                "description": "QUICKNPC.role.support.inspire.actionText"
+              }
+            }
+          },
+          "steps": [
+            {
+              "type": "AssignVulnerability"
+            }
+          ]
+        }
+      },
       "improvedAdvise": {
         "label": "QUICKNPC.role.support.improvedAdvise.name",
         "description": "QUICKNPC.role.support.improvedAdvise.description",
@@ -300,9 +347,6 @@
       "strategicCommand": {
         "label": "QUICKNPC.role.support.strategicCommand.name",
         "description": "QUICKNPC.role.support.strategicCommand.description",
-        "disallow": {
-          "rank": ["soldier"]
-        },
         "changes": {
           "model": {
             "actions": {
@@ -453,6 +497,15 @@
           "costType": "total",
           "duration": "scene"
         },
+        "quicken": {
+          "name": "QUICKNPC.spell.quicken.name",
+          "summary": "QUICKNPC.spell.quicken.description",
+          "description": "QUICKNPC.spell.quicken.spellText",
+          "cost": 20,
+          "target": "single",
+          "costType": "total",
+          "duration": "instant"
+        },
         "reinforce": {
           "name": "QUICKNPC.spell.reinforce.name",
           "summary": "QUICKNPC.spell.reinforce.description",
@@ -462,14 +515,14 @@
           "target": "upToThree",
           "duration": "scene"
         },
-        "quicken": {
-          "name": "QUICKNPC.spell.quicken.name",
-          "summary": "QUICKNPC.spell.quicken.description",
-          "description": "QUICKNPC.spell.quicken.spellText",
-          "cost": 20,
-          "target": "single",
-          "costType": "total",
-          "duration": "instant"
+        "soulShroud": {
+          "name": "QUICKNPC.spell.soulShroud.name",
+          "summary": "QUICKNPC.spell.soulShroud.description",
+          "description": "QUICKNPC.spell.soulShroud.spellText",
+          "cost": 5,
+          "target": "upToThree",
+          "costType": "perTarget",
+          "duration": "scene"
         },
         "warCry": {
           "name": "QUICKNPC.spell.warCry.name",

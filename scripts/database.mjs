@@ -27,10 +27,20 @@ const defaultSpecies = [
   '/modules/fabula-ultima-quick-npcs/data/wizard/species/undead.json',
 ];
 
+const defaultBossSkills = [
+  '/modules/fabula-ultima-quick-npcs/data/wizard/boss-skill-list-battlefield.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/boss-skill-list-control.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/boss-skill-list-destructive.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/boss-skill-list-elemental.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/boss-skill-list-objective.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/boss-skill-list-summoner.json',
+  '/modules/fabula-ultima-quick-npcs/data/wizard/boss-skill-list-survival.json',
+];
+
 const defaultWizardData = [
   ...defaultRoles,
   ...defaultSpecies,
-  '/modules/fabula-ultima-quick-npcs/data/wizard/boss-skill-list.json',
+  ...defaultBossSkills,
   '/modules/fabula-ultima-quick-npcs/data/wizard/negative-skill-list.json',
 ];
 

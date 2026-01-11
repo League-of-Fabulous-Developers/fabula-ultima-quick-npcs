@@ -1,0 +1,145 @@
+{
+  "type": "boss-skill-list",
+  "name": "QUICKNPC.skillList.boss.objective",
+  "skillList": {
+    "attrition": {
+      "label": "QUICKNPC.bossSkills.attrition.name",
+      "description": "QUICKNPC.bossSkills.attrition.description",
+      "choices": {
+        "status": {
+          "label": "QUICKNPC.commonChoices.status",
+          "group": "status",
+          "options": {
+            "dazed": "QUICKNPC.statusEffects.dazed",
+            "shaken": "QUICKNPC.statusEffects.shaken",
+            "slow": "QUICKNPC.statusEffects.slow",
+            "weak": "QUICKNPC.statusEffects.weak"
+          }
+        },
+        "effect": {
+          "label": "QUICKNPC.bossSkills.attrition.choices.effect.label",
+          "options": {
+            "drainHp": "QUICKNPC.bossSkills.attrition.choices.effect.drainHp",
+            "drainMp": "QUICKNPC.bossSkills.attrition.choices.effect.drainMp",
+            "additionalStatus": "QUICKNPC.bossSkills.attrition.choices.effect.additionalStatus"
+          }
+        },
+        "additionalStatus": {
+          "label": "QUICKNPC.bossSkills.attrition.choices.additionalStatus.label",
+          "group": "status",
+          "conditional": {
+            "effect": "additionalStatus"
+          },
+          "options": {
+            "dazed": "QUICKNPC.statusEffects.dazed",
+            "shaken": "QUICKNPC.statusEffects.shaken",
+            "slow": "QUICKNPC.statusEffects.slow",
+            "weak": "QUICKNPC.statusEffects.weak"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "rules": {
+            "attrition": {
+              "name": "QUICKNPC.bossSkills.attrition.name",
+              "summary": "QUICKNPC.bossSkills.attrition.description",
+              "description": "QUICKNPC.bossSkills.attrition.ruleText.default"
+            }
+          }
+        },
+        "conditional": [
+          {
+            "choice": "effect",
+            "values": ["additionalStatus"],
+            "changes": {
+              "model": {
+                "rules": {
+                  "attrition": {
+                    "name": "QUICKNPC.bossSkills.attrition.name",
+                    "description": "QUICKNPC.bossSkills.attrition.ruleText.additionalStatus"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "countdown": {
+      "label": "QUICKNPC.bossSkills.countdown.name",
+      "description": "QUICKNPC.bossSkills.countdown.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "countdown": {
+              "name": "QUICKNPC.bossSkills.countdown.name",
+              "summary": "QUICKNPC.bossSkills.countdown.description",
+              "description": "QUICKNPC.bossSkills.countdown.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "cruelTwist": {
+      "label": "QUICKNPC.bossSkills.cruelTwist.name",
+      "description": "QUICKNPC.bossSkills.cruelTwist.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "cruelTwist": {
+              "name": "QUICKNPC.bossSkills.cruelTwist.name",
+              "summary": "QUICKNPC.bossSkills.cruelTwist.description",
+              "description": "QUICKNPC.bossSkills.cruelTwist.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "crushingAdvantage": {
+      "label": "QUICKNPC.bossSkills.crushingAdvantage.name",
+      "description": "QUICKNPC.bossSkills.crushingAdvantage.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "crushingAdvantage": {
+              "name": "QUICKNPC.bossSkills.crushingAdvantage.name",
+              "summary": "QUICKNPC.bossSkills.crushingAdvantage.description",
+              "description": "QUICKNPC.bossSkills.crushingAdvantage.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "iKnowYouWell": {
+      "label": "QUICKNPC.bossSkills.iKnowYouWell.name",
+      "description": "QUICKNPC.bossSkills.iKnowYouWell.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "iKnowYouWell": {
+              "name": "QUICKNPC.bossSkills.iKnowYouWell.name",
+              "summary": "QUICKNPC.bossSkills.iKnowYouWell.description",
+              "description": "QUICKNPC.bossSkills.iKnowYouWell.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "ruinousInfluence": {
+      "label": "QUICKNPC.bossSkills.ruinousInfluence.name",
+      "description": "QUICKNPC.bossSkills.ruinousInfluence.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "ruinousInfluence": {
+              "name": "QUICKNPC.bossSkills.ruinousInfluence.name",
+              "summary": "QUICKNPC.bossSkills.ruinousInfluence.description",
+              "description": "QUICKNPC.bossSkills.ruinousInfluence.ruleText"
+            }
+          }
+        }
+      }
+    }
+  }
+}

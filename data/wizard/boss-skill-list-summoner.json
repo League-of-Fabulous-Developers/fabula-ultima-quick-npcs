@@ -1,0 +1,81 @@
+{
+  "type": "boss-skill-list",
+  "name": "QUICKNPC.skillList.boss.summoner",
+  "skillList": {
+    "callReinforcements": {
+      "label": "QUICKNPC.bossSkills.callReinforcements.name",
+      "description": "QUICKNPC.bossSkills.callReinforcements.description",
+      "changes": {
+        "model": {
+          "actions": {
+            "callReinforcements": {
+              "name": "QUICKNPC.bossSkills.callReinforcements.name",
+              "summary": "QUICKNPC.bossSkills.callReinforcements.description",
+              "description": "QUICKNPC.bossSkills.callReinforcements.actionText"
+            }
+          }
+        }
+      }
+    },
+    "counterSummoning": {
+      "label": "QUICKNPC.bossSkills.counterSummoning.name",
+      "description": "QUICKNPC.bossSkills.counterSummoning.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "counterSummoning": {
+              "name": "QUICKNPC.bossSkills.counterSummoning.name",
+              "summary": "QUICKNPC.bossSkills.counterSummoning.description",
+              "description": "QUICKNPC.bossSkills.counterSummoning.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "emergencyReinforcements": {
+      "label": "QUICKNPC.bossSkills.emergencyReinforcements.name",
+      "description": "QUICKNPC.bossSkills.emergencyReinforcements.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "emergencyReinforcements": {
+              "name": "QUICKNPC.bossSkills.emergencyReinforcements.name",
+              "summary": "QUICKNPC.bossSkills.emergencyReinforcements.description",
+              "description": "QUICKNPC.bossSkills.emergencyReinforcements.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "partRegeneration": {
+      "label": "QUICKNPC.bossSkills.partRegeneration.name",
+      "description": "QUICKNPC.bossSkills.partRegeneration.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "partRegeneration": {
+              "name": "QUICKNPC.bossSkills.partRegeneration.name",
+              "summary": "QUICKNPC.bossSkills.partRegeneration.description",
+              "description": "QUICKNPC.bossSkills.partRegeneration.ruleText"
+            }
+          }
+        }
+      }
+    },
+    "perfectCoordination": {
+      "label": "QUICKNPC.bossSkills.perfectCoordination.name",
+      "description": "QUICKNPC.bossSkills.perfectCoordination.description",
+      "changes": {
+        "model": {
+          "rules": {
+            "perfectCoordination": {
+              "name": "QUICKNPC.bossSkills.perfectCoordination.name",
+              "summary": "QUICKNPC.bossSkills.perfectCoordination.description",
+              "description": "QUICKNPC.bossSkills.perfectCoordination.ruleText"
+            }
+          }
+        }
+      }
+    }
+  }
+}

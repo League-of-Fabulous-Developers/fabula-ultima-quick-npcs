@@ -1,0 +1,221 @@
+{
+  "type": "boss-skill-list",
+  "name": "QUICKNPC.skillList.boss.destructive",
+  "skillList": {
+    "catastropheCharger": {
+      "label": "QUICKNPC.bossSkills.catastropheCharger.name",
+      "description": "QUICKNPC.bossSkills.catastropheCharger.description",
+      "choices": {
+        "damageType": {
+          "label": "QUICKNPC.commonChoices.damageType",
+          "options": {
+            "physical": "QUICKNPC.damageType.physical",
+            "air": "QUICKNPC.damageType.air",
+            "bolt": "QUICKNPC.damageType.bolt",
+            "dark": "QUICKNPC.damageType.dark",
+            "earth": "QUICKNPC.damageType.earth",
+            "fire": "QUICKNPC.damageType.fire",
+            "ice": "QUICKNPC.damageType.ice",
+            "light": "QUICKNPC.damageType.light",
+            "poison": "QUICKNPC.damageType.poison"
+          }
+        },
+        "status": {
+          "label": "QUICKNPC.commonChoices.status",
+          "options": {
+            "dazed": "QUICKNPC.statusEffects.dazed",
+            "shaken": "QUICKNPC.statusEffects.shaken",
+            "slow": "QUICKNPC.statusEffects.slow",
+            "weak": "QUICKNPC.statusEffects.weak"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "actions": {
+            "catastropheCharger": {
+              "name": "QUICKNPC.bossSkills.catastropheCharger.name",
+              "summary": "QUICKNPC.bossSkills.catastropheCharger.description",
+              "description": "QUICKNPC.bossSkills.catastropheCharger.actionText"
+            }
+          }
+        }
+      }
+    },
+    "corrosiveStatus": {
+      "label": "QUICKNPC.bossSkills.corrosiveStatus.name",
+      "description": "QUICKNPC.bossSkills.corrosiveStatus.description",
+      "choices": {
+        "damageType": {
+          "label": "QUICKNPC.commonChoices.damageType",
+          "options": {
+            "physical": "QUICKNPC.damageType.physical",
+            "air": "QUICKNPC.damageType.air",
+            "bolt": "QUICKNPC.damageType.bolt",
+            "dark": "QUICKNPC.damageType.dark",
+            "earth": "QUICKNPC.damageType.earth",
+            "fire": "QUICKNPC.damageType.fire",
+            "ice": "QUICKNPC.damageType.ice",
+            "light": "QUICKNPC.damageType.light",
+            "poison": "QUICKNPC.damageType.poison"
+          }
+        },
+        "status": {
+          "label": "QUICKNPC.commonChoices.status",
+          "options": {
+            "dazed": "QUICKNPC.statusEffects.dazed",
+            "shaken": "QUICKNPC.statusEffects.shaken",
+            "slow": "QUICKNPC.statusEffects.slow",
+            "weak": "QUICKNPC.statusEffects.weak",
+            "enraged": "QUICKNPC.statusEffects.enraged",
+            "poisoned": "QUICKNPC.statusEffects.poisoned"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "actions": {
+            "corrosiveStatus": {
+              "name": "QUICKNPC.bossSkills.corrosiveStatus.name",
+              "summary": "QUICKNPC.bossSkills.corrosiveStatus.description",
+              "description": "QUICKNPC.bossSkills.corrosiveStatus.actionText"
+            }
+          }
+        }
+      }
+    },
+    "destructiveFormation": {
+      "label": "QUICKNPC.bossSkills.destructiveFormation.name",
+      "description": "QUICKNPC.bossSkills.destructiveFormation.description",
+      "choices": {
+        "damageType": {
+          "label": "QUICKNPC.commonChoices.damageType",
+          "options": {
+            "physical": "QUICKNPC.damageType.physical",
+            "air": "QUICKNPC.damageType.air",
+            "bolt": "QUICKNPC.damageType.bolt",
+            "dark": "QUICKNPC.damageType.dark",
+            "earth": "QUICKNPC.damageType.earth",
+            "fire": "QUICKNPC.damageType.fire",
+            "ice": "QUICKNPC.damageType.ice",
+            "light": "QUICKNPC.damageType.light",
+            "poison": "QUICKNPC.damageType.poison"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "actions": {
+            "destructiveFormation": {
+              "name": "QUICKNPC.bossSkills.destructiveFormation.name",
+              "summary": "QUICKNPC.bossSkills.destructiveFormation.description",
+              "description": "QUICKNPC.bossSkills.destructiveFormation.actionText"
+            }
+          }
+        }
+      }
+    },
+    "devastation": {
+      "label": "QUICKNPC.bossSkills.devastation.name",
+      "description": "QUICKNPC.bossSkills.devastation.description",
+      "choices": {
+        "damageType": {
+          "label": "QUICKNPC.commonChoices.damageType",
+          "options": {
+            "physical": "QUICKNPC.damageType.physical",
+            "air": "QUICKNPC.damageType.air",
+            "bolt": "QUICKNPC.damageType.bolt",
+            "dark": "QUICKNPC.damageType.dark",
+            "earth": "QUICKNPC.damageType.earth",
+            "fire": "QUICKNPC.damageType.fire",
+            "ice": "QUICKNPC.damageType.ice",
+            "light": "QUICKNPC.damageType.light",
+            "poison": "QUICKNPC.damageType.poison"
+          }
+        }
+      },
+      "require": {
+        "level": 30
+      },
+      "disallow": {
+        "anySpell": ["devastation"]
+      },
+      "changes": {
+        "model": {
+          "spells": {
+            "devastation": {
+              "name": "QUICKNPC.spell.devastation.name",
+              "summary": "QUICKNPC.spell.devastation.description",
+              "description": "QUICKNPC.spell.devastation.spellText",
+              "cost": 30,
+              "target": "special",
+              "costType": "total",
+              "duration": "instant"
+            }
+          }
+        }
+      }
+    },
+    "doom": {
+      "label": "QUICKNPC.bossSkills.doom.name",
+      "description": "QUICKNPC.bossSkills.doom.description",
+      "changes": {
+        "model": {
+          "actions": {
+            "doom": {
+              "name": "QUICKNPC.bossSkills.doom.name",
+              "summary": "QUICKNPC.bossSkills.doom.description",
+              "description": "QUICKNPC.bossSkills.doom.actionText"
+            }
+          }
+        }
+      }
+    },
+    "hellishGamble": {
+      "label": "QUICKNPC.bossSkills.hellishGamble.name",
+      "description": "QUICKNPC.bossSkills.hellishGamble.description",
+      "choices": {
+        "damageType": {
+          "label": "QUICKNPC.commonChoices.damageType",
+          "options": {
+            "physical": "QUICKNPC.damageType.physical",
+            "air": "QUICKNPC.damageType.air",
+            "bolt": "QUICKNPC.damageType.bolt",
+            "dark": "QUICKNPC.damageType.dark",
+            "earth": "QUICKNPC.damageType.earth",
+            "fire": "QUICKNPC.damageType.fire",
+            "ice": "QUICKNPC.damageType.ice",
+            "light": "QUICKNPC.damageType.light",
+            "poison": "QUICKNPC.damageType.poison"
+          }
+        }
+      },
+      "changes": {
+        "model": {
+          "actions": {
+            "hellishGamble": {
+              "name": "QUICKNPC.bossSkills.hellishGamble.name",
+              "summary": "QUICKNPC.bossSkills.hellishGamble.description",
+              "description": "QUICKNPC.bossSkills.hellishGamble.actionText"
+            }
+          }
+        }
+      }
+    },
+    "nihilo": {
+      "label": "QUICKNPC.bossSkills.nihilo.name",
+      "description": "QUICKNPC.bossSkills.nihilo.description",
+      "changes": {
+        "model": {
+          "actions": {
+            "nihilo": {
+              "name": "QUICKNPC.bossSkills.nihilo.name",
+              "summary": "QUICKNPC.bossSkills.nihilo.description",
+              "description": "QUICKNPC.bossSkills.nihilo.actionText"
+            }
+          }
+        }
+      }
+    }
+  }
+}

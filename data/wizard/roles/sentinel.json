@@ -19,63 +19,12 @@
         "dex": "d10"
       }
     ],
-    "skillsByLevel": [
-      {
-        "steps": [
-          {
-            "type": "AssignResistance",
-            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
-          },
-          {
-            "type": "AssignResistance",
-            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
-          }
-        ]
-      },
-      {
-        "steps": [
-          {
-            "type": "ChooseRoleSkill"
-          }
-        ]
-      },
-      {
-        "model": {
-          "bonuses": {
-            "def": 2,
-            "mDef": 1
-          }
-        }
-      },
-      {
-        "steps": [
-          {
-            "type": "ChooseRoleSkill"
-          }
-        ]
-      },
-      {
-        "steps": [
-          {
-            "type": "AssignStatusImmunity",
-            "options": ["shaken", "weak", "poisoned"]
-          },
-          {
-            "type": "AssignStatusImmunity",
-            "options": ["shaken", "weak", "poisoned"]
-          }
-        ]
-      },
-      {
-        "steps": [
-          {
-            "type": "ChooseRoleSkill"
-          }
-        ]
-      }
-    ],
     "baseline": {
       "model": {
+        "bonuses": {
+          "def": 2,
+          "mDef": 1
+        },
         "attacks": {
           "normal": {
             "name": "QUICKNPC.attacks.normal",
@@ -168,6 +117,61 @@
         }
       ]
     },
+    "skillsByLevel": [
+      {
+        "steps": [
+          {
+            "type": "AssignResistance",
+            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
+          },
+          {
+            "type": "AssignResistance",
+            "options": ["air", "bolt", "dark", "earth", "fire", "ice", "light", "poison"]
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "model": {
+          "bonuses": {
+            "def": 2,
+            "mDef": 1
+          }
+        }
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "AssignStatusImmunity",
+            "options": ["shaken", "weak", "poisoned"]
+          },
+          {
+            "type": "AssignStatusImmunity",
+            "options": ["shaken", "weak", "poisoned"]
+          }
+        ]
+      },
+      {
+        "steps": [
+          {
+            "type": "ChooseRoleSkill"
+          }
+        ]
+      }
+    ],
     "customizations": {
       "sentinelAdditionalRoleSkill": {
         "label": "QUICKNPC.commonSkills.additionalRoleSkill.name",
@@ -272,15 +276,14 @@
           }
         }
       },
-      "normalAttackMagic": {
-        "label": "QUICKNPC.commonSkills.normalAttackMagic.name",
-        "description": "QUICKNPC.commonSkills.normalAttackMagic.description",
+      "normalAttackIgnoreResistance": {
+        "label": "QUICKNPC.commonSkills.normalAttackIgnoreResistance.name",
+        "description": "QUICKNPC.commonSkills.normalAttackIgnoreResistance.description",
         "changes": {
           "model": {
             "attacks": {
               "normal": {
-                "targetDefense": "mDef",
-                "special": ["QUICKNPC.attacks.special.targetsMDef"]
+                "special": ["QUICKNPC.attacks.special.ignoreResistance"]
               }
             }
           }
@@ -296,9 +299,7 @@
               "dazed": "QUICKNPC.statusEffects.dazed",
               "shaken": "QUICKNPC.statusEffects.shaken",
               "slow": "QUICKNPC.statusEffects.slow",
-              "weak": "QUICKNPC.statusEffects.weak",
-              "enraged": "QUICKNPC.statusEffects.enraged",
-              "poisoned": "QUICKNPC.statusEffects.poisoned"
+              "weak": "QUICKNPC.statusEffects.weak"
             }
           }
         },
@@ -329,12 +330,15 @@
           ]
         }
       },
-      "barricadeOneType": {
-        "label": "QUICKNPC.role.sentinel.barricade.name.oneType",
-        "description": "QUICKNPC.role.sentinel.barricade.description.oneType",
+      "barricade": {
+        "label": "QUICKNPC.role.sentinel.barricade.name",
+        "description": "QUICKNPC.role.sentinel.barricade.description",
         "choices": {
-          "damageType": {
+          "damageTypes": {
             "label": "QUICKNPC.commonChoices.damageType",
+            "multi": {
+              "max": 2
+            },
             "options": {
               "physical": "QUICKNPC.damageType.physical",
               "air": "QUICKNPC.damageType.air",
@@ -347,78 +351,28 @@
               "poison": "QUICKNPC.damageType.poison"
             }
           }
-        },
-        "disallow": {
-          "anyAction": ["barricade"]
         },
         "changes": {
           "model": {
             "actions": {
               "barricade": {
-                "name": "QUICKNPC.role.sentinel.barricade.name.rule",
-                "summary": "QUICKNPC.role.sentinel.barricade.description.oneType",
-                "description": "QUICKNPC.role.sentinel.barricade.actionText.oneType"
+                "name": "QUICKNPC.role.sentinel.barricade.name",
+                "summary": "QUICKNPC.role.sentinel.barricade.description",
+                "description": "QUICKNPC.role.sentinel.barricade.actionText"
               }
             }
           }
         }
       },
-      "barricadeTwoTypes": {
-        "label": "QUICKNPC.role.sentinel.barricade.name.twoTypes",
-        "description": "QUICKNPC.role.sentinel.barricade.description.twoTypes",
+      "avenge": {
+        "label": "QUICKNPC.role.sentinel.avenge.name",
+        "description": "QUICKNPC.role.sentinel.avenge.description",
         "choices": {
-          "damageType1": {
-            "label": "QUICKNPC.commonChoices.damageType",
-            "options": {
-              "physical": "QUICKNPC.damageType.physical",
-              "air": "QUICKNPC.damageType.air",
-              "bolt": "QUICKNPC.damageType.bolt",
-              "dark": "QUICKNPC.damageType.dark",
-              "earth": "QUICKNPC.damageType.earth",
-              "fire": "QUICKNPC.damageType.fire",
-              "ice": "QUICKNPC.damageType.ice",
-              "light": "QUICKNPC.damageType.light",
-              "poison": "QUICKNPC.damageType.poison"
-            },
-            "group": "damageType"
-          },
-          "damageType2": {
-            "label": "QUICKNPC.commonChoices.damageType",
-            "options": {
-              "physical": "QUICKNPC.damageType.physical",
-              "air": "QUICKNPC.damageType.air",
-              "bolt": "QUICKNPC.damageType.bolt",
-              "dark": "QUICKNPC.damageType.dark",
-              "earth": "QUICKNPC.damageType.earth",
-              "fire": "QUICKNPC.damageType.fire",
-              "ice": "QUICKNPC.damageType.ice",
-              "light": "QUICKNPC.damageType.light",
-              "poison": "QUICKNPC.damageType.poison"
-            },
-            "group": "damageType"
-          }
-        },
-        "disallow": {
-          "anyAction": ["barricade"]
-        },
-        "changes": {
-          "model": {
-            "actions": {
-              "barricade": {
-                "name": "QUICKNPC.role.sentinel.barricade.name.rule",
-                "summary": "QUICKNPC.role.sentinel.barricade.description.twoTypes",
-                "description": "QUICKNPC.role.sentinel.barricade.actionText.twoTypes"
-              }
-            }
-          }
-        }
-      },
-      "avengeOneAction": {
-        "label": "QUICKNPC.role.sentinel.avenge.name.oneAction",
-        "description": "QUICKNPC.role.sentinel.avenge.description.oneAction",
-        "choices": {
-          "action": {
+          "actions": {
             "label": "QUICKNPC.role.sentinel.avenge.action.label",
+            "multi": {
+              "max": 2
+            },
             "options": {
               "melee": "QUICKNPC.role.sentinel.avenge.action.melee",
               "ranged": "QUICKNPC.role.sentinel.avenge.action.ranged",
@@ -427,53 +381,15 @@
           }
         },
         "disallow": {
-          "anyRule": ["avenge"]
+          "rank": ["soldier"]
         },
         "changes": {
           "model": {
             "rules": {
               "avenge": {
-                "name": "QUICKNPC.role.sentinel.avenge.name.rule",
-                "summary": "QUICKNPC.role.sentinel.avenge.description.oneAction",
-                "description": "QUICKNPC.role.sentinel.avenge.ruleText.oneAction"
-              }
-            }
-          }
-        }
-      },
-      "avengeTwoAction": {
-        "label": "QUICKNPC.role.sentinel.avenge.name.twoActions",
-        "description": "QUICKNPC.role.sentinel.avenge.description.twoActions",
-        "choices": {
-          "action1": {
-            "label": "QUICKNPC.role.sentinel.avenge.action.label",
-            "options": {
-              "melee": "QUICKNPC.role.sentinel.avenge.action.melee",
-              "ranged": "QUICKNPC.role.sentinel.avenge.action.ranged",
-              "spell": "QUICKNPC.role.sentinel.avenge.action.spell"
-            },
-            "group": "action"
-          },
-          "action2": {
-            "label": "QUICKNPC.role.sentinel.avenge.action.label",
-            "options": {
-              "melee": "QUICKNPC.role.sentinel.avenge.action.melee",
-              "ranged": "QUICKNPC.role.sentinel.avenge.action.ranged",
-              "spell": "QUICKNPC.role.sentinel.avenge.action.spell"
-            },
-            "group": "action"
-          }
-        },
-        "disallow": {
-          "anyRule": ["avenge"]
-        },
-        "changes": {
-          "model": {
-            "rules": {
-              "avenge": {
-                "name": "QUICKNPC.role.sentinel.avenge.name.rule",
-                "summary": "QUICKNPC.role.sentinel.avenge.description.twoActions",
-                "description": "QUICKNPC.role.sentinel.avenge.ruleText.twoActions"
+                "name": "QUICKNPC.role.sentinel.avenge.name",
+                "summary": "QUICKNPC.role.sentinel.avenge.description",
+                "description": "QUICKNPC.role.sentinel.avenge.ruleText"
               }
             }
           }
