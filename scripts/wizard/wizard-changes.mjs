@@ -97,8 +97,6 @@ const isCheckDefinition = (value) => {
  * @param {object} choices
  */
 function applySimple(model, jsonModel, choices) {
-  choices = Object.fromEntries(Object.entries(choices).map(([key, value]) => [key, value ?? '']));
-
   Object.entries(jsonModel).forEach(([key, value]) => {
     if (Array.isArray(value)) {
       const dupe = foundry.utils

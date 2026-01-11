@@ -137,6 +137,9 @@
       "require": {
         "level": 30
       },
+      "disallow": {
+        "anySpell": ["devastation"]
+      },
       "changes": {
         "model": {
           "spells": {

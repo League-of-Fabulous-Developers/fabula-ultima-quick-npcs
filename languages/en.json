@@ -757,8 +757,8 @@
           "choices": {
             "effect": {
               "label": "Choose Crisis effect",
-              "statusImmunity": "Immunity to status effects, except enraged.",
-              "extraDamage": "Normal attack deals 5 extra damage."
+              "statusImmunity": "Status Immunities",
+              "extraDamage": "Extra damage."
             }
           }
         },
@@ -1101,39 +1101,19 @@
       "sentinel": {
         "avenge": {
           "action": {
-            "label": "Choose Action",
+            "label": "Choose Actions",
             "melee": "Melee Attacks",
             "ranged": "Ranged Attacks",
             "spell": "Offensive Spells"
           },
-          "description": {
-            "oneAction": "Retaliate against a certain type of offensive action.",
-            "twoActions": "Retaliate against two types of offensive action."
-          },
-          "name": {
-            "oneAction": "Avenge (One Action)",
-            "rule": "Avenge",
-            "twoActions": "Avenge (Two Actions)"
-          },
-          "ruleText": {
-            "oneAction": "<div>Quick Assembly Rules Preview V3 p13</div><div>Chosen action: {action}</div>",
-            "twoActions": "<div>Quick Assembly Rules Preview V3 p13</div><div>Chosen actions: {action1} and {action2}</div>"
-          }
+          "description": "Retaliate against a certain types of offensive action.",
+          "name": "Avenge",
+          "ruleText": "<div>Quick Assembly Rules Preview V3 p13</div><div>Chosen action(s): {actions}</div>"
         },
         "barricade": {
-          "actionText": {
-            "oneType": "<div>Quick Assembly Rules Preview V3 p13</div><div>Chosen damage type: {damageType}</div>",
-            "twoTypes": "<div>Quick Assembly Rules Preview V3 p13</div><div>Chosen damage types: {damageType1} and {damageType2}</div>"
-          },
-          "description": {
-            "oneType": "Use MP to grant yourself and allies Resistance to a specific damage type.",
-            "twoTypes": "Use MP to grant yourself and allies Resistance to two damage types."
-          },
-          "name": {
-            "oneType": "Barricade (One Damage Type)",
-            "rule": "Barricade",
-            "twoTypes": "Barricade (Two Damage Types)"
-          }
+          "actionText": "<div>Quick Assembly Rules Preview V3 p13</div><div>Chosen damage type(s): {damageTypes}</div>",
+          "description": "Use MP to grant yourself and allies Resistance to a specific damage types.",
+          "name": "Barricade"
         },
         "intercept": {
           "description": "Protect your allies from danger by sacrificing yourself.",
