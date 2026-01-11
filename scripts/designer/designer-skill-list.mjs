@@ -277,15 +277,14 @@ export const designerSkillList = {
     choices: {
       improvement: {
         label: 'QUICKNPC.designer.skill.improveDefenses.choices.improvement.label',
-        options: (model, context) => {
-          return ['defImprovement', 'mDefImprovement'].reduce((options, key) => {
-            if (!Customizations.checkApplied(context, key)) {
-              options[key] = `QUICKNPC.designer.skill.improveDefenses.choices.improvement.${key}`;
-            }
-            return options;
-          }, {});
-        },
+        options: () => ({
+          defImprovement: 'QUICKNPC.designer.skill.improveDefenses.choices.improvement.defImprovement',
+          mDefImprovement: 'QUICKNPC.designer.skill.improveDefenses.choices.improvement.mDefImprovement',
+        }),
       },
+    },
+    require: {
+      custom: (model, context) => (context['appliedDefenseImprovements'] ?? 0) < 2,
     },
     apply: (model, context, choices) => {
       const { improvement } = choices;
@@ -293,20 +292,21 @@ export const designerSkillList = {
 
       if (improvement === 'defImprovement') {
         changes.bonuses = {
-          def: 2,
-          mDef: 1,
+          def: model.bonuses.def + 2,
+          mDef: model.bonuses.mDef + 1,
         };
       }
 
       if (improvement === 'mDefImprovement') {
         changes.bonuses = {
-          def: 1,
-          mDef: 2,
+          def: model.bonuses.def + 1,
+          mDef: model.bonuses.mDef + 2,
         };
       }
 
       model.updateSource(changes);
-      Customizations.markApplied(context, improvement);
+      context['appliedDefenseImprovements'] ??= 0;
+      context['appliedDefenseImprovements'] += 1;
     },
   },
   improveHitPoints: {
