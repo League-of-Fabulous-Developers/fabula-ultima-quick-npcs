@@ -3,1191 +3,1828 @@
     "actions": {
       "attack": "Ataque",
       "equipment": "Equipamento",
-      "guard": "Defender",
+      "guard": "Guarda",
       "hinder": "Impedir",
       "inventory": "Inventário",
       "objective": "Objetivo",
+      "skill": "Poder",
       "spell": "Feitiço",
       "study": "Estudar"
     },
     "attacks": {
-      "melee": "Corpo-a-Corpo",
+      "melee": "Corpo a Corpo",
       "normal": "Ataque Normal",
-      "ranged": "Ataque à Distância",
+      "ranged": "À Distância",
       "special": {
-        "causesStatus": "Os alvos atingidos por este ataque sofrem {status}",
-        "ignoreResistance": "O dano causado por este ataque ignora a Resistência.",
+        "causesStatus": "Alvos atingidos por este ataque sofrem {status}",
+        "ignoreResistance": "O dano causado por este ataque ignora Resistências.",
         "multi2": "<b>Multi (2)</b>",
         "targetsMDef": "Este ataque tem como alvo a Defesa Mágica em vez da Defesa."
       },
       "strong": "Ataque Forte"
     },
+    "attributeDice": {
+      "d10": "d10",
+      "d12": "d12",
+      "d6": "d6",
+      "d8": "d8"
+    },
     "attributes": {
       "dex": "DES",
-      "ins": "INT",
+      "ins": "AST",
       "mig": "VIG",
       "wlp": "VON"
     },
     "bossSkills": {
+      "adaptiveAffinities": {
+        "name": "Afinidades Adaptativas",
+        "description": "Altere suas Afinidades em resposta ao dano.",
+        "ruleText": "<div>Bestiário Volume I p66</div>"
+      },
+      "attrition": {
+        "name": "Atrito",
+        "description": "Retalie ao perder um Teste Oposto.",
+        "ruleText": {
+          "default": "<div>Bestiário Volume I p62</div><div>Condição: {status}</div><div>Efeito: {effect}</div>",
+          "additionalStatus": "<div>Bestiário Volume I p62</div><div>Condição: {status}</div><div>Efeito: {effect}</div><div>Condição Adicional: {additionalStatus}</div>"
+        },
+        "choices": {
+          "effect": {
+            "label": "Escolher Efeito",
+            "drainHp": "Drenar PV",
+            "drainMp": "Drenar PM",
+            "additionalStatus": "Condição Adicional"
+          },
+          "additionalStatus": {
+            "label": "Escolher Condição Adicional"
+          }
+        }
+      },
+      "auraOfSuffering": {
+        "name": "Aura de Sofrimento",
+        "description": "Impede a recuperação de uma Condição específica.",
+        "ruleText": "<div>Bestiário Volume I p55</div><div>Condição: {status}</div>"
+      },
+      "autoCounter": {
+        "name": "Contra-Ataque Automático",
+        "description": "Retalie ao sofrer dano.",
+        "ruleText": "<div>Bestiário Volume I p56</div><div>Reação: {reaction}</div>",
+        "choices": {
+          "reaction": {
+            "label": "Escolher Reação",
+            "attack": "Ataque Normal",
+            "spell": "Feitiço Específico"
+          }
+        }
+      },
+      "binaryElements": {
+        "name": "Elementos Binários",
+        "description": "Alterne regularmente entre afinidades opostas.",
+        "ruleText": "<div>Bestiário Volume I p60</div><div>Pares Elementais: {elements}</div>",
+        "choices": {
+          "elements": {
+            "label": "Escolher pares elementais",
+            "airEarth": "ar/terra",
+            "darkLight": "trevas/luz",
+            "fireIce": "fogo/gelo"
+          }
+        }
+      },
+      "callReinforcements": {
+        "name": "Chamar Reforços",
+        "description": "Use Pontos de Última para convocar reforços.",
+        "actionText": "<div>Bestiário Volume I p64</div>"
+      },
+      "camouflage": {
+        "name": "Camuflagem",
+        "description": "Torne-se temporariamente inalvejável.",
+        "ruleText": "<div>Bestiário Volume I p66</div><div>Efeito: {effect}</div>",
+        "choices": {
+          "effect": {
+            "label": "Escolher Efeito",
+            "invisible": "Tornar-se Invisível",
+            "untargetableMelee": "Inalvejável por Ataques Corpo a Corpo",
+            "untargetableRangedSpells": "Inalvejável por Feitiços e Ataques à Distância"
+          }
+        }
+      },
+      "catastropheCharger": {
+        "name": "Carregador de Catástrofe",
+        "description": "Carregue uma explosão devastadora usando os PM de seus aliados.",
+        "actionText": "<div>Bestiário Volume I p58</div><div>Tipo de Dano: {damageType}</div><div>Condição: {status}</div>"
+      },
+      "catchMeIfYouCan": {
+        "name": "Pegue-me Se For Capaz",
+        "description": "Use um Relógio de Perseguição para ficar fora do alcance dos PJs.",
+        "actionText": "<div>Bestiário Volume I p66</div>"
+      },
       "corrosiveStatus": {
-        "actionText": "<div>Prévia das regras de montagem rápida V3 p16.</div><div>Damage: {damageType}</div><div>Status: {status}</div>",
-        "description": "Causa dano a inimigos que sofrem de um status específico.",
-        "name": "Status Corrosivo"
+        "actionText": "<div>Bestiário Volume I p58.</div><div>Dano: {damageType}</div><div>Condição: {status}</div>",
+        "description": "Cause dano a inimigos que sofrem de uma condição específica.",
+        "name": "Condição Corrosiva"
+      },
+      "countdown": {
+        "name": "Contagem Regressiva",
+        "description": "Use um Relógio de Contagem Regressiva para aumentar a pressão.",
+        "ruleText": "<div>Bestiário Volume I p62</div>"
+      },
+      "counterSummoning": {
+        "name": "Contra-Invocação",
+        "description": "Convoque reforços em resposta ao dano.",
+        "ruleText": "<div>Bestiário Volume I p64</div>"
+      },
+      "crisisStatus": {
+        "name": "Condição de Crise",
+        "description": "Afete inimigos com condições específicas ao entrar em Crise.",
+        "ruleText": "<div>Bestiário Volume I p56</div><div>Condição(ões): {status}</div>"
+      },
+      "cruelTwist": {
+        "name": "Reviravolta Cruel",
+        "description": "Troque o estado de preenchimento de dois relógios.",
+        "ruleText": "<div>Bestiário Volume I p62</div>"
       },
       "crushingAdvantage": {
-        "description": "Encha ou esvazie relógios sem precisar fazer verificações.",
+        "description": "Preencha ou esvazie relógios sem precisar realizar testes.",
         "name": "Vantagem Esmagadora",
-        "ruleText": "<div>Prévia das regras de montagem rápida V3 p16.</div>"
+        "ruleText": "<div>Bestiário Volume I p63</div>"
+      },
+      "defensiveStance": {
+        "name": "Postura Defensiva",
+        "description": "Reduza o dano sofrido.",
+        "ruleText": "<div>Bestiário Volume I p66</div>"
+      },
+      "destructiveFormation": {
+        "name": "Formação Destrutiva",
+        "description": "Use seus aliados para causar dano a todos os inimigos.",
+        "actionText": "<div>Bestiário Volume I p58</div><div>Tipo de Dano: {damageType}</div>"
+      },
+      "devastation": {
+        "name": "Devastação",
+        "description": "Ganhe acesso ao feitiço Devastação."
+      },
+      "doom": {
+        "name": "Ruína",
+        "description": "Prepare seu Movimento Supremo usando um Relógio da Ruína.",
+        "actionText": "<div>Bestiário Volume I p59</div>"
       },
       "elementalCrisis": {
-        "description": "Altere as afinidades elementais e o tipo de dano ao entrar em Crise.",
+        "description": "Altere afinidades elementais e tipos de dano ao entrar em Crise.",
         "name": "Crise Elemental",
-        "ruleText": "<div>Prévia das regras de montagem rápida V3 p16.</div>"
+        "ruleText": "<div>Bestiário Volume I p60</div>"
       },
-      "partRegeneration": {
-        "description": "Recupere-se dos efeitos de status e convoque reforços ao entrar em Crise.",
-        "name": "Regeneração Parcia",
-        "ruleText": "<div>Prévia das regras de montagem rápida V3 p16.</div>"
+      "elementalStance": {
+        "name": "Postura Elemental",
+        "description": "Alterne entre posturas alinhadas a elementos.",
+        "ruleText": "<div>Bestiário Volume I p61</div><div>Gatilho de Mudança de Postura: {trigger}</div><div>Posturas: {stances}</div>",
+        "choices": {
+          "trigger": {
+            "label": "Escolher Gatilho de Mudança de Postura",
+            "attack": "Após Ataque Normal",
+            "guard": "Após Ação de Guarda",
+            "vulnerability": "Após Acerto em Vulnerabilidade",
+            "combatRound": "Fim da Rodada de Combate"
+          },
+          "stances": {
+            "label": "Posturas Disponíveis",
+            "air": "Postura do Ar",
+            "bolt": "Postura do Raio",
+            "dark": "Postura das Trevas",
+            "earth": "Postura da Terra",
+            "fire": "Postura do Fogo",
+            "ice": "Postura do Gelo",
+            "light": "Postura da Luz"
+          }
+        }
       },
-      "temporaryDefenses": {
-        "choice": "Escolha estatística defensiva",
-        "def": "Defesa",
-        "description": "Trate uma de suas defesas como um valor estático até entrar em Crise.",
-        "mDef": "Defesa Mágica",
-        "name": "Defesas Temporárias",
-        "ruleText": "<div>Prévia das regras de montagem rápida V3 p17.</div><div>Estatística defensiva escolhida: {defense}</div>"
+      "emergencyReinforcements": {
+        "name": "Reforços de Emergência",
+        "description": "Convoque reforços enquanto estiver em Crise.",
+        "ruleText": "<div>Bestiário Volume I p65</div>"
       },
+      "hellishGamble": {
+        "name": "Aposta Infernal",
+        "description": "Exploda o campo de batalha aleatoriamente, com efeito devastador.",
+        "actionText": "<div>Bestiário Volume I p59</div><div>Tipo de Dano: {damageType}</div>"
+      },
+      "iKnowYouWell": {
+        "name": "Eu Conheço Você Muito Bem",
+        "description": "Obstrua os PJs usando seus próprios traços.",
+        "ruleText": "<div>Bestiário Volume I p63</div>"
+      },
+      "lifeAndDeath": {
+        "name": "Vida e Morte",
+        "description": "Amplifique mudanças em PV.",
+        "ruleText": "<div>Bestiário Volume I p55</div>"
+      },
+      "markOfSharedPain": {
+        "name": "Marca da Dor Compartilhada",
+        "description": "Marque inimigos e redirecione parcialmente o dano recebido para alvos marcados.",
+        "ruleText": "<div>Bestiário Volume I p56</div><div>Fonte da Marca: {markSource}</div><div>Gatilho da Marca: {markTrigger}</div>",
+        "choices": {
+          "markSource": {
+            "label": "Escolher fonte das Marcas",
+            "boss": "Chefe",
+            "ally": "Aliado"
+          },
+          "markTrigger": {
+            "label": "Escolher o que aplica uma Marca",
+            "attack": "Ataques Normais",
+            "spell": "Feitiços Ofensivos"
+          }
+        }
+      },
+      "nearAndFar": {
+        "name": "Perto e Longe",
+        "description": "Restrinja quando criaturas podem ser alvejadas por ataques.",
+        "ruleText": "<div>Bestiário Volume I p55</div><div>Restrito: {restriction}</div>",
+        "choices": {
+          "restriction": {
+            "label": "Escolher Ataques Restritos",
+            "restrictMelee": "Ataques Corpo a Corpo",
+            "restrictRanged": "Ataques à Distância",
+            "restrictBoth": "Ataques Corpo a Corpo e à Distância"
+          }
+        }
+      },
+"nihilo": {
+  "name": "Nihilo",
+  "description": "Banir magia persistente.",
+  "actionText": "<div>Bestiário Volume I p59</div>"
+},
+"observeAndPunish": {
+  "name": "Observar e Punir",
+  "description": "Puna severamente quem atrair sua ira.",
+  "ruleText": "<div>Bestiário Volume I p57</div><div>Gatilho: {trigger}</div><div>Condição: {status}</div>",
+  "choices": {
+    "trigger": {
+      "label": "Escolher Gatilho",
+      "boss": "Causou dano ao Chefe",
+      "ally": "Causou dano a um aliado do Chefe",
+      "action": "Usou a ação de Feitiço ou Poder"
+    }
+  }
+},
+"partRegeneration": {
+  "description": "Recupere-se de condições e convoque reforços ao entrar em Crise.",
+  "name": "Regeneração Parcial",
+  "ruleText": "<div>Bestiário Volume I p65.</div>"
+},
+"perfectCoordination": {
+  "name": "Coordenação Perfeita",
+  "description": "Aliados podem gastar seus Pontos de Última para rerrolagens.",
+  "ruleText": "<div>Bestiário Volume I p65</div>"
+},
+"regeneration": {
+  "name": "Regeneração",
+  "description": "Recupere seus recursos enquanto estiver em Crise.",
+  "ruleText": "<div>Bestiário Volume I p66</div><div>Recurso: {resource}</div>"
+},
+"ruinousInfluence": {
+  "name": "Influência Ruinosa",
+  "description": "Force os PJs a cometerem falha crítica em um Teste Oposto.",
+  "ruleText": "<div>Bestiário Volume I p63</div>"
+},
+"secondWind": {
+  "name": "Segundo Fôlego",
+  "description": "Recupere PV e remova Condições na primeira vez que entrar em Crise.",
+  "ruleText": "<div>Bestiário Volume I p67</div>"
+},
+"temporaryDefenses": {
+  "choice": "Escolher Estatística defensiva",
+  "def": "Defesa",
+  "description": "Trate uma de suas defesas como um valor fixo até entrar em Crise.",
+  "mDef": "Defesa Mágica",
+  "name": "Defesas Temporárias",
+  "ruleText": "<div>Bestiário Volume I p67.</div><div>Estatística defensiva escolhida: {defense}</div>"
+},
+"tyrantsDecree": {
+  "name": "Decreto do Tirano",
+  "description": "Proíba o uso de certas ações e sancione quem quebrar o decreto.",
+  "actionText": "<div>Bestiário Volume I p57</div><div>Ação(ões): {actions}</div><div>Sanção: {sanction}</div>",
+  "choices": {
+    "actions": {
+      "label": "Escolher Ações sancionáveis"
+    },
+    "sanction": {
+      "label": "Escolher Sanção",
+      "hinder": "Ação de Impedimento",
+      "attack": "Ataque Normal",
+      "spell": "Feitiço Ofensivo"
+    }
+  }
+},
+"undo": {
+  "name": "Desfazer",
+  "description": "Rebobine o tempo para evitar ser derrotado.",
+  "ruleText": "<div>Bestiário Volume I p67</div>"
+},
+"vampiricFormation": {
+  "name": "Formação Vampírica",
+  "description": "Ganhe roubo de vida enquanto tiver aliados.",
+  "ruleText": "<div>Bestiário Volume I p67</div>"
+},
+"youJustProvedMyPoint": {
+  "name": "Você Acabou de Provar Meu Ponto",
+  "description": "Torne o uso de Pontos de Fábula uma proposta arriscada.",
+  "ruleText": "<div>Bestiário Volume I p57</div>"
+},
       "zombification": {
-        "description": "Inverte a cura para dano quando o alvo sofre um certo efeito de status.",
-        "name": "Zumbificação",
-        "ruleText": "<div>Prévia das regras de montagem rápida V3 p17.</div><div>Chosen status: {status}</div>"
+  "description": "Inverta cura em dano quando o alvo sofrer de uma condição específica.",
+  "name": "Zombificação",
+  "ruleText": "<div>Bestiário Volume I p55.</div><div>Condição escolhida: {status}</div>"
       }
     },
-    "commonChoices": {
-      "attribute": "Escolha o atributo",
-      "damageType": "Escolha o tipo de dano",
-      "resource": "Escolha o recurso",
-      "status": "Escolha o efeito de status"
-    },
-    "commonSkills": {
-      "additionalRoleSkill": {
-        "description": "Ganhe uma Habilidade de Função adicional.",
-        "name": "Habilidade de Função adicional"
-      },
-      "bonusHp": {
-        "description": "Adicione 10 PV por soldado equivalente.",
-        "name": "PV Bônus"
-      },
-      "flying": {
-        "description": "Ganha Voador.",
-        "name": "Voador",
-        "ruleText": "<div>Livro Base p307</div>"
-      },
-      "none": {
-        "description": "Não adicione uma habilidade.",
-        "name": "Nenhum"
-      },
-      "normalAttackMagic": {
-        "description": "Ataque normal tem como alvo DEF M. em vez de DEF",
-        "name": "Ataque Normal Mágico"
-      },
-      "normalAttackMpRecovery": {
-        "description": "Ataque normal restaura PM ao acertar.",
-        "name": "Recuperação de PM de Ataque Normal",
-        "specialText": "Quando este ataque atinge um ou mais alvos, você recupera {amount} PM."
-      },
-      "normalAttackMulti2": {
-        "description": "Ataque normal ganha Multi (2).",
-        "name": "Ataque Normal Multi (2)"
-      },
-      "normalAttackStatus": {
-        "description": "Ataque normal causa um efeito de status.",
-        "name": "Ataque Normal de Status"
-      },
-      "oneImmunity": {
-        "description": "Ganhe imunidade adicional.",
-        "name": "Imunidade Adicional"
-      },
-      "oneImmunityExceptPhysical": {
-        "description": "Ganhe imunidade adicional a qualquer tipo de dano, exceto físico.",
-        "name": "Uma Imunidade"
-      },
-      "strongAttackMagic": {
-        "description": "Ataque Forte tem como alvo DEF M. em vez de DEF",
-        "name": "Ataque Mágico Forte"
-      },
-      "twoResistances": {
-        "description": "Ganhe duas resistências adicionais a qualquer dano.",
-        "name": "Duas Resistências Adicionais"
-      },
-      "twoResistancesExceptPhysical": {
-        "description": "Ganhe duas resistências adicionais a qualquer tipo de dano, exceto físico.",
-        "name": "Duas Resistências"
+"commonSkills": {
+  "additionalRoleSkill": {
+    "description": "Ganhe um Poder de Papel adicional.",
+    "name": "Poder de Papel Adicional"
+  },
+  "bonusHp": {
+    "description": "Adicione 10 PV por equivalente de Soldado.",
+    "name": "PV Bônus"
+  },
+  "flying": {
+    "description": "Ganhe Voo.",
+    "name": "Voo",
+    "ruleText": "<div>Livro Básico p307</div>"
+  },
+  "none": {
+    "description": "Não adicionar um Poder.",
+    "name": "Nenhum"
+  },
+  "normalAttackIgnoreResistance": {
+    "description": "O dano causado pelo Ataque Normal ignora Resistências.",
+    "name": "Ataque Normal Ignora Resistências"
+  },
+  "normalAttackMagic": {
+    "description": "O Ataque Normal tem como alvo DEF.M em vez de DEF",
+    "name": "Ataque Normal Mágico"
+  },
+  "normalAttackMpRecovery": {
+    "description": "O Ataque Normal restaura PM ao acertar.",
+    "name": "Recuperação de PM com Ataque Normal",
+    "specialText": "Quando este ataque acerta um ou mais alvos, você recupera {amount} PM."
+  },
+  "normalAttackMulti2": {
+    "description": "O Ataque Normal ganha Multi (2).",
+    "name": "Ataque Normal Multi (2)"
+  },
+  "normalAttackStatus": {
+    "description": "O Ataque Normal causa uma Condição.",
+    "name": "Condição no Ataque Normal"
+  },
+  "oneImmunity": {
+    "description": "Ganhe uma imunidade adicional.",
+    "name": "Imunidade Adicional"
+  },
+  "oneImmunityExceptPhysical": {
+    "description": "Ganhe uma imunidade adicional a qualquer tipo de dano exceto físico.",
+    "name": "Uma Imunidade"
+  },
+  "strongAttackMagic": {
+    "description": "O Ataque Forte tem como alvo DEF.M em vez de DEF",
+    "name": "Ataque Forte Mágico"
+  },
+  "twoResistances": {
+    "description": "Ganhe duas resistências adicionais a qualquer dano.",
+    "name": "Duas Resistências Adicionais"
+  },
+  "twoResistancesExceptPhysical": {
+    "description": "Ganhe duas resistências adicionais a qualquer tipo de dano exceto físico.",
+    "name": "Duas Resistências"
       }
     },
-    "damageType": {
-      "air": "Ar",
-      "bolt": "Raio",
-      "dark": "Sombrio",
-      "earth": "Terra",
-      "fire": "Fogo",
-      "ice": "Gelo",
-      "light": "Luz",
-      "physical": "Físico",
-      "poison": "Veneno"
+"damageType": {
+  "air": "Ar",
+  "bolt": "Raio",
+  "dark": "Trevas",
+  "earth": "Terra",
+  "fire": "Fogo",
+  "ice": "Gelo",
+  "light": "Luz",
+  "physical": "Físico",
+  "poison": "Veneno"
     },
     "dataType": {
-      "role": "Função",
-      "species": "Espécie",
-      "unknown": "Desconhecido"
+  "role": "Papel",
+  "species": "Espécie",
+  "unknown": "Desconhecido"
     },
-    "error": {
-      "invalidDataFile": "Arquivo de dados inválido '{file}'. Consulte o log para obter mais informações.",
-      "unableToLoadDataFile": "Não foi possível carregar o arquivo de dados '{file}'. Consulte o log para obter mais informações.",
-      "unknownChoice": "Mudanças condicionais fazem referência a escolha desconhecida: {choice}",
-      "unknownChoiceOption": "Alterações condicionais fazem referência a uma opção de escolha desconhecida: {choice} -> {option}",
-      "unknownSpellList": "'ChooseSpell' passo faz referência a uma lista de magias desconhecida: {spellList}"
-    },
-    "negativeSkills": {
-      "finalDetonation": {
-        "description": "Cause dano aos seus aliados quando for eliminado.",
-        "name": "Detonação Final",
-        "ruleText": "<div>Prévia das regras de montagem rápida V3 p17.</div><div>Tipo de dano escolhido: {damageType}</div>"
-      },
-      "finalRestore": {
-        "description": "Restaure recursos para seus inimigos quando você for eliminado.",
-        "name": "Restauração Final",
-        "ruleText": "<div>Prévia das regras de montagem rápida V3 p17.</div><div>Recurso escolhido: {resource}</div>"
-      },
-      "painfulMiss": {
+"designer": {
+  "back": "Voltar",
+  "next": "Próximo",
+  "open": "Abrir Designer de PNJ",
+  "skill": {
+    "attackSpecialEffect": {
+      "choices": {
         "attack": {
-          "label": "Escolha o Ataque",
-          "normal": "Ataque Normal",
-          "strong": "Ataque Forte"
+          "label": "Ataque"
         },
-        "description": "Causa dano a si mesmo ou aos aliados quando erra seus ataques.",
-        "name": "Falha Dolorosa",
-        "ruleText": "<div>Prévia das regras de montagem rápida V3 p17.</div><div>Ataque Escolhido: {attack}</div><div>Alvo escolhido: {target}</div>",
-        "target": {
-          "ally": {
-            "label": "Seus Aliados",
-            "rule": "Um de seus aliados escolhido aleatoriamente"
+        "effect": {
+          "default": "Descreva o efeito... ",
+          "label": "Efeito"
+        }
+      },
+      "description": "Adicione um efeito especial a um dos Ataques Básicos do PNJ.",
+      "label": "Efeito Especial de Ataque"
+    },
+    "crisisEffect": {
+      "choices": {
+        "name": {
+          "default": "Efeito de Crise",
+          "label": "Nome"
+        },
+        "text": {
+          "default": "Descreva o que muda...",
+          "label": "Efeito"
+        }
+      },
+      "description": "Adicione um efeito que ativa enquanto o PNJ está em Crise.",
+      "label": "Efeito de Crise",
+      "prefix": "Enquanto em Crise, este PNJ ganha o seguinte:"
+    },
+    "damageAbsorption": {
+      "choices": {
+        "absorption": {
+          "label": "Escolher Tipo de Dano"
+        }
+      },
+      "description": "Aprimore uma Resistência ou Imunidade para Absorção.",
+      "label": "Absorção de Dano"
+    },
+    "damageImmunity": {
+      "choices": {
+        "immunity": {
+          "label": "Escolher Tipo de Dano"
+        }
+      },
+      "description": "Aprimore uma Resistência para Imunidade.",
+      "label": "Imunidade a Dano"
+    },
+    "damageResistance": {
+      "choices": {
+        "resistance": {
+          "label": "Escolher Tipo de Dano"
+        }
+      },
+      "description": "Aprimore uma afinidade neutra para Resistência, ou remova uma Vulnerabilidade causada pela Espécie do PNJ.",
+      "label": "Resistência a Dano"
+    },
+    "damageVulnerability": {
+      "choice": {
+        "vulnerability": {
+          "label": "Tipo de Dano"
+        }
+      },
+      "description": "Adicione uma Vulnerabilidade e ganhe um Poder adicional (ou dois, se for uma Vulnerabilidade a dano Físico).",
+      "label": "Vulnerabilidade a Dano"
+    },
+    "finalAct": {
+      "choices": {
+        "name": {
+          "default": "Ato Final",
+          "label": "Nome"
+        },
+        "text": {
+          "default": "Descreva o que acontece...",
+          "label": "Efeito"
+        }
+      },
+      "description": "Adicione uma regra que ativa quando o PNJ é reduzido a 0 PV.",
+      "label": "Ato Final",
+      "prefix": "Quando este PNJ é reduzido a 0 PV, o seguinte acontece:"
+    },
+    "improveDefenses": {
+      "choices": {
+        "improvement": {
+          "defImprovement": " +2 DEF / +1 DEF.M",
+          "label": "Escolher Aprimoramento",
+          "mDefImprovement": " +2 DEF.M / +1 DEF"
+        }
+      },
+      "description": "Aprimore as defesas do PNJ. Este Poder pode ser escolhido duas vezes, uma para cada opção.",
+      "label": "Aprimorar Defesas"
+    },
+    "improveHitPoints": {
+      "description": "O PNJ ganha um bônus de +10 em Pontos de Vida.",
+      "label": "Aprimorar Pontos de Vida"
+    },
+    "improveInitiative": {
+      "description": "O PNJ ganha um bônus de +4 no seu valor de Iniciativa.",
+      "label": "Aprimorar Iniciativa"
+    },
+    "reaction": {
+      "choices": {
+        "name": {
+          "default": "Reação",
+          "label": "Nome"
+        },
+        "text": {
+          "default": "Descreva o efeito disparado...",
+          "label": "Efeito"
+        },
+        "trigger": {
+          "default": "Descreva a condição de disparo...",
+          "heading": "Gatilho:",
+          "label": "Gatilho"
+        }
+      },
+      "description": "Adicione uma regra que permite que seu PNJ reaja a um gatilho.",
+      "label": "Reação"
+    },
+    "specialized": {
+      "choices": {
+        "specialization": {
+          "accuracySpecialization": {
+            "label": "+3 em Testes de Precisão"
           },
-          "label": "Escolha Alvo",
-          "self": {
-            "label": "Você mesmo",
-            "rule": "Você mesmo"
+          "label": "Escolher Especialização",
+          "magicSpecialization": {
+            "label": "+3 em Testes de Magia"
+          },
+          "opposedCheckSpecialization": {
+            "label": "+3 em Testes Opostos",
+            "name": "Bônus em Testes Opostos",
+            "summary": "Este PNJ ganha um bônus de +3 em Testes Opostos que se encaixam na sua área de especialidade."
+          }
+        }
+      },
+      "description": "Conceda ao PNJ um bônus em testes específicos.",
+      "label": "Especializado"
+    },
+    "spellcaster": {
+      "choices": {
+        "spells": {
+          "label": "Escolher Número de Feitiços",
+          "oneSpell": "Um Feitiço e um bônus de +10 em Pontos de Mente.",
+          "twoSpells": "Dois Feitiços"
+        }
+      },
+      "description": "O PNJ ganha acesso a feitiços.",
+      "label": "Conjurador"
+    },
+    "statusEffectImmunity": {
+      "choices": {
+        "status": {
+          "label": "Escolher Condições"
+        }
+      },
+      "description": "O PNJ ganha imunidade a duas condições.",
+      "label": "Imunidade a Condições"
+    },
+    "uniqueAction": {
+      "choices": {
+        "name": {
+          "default": "Ação Única",
+          "label": "Nome"
+        },
+        "text": {
+          "default": "Descreva o efeito...",
+          "label": "Efeito"
+        }
+      },
+      "description": "Conceda ao PNJ uma ação única de Poder.",
+      "label": "Ação Única",
+      "prefix": "Este PNJ pode realizar a ação de Poder para produzir o seguinte efeito:"
+    },
+    "upgradeDamage": {
+      "choices": {
+        "upgradeTarget": {
+          "label": "Escolher Ataque ou Feitiço"
+        }
+      },
+      "description": "Aprimore o dano de um ataque básico ou feitiço em +5.",
+      "label": "Aprimorar Dano"
+    }
+  },
+  "title": "Designer de PNJ",
+  "unallocatedSkills": "Poderes não alocados: {unallocatedSkills}"
+},
+"error": {
+  "invalidDataFile": "Arquivo de dados inválido '{file}'. Veja o log para mais informações.",
+  "unableToLoadDataFile": "Não foi possível carregar o arquivo de dados '{file}'. Veja o log para mais informações.",
+  "unknownChoice": "Mudanças condicionais referenciam uma escolha desconhecida: {choice}",
+  "unknownChoiceOption": "Mudanças condicionais referenciam uma opção de escolha desconhecida: {choice} -> {option}",
+  "unknownSpellList": "A etapa 'ChooseSpell' referencia uma lista de feitiços desconhecida: {spellList}"
+},
+"negativeSkills": {
+  "finalDelay": {
+    "name": "Atraso Final",
+    "description": "Volte um relógio benéfico quando você for derrotado.",
+    "ruleText": "<div>Bestiário Volume I p68</div>"
+  },
+  "finalDetonation": {
+    "description": "Cause dano aos seus aliados quando você for derrotado.",
+    "name": "Detonação Final",
+    "ruleText": "<div>Bestiário Volume I p68.</div><div>Tipo de dano escolhido: {damageType}</div>"
+  },
+  "finalRestore": {
+    "description": "Restaure recursos aos seus inimigos quando você for derrotado.",
+    "name": "Restauração Final",
+    "ruleText": "<div>Bestiário Volume I p68.</div><div>Recurso escolhido: {resource}</div>"
+  },
+  "finalStatus": {
+    "name": "Condição Final",
+    "description": "Aflija seus aliados com uma condição quando você for derrotado.",
+    "ruleText": "<div>Bestiário Volume I p68</div><div>Condição: {status}</div>"
+  },
+  "finalWeakening": {
+    "name": "Enfraquecimento Final",
+    "description": "Torne um Campeão Vulnerável quando você for derrotado.",
+    "ruleText": "<div>Bestiário Volume I p69</div><div>Tipo de Dano: {damageType}</div>"
+  },
+  "forcedLanding": {
+    "name": "Pouso Forçado",
+    "description": "Perca os benefícios de voar pela rodada após usar seu Ataque Forte.",
+    "ruleText": "<div>Bestiário Volume I p69</div>"
+  },
+  "painfulMiss": {
+    "attack": {
+      "label": "Escolher Ataque",
+      "normal": "Ataque Normal",
+      "strong": "Ataque Forte"
+    },
+    "description": "Cause dano a si mesmo ou a aliados quando errar seus ataques.",
+    "name": "Erro Doloroso",
+    "ruleText": {
+      "noChoice": "<div>Bestiário Volume I p69.</div><div>Ataque escolhido: Ataque Normal</div><div>Alvo escolhido: {target}</div>",
+      "withChoice": "<div>Bestiário Volume I p69.</div><div>Ataque escolhido: {attack}</div><div>Alvo escolhido: {target}</div>"
+    },
+    "target": {
+      "ally": {
+        "label": "Seus Aliados",
+        "rule": "Um de seus aliados escolhido aleatoriamente"
+      },
+      "label": "Escolher Alvo",
+      "self": {
+        "label": "Você mesmo",
+        "rule": "Você mesmo"
+      }
+    }
+  },
+  "statusBind": {
+    "name": "Vínculo de Condição",
+    "description": "Condições restringem você de usar certas ações.",
+    "ruleText": "<div>Bestiário Volume I p69</div><div>Ataque Normal: {normalAttack}</div><div>Ataque Forte: {strongAttack}</div><div>Ação de Poder: {skillAction}</div><div>Ação de Feitiço: {spellAction}</div>",
+    "choices": {
+      "normalAttack": {
+        "label": "Ataque Normal"
+      },
+      "strongAttack": {
+        "label": "Ataque Forte"
+      },
+      "skillAction": {
+        "label": "Ação de Poder"
+      },
+      "spellAction": {
+        "label": "Ação de Feitiço"
+
           }
         }
       }
     },
-    "pretty": {
-      "attributes": "【{attr1} + {attr2}】",
-      "damage": "【RA + {damage}】"
+"pretty": {
+  "attributes": "【{attr1} + {attr2}】",
+  "damage": "【Rolagem Alta + {damage}】"
+},
+"preview": {
+  "actions": "Outra Ação",
+  "affinity": {
+    "abs": "AB",
+    "imm": "IM",
+    "res": "RS",
+    "vul": "VU"
+  },
+  "basicAttacks": "Ataques Básicos",
+  "damage": "dano",
+  "damageType": {
+    "air": "ar",
+    "bolt": "raio",
+    "dark": "trevas",
+    "earth": "terra",
+    "fire": "fogo",
+    "ice": "gelo",
+    "light": "luz",
+    "physical": "físico",
+    "poison": "veneno"
+  },
+  "def": "DEF",
+  "dex": "DES",
+  "hp": "PV",
+  "init": "Inic.",
+  "ins": "AST",
+  "level": "Nv",
+  "mDef": "DEF.M",
+  "mig": "VIG",
+  "mp": "PM",
+  "opportunity": "Oportunidade:",
+  "rules": "Regras Especiais",
+  "spells": "Feitiços",
+  "statusImmunity": "Imune a {status}",
+  "traits": "Traços:",
+  "unknown": "???",
+  "wlp": "VON"
+},
+"rank": {
+  "champion": "Campeão",
+  "champion1": "Campeão (1)",
+  "champion2": "Campeão (2)",
+  "champion3": "Campeão (3)",
+  "champion4": "Campeão (4)",
+  "champion5": "Campeão (5)",
+  "champion6": "Campeão (6)",
+  "elite": "Elite",
+  "soldier": "Soldado"
+},
+"resource": {
+  "hp": "PV",
+  "ip": "PI",
+  "mp": "PM"
+  },
+"role": {
+  "brute": {
+    "badTemper": {
+      "description": "Ganhe bônus enquanto estiver em Crise.",
+      "name": "Mau Humor",
+      "ruleText": "<div>Bestiário Volume I p32</div><div>Efeito de Crise: {effect}</div>",
+      "choices": {
+        "effect": {
+          "label": "Escolher efeito de Crise",
+          "statusImmunity": "Imunidades a Condições",
+          "extraDamage": "Dano extra."
+        }
+      }
     },
-    "preview": {
-      "actions": "Outra Ação",
-      "affinity": {
-        "abs": "AB",
-        "imm": "IM",
-        "res": "RS",
-        "vul": "VU"
-      },
-      "basicAttacks": "Ataques Básicos",
-      "damage": "dano",
-      "damageType": {
-        "air": "ar",
-        "bolt": "raio",
-        "dark": "sombrio",
-        "earth": "terra",
-        "fire": "fogo",
-        "ice": "gelo",
-        "light": "luz",
-        "physical": "físico",
-        "poison": "veneno"
-      },
-      "def": "DEF",
-      "dex": "DES",
-      "hp": "PV",
-      "init": "Inic.",
-      "ins": "INT",
-      "level": "Nv",
-      "mDef": "DEF M.",
-      "mig": "VIG",
-      "mp": "PM",
-      "opportunity": "Opportunity:",
-      "rules": "Special Rules",
-      "spells": "Spells",
-      "statusImmunity": "Immune to {status}",
-      "traits": "Traits:",
-      "unknown": "???",
-      "wlp": "WLP"
+    "collapse": {
+      "description": "Preencha um Relógio quando um Ataque Forte errar; cause dano quando o relógio for preenchido.",
+      "name": "Colapso",
+      "ruleText": "<div>Bestiário Volume I p33</div>"
     },
-    "rank": {
-      "champion1": "Campeão (1)",
-      "champion2": "Campeão (2)",
-      "champion3": "Campeão (3)",
-      "champion4": "Campeão (4)",
-      "champion5": "Campeão (5)",
-      "champion6": "Campeão (6)",
-      "elite": "Elite",
-      "soldier": "Soldado"
+    "collateralDamage": {
+      "description": "Cause dano ao usar a ação de Impedimento.",
+      "name": "Dano Colateral",
+      "ruleText": "<div>Bestiário Volume I p32</div><div>Tipo de dano escolhido: {damageType}</div>"
     },
-    "resource": {
-      "hp": "PV",
-      "ip": "PI",
-      "mp": "PM"
+    "crush": {
+      "attackSpecialText": "Inimigos atingidos tornam-se alvos possíveis para Esmagar.",
+      "description": "Agarre inimigos; cause dano a inimigos agarrados sem precisar realizar um teste.",
+      "name": "Esmagar",
+      "ruleText": "<div>Bestiário Volume I p33</div>"
     },
-    "role": {
-      "brute": {
-        "badTemper": {
-          "description": "Ganhe imunidade quase total ao efeito de status durante a Crise.",
-          "name": "Mau temperamento",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p4</div>"
-        },
-        "collapse": {
-          "description": "Encha um relógio quando o Ataque Forte errar, cause dano quando o relógio encher.",
-          "name": "Colapsar",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p5</div>"
-        },
-        "collateralDamage": {
-          "description": "Causa dano ao usar a ação Impedir.",
-          "name": "Dano Colateral",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p4</div><div>Tipo de dano escolhido: {damageType}</div>"
-        },
-        "crush": {
-          "attackSpecialText": "Inimigos atingidos se tornam alvos possíveis para Esmagar.",
-          "description": "Agarre os inimigos, cause dano aos inimigos agarrados sem precisar realizar um teste.",
-          "name": "Esmagar",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p5</div>"
-        },
-        "dieHard": {
-          "description": "Sobreviva a danos letais, uma vez.",
-          "name": "Duro de Matar",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p4</div>"
-        },
-        "enhancingGuard": {
-          "description": "Causa mais dano e ignora resistências após proteger.",
-          "name": "Melhorando a Guarda",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p5</div>"
-        },
-        "name": "Bruto",
-        "soreLoser": {
-          "description": "Às vezes causa efeitos de status após você falhar em um teste oposto.",
-          "name": "Mau perdedor",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p5</div>"
-        },
-        "specialArmor": {
-          "attacks": "Ataques",
-          "description": "Durante a Crise, receba menos dano de um tipo específico de Ações.",
-          "name": "Armadura Especial",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p4</div><div>Tipo de ação: {type}</div>",
-          "skills": "Habiidades",
-          "spells": "Feitiços",
-          "type": "Selecione Ação"
-        },
-        "spells": {
-          "description": "Obtenha acesso a dois feitiços diferentes de uma lista focada em causar efeitos de status e permanecer vivo.",
-          "name": "Feitiços"
-        },
-        "statusImmunities": {
-          "description": "Ganhe imunidade a dois dos seguintes: Envenenado, Abalado, Lento",
-          "name": "Imunidades de Status"
-        },
-        "steadyRecovery": {
-          "description": "Recuperar-se de efeitos de status sob certas circunstâncias.",
-          "name": "Recuperação Constante",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p5</div>"
-        },
-        "strongAttackRanged": {
-          "description": "Ataque Forte se torna de longo alcance e causa efeitos de status.",
-          "name": "Ataque Forte à Distância"
-        },
-        "vengefulAttack": {
-          "description": "Use um último Ataque Forte após sofrer dano letal.",
-          "name": "Ataque Vingativo",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p4</div>"
+    "dieHard": {
+      "description": "Sobreviva a dano letal, uma vez.",
+      "name": "Durão",
+      "ruleText": "<div>Bestiário Volume I p32</div>"
+    },
+    "enhancingGuard": {
+      "description": "Cause mais dano e ignore Resistências após Guardar.",
+      "name": "Guarda Aprimorada",
+      "ruleText": "<div>Bestiário Volume I p33</div>"
+    },
+    "name": "Brutamontes",
+    "soreLoser": {
+      "description": "Às vezes causa condições após falhar em um Teste Oposto.",
+      "name": "Mau Perdedor",
+      "ruleText": "<div>Bestiário Volume I p33</div>"
+    },
+    "specialArmor": {
+      "attacks": "Ataques",
+      "description": "Enquanto em Crise, receba menos dano de um tipo específico de Ações.",
+      "name": "Armadura Especial",
+      "ruleText": "<div>Bestiário Volume I p32</div><div>Tipo de ação: {type}</div>",
+      "skills": "Poderes",
+      "spells": "Feitiços",
+      "type": "Selecionar Ação"
+    },
+    "spells": {
+      "description": "Ganhe acesso a dois feitiços diferentes de uma lista focada em causar condições e sobreviver.",
+      "name": "Feitiços"
+    },
+    "statusImmunities": {
+      "description": "Ganhe imunidade a duas das seguintes: Envenenado, Abalado, Lento",
+      "name": "Imunidades a Condições"
+    },
+    "steadyRecovery": {
+      "description": "Recupere-se de condições sob certas circunstâncias.",
+      "name": "Recuperação Estável",
+      "ruleText": "<div>Bestiário Volume I p33</div>"
+    },
+    "strongAttackRanged": {
+      "description": "O Ataque Forte torna-se à distância e causa condições.",
+      "name": "Ataque Forte à Distância"
+    },
+    "vengefulAttack": {
+      "description": "Use um último Ataque Forte após sofrer dano letal.",
+      "name": "Ataque Vingativo",
+      "ruleText": "<div>Bestiário Volume I p32</div>"
+    }
+  },
+  "hunter": {
+    "ambush": {
+      "description": "Aprimore um dado de atributo específico durante a primeira rodada do conflito.",
+      "name": "Emboscada",
+      "ruleText": "<div>Bestiário Volume I p37</div><div>Atributo escolhido: {attribute}</div>"
+    },
+    "elusive": {
+      "description": "Anule dano enquanto não estiver sofrendo de condições.",
+      "name": "Esquivo",
+      "ruleText": "<div>Bestiário Volume I p37</div>"
+    },
+    "emergencyCamouflage": {
+      "description": "Torne-se invisível por um curto período ao entrar em Crise.",
+      "name": "Camuflagem de Emergência",
+      "ruleText": "<div>Bestiário Volume I p36</div>"
+    },
+    "extraDamage": {
+      "condition": "Selecionar condição:",
+      "crisis": "estão em Crise",
+      "description": "Cause mais dano com este ataque quando uma certa condição for atendida.",
+      "martialArmor": "têm uma armadura marcial equipada",
+      "multipleStatuses": "sofrem de duas ou mais condições",
+      "name": "Dano Extra",
+      "noMartialArmor": "não têm armadura marcial equipada",
+      "notCrisis": "não estão em Crise",
+      "specialText": "Este ataque causa 5 de dano extra contra criaturas que {condition}.",
+      "specificStatus": "sofrem de {status}",
+      "specificStatusLabel": "sofrem de uma condição específica",
+      "specificStatusSelect": "Selecionar condição",
+      "spell": "são afetadas por um ou mais feitiços com duração \"Cena\"",
+      "turnTaken": "já realizaram seu turno nesta rodada"
+    },
+    "falseSenseOfSecurity": {
+      "description": "Transforme as falhas de seus aliados em vantagem.",
+      "name": "Falsa Sensação de Segurança",
+      "ruleText": "<div>Bestiário Volume I p36</div>"
+    },
+    "huntersBait": {
+      "action": "Ação",
+      "description": "Retalie contra certas ações.",
+      "melee": "Ataques corpo a corpo",
+      "name": "Isca do Caçador",
+      "ranged": "Ataques à distância",
+      "ruleText": "<div>Bestiário Volume I p37</div><div>Ação escolhida: {action}</div>",
+      "spell": "Feitiços ofensivos"
+    },
+    "lifeSteal": {
+      "description": "Recupere PV ao causar dano com este ataque.",
+      "name": "Roubo de Vida",
+      "specialText": "Se este ataque fizer uma ou mais criaturas perderem Pontos de Vida, este PNJ recupera uma quantidade de Pontos de Vida igual à metade do total de Pontos de Vida perdidos dessa forma."
+    },
+    "lightningFast": {
+      "description": "Cause mais dano durante o turno de outra criatura, quando não estiver afetado por condições.",
+      "name": "Relâmpago",
+      "ruleText": "<div>Bestiário Volume I p36</div>"
+    },
+    "name": "Caçador",
+    "opportunist": {
+      "description": "Melhore a chance de crítico em Testes Opostos sob certas condições.",
+      "name": "Oportunista",
+      "ruleText": "<div>Bestiário Volume I p37</div>"
+    },
+    "specialResistance": {
+      "description": "Resista a dano causado por efeitos com um certo número de alvos",
+      "multi": "Duas ou mais criaturas",
+      "name": "Resistência Especial",
+      "ruleText": "<div>Bestiário Volume I p36</div><div>Eficaz contra efeitos que têm como alvo: {targets}</div>",
+      "single": "Uma criatura",
+      "targets": "Selecionar número de alvos"
+    },
+    "spells": {
+      "description": "Ganhe acesso a dois feitiços diferentes de uma lista focada em causar dano e sobreviver.",
+      "name": "Feitiços"
+    },
+    "strongAttack": {
+      "description": "Ganhe um Ataque Forte que causa dano massivo a múltiplos alvos, mas custa seu próximo turno.",
+      "name": "Ataque Forte",
+      "special": "Após usar este ataque, o PNJ não pode realizar nenhuma ação ou <b>Ataques Livres</b> até o final do próximo turno."
+    },
+    "targetLock": {
+      "description": "Guarde para selecionar um inimigo; cause mais dano ao inimigo selecionado.",
+      "name": "Fixar Alvo",
+      "ruleText": "<div>Bestiário Volume I p37</div>"
+    }
+  },
+  "mage": {
+    "baselineOneSpellMpBonus": {
+      "description": "Escolha um feitiço de uma lista básica focada em causar dano e ganhe +10 PM.",
+      "name": "Um Feitiço e Bônus de PM (Básico)"
+    },
+    "baselineTwoSpells": {
+      "description": "Escolha dois feitiços de uma lista básica focada em causar dano.",
+      "name": "Dois Feitiços (Básico)"
+    },
+    "collateralDamage": {
+      "description": "Cause dano ao usar a ação de Impedimento.",
+      "name": "Dano Colateral",
+      "ruleText": "<div>Bestiário Volume I p40</div><div>Tipo de dano escolhido: {damageType}</div>"
+    },
+    "elementDrain": {
+      "description": "Recupere PM quando for atingido por dano elemental.",
+      "name": "Dreno Elemental",
+      "ruleText": "<div>Bestiário Volume I p41</div>"
+    },
+    "elementShift": {
+      "description": "Altere suas afinidades ao conjurar feitiços.",
+      "name": "Mudança Elemental",
+      "ruleText": "<div>Bestiário Volume I p41</div>"
+    },
+    "magicalMastery": {
+      "description": "Capacidade aprimorada de interagir com relógios relacionados à magia.",
+      "name": "Maestria Mágica",
+      "ruleText": "<div>Bestiário Volume I p41</div>"
+    },
+    "name": "Mago",
+    "normalAttackVolatile": {
+      "description": "O Ataque Normal faz com que alvos atingidos se tornem voláteis.",
+      "name": "Ataque Normal Volátil",
+      "specialText": "<div><b>Volátil:</b> Bestiário Volume I p41</div>"
+    },
+    "oneSpellMpBonus": {
+      "description": "Escolha um feitiço de uma lista avançada focada em causar dano e ganhe +10 PM.",
+      "name": "Um Feitiço e Bônus de PM (Avançado)"
+    },
+    "overwhelm": {
+      "description": "Melhore a chance de crítico em Testes Opostos sob certas condições.",
+      "name": "Oprimir",
+      "ruleText": "<div>Bestiário Volume I p40</div>"
+    },
+    "soulburst": {
+      "description": "Outras criaturas recuperam PM quando você é reduzido a 0 PV.",
+      "name": "Explosão de Alma",
+      "ruleText": "<div>Bestiário Volume I p40</div>"
+    },
+    "spells": {
+      "description": "Escolha feitiços de uma lista avançada focada em causar dano. Escolha dois feitiços ou um feitiço e ganhe +10 PM.",
+      "name": "Mais Feitiços"
+    },
+    "statusImmunities": {
+      "description": "Ganhe imunidade a duas das seguintes: Atordoado, Enfurecido, Envenenado, Abalado",
+      "name": "Imunidades a Condições"
+    },
+    "twoSpells": {
+      "description": "Escolha dois feitiços de uma lista avançada focada em causar dano.",
+      "name": "Dois Feitiços (Avançado)"
         }
       },
-      "hunter": {
-        "ambush": {
-          "description": "Melhore um dado de atributo específico durante a primeira rodada de conflito.",
-          "name": "Emboscada",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p7</div><div>Atributo escolhido: {attribute}</div>"
-        },
-        "elusive": {
-          "description": "Negue dano sem sofrer efeitos de status.",
-          "name": "Elusivo",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p7</div>"
-        },
-        "emergencyCamouflage": {
-          "description": "Fique invisível por um curto período ao entrar em Crise.",
-          "name": "Camuflagem de Emergência",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p6</div>"
-        },
-        "extraDamage": {
-          "condition": "Selecione a condição:",
-          "crisis": "está em crise",
-          "description": "Causa mais dano com este ataque quando uma determinada condição for cumprida.",
-          "martialArmor": "ter uma armadura marcial equipada",
-          "multipleStatuses": "sofrem de dois ou mais efeitos de status",
-          "name": "Dano Extra",
-          "noMartialArmor": "não tem armadura marcial equipada",
-          "notCrisis": "não está em crise",
-          "specialText": "Este ataque causa 5 de dano extra contra criaturas que {condition}.",
-          "specificStatus": "sofre de {status}",
-          "specificStatusLabel": "sofrem de um efeito de status específico",
-          "specificStatusSelect": "Selecione o efeito de status",
-          "spell": "são afetados por um ou mais feitiços com duração de \"Cena\"",
-          "turnTaken": "já fizeram a sua vez nesta rodada"
-        },
-        "falseSenseOfSecurity": {
-          "description": "Transforme as falhas dos seus aliados em sua vantagem.",
-          "name": "Falsa Sensação de Segurança",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p6</div>"
-        },
-        "huntersBait": {
-          "action": "Ação",
-          "description": "Retalia contra certas ações.",
-          "melee": "Ataques corpo a corpo",
-          "name": "Isca de caçador",
-          "ranged": "Ataques à distância",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p7</div><div>Ação Escolhida: {action}</div>",
-          "spell": "Feitiços Ofensivos"
-        },
-        "lifeSteal": {
-          "description": "Recupere PV ao causar dano com este ataque.",
-          "name": "Roubo de Vida",
-          "specialText": "Se este ataque fizer com que uma ou mais criaturas percam Pontos de Vida, este PNJ recupera uma quantidade de Pontos de Vida igual à metade do total de Pontos de Vida perdidos desta forma."
-        },
-        "lightningFast": {
-          "description": "Causa mais dano durante o turno de outra criatura, quando não afetada por efeitos de status.",
-          "name": "Rápido como um raio",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p6</div>"
-        },
-        "name": "Caçador",
-        "opportunist": {
-          "description": "Melhora a chance de acerto crítico durante verificações opostas sob certas condições.",
-          "name": "Oportunista",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p7</div>"
-        },
-        "specialResistance": {
-          "description": "Resistir a danos causados ​​por efeitos com um certo número de alvos",
-          "multi": "Duas ou mais criaturas",
-          "name": "Resistência Especial",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p6</div><div>Eficaz contra efeitos mirando em: {targets}</div>",
-          "single": "Uma criatura",
-          "targets": "Selecione o número de alvos"
-        },
-        "spells": {
-          "description": "Obtenha acesso a dois feitiços diferentes de uma lista focada em causar dano e permanecer vivo.",
-          "name": "Feitiços"
-        },
-        "strongAttack": {
-          "description": "Ganhe um ataque forte que causa dano massivo a vários alvos, mas custa seu próximo turno.",
-          "name": "Ataque Forte",
-          "special": "Após usar este ataque o NPC não pode realizar nenhuma ação ou <b>ataque gratuito</b> até o final do seu próximo turno."
-        },
-        "targetLock": {
-          "description": "Guarda para selecionar o inimigo, causa mais dano ao inimigo selecionado.",
-          "name": "Trava de alvo",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p7</div>"
-        }
-      },
-      "mage": {
-        "baselineOneSpellMpBonus": {
-          "description": "Escolha um feitiço de uma lista de feitiços básicos focado em causar dano e ganhe +10 MP.",
-          "name": "Um Feitiço e PM Bônus (Básico)"
-        },
-        "baselineTwoSpells": {
-          "description": "Escolha dois feitiços de uma lista de feitiços básicos focados em causar dano.",
-          "name": "Dois Feitiços (Básico)"
-        },
-        "collateralDamage": {
-          "description": "Causa dano ao usar a ação Impedir.",
-          "name": "Dano Colateral",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p8</div><div>Tipo de dano escolhido: {damageType}</div>"
-        },
-        "elementDrain": {
-          "description": "Restaura PM quando atingido por dano elemental.",
-          "name": "Dreno Elemental",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p9</div>"
-        },
-        "elementShift": {
-          "description": "Mude suas afinidades lançando feitiços.",
-          "name": "Mudança de Elemento",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p9</div>"
-        },
-        "magicalMastery": {
-          "description": "Capacidade aprimorada de interagir com relógios relacionados à magia.",
-          "name": "Maestria Mágica",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p9</div>"
-        },
-        "name": "Mago",
-        "normalAttackVolatile": {
-          "description": "Ataque normal faz com que os alvos atingidos se tornem voláteis.",
-          "name": "Ataque Normal Volátil",
-          "specialText": "<div><b>Volátil:</b> Prévia das regras de montagem rápida V3 p9</div>"
-        },
-        "oneSpellMpBonus": {
-          "description": "Escolha uma magia de uma lista de magias avançadas focadas em causar dano e ganhe +10 PM.",
-          "name": "Um Feitiço e PM bônus (avançado)"
-        },
-        "overwhelm": {
-          "description": "Melhora a chance de acerto crítico durante verificações opostas sob certas condições.",
-          "name": "Sobrecarregar",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p8</div>"
-        },
-        "soulburst": {
-          "description": "Outras criaturas recuperam PM quando você fica com 0 PV.",
-          "name": "Explosão de Alma",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p8</div>"
-        },
-        "spells": {
-          "description": "Escolha magias de uma lista avançada de magias focadas em causar dano. Escolha duas magias ou uma magia e ganhe +10 PM.",
-          "name": "Mais Feitiços"
-        },
-        "statusImmunities": {
-          "description": "Ganhe imunidade a dois dos seguintes: Confuso, Enfurecido, Envenenado, Abalado",
-          "name": "Imunidades de status"
-        },
-        "twoSpells": {
-          "description": "Escolha dois feitiços de uma lista de feitiços avançados focados em causar dano.",
-          "name": "Dois Feitiços (Avançado)"
-        }
-      },
-      "saboteur": {
-        "accuracyCheckBonus": {
-          "description": "Ganhe um bônus de +3 em testes de precisão.",
-          "name": "Bônus para testes de precisão"
-        },
-        "auraOfUnease": {
-          "description": "Os inimigos não podem se recuperar dos efeitos de status escolhidos.",
-          "name": "Aura de Desconforto",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p10</div><div>Efeitos de status escolhidos: {status1} e {status2}</div>",
-          "status1": "Primeiro efeito de status",
-          "status2": "Segundo efeito de status"
-        },
-        "cruelHypnosis": {
-          "actionText": "<div>Prévia das regras de montagem rápida V3 p11</div><div>Efeito de status escolhido: {status}</div>",
-          "description": "Gaste PM para fazer com que um inimigo ataque um alvo de sua escolha.",
-          "name": "Hipnose Cruel"
-        },
-        "entangle": {
-          "description": "Impedir que os inimigos realizem ataques gratuitos se estiverem sofrendo de múltiplos efeitos de status.",
-          "name": "Emaranhar",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p10</div>"
-        },
-        "exhaustingCompromise": {
-          "description": "Gaste PM para manipular relógios em certas circunstâncias.",
-          "name": "Compromisso Exaustivo",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p10</div>"
-        },
-        "hinderingSpecialist": {
-          "description": "Follow up a successful Hinder action with another Hinder.",
-          "name": "Hindering Specialist",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p10</div>"
-        },
-        "magicCheckBonus": {
-          "description": "Ganhe um bônus de +3 em testes de magia.",
-          "name": "Bônus para Testes de Magia"
-        },
-        "name": "Saboteur",
-        "normalAttackDrainIp": {
-          "description": "Drena PI inimigo ao atingir.",
-          "name": "Drenar PI",
-          "specialText": "Cada alvo atingido perde 1 PI."
-        },
-        "normalAttackDrainMp": {
-          "description": "Drena PM inimigo ao acertar.",
-          "name": "Drenar PM",
-          "specialText": "Cada alvo atingido perde uma <b>pequena</b> quantidade de PM."
-        },
-        "normalAttackStatus": {
-          "description": "Causa um efeito de status ao acertar. Escolher Enfurecido ou Envenenado custa outra vulnerabilidade.",
-          "name": "Causa Efeito de Status",
-          "specialText": "Cada alvo atingido sofre {status}."
-        },
-        "partingGift": {
-          "description": "Detona seus feitiços de enfraquecimento quando você for eliminado.",
-          "name": "Presente de despedida",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p11</div>"
-        },
-        "secretTechnique": {
-          "description": "Use um ataque ou um feitiço sem que ninguém além do alvo perceba.",
-          "name": "Técnica Secreta",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p11</div>"
-        },
-        "shadowOfDoubt": {
-          "description": "Impedir que os PCs invoquem Traços e Laços em certas circunstâncias.",
-          "name": "Sombra da Dúvida",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p11</div>"
-        },
-        "spell": {
-          "description": "Ganhe uma magia de uma lista focada em perturbação. Ganhe também +10 PM.",
-          "name": "Feitiço"
-        },
-        "strongAttack": {
-          "description": "Ganhe um Ataque Forte com debuffs debilitantes.",
-          "name": "Ataque Forte",
-          "oneSpecial": {
-            "description": "Adicione um efeito especial ao Ataque Forte.",
-            "name": "Um efeito especial"
-          },
-          "twoSpecials": {
-            "description": "Adicione dois efeitos especiais ao Ataque Forte.",
-            "name": "Dois efeitos especiais"
+"saboteur": {
+  "accuracyCheckBonus": {
+    "description": "Ganhe um bônus de +3 em Testes de Precisão.",
+    "name": "Bônus em Testes de Precisão"
+  },
+  "auraOfUnease": {
+    "description": "Inimigos não podem se recuperar das condições escolhidas.",
+    "name": "Aura de Inquietação",
+    "ruleText": "<div>Bestiário Volume I p44</div><div>Condições escolhidas: {status1} e {status2}</div>",
+    "status1": "Primeira condição",
+    "status2": "Segunda condição"
+  },
+  "cruelHypnosis": {
+    "actionText": "<div>Bestiário Volume I p45</div><div>Condição escolhida: {status}</div>",
+    "description": "Gaste PM para fazer um inimigo atacar um alvo à sua escolha.",
+    "name": "Hipnose Cruel"
+  },
+  "entangle": {
+    "description": "Impeça inimigos de realizarem Ataques Livres se estiverem sofrendo de múltiplas condições.",
+    "name": "Enredar",
+    "ruleText": "<div>Bestiário Volume I p44</div>"
+  },
+  "exhaustingCompromise": {
+    "description": "Gaste PM para manipular relógios sob certas circunstâncias.",
+    "name": "Compromisso Exaustivo",
+    "ruleText": "<div>Bestiário Volume I p44</div>"
+  },
+  "hinderingSpecialist": {
+    "description": "Dê sequência a uma ação de Impedimento bem-sucedida com outro Impedimento.",
+    "name": "Especialista em Impedimento",
+    "ruleText": "<div>Bestiário Volume I p44</div>"
+  },
+  "magicCheckBonus": {
+    "description": "Ganhe um bônus de +3 em Testes de Magia.",
+    "name": "Bônus em Testes de Magia"
+  },
+  "name": "Sabotador",
+  "normalAttackDrainIp": {
+    "description": "Drene IP do inimigo ao acertar.",
+    "name": "Drenar IP",
+    "specialText": "Cada alvo atingido perde 1 IP."
+  },
+  "normalAttackDrainMp": {
+    "description": "Drene PM do inimigo ao acertar.",
+    "name": "Drenar PM",
+    "specialText": "Cada alvo atingido perde uma quantidade <b>leve</b> de PM."
+  },
+  "normalAttackStatus": {
+    "description": "Cause uma condição ao acertar. Escolher Enfurecido ou Envenenado custa outra vulnerabilidade.",
+    "name": "Causar Condição",
+    "specialText": "Cada alvo atingido sofre {status}."
+  },
+  "partingGift": {
+    "description": "Detone seus feitiços de Enfraquecer quando você for derrotado.",
+    "name": "Presente de Despedida",
+    "ruleText": "<div>Bestiário Volume I p45</div>"
+  },
+  "secretTechnique": {
+    "description": "Use um ataque ou feitiço sem que ninguém além do alvo perceba.",
+    "name": "Técnica Secreta",
+    "ruleText": "<div>Bestiário Volume I p45</div>"
+  },
+  "shadowOfDoubt": {
+    "description": "Impeça PJ de invocarem Traços e Laços sob certas circunstâncias.",
+    "name": "Sombra da Dúvida",
+    "ruleText": "<div>Bestiário Volume I p45</div>"
+  },
+  "spell": {
+    "description": "Ganhe um feitiço de uma lista focada em disrupção. Além disso, ganhe +10 PM.",
+    "name": "Feitiço"
+  },
+  "strongAttack": {
+    "description": "Ganhe um Ataque Forte com debilitantes penalidades.",
+    "name": "Ataque Forte",
+    "oneSpecial": {
+      "description": "Adicione um efeito especial ao Ataque Forte.",
+      "name": "Um Efeito Especial"
+    },
+    "twoSpecials": {
+      "description": "Adicione dois efeitos especiais ao Ataque Forte.",
+      "name": "Dois Efeitos Especiais"
+    }
+  },
+  "strongAttackBlockAction": {
+    "action": "Escolher Ação",
+    "description": "Impeça alvos atingidos de realizarem uma ação específica.",
+    "name": "Bloquear Ação",
+    "specialText": "O alvo não pode realizar a ação {action} até o final do próximo turno dele."
+  },
+  "strongAttackBlockAllyVision": {
+    "description": "Alvos atingidos não conseguem ver seus aliados.",
+    "name": "Bloquear Visão dos Aliados",
+    "specialText": "O alvo não pode ver os aliados deste PNJ até o final do próximo turno dele."
+  },
+  "strongAttackBlockFreeAttacks": {
+    "description": "Impeça alvos atingidos de realizarem Ataques Livres.",
+    "name": "Bloquear Ataques Livres",
+    "specialText": "O alvo não pode realizar Ataques Livres até o final do próximo turno dele."
+  },
+  "strongAttackBlockHpRecovery": {
+    "description": "Bloqueie a recuperação de PV dos alvos atingidos.",
+    "name": "Bloquear Recuperação de PV",
+    "specialText": "O alvo não pode recuperar PV até o final do próximo turno dele."
+  },
+  "strongAttackBlockMpRecovery": {
+    "description": "Bloqueie a recuperação de PM dos alvos atingidos.",
+    "name": "Bloquear Recuperação de PM",
+    "specialText": "O alvo não pode recuperar PM até o final do próximo turno dele."
+  },
+  "strongAttackBlockSelfVision": {
+    "description": "Alvos atingidos não conseguem ver você.",
+    "name": "Bloquear Visão do Próprio PNJ",
+    "specialText": "O alvo não pode ver este PNJ até o final do próximo turno dele."
+  },
+  "strongAttackStripResAndImm": {
+    "description": "Alvos atingidos perdem Resistências e Imunidades.",
+    "name": "Remover Resistências e Imunidades",
+    "specialText": "O alvo perde todas as Resistências e Imunidades e não pode ganhá-las até o final do próximo turno dele."
+  },
+  "syphonMind": {
+    "description": "Aumente o custo de PM dos inimigos.",
+    "name": "Sifonar Mente",
+    "ruleText": "<div>Bestiário Volume I p44</div>"
+  }
+},
+"sentinel": {
+  "avenge": {
+    "action": {
+      "label": "Escolher Ações",
+      "melee": "Ataques Corpo a Corpo",
+      "ranged": "Ataques à Distância",
+      "spell": "Feitiços Ofensivos"
+    },
+    "description": "Retalie contra certos tipos de ações ofensivas.",
+    "name": "Vingar",
+    "ruleText": "<div>Bestiário Volume I p49</div><div>Ação(ões) escolhida(s): {actions}</div>"
+  },
+  "barricade": {
+    "actionText": "<div>Bestiário Volume I p49</div><div>Tipo(s) de dano escolhido(s): {damageTypes}</div>",
+    "description": "Use PM para conceder a você e a seus aliados Resistência a tipos específicos de dano.",
+    "name": "Barricada"
+  },
+  "intercept": {
+    "description": "Proteja seus aliados do perigo sacrificando-se.",
+    "name": "Interceptar",
+    "ruleText": "<div>Bestiário Volume I p48</div>"
+  },
+  "name": "Sentinela",
+  "normalAttackStatus": {
+    "description": {
+      "dazed": "Alvos sofrem Atordoado.",
+      "shaken": "Alvos sofrem Abalado.",
+      "slow": "Alvos sofrem Lento.",
+      "weak": "Alvos sofrem Fraco."
+    },
+    "specialText": {
+      "dazed": "Cada alvo atingido por este ataque sofre Atordoado.",
+      "shaken": "Cada alvo atingido por este ataque sofre Abalado.",
+      "slow": "Cada alvo atingido por este ataque sofre Lento.",
+      "weak": "Cada alvo atingido por este ataque sofre Fraco."
           }
         },
-        "strongAttackBlockAction": {
-          "action": "Escolha a ação",
-          "description": "Bloqueie alvos atingidos para que não realizem uma determinada ação.",
-          "name": "Ação de bloqueio",
-          "specialText": "O alvo não pode realizar {action} até o final do seu próximo turno."
-        },
-        "strongAttackBlockAllyVision": {
-          "description": "Alvos atingidos não podem ver seus aliados.",
-          "name": "Bloquear Visão nos Aliados",
-          "specialText": "O alvo não pode ver os aliados deste NPC até o final do próximo turno."
-        },
-        "strongAttackBlockFreeAttacks": {
-          "description": "Bloqueie alvos atingidos para que não realizem Ataques Gratuitos.",
-          "name": "Bloquear Ataques Gratuitos",
-          "specialText": "O alvo não pode realizar Ataques Gratuitos até o final do seu próximo turno."
-        },
-        "strongAttackBlockHpRecovery": {
-          "description": "Bloqueia a recuperação de PV de alvos atingidos.",
-          "name": "Bloquear Recuperação de PV",
-          "specialText": "O alvo não pode recuperar PV até o final do próximo turno."
-        },
-        "strongAttackBlockMpRecovery": {
-          "description": "Bloquear recuperação de PM de alvos atingidos.",
-          "name": "Bloquear Recuperação de PM",
-          "specialText": "O alvo não pode recuperar PM até o final do próximo turno."
-        },
-        "strongAttackBlockSelfVision": {
-          "description": "Os alvos atingidos não podem ver você.",
-          "name": "Bloquear a visão em si mesmo",
-          "specialText": "O alvo não pode ver este PNJ até o final do seu próximo turno."
-        },
-        "strongAttackStripResAndImm": {
-          "description": "Alvos atingidos perdem resistências e imunidades.",
-          "name": "Remover Resistências e Imunidades",
-          "specialText": "O alvo perde todas as Resistências e Imunidades e não pode ganhá-las até o final do próximo turno."
-        },
-        "syphonMind": {
-          "description": "Aumenta o custo de PM do inimigo.",
-          "name": "Mente Sifão",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p10</div>"
-        }
-      },
-      "sentinel": {
-        "avenge": {
-          "action": {
-            "label": "Escolha a ação",
-            "melee": "Ataques corpo a corpo",
-            "ranged": "Ataques à Distância",
-            "spell": "Feitiços Ofensivos"
-          },
-          "description": {
-            "oneAction": "Retaliar contra um certo tipo de ação ofensiva.",
-            "twoActions": "Retaliar contra dois tipos de ação ofensiva."
-          },
-          "name": {
-            "oneAction": "Vingar (Uma Ação)",
-            "rule": "Vingar",
-            "twoActions": "Vingar (Duas Ações)"
-          },
-          "ruleText": {
-            "oneAction": "<div>Prévia das regras de montagem rápida V3 p13</div><div>Ação escolhida: {action}</div>",
-            "twoActions": "<div>Prévia das regras de montagem rápida V3 p13</div><div>Ações escolhidas: {action1} e {action2}</div>"
-          }
-        },
-        "barricade": {
-          "actionText": {
-            "oneType": "<div>Prévia das regras de montagem rápida V3 p13</div><div>Tipo de dano escolhido: {damageType}</div>",
-            "twoTypes": "<div>Prévia das regras de montagem rápida V3 p13</div><div>Tipos de dano escolhidos: {damageType1} e {damageType2}</div>"
-          },
-          "description": {
-            "oneType": "Use PM para conceder a você e aos aliados Resistência a um tipo de dano específico.",
-            "twoTypes": "Use PM para conceder a você e aos aliados resistência a dois tipos de dano."
-          },
-          "name": {
-            "oneType": "Barricada (Um Tipo de Dano)",
-            "rule": "Barricada",
-            "twoTypes": "Barricada (Dois Tipos de Dano)"
-          }
-        },
-        "intercept": {
-          "description": "Proteja seus aliados do perigo sacrificando-se.",
-          "name": "Interceptar",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p12</div>"
-        },
-        "name": "Sentinela",
-        "normalAttackStatus": {
-          "description": {
-            "dazed": "Alvos sofrem Confuso.",
-            "shaken": "Alvos sofrem Abalado.",
-            "slow": "Alvos sofrem Lento.",
-            "weak": "Alvos sofrem Fraco."
-          },
-          "specialText": {
-            "dazed": "Cada alvo atingido por este ataque sofre Confuso.",
-            "shaken": "Cada alvo atingido por este ataque sofre Abalado.",
-            "slow": "Cada alvo atingido por este ataque sofre Lento.",
-            "weak": "Cada alvo atingido por este ataque sofre Fraco."
-          }
-        },
-        "reassuringAura": {
-          "description": "Conceda imunidade aos aliados contra um efeito de status específico.",
-          "name": "Aura tranquilizadora",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p13</div><div>Efeito de status escolhido: {status}</div>"
-        },
-        "reduceProgress": {
-          "description": "Impedir a manipulação do relógio inimigo em certas circunstâncias.",
-          "name": "Reduzir o progresso",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p13</div><div>Efeitos de status escolhidos: {status1} e {status2}</div>"
-        },
-        "spell": {
-          "description": "Aprenda uma magia de uma lista focada em mitigação. Aumente também o PM em +10..",
-          "name": "Feitiço"
-        },
-        "strongAttackDispel": {
-          "description": "Em certas circunstâncias, remova os efeitos mágicos contínuos ao acertar.",
-          "name": "Dissipar Ataque Forte",
-          "specialText": "Se um alvo estiver sofrendo de {status} e for afetado por uma ou mais magias com <b>duração</b> de \"Cena\", esse alvo não será mais afetado por nenhuma dessas magias."
-        },
-        "threaten": {
-          "description": "Forçar os inimigos a atacar você.",
-          "name": "Ameaçar",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p12</div>"
-        },
-        "unwaveringSupport": {
-          "description": "Dê suporte aos vilões melhorando suas chances de acerto crítico quando eles invocam Características.",
-          "name": "Apoio Inabalável",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p12</div>"
-        },
-        "vulnerabilityBlock": {
-          "description": "Inverta uma única vulnerabilidade de um aliado específico para Resistência.",
-          "name": "Bloqueio de Vulnerabilidade",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p12</div>"
-        }
-      },
-      "support": {
-        "advise": {
-          "actionText": "<div>Prévia das regras de montagem rápida V3 p14</div>",
-          "description": "Use PM para ajudar os aliados a se recuperarem dos efeitos de status e dar a eles um bônus na próxima verificação.",
-          "name": "Aconselhamento"
-        },
-        "followUpAttack": {
-          "description": "Sob certas circunstâncias, siga o ataque de um aliado com um ataque seu.",
-          "name": "Ataque Seguido",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p15</div>"
-        },
-        "healingAura": {
-          "description": "Cure continuamente seus aliados.",
-          "name": "Aura de Cura",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p15</div>"
-        },
-        "improvedAdvise": {
-          "actionText": "<div><b>Aconselhamento Aprimorado:</b> Prévia das regras de montagem rápida V3 p14 & p15</div>",
-          "description": "Melhora o Aconselhamento para permitir a recuperação de todos os efeitos de status.",
-          "name": "Aconselhamento Aprimorado"
-        },
-        "inspire": {
-          "actionText": "<div>Prévia das regras de montagem rápida V3 p14</div><div>Escolha o Recurso: {resource}<br>Escolha o Atributo: {attribute}</div>",
-          "description": "Use PM para recuperar os recursos de um aliado e melhorar um de seus atributos.",
-          "name": "Inspirar",
-          "resource": "Escolha Recuro"
-        },
-        "mpBattery": {
-          "description": "Pague os custos de PM dos seus aliados.",
-          "name": "Bateria PM",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p15</div>"
-        },
-        "name": "Suporte",
-        "oneLastCommand": {
-          "description": "Use uma de suas ações especiais uma última vez quando for eliminado.",
-          "name": "Um Último Comando",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p15</div>"
-        },
-        "oneSpellMpBonus": {
-          "description": "Escolha uma magia de uma lista focada em suporte. Ganhe também +10 PM.",
-          "name": "Um bônus de magia e PM"
-        },
-        "strategicCommand": {
-          "actionText": "<div>Prévia das regras de montagem rápida V3 p15</div>",
-          "description": "Use PM para que um aliado jogue imediatamente após o seu e dê a ele um bônus de dano.",
-          "name": "Comando Estratégico"
-        },
-        "twoSpells": {
-          "description": "Escolha dois feitiços de uma lista focada em suporte.",
-          "name": "Dois Feitiços"
-        },
-        "vulnerabilityBlock": {
-          "description": "Inverta uma única vulnerabilidade de um aliado específico para Resistência.",
-          "name": "Bloqueio de Vulnerabilidade",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p14</div>"
+"reassuringAura": {
+  "description": "Conceda aos aliados imunidade contra uma condição específica.",
+  "name": "Aura Reconfortante",
+  "ruleText": "<div>Bestiário Volume I p49</div><div>Condição escolhida: {status}</div>"
+},
+"reduceProgress": {
+  "description": "Impede a manipulação do relógio inimigo sob certas circunstâncias.",
+  "name": "Reduzir Progresso",
+  "ruleText": "<div>Bestiário Volume I p49</div><div>Condições escolhidas: {status1} e {status2}</div>"
+},
+"spell": {
+  "description": "Aprenda um feitiço de uma lista focada em mitigação. Além disso, aumente seus PM em +10.",
+  "name": "Feitiço"
+},
+"strongAttackDispel": {
+  "description": "Sob certas circunstâncias, remova efeitos mágicos contínuos ao acertar.",
+  "name": "Dissipar com Ataque Forte",
+  "specialText": "Se um alvo estiver sofrendo de {status} e estiver afetado por um ou mais feitiços com <b>duração</b> de \"Cena\", esse alvo não é mais afetado por nenhum desses feitiços."
+},
+"threaten": {
+  "description": "Force inimigos a atacarem você.",
+  "name": "Ameaçar",
+  "ruleText": "<div>Bestiário Volume I p48</div>"
+},
+"unwaveringSupport": {
+  "description": "Apoie Vilões ao melhorar a chance de crítico deles quando invocam Traços.",
+  "name": "Apoio Inabalável",
+  "ruleText": "<div>Bestiário Volume I p48</div>"
+},
+"vulnerabilityBlock": {
+  "description": "Converta uma única Vulnerabilidade de um aliado específico em Resistência.",
+  "name": "Bloqueio de Vulnerabilidade",
+  "ruleText": "<div>Bestiário Volume I p48</div>"
+}
+},
+"support": {
+  "advise": {
+    "actionText": "<div>Bestiário Volume I p52</div>",
+    "description": "Use PM para ajudar aliados a se recuperarem de condições e dar a eles um bônus no próximo Teste.",
+    "name": "Aconselhar"
+  },
+  "followUpAttack": {
+    "description": "Sob certas circunstâncias, acompanhe o ataque de um aliado com um ataque seu.",
+    "name": "Ataque de Acompanhamento",
+    "ruleText": "<div>Bestiário Volume I p53</div>"
+  },
+  "healingAura": {
+    "description": "Cure continuamente seus aliados.",
+    "name": "Aura de Cura",
+    "ruleText": "<div>Bestiário Volume I p53</div>"
+  },
+  "improvedAdvise": {
+    "actionText": "<div><b>Aconselhar Aprimorado:</b> Bestiário Volume I p52 & p53</div>",
+    "description": "Aprimora Aconselhar para permitir recuperação de todas as condições.",
+    "name": "Aconselhar Aprimorado"
+  },
+  "inspire": {
+    "actionText": "<div>Bestiário Volume I p52</div><div>Recurso escolhido: {resource}<br>Atributo escolhido: {attribute}</div>",
+    "description": "Use PM para recuperar o recurso de um aliado e melhorar um dos atributos dele.",
+    "name": "Inspirar",
+    "resource": "Escolha o Recurso"
+  },
+  "mpBattery": {
+    "description": "Pague custos de PM por seus aliados.",
+    "name": "Bateria de PM",
+    "ruleText": "<div>Bestiário Volume I p53</div>"
+  },
+  "name": "Suporte",
+  "oneLastCommand": {
+    "description": "Use uma de suas ações especiais uma última vez quando você for derrotado.",
+    "name": "Um Último Comando",
+    "ruleText": "<div>Bestiário Volume I p53</div>"
+  },
+  "oneSpellMpBonus": {
+    "description": "Escolha um feitiço de uma lista focada em suporte. Além disso, ganhe +10 PM.",
+    "name": "Um Feitiço e Bônus de PM"
+  },
+  "strategicCommand": {
+    "actionText": "<div>Bestiário Volume I p53</div>",
+    "description": "Use PM para fazer um aliado agir imediatamente depois de você e dar a ele um bônus de dano.",
+    "name": "Comando Estratégico"
+  },
+  "twoSpells": {
+    "description": "Escolha dois feitiços de uma lista focada em suporte.",
+    "name": "Dois Feitiços"
+  },
+  "vulnerabilityBlock": {
+    "description": "Converta uma única Vulnerabilidade de um aliado específico em Resistência.",
+    "name": "Bloqueio de Vulnerabilidade",
+    "ruleText": "<div>Bestiário Volume I p52</div>"
         }
       }
     },
     "settings": {
       "actorsTabButtonPlacement": {
-        "bottom": "Abaixo",
-        "hint": "Onde na aba Atores o botão deve ser mostrado?",
-        "name": "Posicionamento dos botões",
-        "none": "Não mostrar",
-        "top": "Topo"
+    "bottom": "Embaixo",
+    "hint": "Onde o botão deve ser exibido na aba de Atores?",
+    "name": "Posição do Botão",
+    "none": "Não exibir",
+    "top": "Em cima"
       },
       "showInSystemTools": {
-        "name": "Mostrar botão nas ferramentas do sistema ProjectFU?"
+    "name": "Exibir botão nas ferramentas do sistema ProjectFU?"
       },
       "userDataFiles": {
-        "delete": "Remover arquivo de dados",
-        "fileLoaded": {
-          "error": "O arquivo não pôde ser carregado",
-          "success": "Arquivo carregado"
+    "delete": "Remover arquivo de dados",
+    "fileLoaded": {
+      "error": "O arquivo não pôde ser carregado",
+      "success": "Arquivo carregado"
         },
         "filePicker": {
-          "hint": "Os arquivos de dados são arquivos .json cuja estrutura está em conformidade com o esquema QuickNPC.",
-          "prompt": "Escolha um novo arquivo de dados",
-          "tooltip": "Escolha o arquivo de dados..."
+      "hint": "Arquivos de dados são arquivos .json cuja estrutura está em conformidade com o esquema do QuickNPC.",
+      "prompt": "Escolher novo arquivo de dados",
+      "tooltip": "Escolher arquivo de dados..."
         },
-        "fileType": "Tipo de arquivo:",
-        "fileValidated": {
-          "error": "O arquivo não é válido",
-          "success": "O arquivo é válido"
+    "fileType": "Tipo de arquivo:",
+    "fileValidated": {
+      "error": "O arquivo não é válido",
+      "success": "O arquivo é válido"
         },
-        "hint": "Os arquivos de dados podem ser usados ​​para estender as opções disponíveis no assistente.",
-        "label": "Gerenciador de arquivos de dados abertos",
-        "name": "Arquivos de dados fornecidos pelo usuário",
-        "reload": "Recarregar arquivo de dados",
-        "save": "Salvar"
+    "hint": "Arquivos de dados podem ser usados para expandir as opções disponíveis no assistente e/ou no designer.",
+    "label": "Abrir Gerenciador de Arquivos de Dados",
+    "name": "Arquivos de Dados Fornecidos pelo Usuário",
+    "reload": "Recarregar arquivo de dados",
+    "save": "Salvar"
       }
     },
-    "species": {
-      "beast": {
-        "name": "Besta",
-        "opposedCheckBonus": {
-          "description": "Ganhe um bônus em Testes Opostos específicos.",
-          "name": "Bônus para Testes Opostos",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p18</div>"
+"species": {
+  "beast": {
+    "name": "Fera",
+    "opposedCheckBonus": {
+      "description": "Ganhe um bônus em Testes Opostos específicos.",
+      "name": "Bônus em Testes Opostos",
+      "ruleText": "<div>Bestiário Volume I p70</div>"
         },
-        "spell": {
-          "description": "Escolha uma magia de uma lista de magias com tema de besta e ganhe +10 PM.",
-          "name": "Feitiço Bestial"
-        }
-      },
-      "construct": {
-        "additionalVulnerability": {
-          "description": "Uma vulnerabilidade adicional a um tipo de dano entre: ar, raio, fogo, gelo.",
-          "name": "Vulnerabilidade Adicional"
-        },
-        "name": "Constructo",
-        "opposedCheckBonus": {
-          "description": "Ganhe um bônus em Testes Opostos específicos.",
-          "name": "Bônus para Testes Opostos",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p18</div>"
-        },
-        "statusImmunities": {
-          "description": "Ganhe imunidade a quaisquer dois efeitos de status.",
-          "name": "Imunidades de Status"
-        }
-      },
-      "demon": {
-        "name": "Demônio",
-        "spell": {
-          "description": "Escolha uma magia de uma lista de magias com tema demoníaco e ganhe +10 PM.",
-          "name": "Feitiço Demoníaco"
-        },
-        "upgradeResToAbs": {
-          "description": "Aumente uma imunidade para absorção.",
-          "name": "Aumente a Imunidade para Absorção"
-        }
-      },
-      "elemental": {
-        "additionalVulnerability": {
-          "description": "Uma vulnerabilidade adicional, de preferência oposta à natureza primária das criaturas.",
-          "name": "Vulnerabilidade Adicional"
-        },
-        "name": "Elemental",
-        "spell": {
-          "description": "Escolha uma magia de uma lista de magias com tema elemental e ganhe +10 PM.",
-          "name": "Feitiço Elemental"
-        },
-        "upgradeImmToAbs": {
-          "description": "Aumente uma imunidade para absorção.",
-          "name": "Aumente a Imunidade para Absorção"
-        }
-      },
-      "humanoid": {
-        "name": "Humanóide",
-        "opposedCheckBonus": {
-          "description": "Ganhe um bônus em Testes Opostos específicos.",
-          "name": "Bônus para Testes Opostos",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p20</div>"
-        },
-        "spell": {
-          "description": "Escolha uma magia de uma lista de magias com tema humanoide e ganhe +10 PM.",
-          "name": "Feitiço Humanóide"
-        }
-      },
-      "monster": {
-        "name": "Monstro",
-        "spell": {
-          "description": "Escolha uma magia de uma lista de magias temáticas de monstros e ganhe +10 PM.",
-          "name": "Feitiço de Monstro"
-        }
-      },
-      "plant": {
-        "name": "Planta",
-        "spell": {
-          "description": "Escolha uma magia de uma lista de magias com tema de planta e ganhe +10 PM.",
-          "name": "Feitiço de Planta"
-        },
-        "thorns": {
-          "description": "Causa dano menor a atacantes corpo a corpo.",
-          "name": "Espinhos",
-          "ruleText": "<div>Prévia das regras de montagem rápida V3 p21</div>"
-        }
-      },
-      "undead": {
-        "additionalVulnerability": {
-          "description": "Uma vulnerabilidade adicional a um tipo de dano entre: ar, raio, terra, fogo, gelo.",
-          "name": "Vulnerabilidade adicional"
-        },
-        "name": "Morto-Vivo",
-        "spell": {
-          "description": "Escolha uma magia de uma lista de magias com tema de mortos-vivos e ganhe +10 PM.",
-          "name": "Feitiço Morto-Vivo"
-        },
-        "undeadHealing": {
-          "description": "Mortos-vivos podem ser prejudicados por efeitos de cura.",
-          "name": "Cura Morta-Viva",
-          "ruleText": "<div>Livro Base p305</div>"
-        },
-        "upgradeImmToAbs": {
-          "description": "Aumente a imunidade à sombrio para absorção sombria.",
-          "name": "Aumente a Imunidade para Absorção"
-        }
-      }
-    },
     "spell": {
-      "areaStatus": {
-        "description": "Causa um efeito de status em vários alvos.",
-        "name": "Status da área",
-        "spellText": "<div>Escolha qualquer número de criaturas que você possa ver: cada uma delas sofre {status}.</div>"
+      "description": "Escolha um feitiço de uma lista de feitiços temática de feras e ganhe +10 PM.",
+      "name": "Feitiço de Fera"
+        }
       },
-      "aura": {
-        "description": "Melhore a DEF M. de até três alvos.",
-        "name": "Aura",
-        "spellText": "Você projeta sua alma para fora do corpo e a direciona para cercar os alvos, protegendo-os de magias perigosas. Até que esta magia termine, cada alvo pode considerar sua Defesa Mágica como igual a 12 contra quaisquer efeitos que o atinjam (eles ainda podem usar sua Defesa normal se a pontuação for superior a 12).)."
+  "construct": {
+    "additionalVulnerability": {
+      "description": "Uma vulnerabilidade adicional a um tipo de dano entre: ar, raio, fogo, gelo.",
+      "name": "Vulnerabilidade Adicional"
+        },
+    "name": "Construto",
+    "opposedCheckBonus": {
+      "description": "Ganhe um bônus em Testes Opostos específicos.",
+      "name": "Bônus em Testes Opostos",
+      "ruleText": "<div>Bestiário Volume I p70</div>"
+        },
+    "statusImmunities": {
+      "description": "Ganhe imunidade a quaisquer duas condições.",
+      "name": "Imunidades a Condições"
+        }
       },
-      "awaken": {
-        "description": "Melhore um atributo de um alvo.",
-        "name": "Despertar",
-        "spellText": "Você permite que uma criatura concentre sua energia vital em realizar o que antes não conseguia. Escolha um Atributo: <b>Destreza</b>, <b>Intuição</b>, <b>Força</b> ou <b>Força de Vontade</b>. Até que esta magia termine, o alvo trata o Atributo escolhido como se fosse um dado maior (até um máximo de <b>d12</b>)."
+  "demon": {
+    "name": "Demônio",
+    "spell": {
+      "description": "Escolha um feitiço de uma lista de feitiços temática de demônios e ganhe +10 PM.",
+      "name": "Feitiço de Demônio"
+        },
+    "upgradeResToAbs": {
+      "description": "Aprimore uma resistência para absorção.",
+      "name": "Aprimorar Resistência para Absorção"
+        }
       },
-      "barrier": {
-        "description": "Melhore a DEF de até três alvos.",
-        "name": "Barreira",
-        "spellText": "Você projeta sua alma para fora do corpo e a tece em uma barreira para proteger os alvos de ataques. Até que esta magia termine, cada alvo pode considerar sua Defesa como igual a 12 contra quaisquer efeitos que o atinjam (eles ainda podem usar sua Defesa normal se a pontuação for superior a 12)."
+  "elemental": {
+    "additionalVulnerability": {
+      "description": "Uma vulnerabilidade adicional, de preferência oposta à natureza primária da criatura.",
+      "name": "Vulnerabilidade Adicional"
+        },
+    "name": "Elemental",
+    "spell": {
+      "description": "Escolha um feitiço de uma lista de feitiços temática de elementais e ganhe +10 PM.",
+      "name": "Feitiço Elemental"
+        },
+    "upgradeImmToAbs": {
+      "description": "Aprimore uma imunidade para absorção.",
+      "name": "Aprimorar Imunidade para Absorção"
+        }
       },
-      "breath": {
-        "description": "Causa dano moderado a um único alvo.",
-        "name": "Sopro",
-        "spellText": "<div>O alvo sofre dano de {damageType} .</div>"
+  "humanoid": {
+    "name": "Humanoide",
+    "opposedCheckBonus": {
+      "description": "Ganhe um bônus em Testes Opostos específicos.",
+      "name": "Bônus em Testes Opostos",
+      "ruleText": "<div>Bestiário Volume I p72</div>"
+        },
+    "spell": {
+      "description": "Escolha um feitiço de uma lista de feitiços temática de humanoides e ganhe +10 PM.",
+      "name": "Feitiço de Humanoide"
+        }
       },
-      "cleanse": {
-        "description": "Remova efeitos de status de até três alvos.",
-        "name": "Limpar",
-        "spellText": "Você fortalece e purifica a energia da alma que flui através de seus companheiros. Cada alvo se recupera de todos os efeitos de status.."
+  "monster": {
+    "name": "Monstro",
+    "spell": {
+      "description": "Escolha um feitiço de uma lista de feitiços temática de monstros e ganhe +10 PM.",
+      "name": "Feitiço de Monstro"
+        }
       },
-      "curse": {
-        "description": "Causa um efeito de status em um único alvo.",
-        "name": "Maldição",
-        "spellText": "O alvo sofre {status}."
+  "plant": {
+    "name": "Planta",
+    "spell": {
+      "description": "Escolha um feitiço de uma lista de feitiços temática de plantas e ganhe +10 PM.",
+      "name": "Feitiço de Planta"
+        },
+    "thorns": {
+      "description": "Cause dano leve em atacantes corpo a corpo.",
+      "name": "Espinhos",
+      "ruleText": "<div>Bestiário Volume I p73</div>"
+        }
       },
-      "curseXL": {
-        "description": "Causa dois efeitos de status em um único alvo.",
-        "name": "Maldição XL",
-        "spellText": "<div>O alvo sofre {status1} e {status2}.</div>",
-        "status1": "Primeiro Efeito de Status",
-        "status2": "Segundo Efeito de Status"
-      },
-      "cursedBreath": {
-        "description": "Causa dano pesado e efeito de status em um único alvo.",
-        "name": "Sopro Amaldiçoado",
-        "spellText": "<div>O alvo sofre dano de {damageType} e {status}.</div>"
-      },
-      "devastation": {
-        "description": "Causa dano massivo a qualquer número de alvos.",
-        "name": "Devastação",
-        "spellText": "<div>Escolha qualquer número de criaturas que você possa ver: cada uma delas sofre 30 de dano de {damageType} . Você só pode conjurar esta magia uma vez por turno.</div><div>Esta magia só deve ser dada a campeões e criaturas de elite de nível 30 ou superior, e tais criaturas só podem conjurar esta magia durante seu último turno na rodada.</div>"
-      },
-      "dispel": {
-        "description": "Acabar com os efeitos contínuos em um único alvo.",
-        "name": "Dissipar",
-        "spellText": "Você libera uma onda de energia negativa e purifica toda a magia de uma criatura. Se o alvo for afetado por uma ou mais magias com <b>duração</b> de \"Cena\", ele não será mais afetado por nenhuma dessas magias."
-      },
-      "divination": {
-        "description": "Permita-se forçar um alvo a repetir um teste.",
-        "name": "Adivinhação",
-        "spellText": "Você vislumbra brevemente o futuro. Até que esta magia termine, após uma criatura que você possa ver realizar um Teste, se não foi uma <b>falha crítica</b> nem um <b>sucesso crítico</b>, você pode forçar aquela criatura a rolar novamente <b>ambos</b> os dados. Depois de forçar <b>duas</b> rolagens novamente desta forma, esta magia termina.."
-      },
-      "drainSpirit": {
-        "description": "Faça com que um único alvo perca PM enquanto restaura o seu próprio.",
-        "name": "Drenar Espírito",
-        "spellText": "Você consome a psique de uma criatura. O alvo perde 【RA + 15】 Pontos Mentais. Em seguida, você recupera uma quantidade de Pontos Mentais igual à metade da perda de Pontos Mentais que sofreu (se a perda foi reduzida a 0 de alguma forma, você não recupera nenhum)."
-      },
-      "elementalShroud": {
-        "description": "Conceda até três alvos Resistência a um tipo de dano elemental.",
-        "name": "Manto Elemental",
-        "spellText": "Você tece energia mágica e protege os alvos da fúria dos elementos. Escolha um tipo de dano: <b>ar</b>, <b>raio</b>, <b>terra</b>, <b>fogo</b> ou <b>gelo</b>. Até o fim desta magia, cada alvo ganha Resistência contra o tipo de dano escolhido."
-      },
-      "enrage": {
-        "description": "Causa sofrimento a vários alvos Enfurecido.",
-        "name": "Enfurecer",
-        "spellText": "<div>Você faz com que uma criatura perca qualquer resquício de temperamento e aja descaradamente. O alvo sofre Enfurecido e não pode realizar as ações de <b>Defesa</b> ou <b>Feitiço</b> durante seu próximo turno..</div>"
-      },
-      "flare": {
-        "description": "Causa dano de fogo massivo que ignora a resistência a um único alvo.",
-        "name": "Flare",
-        "spellText": "<div>Você canaliza um único raio de fogo em direção ao seu inimigo, cuja temperatura é tão alta que perfura a maioria das defesas. O alvo sofre dano de fogo.</div><div>O dano causado por esta magia ignora as Resistências.</div>"
-      },
-      "fulgur": {
-        "description": "Causa dano pesado de raio em vários alvos.",
-        "name": "Fulgur",
-        "opportunity": "Cada alvo atingido por esta magia sofre atordoamento.",
-        "spellText": "Você tece eletricidade em uma onda de raios crepitantes. Cada alvo atingido por este feitiço sofre dano de raio."
-      },
-      "glacies": {
-        "description": "Causar dano pesado de gelo em vários alvos.",
-        "name": "Glacies",
-        "opportunity": "Cada alvo atingido por esta magia sofre lentidão.",
-        "spellText": "Você cobre seus inimigos com uma espessa camada de gelo. Cada alvo atingido por esta magia sofre dano de gelo."
-      },
-      "heal": {
-        "description": "Restaura PV de até três alvos.",
-        "name": "Curar",
-        "spellText": "Você revigora seus companheiros, aliviando sua dor e curando sua fadiga. Cada alvo recupera {amount} Pontos de Vida.."
-      },
-      "iceberg": {
-        "description": "Causa dano de gelo massivo que ignora a resistência a um único alvo.",
-        "name": "Iceberg",
-        "spellText": "<div>Um pilar de magia de gelo envolve seu inimigo, reduzindo repentinamente a temperatura corporal dele a um nível crítico. O alvo sofre dano de gelo.</div><div>O dano causado por esta magia ignora as Resistências..</div>"
-      },
-      "ignis": {
-        "description": "Causar dano de fogo pesado a vários alvos.",
-        "name": "Ignis",
-        "opportunity": "Cada alvo atingido por esta magia sofre abalado.",
-        "spellText": "Você desfere uma saraivada de tiros contra seus inimigos, conjurando chamas do nada. Cada alvo atingido por esta magia sofre dano de fogo."
-      },
-      "lickWounds": {
-        "description": "Recupere seu próprio PV.",
-        "name": "Lamber Feridas",
-        "spellText": "Você recupera 20 Pontos de Vida. Essa quantidade aumenta para 30 Pontos de Vida se você estiver no nível 20 ou superior, para 40 Pontos de Vida se você estiver no nível 40 ou superior, ou para 50 Pontos de Vida se você estiver no nível 60 ou superior."
-      },
-      "lifeTheft": {
-        "description": "Causa dano pesado a um único alvo e cura parte do dano causado.",
-        "name": "Roubo Vital",
-        "spellText": "<div>O alvo sofre dano de {damageType} . Então, você recupera uma quantidade de Pontos de Vida igual à metade da perda de Pontos de Vida que ele sofreu..</div>"
-      },
-      "lux": {
-        "description": "Causa dano leve e pesado a vários alvos.",
-        "name": "Lux",
-        "opportunity": "Cada alvo atingido por esta magia sofre Confusão.",
-        "spellText": "Você concentra sua energia interior em uma barragem de raios anímicos ofuscantes. Cada alvo atingido por esta magia sofre dano leve.."
-      },
-      "mindTheft": {
-        "description": "Causa dano pesado a um único alvo e depois recupera PM.",
-        "name": "Roubo de Mente",
-        "spellText": "O alvo sofre dano de {damageType} . Em seguida, você recupera uma quantidade de Pontos Mentais igual à metade da perda de Pontos de Vida que ele sofreu.."
-      },
-      "mirror": {
-        "description": "Refletir feitiços nocivos de volta para o conjurador.",
-        "name": "Espelho",
-        "spellText": "Você distorce as leis da magia. Até que esta magia termine, se uma magia ofensiva for lançada sobre o alvo, a criatura que lançou aquela magia ofensiva será o alvo em seu lugar (quaisquer outros alvos da magia ofensiva serão alvos normalmente). Uma vez que isso aconteça, esta magia termina.."
-      },
-      "omega": {
-        "description": "Faça com que um alvo perca HP com base em seu nível.",
-        "name": "Omega",
-        "spellText": "Você invoca a ruína sobre seu inimigo, transformando força em fragilidade. O alvo perde uma quantidade de Pontos de Vida igual a 【20 + metade do nível do alvo】."
-      },
-      "poison": {
-        "description": "Causar o sofrimento de vários alvos Envenenado.",
-        "name": "Veneno",
-        "spellText": "<div>Cada alvo atingido por esta magia sofre Envenenamento.</div>"
-      },
-      "quicken": {
-        "description": "Permitir que um alvo use um ataque gratuito imediatamente.",
-        "name": "Acelerar",
-        "spellText": "O alvo pode imediatamente executar um <b>ataque livre</b> com uma arma que tenha equipado (ou com um <b>ataque básico</b>, se o alvo for um PNJ)."
-      },
-      "rage": {
-        "description": "Causar sofrimento a vários alvos Enfurecido.",
-        "name": "Fúria",
-        "spellText": "Cada alvo atingido por esta magia sofre Enfurecido."
-      },
-      "reinforce": {
-        "description": "Torne você e seus aliados imunes a um efeito de status de sua escolha.",
-        "name": "Reforçar",
-        "spellText": "<div>Você protege os alvos de ataques que corromperiam seus corpos e espíritos. Escolha entre <b>confuso</b>, <b>enfurecido</b>, <b>envenenado</b>, <b>abalado</b>, <b>lento</b> ou <b>fraco</b>. Até o fim desta magia, cada alvo se torna imune ao efeito de status escolhido.</div>"
-      },
-      "shell": {
-        "description": "Ganhe resistência a danos físicos.",
-        "name": "Concha",
-        "spellText": "Até que esta magia termine, você ganha Resistência a dano <b>physical</b>."
-      },
-      "stop": {
-        "description": "Fazer com que o alvo perca uma ação.",
-        "name": "Parar",
-        "spellText": "Você aprisiona um inimigo dentro de um círculo de tempo e espaço alterados. O alvo realizará uma ação a menos no próximo turno (até um mínimo de 0 ações)."
-      },
-      "terra": {
-        "description": "Causar grandes danos terrestres a vários alvos no solo.",
-        "name": "Terra",
-        "opportunity": "Cada alvo atingido por esta magia realiza uma ação a menos em seu próximo turno (até um mínimo de 0 ações).",
-        "spellText": "Espirais de rocha irregular irrompem do solo sob seus inimigos, fechando-se ao redor deles. Cada alvo atingido por esta magia sofre dano de terra. Esta magia não pode ter como alvo criaturas que estejam voando, flutuando, caindo ou em pleno ar.."
-      },
-      "thunderbolt": {
-        "description": "Causa dano massivo de raio que ignora a resistência a um único alvo.",
-        "name": "Relâmpago",
-        "spellText": "<div>Você lança um raio em seu inimigo. O alvo sofre dano de raio.</div><div>O dano causado por esta magia ignora as Resistências.</div>"
-      },
-      "umbra": {
-        "description": "Causa dano Sombrio pesado a vários alvos.",
-        "name": "Umbra",
-        "opportunity": "Cada alvo atingido por esta magia sofre fraqueza.",
-        "spellText": "Uma tempestade de energia escura transforma a matéria em cinzas. Cada alvo atingido por esta magia sofre dano sombrio."
-      },
-      "ventus": {
-        "description": "Causar danos aéreos pesados ​​a vários alvos.",
-        "name": "Ventus",
-        "opportunity": "Cada alvo voador atingido por este feitiço é forçado a pousar imediatamente.",
-        "spellText": "Você invoca o poder dos ventos contra o seu inimigo. Cada alvo atingido por esta magia sofre dano aéreo."
-      },
-      "warCry": {
-        "description": "Conceder um bônus para verificações de precisão.",
-        "name": "Grito de Guerra",
-        "spellText": "Até que esta magia termine, cada alvo ganha um bônus de +1 em Testes de Precisão."
-      },
-      "weaken": {
-        "description": "Amplifica o dano de um tipo escolhido em um único alvo.",
-        "name": "Enfraquecido",
-        "spellText": "<div>Até que esta magia termine, o alvo sofre 5 de dano extra de todas as fontes que causam dano de <b>{damageType}</b> .</div>"
+  "undead": {
+    "additionalVulnerability": {
+      "description": "Uma vulnerabilidade adicional a um tipo de dano entre: ar, raio, terra, fogo, gelo.",
+      "name": "Vulnerabilidade Adicional"
+        },
+    "name": "Morto-vivo",
+    "spell": {
+      "description": "Escolha um feitiço de uma lista de feitiços temática de mortos-vivos e ganhe +10 PM.",
+      "name": "Feitiço de Morto-vivo"
+        },
+    "undeadHealing": {
+      "description": "Mortos-vivos podem ser feridos por efeitos de cura.",
+      "name": "Cura em Mortos-vivos",
+      "ruleText": "<div>Livro Básico p305</div>"
+        },
+    "upgradeImmToAbs": {
+      "description": "Aprimore imunidade a trevas para absorção de trevas.",
+      "name": "Aprimorar Imunidade para Absorção"
+        }
       }
     },
-    "spells": {
-      "costPerTarget": "{amount}xT PM",
-      "duration": {
-        "instant": "Instantâneo",
-        "scene": "Cena"
+"spell": {
+  "acceleration": {
+    "description": "Conceda ao alvo ações adicionais durante os turnos dele.",
+    "name": "Aceleração",
+    "spellText": "Você dobra o tecido do tempo. Até que este feitiço termine, o alvo recebe a habilidade de realizar uma única ação adicional durante cada um de seus turnos. Assim que o alvo tiver realizado um total de duas ações adicionais concedidas por este feitiço, este feitiço termina."
       },
-      "targets": {
-        "self": "Próprio",
-        "single": "Uma Criatura",
-        "special": "Especial",
-        "upToThree": "Até três criaturas"
+  "anomaly": {
+    "description": "Torne um inimigo Vulnerável a um tipo de dano ao qual ele normalmente é imune.",
+    "name": "Anomalia",
+    "spellText": "Você altera a própria natureza do seu alvo. Até que este feitiço termine, se o alvo fosse sofrer dano de um tipo que ele Absorve ou ao qual é Imune, em vez disso ele é tratado como se fosse Vulnerável a esse tipo de dano. Assim que isso acontecer, este feitiço termina."
       },
-      "totalCost": "{amount} PM"
+  "areaStatus": {
+    "description": "Cause uma condição em múltiplos alvos.",
+    "name": "Condição em Área",
+    "spellText": "<div>Escolha qualquer quantidade de criaturas que você possa ver: cada uma delas sofre {status}.</div>"
+      },
+  "aura": {
+    "description": "Melhore a D.MAG de até três alvos.",
+    "name": "Aura",
+    "spellText": "Você projeta sua alma para fora do seu corpo e a direciona para envolver os alvos, protegendo-os de magia perigosa. Até que este feitiço termine, cada alvo pode tratar sua Defesa Mágica como sendo igual a 12 contra quaisquer efeitos que a tenham como alvo (eles ainda podem usar seu valor normal de Defesa se for maior do que 12)."
+      },
+  "awaken": {
+    "description": "Melhore um Atributo de um alvo.",
+    "name": "Despertar",
+    "spellText": "Você permite que uma criatura foque sua energia vital em realizar o que antes não conseguia. Escolha um Atributo: <b>Destreza</b>, <b>Astúcia</b>, <b>Vigor</b> ou <b>Vontade</b>. Até que este feitiço termine, o alvo trata o Atributo escolhido como se ele fosse um tamanho de dado acima (até um máximo de <b>d12</b>)."
+      },
+  "barrier": {
+    "description": "Melhore a DEF de até três alvos.",
+    "name": "Barreira",
+    "spellText": "Você projeta sua alma para fora do seu corpo e a tece em uma barreira para proteger os alvos de ataques. Até que este feitiço termine, cada alvo pode tratar sua Defesa como sendo igual a 12 contra quaisquer efeitos que a tenham como alvo (eles ainda podem usar seu valor normal de Defesa se for maior do que 12)."
+      },
+  "breath": {
+    "description": "Cause dano moderado a um único alvo.",
+    "name": "Sopro",
+    "spellText": "<div>O alvo sofre dano {damageType}.</div>"
+      },
+  "cleanse": {
+    "description": "Remova condições de até três alvos.",
+    "name": "Purificar",
+    "spellText": "Você fortalece e purifica a energia da alma que corre através de seus companheiros. Cada alvo se recupera de todas as condições."
+      },
+  "curse": {
+    "description": "Cause uma condição em um único alvo.",
+    "name": "Maldição",
+    "spellText": "O alvo sofre {status}."
+      },
+  "curseXL": {
+    "description": "Cause duas condições em um único alvo.",
+    "name": "Maldição XL",
+    "spellText": "<div>O alvo sofre {status1} e {status2}.</div>",
+    "status1": "Primeira Condição",
+    "status2": "Segunda Condição"
+      },
+  "cursedBreath": {
+    "description": "Cause dano pesado e uma condição em um único alvo.",
+    "name": "Sopro Amaldiçoado",
+    "spellText": "<div>O alvo sofre dano {damageType} e {status}.</div>"
+  },
+  "darkWeapon": {
+    "description": "Encante uma arma para causar dano de trevas.",
+    "name": "Arma de Trevas",
+    "spellText": "Você imbuí uma arma com energia de trevas. Até que este feitiço termine, todo o dano causado pela arma se torna do tipo <b>trevas</b>. Se você estiver com essa arma equipada ao conjurar este feitiço, você pode realizar um <b>ataque livre</b> com ela como parte da mesma ação.<br>Este feitiço só pode ser conjurado em uma arma equipada por uma criatura disposta."
+  },
+  "devastation": {
+    "description": "Cause dano massivo a qualquer quantidade de alvos.",
+    "name": "Devastação",
+    "spellText": "<div>Escolha qualquer quantidade de criaturas que você possa ver: cada uma delas sofre 30 de dano {damageType}. Você só pode conjurar este feitiço uma vez por turno.</div><div>Este feitiço deve ser dado apenas a criaturas campeãs e elites de nível 30 ou superior, e tais criaturas só podem conjurar este feitiço durante o último turno delas na rodada.</div>"
+  },
+  "dispel": {
+    "description": "Encerre efeitos contínuos em um único alvo.",
+    "name": "Dissipar",
+    "spellText": "Você libera uma onda de energia negativa e purifica toda a magia de uma criatura. Se o alvo estiver afetado por um ou mais feitiços com <b>duração</b> de \"Cena\", ele não é mais afetado por nenhum desses feitiços."
+  },
+  "divination": {
+    "description": "Permita que você force um alvo a rolar novamente um Teste.",
+    "name": "Adivinhação",
+    "spellText": "Você vislumbra brevemente o futuro. Até que este feitiço termine, depois que uma criatura que você possa ver realizar um Teste, se não tiver sido uma <b>Rolagem Baixa</b> nem um <b>sucesso crítico</b>, você pode forçar essa criatura a rolar novamente <b>ambos</b> os dados. Assim que você tiver forçado <b>duas</b> rerrolagens dessa forma, este feitiço termina."
+  },
+  "drainSpirit": {
+    "description": "Faça um único alvo perder PM enquanto restaura os seus.",
+    "name": "Drenar Espírito",
+    "spellText": "Você consome a psique de uma criatura. O alvo perde 【Rolagem Alta + 15】 Pontos de Mente. Em seguida, você recupera uma quantidade de Pontos de Mente igual à metade da perda de Pontos de Mente que ele sofreu (se a perda for reduzida a 0 de alguma forma, você não recupera nada)."
+  },
+  "drainVigor": {
+    "description": "Cause dano de trevas a uma única criatura enquanto restaura seus PV.",
+    "name": "Drenar Vigor",
+    "spellText": "Você rouba a força vital de outra criatura. O alvo sofre dano de <b>trevas</b>. Em seguida, você recupera uma quantidade de Pontos de Vida igual à metade da perda de Pontos de Vida que ele sofreu (se a perda for reduzida a 0 de alguma forma, você não recupera nada)."
+  },
+  "elementalShroud": {
+    "description": "Conceda a até três alvos Resistência a um tipo de dano elemental.",
+    "name": "Manto Elemental",
+    "spellText": "Você tece energia mágica e protege os alvos da fúria dos elementos. Escolha um tipo de dano: <b>ar</b>, <b>raio</b>, <b>terra</b>, <b>fogo</b> ou <b>gelo</b>. Até que este feitiço termine, cada alvo recebe Resistência contra o tipo de dano escolhido."
+  },
+  "elementalWeapon": {
+    "description": "Encante uma arma para causar dano de um tipo de dano elemental.",
+    "name": "Arma Elemental",
+    "spellText": "Você imbuí uma arma com energia elemental. Escolha um tipo de dano: <b>ar</b>, <b>raio</b>, <b>terra</b>, <b>fogo</b> ou <b>gelo</b>. Até que este feitiço termine, todo o dano causado pela arma se torna do tipo de dano escolhido. Se você estiver com essa arma equipada ao conjurar este feitiço, você pode realizar um <b>ataque livre</b> com ela como parte da mesma ação.<br>Este feitiço só pode ser conjurado em uma arma equipada por uma criatura disposta."
+  },
+  "enrage": {
+    "description": "Faça múltiplos alvos sofrerem Enfurecido.",
+    "name": "Enfurecer",
+    "spellText": "<div>Você faz uma criatura perder qualquer resquício de temperança e agir com ousadia. O alvo sofre Enfurecido e não pode realizar as ações <b>Guardar</b> ou <b>Feitiço</b> durante o próximo turno dele.</div>"
+  },
+  "flare": {
+    "description": "Cause dano massivo de fogo que ignora resistência em um único alvo.",
+    "name": "Labareda",
+    "spellText": "<div>Você canaliza um único raio de fogo em direção ao seu inimigo, com uma temperatura tão alta que atravessará a maioria das defesas. O alvo sofre dano de fogo.</div><div>O dano causado por este feitiço ignora Resistências.</div>"
+  },
+  "fulgur": {
+    "description": "Cause dano pesado de raio a múltiplos alvos.",
+    "name": "Fulgur",
+    "opportunity": "Cada alvo atingido por este feitiço sofre atordoado.",
+    "spellText": "Você tece eletricidade em uma onda de raios crepitantes. Cada alvo atingido por este feitiço sofre dano de raio."
+  },
+  "gamble": {
+    "description": "Cause um efeito aleatório baseado em uma rolagem do seu dado de VON.",
+    "name": "Aposta",
+    "spellText": "Você invoca um vórtice de energia caótica. Gaste até 20 Pontos de Mente. Role seu dado atual de <b>Vontade</b> uma vez para cada 10 Pontos de Mente gastos ao conjurar este feitiço e então mantenha o único dado que você preferir: o número nesse dado determina os efeitos deste feitiço.<ul><li>1: Você perde metade de seus Pontos de Vida atuais e metade de seus Pontos de Mente atuais.</li><li>2-3: Cada criatura presente na cena, incluindo você, sofre envenenado.</li><li>4-6: Cada criatura presente na cena, incluindo você, sofre lento.</li><li>7-8: Escolha até três criaturas que você possa ver: cada uma delas recupera 50 Pontos de Vida e também se recupera de todas as condições.</li><li>9+: Escolha qualquer quantidade de criaturas que você possa ver: cada uma delas sofre 30 de dano. O tipo de dano é determinado aleatoriamente rolando um d6:<ul><li>1: <b>ar</b></li><li>2: <b>raio</b></li><li>3: <b>trevas</b></li><li>4: <b>terra</b></li><li>5: <b>fogo</b></li><li>6: <b>veneno</b></li></ul>"
+  },
+  "glacies": {
+    "description": "Cause dano pesado de gelo a múltiplos alvos.",
+    "name": "Glacies",
+    "opportunity": "Cada alvo atingido por este feitiço sofre lento.",
+    "spellText": "Você cobre seus inimigos sob uma espessa camada de geada. Cada alvo atingido por este feitiço sofre dano de gelo."
+  },
+  "hallucination": {
+    "description": "Inflija sua escolha de atordoado ou abalado em múltiplos alvos.",
+    "name": "Alucinação",
+    "spellText": "Você altera os sentidos de seus inimigos, fazendo-os vivenciar alucinações bizarras ou aterrorizantes. Escolha <b>atordoado</b> ou <b>abalado</b>: você inflige a condição escolhida em cada alvo atingido por este feitiço."
+  },
+  "heal": {
+    "description": "Restaure PV de até três alvos.",
+    "name": "Cura",
+    "spellText": "Você revigora seus companheiros, aliviando sua dor e curando sua fadiga. Cada alvo recupera {amount} Pontos de Vida."
+  },
+  "iceberg": {
+    "description": "Cause dano massivo de gelo que ignora resistência em um único alvo.",
+    "name": "Iceberg",
+    "spellText": "<div>Um pilar de magia de gelo envolve seu inimigo, reduzindo de repente a temperatura do corpo dele a um nível crítico. O alvo sofre dano de gelo.</div><div>O dano causado por este feitiço ignora Resistências.</div>"
+  },
+  "ignis": {
+    "description": "Cause dano pesado de fogo a múltiplos alvos.",
+    "name": "Ignis",
+    "opportunity": "Cada alvo atingido por este feitiço sofre abalado.",
+    "spellText": "Você libera uma rajada escaldante contra seus inimigos, conjurando chamas do nada. Cada alvo atingido por este feitiço sofre dano de fogo."
+  },
+  "lickWounds": {
+    "description": "Recupere seus próprios PV.",
+    "name": "Lamber Feridas",
+    "spellText": "Você recupera 20 Pontos de Vida. Essa quantidade aumenta para 30 Pontos de Vida se você for de nível 20 ou superior, para 40 Pontos de Vida se você for de nível 40 ou superior, ou para 50 Pontos de Vida se você for de nível 60 ou superior."
+  },
+  "lifeTheft": {
+    "description": "Cause dano pesado a um único alvo e cure uma parte do dano causado.",
+    "name": "Roubo de Vida",
+    "spellText": "<div>O alvo sofre dano {damageType}. Em seguida, você recupera uma quantidade de Pontos de Vida igual à metade da perda de Pontos de Vida que ele sofreu.</div>"
+  },
+  "lux": {
+    "description": "Cause dano pesado de luz a múltiplos alvos.",
+    "name": "Lux",
+    "opportunity": "Cada alvo atingido por este feitiço sofre atordoado.",
+    "spellText": "Você foca sua energia interior em uma rajada de raios de alma ofuscantes. Cada alvo atingido por este feitiço sofre dano de luz."
+  },
+  "mercy": {
+    "description": "Impeça que o alvo seja reduzido a 0 PV.",
+    "name": "Misericórdia",
+    "spellText": "Você fortalece o coração de uma criatura contra sofrimento e desespero. Até que este feitiço termine, se o alvo fosse ser reduzido a 0 Pontos de Vida, em vez disso ele permanece de pé com exatamente 1 Ponto de Vida. Assim que isso acontecer, este feitiço termina."
+  },
+  "mindTheft": {
+    "description": "Cause dano pesado a um único alvo e então recupere PM.",
+    "name": "Roubo de Mente",
+    "spellText": "O alvo sofre dano {damageType}. Em seguida, você recupera uma quantidade de Pontos de Mente igual à metade da perda de Pontos de Vida que ele sofreu."
+  },
+  "mirror": {
+    "description": "Reflita feitiços nocivos de volta ao conjurador.",
+    "name": "Espelho",
+    "spellText": "Você distorce as leis da magia. Até que este feitiço termine, se um feitiço ofensivo for conjurado no alvo, a criatura que conjurou esse feitiço ofensivo será o alvo no lugar dele (quaisquer outros alvos do feitiço ofensivo serão alvejados normalmente). Assim que isso acontecer, este feitiço termina."
+  },
+  "omega": {
+    "description": "Faça um alvo perder PV com base no nível dele.",
+    "name": "Ômega",
+    "spellText": "Você invoca a ruína sobre seu inimigo, transformando força em fragilidade. O alvo perde uma quantidade de Pontos de Vida igual a 【20 + metade do nível do alvo】."
+  },
+  "poison": {
+    "description": "Faça múltiplos alvos sofrerem Envenenado.",
+    "name": "Veneno",
+    "spellText": "<div>Cada alvo atingido por este feitiço sofre Envenenado.</div>"
+  },
+  "quicken": {
+    "description": "Permita que um alvo use um ataque livre imediatamente.",
+    "name": "Acelerar",
+    "spellText": "O alvo pode imediatamente realizar um <b>ataque livre</b> com uma arma que tenha equipada (ou com um <b>ataque básico</b>, se o alvo for um PNJ)."
+  },
+  "rage": {
+    "description": "Faça múltiplos alvos sofrerem Enfurecido.",
+    "name": "Fúria",
+    "spellText": "Cada alvo atingido por este feitiço sofre Enfurecido."
+  },
+  "reinforce": {
+    "description": "Torne você e seus aliados imunes a uma condição à sua escolha.",
+    "name": "Reforçar",
+    "spellText": "<div>Você protege os alvos de ataques que corromperiam seu corpo e espírito. Escolha <b>atordoado</b>, <b>enfurecido</b>, <b>envenenado</b>, <b>abalado</b>, <b>lento</b> ou <b>fraco</b>. Até que este feitiço termine, cada alvo se torna imune à condição escolhida.</div>"
+  },
+  "shell": {
+    "description": "Receba Resistência a dano físico.",
+    "name": "Carapaça",
+    "spellText": "Até que este feitiço termine, você recebe Resistência a dano <b>físico</b>."
+  },
+  "soulShroud": {
+    "description": "Conceda a até três alvos Resistência a um tipo de dano não elemental.",
+    "name": "Manto da Alma",
+    "spellText": "Escolha um tipo de dano: <b>trevas</b>, <b>luz</b> ou <b>veneno</b>. Até que este feitiço termine, cada alvo recebe Resistência contra o tipo de dano escolhido."
+  },
+  "soulWeapon": {
+    "description": "Encante uma arma para causar dano de luz.",
+    "name": "Arma da Alma",
+    "spellText": "Você imbuí uma arma com a energia purificadora do seu espírito. Até que este feitiço termine, todo o dano causado pela arma se torna do tipo <b>luz</b>. Se você estiver com essa arma equipada ao conjurar este feitiço, você pode realizar um <b>ataque livre</b> com ela como parte da mesma ação.<br>Este feitiço só pode ser conjurado em uma arma equipada por uma criatura disposta."
+  },
+  "stop": {
+    "description": "Faça o alvo perder uma ação.",
+    "name": "Parar",
+    "spellText": "Você aprisiona um inimigo dentro de um círculo de tempo e espaço alterados. O alvo realizará uma ação a menos no próximo turno dele (até um mínimo de 0 ações)."
+  },
+  "terra": {
+    "description": "Cause dano pesado de terra a múltiplos alvos no chão.",
+    "name": "Terra",
+    "opportunity": "Cada alvo atingido por este feitiço realiza uma ação a menos no próximo turno dele (até um mínimo de 0 ações).",
+    "spellText": "Agulhas de rocha serrilhada irrompem do chão sob seus inimigos, fechando-se ao redor deles. Cada alvo atingido por este feitiço sofre dano de terra. Este feitiço não pode ter como alvo criaturas que estejam voando, flutuando, caindo ou de outra forma no ar."
+  },
+  "thunderbolt": {
+    "description": "Cause dano massivo de raio que ignora resistência em um único alvo.",
+    "name": "Raio",
+    "spellText": "<div>Você envia um relâmpago atingindo seu inimigo. O alvo sofre dano de raio.</div><div>O dano causado por este feitiço ignora Resistências.</div>"
+  },
+  "torpor": {
+    "description": "Inflija sua escolha de lento ou fraco em múltiplos alvos.",
+    "name": "Torpor",
+    "spellText": "Você sufoca a energia da alma que corre através dos corpos de seus inimigos, atrapalhando seus movimentos. Escolha <b>lento</b> ou <b>fraco</b>: você inflige a condição escolhida em cada alvo atingido por este feitiço."
+  },
+  "umbra": {
+    "description": "Cause dano pesado de trevas a múltiplos alvos.",
+    "name": "Umbra",
+    "opportunity": "Cada alvo atingido por este feitiço sofre fraco.",
+    "spellText": "Uma tempestade de energia de trevas transforma matéria em cinzas. Cada alvo atingido por este feitiço sofre dano de trevas."
+  },
+  "ventus": {
+    "description": "Cause dano pesado de ar a múltiplos alvos.",
+    "name": "Ventus",
+    "opportunity": "Cada alvo voador atingido por este feitiço é forçado a pousar imediatamente.",
+    "spellText": "Você invoca o poder dos ventos contra seu inimigo. Cada alvo atingido por este feitiço sofre dano de ar."
+  },
+  "vortex": {
+    "description": "Melhore suas defesas contra ataques à distância.",
+    "name": "Vórtice",
+    "spellText": "Um vendaval rugidor o envolve, soprando flechas e balas para longe. Até que este feitiço termine, você recebe um bônus de +2 na sua Defesa contra ataques <b>à distância</b>."
+  },
+  "warCry": {
+    "description": "Conceda um bônus em Testes de Precisão.",
+    "name": "Grito de Guerra",
+    "spellText": "Até que este feitiço termine, cada alvo recebe um bônus de +1 em Testes de Precisão."
+  },
+  "weaken": {
+    "description": "Amplifique o dano de um tipo escolhido em um único alvo.",
+    "name": "Enfraquecer",
+    "spellText": "<div>Até que este feitiço termine, o alvo sofre 5 de dano extra de todas as fontes que causem dano <b>{damageType}</b>.</div>"
+  }
     },
-    "statusEffects": {
-      "dazed": "Confuso",
-      "enraged": "Enfurecido",
-      "poisoned": "Envenenado",
-      "shaken": "Abalado",
-      "slow": "Lento",
-      "weak": "Fraco"
+"spellList": {
+  "elementalist": "Feitiços de Elementalista",
+  "entropist": "Feitiços de Entropista",
+  "npc": "Feitiços de PNJ",
+  "spiritist": "Feitiços de Espiritualista"
+},
+"skillList": {
+  "boss": {
+    "battlefield": "Poderes de Chefe de Campo de Batalha",
+    "control": "Poderes de Chefe de Controle",
+    "destructive": "Poderes de Chefe Destrutivos",
+    "elemental": "Poderes de Chefe Elementais",
+    "objective": "Poderes de Chefe de Objetivo",
+    "summoner": "Poderes de Chefe de Invocador",
+    "survival": "Poderes de Chefe de Sobrevivência"
+  },
+  "negative": "Poderes Negativos do Bestiário"
+},
+"spells": {
+  "costPerTarget": "{amount}xT PM",
+  "duration": {
+    "instant": "Instantâneo",
+    "scene": "Cena"
+  },
+  "targets": {
+    "self": "Você",
+    "single": "Uma criatura",
+    "special": "Especial",
+    "upToThree": "Até três criaturas",
+    "weapon": "Uma Arma"
+  },
+  "totalCost": "{amount} PM"
+},
+"statusEffects": {
+  "dazed": "Atordoado",
+  "enraged": "Enfurecido",
+  "poisoned": "Envenenado",
+  "shaken": "Abalado",
+  "slow": "Lento",
+  "weak": "Fraco"
+},
+"step": {
+  "assignAffinity": {
+    "blank": "Selecione o tipo de dano...",
+    "immunity": "Atribuir Imunidade",
+    "resistance": "Atribuir Resistência",
+    "upgradeImmToAbs": "Aprimorar Imunidade para Absorção",
+    "upgradeResToAbs": "Aprimorar Resistência para Absorção",
+    "vulnerability": "Atribuir Vulnerabilidade"
+  },
+  "assignStatusImmunity": {
+    "blank": "Selecione um efeito de status...",
+    "name": "Atribuir Imunidade a Status"
+  },
+  "chooseMagicAttributes": {
+    "blank": "Selecione atributos...",
+    "name": "Escolher Atributos Mágicos"
+  },
+  "chooseSkill": {
+    "blank": "Selecionar...",
+    "boss": "Escolher Poder de Chefe",
+    "customization": "Escolher Personalização",
+    "negative": "Escolher Poder Negativo",
+    "role": "Escolher Poder de Papel",
+    "skill": "Escolher Poder",
+    "skillPoint": {
+      "cost": "Custa {number} Ponto(s) de Poder",
+      "gain": "Ganha {number} Ponto(s) de Poder"
     },
-    "step": {
-      "assignAffinity": {
-        "blank": "Selecione um tipo de dano...",
-        "immunity": "Atribuir imunidade",
-        "resistance": "Atribuir Resistência",
-        "upgradeImmToAbs": "Aumente a imunidade para absorção",
-        "upgradeResToAbs": "Melhorar a resistência à absorção",
-        "vulnerability": "Atribuir vulnerabilidade"
-      },
-      "assignStatusImmunity": {
-        "blank": "Selecione um efeito de status...",
-        "name": "Atribua uma imunidade de status"
-      },
-      "chooseMagicAttributes": {
-        "blank": "Selecione seus atributos...",
-        "name": "Escolha seus atributos mágicos"
-      },
-      "chooseSkill": {
-        "blank": "Escolha...",
-        "boss": "Escolha uma habilidade de Chefe",
-        "customization": "Escolha uma Personalização",
-        "negative": "Escolha uma Habilidade Negativa",
-        "role": "Escolha a Habilidade da Função",
-        "spell": "Escolha o Feitiço"
-      },
-      "chooseTraits": {
-        "name": "Escolha seus traços",
-        "npcName": "Nome do PNJ",
-        "traits": "Traços"
-      },
+    "spell": "Escolher Feitiço"
+  },
+  "chooseTraits": {
+    "name": "Escolher Traços",
+    "npcName": "Nome do PNJ",
+    "traits": "Traços"
+  },
       "conditionalBonusSkill": {
-        "description": "Ganhe uma escolha de habilidade adicional em troca de uma desvantagem.",
-        "drawback": "Aceite esta desvantagem...",
-        "name": "Habilidade Bônus Condicional",
-        "no": "Recusar",
-        "options": "...e ganhe um desses benefícios:",
-        "yes": "Aceitar"
+  "description": "Ganhe uma escolha adicional de Poder em troca de uma desvantagem.",
+  "drawback": "Aceite esta desvantagem...",
+  "name": "Poder Bônus Condicional",
+  "no": "Recusar",
+  "options": "...e ganhe um destes benefícios:",
+  "yes": "Aceitar"
+},
+"configureAttack": {
+  "attackName": "Nome do Ataque",
+  "attributes": {
+    "blank": "Selecione atributos...",
+    "label": "Atributos"
+  },
+  "damageType": {
+    "blank": "Selecione o tipo de dano...",
+    "label": "Tipo de Dano"
+  },
+  "name": "Configurar Ataque",
+  "nestedChoice": {
+    "blank": "Selecionar...",
+    "label": "Configuração Adicional"
+  },
+  "range": {
+    "blank": "Selecione o alcance...",
+    "label": "Alcance do Ataque"
+  },
+  "special": {
+    "blank": "Selecione um efeito especial...",
+    "label": "Efeito Especial"
+        }
       },
-      "configureAttack": {
-        "attackName": "Nome do Ataque",
-        "attributes": {
-          "blank": "Selecione o atributos...",
-          "label": "Atributos"
-        },
-        "damageType": {
-          "blank": "Selecione o tipo de dano...",
-          "label": "Tipo de Dano"
-        },
-        "name": "Configurar Ataque",
-        "nestedChoice": {
-          "blank": "Selecione...",
-          "label": "Configurações Adicionais"
-        },
-        "range": {
-          "blank": "Selecione o alcance...",
-          "label": "Alcance do Ataque"
-        },
-        "special": {
-          "blank": "Selecione o Efeito Especial...",
-          "label": "Efeito Especial"
+      "configureAttributes": {
+  "attributes": {
+    "dex": "Destreza",
+    "ins": "Astúcia",
+    "mig": "Vigor",
+    "wlp": "Vontade"
+  },
+  "blank": "Selecionar...",
+  "name": "Configurar Atributos"
+},
+"designAttack": {
+  "attackName": {
+    "default": "Ataque Básico",
+    "label": "Nome do Ataque"
+  },
+  "attributes": {
+    "label": "Atributos"
+  },
+  "blank": "Selecionar...",
+  "createMore": {
+    "label": "Criar outro ataque básico?"
+  },
+  "damageType": {
+    "label": "Tipo de Dano"
+  },
+  "name": "Projetar Ataque Básico",
+  "range": {
+    "label": "à Distância"
         }
       },
       "finish": {
-        "confirm": "Verifique se tudo está correto e pressione 'Avançar' para criar o Personagem.",
-        "header": "Tudo Certo!"
+        "confirm": "Verifique se tudo está correto e então pressione “Próximo” para criar o Ator.",
+        "header": "Tudo certo!"
+      },
+      "selectAttributeDistribution": {
+        "attributeDistribution": {
+          "balanced": {
+            "description": "d8, d8, d8, d8",
+            "label": "Balanceada"
+          },
+          "hyperSpecialized": {
+            "description": "d12, d8, d6, d6",
+            "label": "Hiper Especializado"
+          },
+          "specialized": {
+            "description": "d10, d10, d6, d6",
+            "label": "Especializado"
+          },
+          "standard": {
+            "description": "d10, d8, d8, d6",
+            "label": "Padrão"
+          }
+        },
+        "name": "Selecione a distribuição de Atributos"
       },
       "selectLevel": {
-        "blank": "Selecione o nível...",
+        "blank": "Selecione o Nível...",
         "name": "Selecione o Nível"
       },
       "selectRank": {
-        "blank": "Selecione o Ranque...",
-        "name": "Selecione o Ranque"
+        "blank": "Selecione a Patente...",
+        "name": "Selecione a Patente"
       },
       "selectRole": {
-        "blank": "Selecione a função...",
-        "name": "Selecione a Função"
+        "blank": "Selecione o Papel...",
+        "name": "Selecione o Papel"
       },
       "selectSpecies": {
-        "blank": "Selecione a espécie...",
+        "blank": "Selecione a Espécie...",
         "name": "Selecione a Espécie"
+      },
+      "upgradeAttribute": {
+        "name": "Melhorar Atributo",
+        "blank": "Escolher Atributo...",
+        "attribute": {
+          "dex": "Destreza",
+          "ins": "Astúcia",
+          "mig": "Vigor",
+          "wlp": "Vontade"
+        }
       }
     },
     "wizard": {
       "back": "Voltar",
       "next": "Avançar",
-      "open": "Abrir o Assistente de PNJ Rápido",
-      "title": "Assistente de PNJ Rápido"
+      "open": "Abrir Assistente Rápido de PNJ",
+      "title": "Assistente Rápido de PNJ",
+      "min": "Min: {min}",
+      "max": "Max: {max}"
     }
   }
 }
